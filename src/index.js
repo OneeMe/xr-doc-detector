@@ -36,8 +36,8 @@ async function scrapeDocJSON(docName) {
     );
 
     // 保存原始处理后的 JSON 到 raw 文件夹
-    const rawOutputPath = path.join(process.cwd(), 'data', 'raw', `${docName}.json`);
-    await fs.ensureDir(path.join(process.cwd(), 'data', 'raw'));
+    const rawOutputPath = path.join(process.cwd(), 'raw', `${docName}.json`);
+    await fs.ensureDir(path.dirname(rawOutputPath));
     await fs.writeJson(rawOutputPath, processedData, { spaces: 2 });
 
     // 提取文章和示例代码
@@ -45,24 +45,41 @@ async function scrapeDocJSON(docName) {
 
     // 处理 topicSections
     if (data.topicSections) {
-      data.topicSections.forEach(section => {
+      for (const section of data.topicSections) {
         if (section.identifiers) {
-          section.identifiers.forEach(identifier => {
+          for (const identifier of section.identifiers) {
             const reference = data.references[identifier];
             if (reference) {
-              results.push({
+              const result = {
                 title: reference.title,
-                url: `https://developer.apple.com${reference.url}`,
+                url: reference.url?.startsWith('/')
+                  ? `https://developer.apple.com${reference.url}`
+                  : reference.url,
                 type: reference.role,
-              });
+              };
+
+              // 如果是 collectionGroup,获取下一层数据
+              if (reference.role === 'collectionGroup' && reference.url) {
+                try {
+                  const subUrl = reference.url.replace('/documentation/', '');
+                  const subDocName = subUrl;
+                  await scrapeDocJSON(subDocName);
+                  result.subDoc = subDocName;
+                } catch (error) {
+                  console.error(`获取子文档 ${reference.url} 失败:`, error);
+                }
+              }
+
+              results.push(result);
             }
-          });
+          }
         }
-      });
+      }
     }
 
     // 保存处理后的结果到 JSON 文件
     const outputPath = path.join(process.cwd(), 'data', `${docName}.json`);
+    await fs.ensureDir(path.dirname(outputPath));
     await fs.writeJson(outputPath, results, { spaces: 2 });
 
     console.log(`获取完成！共获取 ${results.length} 个项目`);
