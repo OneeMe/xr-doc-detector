@@ -1,0 +1,76 @@
+name: 每日文件检查
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 每天 UTC 00:00 执行
+  workflow_dispatch:      # 允许手动触发
+
+jobs:
+  check-changes:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 需要写入权限来提交代码
+      
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2  # 获取最近两次提交用于比较
+
+      - name: 设置 Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: 安装依赖
+        run: yarn install
+
+      - name: 执行构建
+        run: yarn start
+
+      - name: 检查文件变更
+        id: check
+        run: |
+          git status
+          git add .
+          git diff --staged --name-only > changes.txt
+          if [ -s changes.txt ]; then
+            echo "有文件发生变更"
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "changes<<EOF" >> $GITHUB_OUTPUT
+            cat changes.txt >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          else
+            echo "没有文件发生变更"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: 配置 Git
+        if: steps.check.outputs.has_changes == 'true'
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: 提交变更
+        if: steps.check.outputs.has_changes == 'true'
+        run: |
+          git commit -m "自动更新: $(date +'%Y-%m-%d')"
+          git push origin main
+
+      - name: 发送邮件通知
+        if: steps.check.outputs.has_changes == 'true'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const changes = process.env.CHANGES;
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'notify-email.yml',
+              ref: context.ref,
+              inputs: {
+                changes: changes
+              }
+            });
+        env:
+          CHANGES: ${{ steps.check.outputs.changes }}
