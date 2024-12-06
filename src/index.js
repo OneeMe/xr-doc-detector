@@ -19,6 +19,27 @@ async function scrapeDocJSON(docName) {
     }
     const data = await response.json();
 
+    // 处理 JSON 中的所有 path 字段，转换为完整 URL
+    const processedData = JSON.parse(
+      JSON.stringify(data, (key, value) => {
+        if (key === 'url' && typeof value === 'string') {
+          if (value.startsWith("doc://com.apple.documentation")) {
+            return value.replace("doc://com.apple.documentation", "https://developer.apple.com/documentation");
+          } else if (value.startsWith("/documentation")) {
+            return `https://developer.apple.com${value}`;
+          } else {
+            return value;
+          }
+        }
+        return value;
+      })
+    );
+
+    // 保存原始处理后的 JSON 到 raw 文件夹
+    const rawOutputPath = path.join(process.cwd(), 'data', 'raw', `${docName}.json`);
+    await fs.ensureDir(path.join(process.cwd(), 'data', 'raw'));
+    await fs.writeJson(rawOutputPath, processedData, { spaces: 2 });
+
     // 提取文章和示例代码
     const results = [];
 
@@ -40,12 +61,13 @@ async function scrapeDocJSON(docName) {
       });
     }
 
-    // 保存结果到 JSON 文件
+    // 保存处理后的结果到 JSON 文件
     const outputPath = path.join(process.cwd(), 'data', `${docName}.json`);
     await fs.writeJson(outputPath, results, { spaces: 2 });
 
     console.log(`获取完成！共获取 ${results.length} 个项目`);
     console.log(`结果已保存至: ${outputPath}`);
+    console.log(`原始数据已保存至: ${rawOutputPath}`);
 
   } catch (error) {
     console.error(`获取 ${docName} 数据时出错:`, error);
