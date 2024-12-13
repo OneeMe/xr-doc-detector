@@ -1,13 +1,29 @@
 {
-  "kind": "article",
-  "metadata": {
-    "modules": [
-      {
-        "name": "RealityKit"
-      }
-    ],
-    "role": "collectionGroup",
-    "title": "Creating USD files for Apple devices"
+  "abstract": [
+    {
+      "type": "text",
+      "text": "Generate 3D assets that render as expected."
+    }
+  ],
+  "sections": [],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.RealityKit/documentation/RealityKit",
+        "doc://com.apple.RealityKit/documentation/RealityKit/Entity"
+      ],
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.RealityKit/documentation/RealityKit",
+        "doc://com.apple.RealityKit/documentation/RealityKit/realitykit-usd-assets"
+      ]
+    ]
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
   },
   "primaryContentSections": [
     {
@@ -15,162 +31,161 @@
       "content": [
         {
           "type": "heading",
+          "anchor": "Overview",
           "level": 2,
-          "text": "Overview",
-          "anchor": "Overview"
+          "text": "Overview"
         },
         {
-          "type": "paragraph",
           "inlineContent": [
             {
               "type": "text",
               "text": "Universal Scene Description (USD) is a comprehensive 3D content-creation technology that supports a variety of real-time and offline workflows. Depending on the device and its operating system, there are three renderers that might display a 3D asset you create for your real-time apps and AR experiences: RealityKit, SceneKit, or Storm. Each renderer supports a specific subset of the USD features. Use only USD features supported by the renderer that displays your asset to ensure that it renders and functions as desired. For detailed information about which USD features each renderer supports, see "
             },
             {
-              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/validating-usd-files",
-              "isActive": true,
               "type": "reference",
+              "isActive": true,
+              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/validating-usd-files",
+              "overridingTitle": "Validating Feature Support for USD Files",
               "overridingTitleInlineContent": [
                 {
-                  "text": "Validating Feature Support for USD Files",
-                  "type": "text"
+                  "type": "text",
+                  "text": "Validating Feature Support for USD Files"
                 }
-              ],
-              "overridingTitle": "Validating Feature Support for USD Files"
+              ]
             },
             {
               "type": "text",
               "text": "."
             }
-          ]
+          ],
+          "type": "paragraph"
         },
         {
-          "type": "paragraph",
           "inlineContent": [
             {
-              "text": "All three renderers use a physically based rendering (PBR) technique that the USD specification calls the ",
-              "type": "text"
+              "type": "text",
+              "text": "All three renderers use a physically based rendering (PBR) technique that the USD specification calls the "
             },
             {
+              "type": "emphasis",
               "inlineContent": [
                 {
-                  "type": "text",
-                  "text": "metallic workflow"
+                  "text": "metallic workflow",
+                  "type": "text"
                 }
-              ],
-              "type": "emphasis"
+              ]
             },
             {
-              "text": ". A metallic workflow shader takes metallic, roughness, and base color values as its core inputs.",
-              "type": "text"
+              "type": "text",
+              "text": ". A metallic workflow shader takes metallic, roughness, and base color values as its core inputs."
             },
             {
-              "text": " ",
-              "type": "text"
+              "type": "text",
+              "text": " "
             },
             {
-              "text": "Most digital content-creation tools (DCCs) support PBR metallic workflow shaders and many of them default to using it.",
-              "type": "text"
+              "type": "text",
+              "text": "Most digital content-creation tools (DCCs) support PBR metallic workflow shaders and many of them default to using it."
             }
-          ]
+          ],
+          "type": "paragraph"
         },
         {
-          "type": "paragraph",
           "inlineContent": [
             {
               "text": "USD and many DCCs also support a second PBR technique called the ",
               "type": "text"
             },
             {
-              "type": "emphasis",
               "inlineContent": [
                 {
-                  "type": "text",
-                  "text": "specular workflow"
+                  "text": "specular workflow",
+                  "type": "text"
                 }
-              ]
+              ],
+              "type": "emphasis"
             },
             {
               "text": " (sometimes also called the ",
               "type": "text"
             },
             {
-              "type": "emphasis",
               "inlineContent": [
                 {
-                  "text": "glossy workflow",
-                  "type": "text"
+                  "type": "text",
+                  "text": "glossy workflow"
                 }
-              ]
+              ],
+              "type": "emphasis"
             },
             {
               "text": "). The specular workflow renders assets by using another algorithm that takes different input values. Only Storm supports the specular workflow, so for maximum compatibility, use metallic workflow shaders in your DCC, or your preview renders won’t accurately represent how your final rendered asset looks.",
               "type": "text"
             }
-          ]
+          ],
+          "type": "paragraph"
         },
         {
-          "name": "Note",
           "type": "aside",
-          "style": "note",
           "content": [
             {
+              "type": "paragraph",
               "inlineContent": [
                 {
-                  "text": "Find more information and an example shader implementation for both of USD’s PBR workflows by reading the ",
-                  "type": "text"
+                  "type": "text",
+                  "text": "Find more information and an example shader implementation for both of USD’s PBR workflows by reading the "
                 },
                 {
-                  "isActive": true,
+                  "type": "reference",
                   "identifier": "https://graphics.pixar.com/usd/release/spec_usdpreviewsurface.html",
-                  "type": "reference"
+                  "isActive": true
                 },
                 {
-                  "text": " in the USD specification.",
-                  "type": "text"
+                  "type": "text",
+                  "text": " in the USD specification."
                 }
-              ],
-              "type": "paragraph"
+              ]
             }
-          ]
+          ],
+          "style": "note",
+          "name": "Note"
         },
         {
           "type": "heading",
+          "anchor": "Target-a-renderer",
           "level": 2,
-          "text": "Target a renderer",
-          "anchor": "Target-a-renderer"
+          "text": "Target a renderer"
         },
         {
-          "type": "paragraph",
           "inlineContent": [
             {
-              "text": "Your app’s operating system will use one of three renderers, based on these factors:",
-              "type": "text"
+              "type": "text",
+              "text": "Your app’s operating system will use one of three renderers, based on these factors:"
             }
-          ]
+          ],
+          "type": "paragraph"
         },
         {
-          "type": "termList",
           "items": [
             {
               "term": {
                 "inlineContent": [
                   {
-                    "text": "RealityKit",
-                    "type": "text"
+                    "type": "text",
+                    "text": "RealityKit"
                   }
                 ]
               },
               "definition": {
                 "content": [
                   {
+                    "type": "paragraph",
                     "inlineContent": [
                       {
-                        "type": "text",
-                        "text": "The RealityKit renderer is part of the RealityKit framework. It handles drawing for Reality Composer, Reality Composer Pro and RealityKit scenes. QuickLook uses RealityKit to render USDZ files."
+                        "text": "The RealityKit renderer is part of the RealityKit framework. It handles drawing for Reality Composer, Reality Composer Pro and RealityKit scenes. QuickLook uses RealityKit to render USDZ files.",
+                        "type": "text"
                       }
-                    ],
-                    "type": "paragraph"
+                    ]
                   }
                 ]
               }
@@ -190,8 +205,8 @@
                     "type": "paragraph",
                     "inlineContent": [
                       {
-                        "type": "text",
-                        "text": "The SceneKit renderer is part of the SceneKit framework. It renders 3D content in Xcode, Motion, and all other apps that use the SceneKit framework."
+                        "text": "The SceneKit renderer is part of the SceneKit framework. It renders 3D content in Xcode, Motion, and all other apps that use the SceneKit framework.",
+                        "type": "text"
                       }
                     ]
                   }
@@ -202,44 +217,44 @@
               "term": {
                 "inlineContent": [
                   {
-                    "type": "text",
-                    "text": "Storm"
+                    "text": "Storm",
+                    "type": "text"
                   }
                 ]
               },
               "definition": {
                 "content": [
                   {
+                    "type": "paragraph",
                     "inlineContent": [
                       {
                         "type": "text",
                         "text": "The Storm renderer is a Metal-native implementation of Pixar’s high-performance preview renderer. Quicklook on macOS uses Storm to render USD, USDA and USDC files. Preview on macOS also uses Storm to display all USD file types."
                       }
-                    ],
-                    "type": "paragraph"
+                    ]
                   }
                 ]
               }
             }
-          ]
+          ],
+          "type": "termList"
         },
         {
-          "type": "paragraph",
           "inlineContent": [
             {
-              "type": "text",
-              "text": "Use the process outlined below to ensure that your USD assets render correctly and function as expected in your app."
+              "text": "Use the process outlined below to ensure that your USD assets render correctly and function as expected in your app.",
+              "type": "text"
             }
-          ]
+          ],
+          "type": "paragraph"
         },
         {
           "type": "heading",
+          "anchor": "Validate-your-USD-assets",
           "level": 2,
-          "text": "Validate your USD assets",
-          "anchor": "Validate-your-USD-assets"
+          "text": "Validate your USD assets"
         },
         {
-          "type": "paragraph",
           "inlineContent": [
             {
               "type": "text",
@@ -254,16 +269,16 @@
               "text": "Validate that your assets conform to the USD specification before including them in your app by using OpenUSD’s "
             },
             {
-              "code": "usdchecker",
-              "type": "codeVoice"
+              "type": "codeVoice",
+              "code": "usdchecker"
             },
             {
               "type": "text",
               "text": " command-line tool with the "
             },
             {
-              "code": "--arkit",
-              "type": "codeVoice"
+              "type": "codeVoice",
+              "code": "--arkit"
             },
             {
               "type": "text",
@@ -278,54 +293,54 @@
               "text": "The "
             },
             {
-              "code": "usdchecker",
-              "type": "codeVoice"
+              "type": "codeVoice",
+              "code": "usdchecker"
             },
             {
               "type": "text",
               "text": " command-line tool is available with macOS starting with macOS 15."
             }
-          ]
+          ],
+          "type": "paragraph"
         },
         {
           "type": "heading",
+          "anchor": "Use-the-latest-USD-schemas",
           "level": 2,
-          "text": "Use the latest USD schemas",
-          "anchor": "Use-the-latest-USD-schemas"
+          "text": "Use the latest USD schemas"
         },
         {
-          "type": "paragraph",
           "inlineContent": [
             {
-              "text": "The USD adoption process often results in changes to proposed schemas before they become part of the specification. If you’ve created any assets using a preliminary schema, re-export them using the standard USD schema once the features your asset uses become part of the specification.",
-              "type": "text"
+              "type": "text",
+              "text": "The USD adoption process often results in changes to proposed schemas before they become part of the specification. If you’ve created any assets using a preliminary schema, re-export them using the standard USD schema once the features your asset uses become part of the specification."
             }
-          ]
+          ],
+          "type": "paragraph"
         },
         {
-          "name": "Note",
           "type": "aside",
-          "style": "note",
           "content": [
             {
+              "type": "paragraph",
               "inlineContent": [
                 {
-                  "type": "text",
-                  "text": "Only the RealityKit renderer supports custom preliminary schemas."
+                  "text": "Only the RealityKit renderer supports custom preliminary schemas.",
+                  "type": "text"
                 }
-              ],
-              "type": "paragraph"
+              ]
             }
-          ]
+          ],
+          "style": "note",
+          "name": "Note"
         },
         {
           "type": "heading",
+          "anchor": "Target-your-use-of-subdivision",
           "level": 2,
-          "text": "Target your use of subdivision",
-          "anchor": "Target-your-use-of-subdivision"
+          "text": "Target your use of subdivision"
         },
         {
-          "type": "paragraph",
           "inlineContent": [
             {
               "type": "text",
@@ -344,15 +359,13 @@
               "type": "text",
               "text": ", which tells the renderer to generate additional geometry on-the-fly to make the entity render more smoothly. Target your use of this feature to instances when you most need smooth rendering. Each level of subdivision increases the number of rendered polygons in the model by a factor of four, which can have substantial performance implications."
             }
-          ]
+          ],
+          "type": "paragraph"
         },
         {
-          "name": "Note",
           "type": "aside",
-          "style": "note",
           "content": [
             {
-              "type": "paragraph",
               "inlineContent": [
                 {
                   "text": "The default ",
@@ -415,9 +428,9 @@
                   "type": "text"
                 },
                 {
-                  "isActive": true,
                   "type": "reference",
-                  "identifier": "https://graphics.pixar.com/usd/release/api/class_usd_geom_mesh.html#a01c7ff0dc2e9b6be9f09db6cfafb7c0a"
+                  "identifier": "https://graphics.pixar.com/usd/release/api/class_usd_geom_mesh.html#a01c7ff0dc2e9b6be9f09db6cfafb7c0a",
+                  "isActive": true
                 },
                 {
                   "text": " ",
@@ -443,26 +456,28 @@
                   "text": " automatically in your USD files.",
                   "type": "text"
                 }
-              ]
+              ],
+              "type": "paragraph"
             }
-          ]
+          ],
+          "style": "note",
+          "name": "Note"
         },
         {
           "type": "heading",
+          "anchor": "Target-your-use-of-double-sided-geometry",
           "level": 2,
-          "text": "Target your use of double sided geometry",
-          "anchor": "Target-your-use-of-double-sided-geometry"
+          "text": "Target your use of double sided geometry"
         },
         {
-          "type": "paragraph",
           "inlineContent": [
             {
               "text": "USD geometry can be set to render both sides of a surface by setting the ",
               "type": "text"
             },
             {
-              "code": "doubleSided",
-              "type": "codeVoice"
+              "type": "codeVoice",
+              "code": "doubleSided"
             },
             {
               "text": " attribute.",
@@ -476,12 +491,11 @@
               "text": "Target your use of this feature as its support varies by renderer, which may affect how your content is represented, and its performance.",
               "type": "text"
             }
-          ]
+          ],
+          "type": "paragraph"
         },
         {
-          "name": "Note",
           "type": "aside",
-          "style": "note",
           "content": [
             {
               "type": "paragraph",
@@ -524,165 +538,166 @@
                 }
               ]
             }
-          ]
+          ],
+          "style": "note",
+          "name": "Note"
         },
         {
           "type": "heading",
+          "anchor": "Limit-rigged-models-to-a-single-skeleton",
           "level": 2,
-          "text": "Limit rigged models to a single skeleton",
-          "anchor": "Limit-rigged-models-to-a-single-skeleton"
+          "text": "Limit rigged models to a single skeleton"
         },
         {
-          "type": "paragraph",
           "inlineContent": [
             {
-              "type": "text",
-              "text": "USD supports skeletal animation, which you can use to animate a character or other complex model by manipulating a hierarchy of bones or joints to deform the model. Many DCCs allow you to use multiple "
+              "text": "USD supports skeletal animation, which you can use to animate a character or other complex model by manipulating a hierarchy of bones or joints to deform the model. Many DCCs allow you to use multiple ",
+              "type": "text"
             },
             {
-              "type": "emphasis",
               "inlineContent": [
                 {
-                  "text": "skeletons",
-                  "type": "text"
+                  "type": "text",
+                  "text": "skeletons"
                 }
-              ]
+              ],
+              "type": "emphasis"
             },
             {
-              "type": "text",
-              "text": " (sometimes called "
+              "text": " (sometimes called ",
+              "type": "text"
             },
             {
-              "type": "emphasis",
               "inlineContent": [
                 {
                   "text": "armatures",
                   "type": "text"
                 }
-              ]
+              ],
+              "type": "emphasis"
             },
             {
-              "type": "text",
-              "text": " or "
+              "text": " or ",
+              "type": "text"
             },
             {
-              "type": "emphasis",
               "inlineContent": [
                 {
-                  "text": "rigs",
-                  "type": "text"
+                  "type": "text",
+                  "text": "rigs"
                 }
-              ]
+              ],
+              "type": "emphasis"
             },
             {
-              "type": "text",
-              "text": "), to deform a single mesh. For example, for a character model, you might create one skeleton to handle facial animation and a second one to control general body movement. Before exporting models with multiple skeletons to a USD file, merge all the skeletons into a single joint or bone hierarchy. Models with multiple hierarchies can cause performance and compatibility issues with all three renderers."
+              "text": "), to deform a single mesh. For example, for a character model, you might create one skeleton to handle facial animation and a second one to control general body movement. Before exporting models with multiple skeletons to a USD file, merge all the skeletons into a single joint or bone hierarchy. Models with multiple hierarchies can cause performance and compatibility issues with all three renderers.",
+              "type": "text"
             }
-          ]
+          ],
+          "type": "paragraph"
         },
         {
-          "name": "Note",
           "type": "aside",
-          "style": "note",
           "content": [
             {
-              "type": "paragraph",
               "inlineContent": [
                 {
-                  "text": "All DCCs implement skeletal animation using either a hierarchy of bones or joints. Both approaches deform the model for animation, but use different underlying data representations. DCCs that use bone-based skeletons automatically convert the skeleton to joints when exporting to USD, because USD only supports joint-based skeletons.",
-                  "type": "text"
+                  "type": "text",
+                  "text": "All DCCs implement skeletal animation using either a hierarchy of bones or joints. Both approaches deform the model for animation, but use different underlying data representations. DCCs that use bone-based skeletons automatically convert the skeleton to joints when exporting to USD, because USD only supports joint-based skeletons."
                 }
-              ]
+              ],
+              "type": "paragraph"
             }
-          ]
+          ],
+          "style": "note",
+          "name": "Note"
         },
         {
           "type": "heading",
+          "anchor": "Include-material-and-skeleton-bindings",
           "level": 2,
-          "text": "Include material and skeleton bindings",
-          "anchor": "Include-material-and-skeleton-bindings"
+          "text": "Include material and skeleton bindings"
         },
         {
-          "type": "paragraph",
           "inlineContent": [
             {
-              "text": "USD requires that any geometry with an applied material use the ",
-              "type": "text"
+              "type": "text",
+              "text": "USD requires that any geometry with an applied material use the "
             },
             {
-              "code": "MaterialBindingAPI",
-              "type": "codeVoice"
+              "type": "codeVoice",
+              "code": "MaterialBindingAPI"
             },
             {
-              "text": ".",
-              "type": "text"
+              "type": "text",
+              "text": "."
             },
             {
-              "text": " ",
-              "type": "text"
+              "type": "text",
+              "text": " "
             },
             {
-              "text": "It also requires that any geometry that has a skeleton use the ",
-              "type": "text"
+              "type": "text",
+              "text": "It also requires that any geometry that has a skeleton use the "
             },
             {
-              "code": "SkelBindingAPI",
-              "type": "codeVoice"
+              "type": "codeVoice",
+              "code": "SkelBindingAPI"
             },
             {
-              "text": ".",
-              "type": "text"
+              "type": "text",
+              "text": "."
             },
             {
-              "text": " ",
-              "type": "text"
+              "type": "text",
+              "text": " "
             },
             {
-              "text": "Without these APIs, the material or skeleton information may not be read by an application.",
-              "type": "text"
+              "type": "text",
+              "text": "Without these APIs, the material or skeleton information may not be read by an application."
             }
-          ]
+          ],
+          "type": "paragraph"
         },
         {
-          "name": "Note",
           "type": "aside",
-          "style": "note",
           "content": [
             {
-              "type": "paragraph",
               "inlineContent": [
                 {
-                  "type": "text",
-                  "text": "Some DCC versions may not correctly apply these bindings in a USD."
+                  "text": "Some DCC versions may not correctly apply these bindings in a USD.",
+                  "type": "text"
                 },
                 {
-                  "type": "text",
-                  "text": " "
+                  "text": " ",
+                  "type": "text"
                 },
                 {
-                  "type": "text",
-                  "text": "You can use the support script below to automatically apply them to geometry that has the attributes."
+                  "text": "You can use the support script below to automatically apply them to geometry that has the attributes.",
+                  "type": "text"
                 }
-              ]
+              ],
+              "type": "paragraph"
             }
-          ]
+          ],
+          "style": "note",
+          "name": "Note"
         },
         {
           "type": "heading",
+          "anchor": "Expose-configurations-as-variants",
           "level": 2,
-          "text": "Expose configurations as variants",
-          "anchor": "Expose-configurations-as-variants"
+          "text": "Expose configurations as variants"
         },
         {
-          "type": "paragraph",
           "inlineContent": [
             {
               "text": "USD supports the ability to have multiple representations of an object using a feature called ",
               "type": "text"
             },
             {
-              "code": "variants",
-              "type": "codeVoice"
+              "type": "codeVoice",
+              "code": "variants"
             },
             {
               "text": ".",
@@ -697,8 +712,8 @@
               "type": "text"
             },
             {
-              "code": "defaultPrim",
-              "type": "codeVoice"
+              "type": "codeVoice",
+              "code": "defaultPrim"
             },
             {
               "text": " metadata.",
@@ -713,8 +728,8 @@
               "type": "text"
             },
             {
-              "code": "defaultPrim",
-              "type": "codeVoice"
+              "type": "codeVoice",
+              "code": "defaultPrim"
             },
             {
               "text": " hierarchy path are shown to the user as configuration options when using QuickLook with USDZ files.",
@@ -736,65 +751,65 @@
               "text": "When a configuration option is selected, the appearance of the USD being viewed in QuickLook will change to respect the selected variant.",
               "type": "text"
             }
-          ]
+          ],
+          "type": "paragraph"
         },
         {
-          "name": "Note",
           "type": "aside",
-          "style": "note",
           "content": [
             {
-              "type": "paragraph",
               "inlineContent": [
                 {
-                  "text": "Variants can be authored in some DCCs or using the USD API.",
-                  "type": "text"
+                  "type": "text",
+                  "text": "Variants can be authored in some DCCs or using the USD API."
                 },
                 {
-                  "text": " ",
-                  "type": "text"
+                  "type": "text",
+                  "text": " "
                 },
                 {
-                  "text": "You can also use the support script below to combine USDZ files into a single file as variants, as long as they",
-                  "type": "text"
+                  "type": "text",
+                  "text": "You can also use the support script below to combine USDZ files into a single file as variants, as long as they"
                 },
                 {
-                  "text": " ",
-                  "type": "text"
+                  "type": "text",
+                  "text": " "
                 },
                 {
-                  "text": "only vary in their material or skeleton animations.",
-                  "type": "text"
+                  "type": "text",
+                  "text": "only vary in their material or skeleton animations."
                 }
-              ]
+              ],
+              "type": "paragraph"
             }
-          ]
+          ],
+          "style": "note",
+          "name": "Note"
         },
         {
           "type": "heading",
+          "anchor": "Support-scripts",
           "level": 2,
-          "text": "Support scripts",
-          "anchor": "Support-scripts"
+          "text": "Support scripts"
         },
         {
-          "type": "paragraph",
           "inlineContent": [
             {
-              "type": "text",
-              "text": "We provide a set of scripts to assist you in creating great USD files, using the OpenUSD Python API."
+              "text": "We provide a set of scripts to assist you in creating great USD files, using the OpenUSD Python API.",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": "These scripts will help address many of the points above within your USD files, or enable you to create USDZ files using variants."
+              "text": "These scripts will help address many of the points above within your USD files, or enable you to create USDZ files using variants.",
+              "type": "text"
             }
-          ]
+          ],
+          "type": "paragraph"
         },
         {
-          "type": "paragraph",
           "inlineContent": [
             {
               "type": "text",
@@ -802,16 +817,31 @@
             },
             {
               "type": "reference",
-              "identifier": "https://developer.apple.com/download/files/USD-Support-Scripts.zip",
-              "isActive": true
+              "isActive": true,
+              "identifier": "https://developer.apple.com/download/files/USD-Support-Scripts.zip"
             },
             {
               "type": "text",
               "text": "."
             }
-          ]
+          ],
+          "type": "paragraph"
         }
       ]
+    }
+  ],
+  "kind": "article",
+  "identifier": {
+    "url": "doc://com.apple.RealityKit/documentation/RealityKit/creating-usd-files-for-apple-devices",
+    "interfaceLanguage": "swift"
+  },
+  "topicSections": [
+    {
+      "anchor": "Validating-USD-feature-support",
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/validating-usd-files"
+      ],
+      "title": "Validating USD feature support"
     }
   ],
   "variants": [
@@ -826,20 +856,9 @@
       ]
     }
   ],
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "abstract": [
-    {
-      "type": "text",
-      "text": "Generate 3D assets that render as expected."
-    }
-  ],
-  "sections": [],
   "seeAlsoSections": [
     {
+      "generated": true,
       "anchor": "Loading-an-entity-from-a-file",
       "identifiers": [
         "doc://com.apple.RealityKit/documentation/RealityKit/loading-entities-from-a-file",
@@ -848,141 +867,60 @@
         "doc://com.apple.RealityKit/documentation/RealityKit/Entity/init(named:in:)",
         "doc://com.apple.RealityKit/documentation/RealityKit/ReferenceComponent"
       ],
-      "generated": true,
       "title": "Loading an entity from a file"
     }
   ],
-  "hierarchy": {
-    "paths": [
-      [
-        "doc://com.apple.documentation/documentation/technologies",
-        "doc://com.apple.RealityKit/documentation/RealityKit",
-        "doc://com.apple.RealityKit/documentation/RealityKit/Entity"
-      ],
-      [
-        "doc://com.apple.documentation/documentation/technologies",
-        "doc://com.apple.RealityKit/documentation/RealityKit",
-        "doc://com.apple.RealityKit/documentation/RealityKit/realitykit-usd-assets"
-      ]
+  "metadata": {
+    "title": "Creating USD files for Apple devices",
+    "role": "collectionGroup",
+    "modules": [
+      {
+        "name": "RealityKit"
+      }
     ]
   },
-  "identifier": {
-    "url": "doc://com.apple.RealityKit/documentation/RealityKit/creating-usd-files-for-apple-devices",
-    "interfaceLanguage": "swift"
-  },
-  "topicSections": [
-    {
-      "anchor": "Validating-USD-feature-support",
-      "identifiers": [
-        "doc://com.apple.RealityKit/documentation/RealityKit/validating-usd-files"
-      ],
-      "title": "Validating USD feature support"
-    }
-  ],
   "references": {
-    "doc://com.apple.RealityKit/documentation/RealityKit/validating-usd-files": {
-      "kind": "article",
-      "title": "Validating feature support for USD files",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Ensure that the renderer that displays your USD assets supports its features."
-        }
-      ],
-      "role": "article",
-      "type": "topic",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/validating-usd-files",
-      "url": "https://developer.apple.com/documentation/realitykit/validating-usd-files"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/Entity": {
-      "url": "https://developer.apple.com/documentation/realitykit/entity",
-      "fragments": [
-        {
-          "text": "class",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "Entity",
-          "kind": "identifier"
-        }
-      ],
-      "abstract": [
-        {
-          "text": "An element of a RealityKit scene to which you attach components that provide",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "appearance and behavior characteristics for the entity.",
-          "type": "text"
-        }
-      ],
-      "type": "topic",
-      "title": "Entity",
-      "kind": "symbol",
+    "doc://com.apple.RealityKit/documentation/RealityKit/ReferenceComponent": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ReferenceComponent",
+      "url": "https://developer.apple.com/documentation/realitykit/referencecomponent",
       "navigatorTitle": [
         {
-          "text": "Entity",
-          "kind": "identifier"
+          "kind": "identifier",
+          "text": "ReferenceComponent"
         }
       ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Entity",
-      "role": "symbol"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit": {
-      "role": "collection",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit",
-      "title": "RealityKit",
       "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/realitykit",
-      "type": "topic",
       "abstract": [
         {
-          "type": "text",
-          "text": "Simulate and render 3D content for use in your augmented reality apps."
-        }
-      ]
-    },
-    "doc://com.apple.documentation/documentation/technologies": {
-      "role": "overview",
-      "identifier": "doc://com.apple.documentation/documentation/technologies",
-      "title": "Technologies",
-      "kind": "technologies",
-      "url": "https://developer.apple.com/documentation/technologies",
-      "type": "topic",
-      "abstract": [
-        {
-          "type": "text",
-          "text": ""
-        }
-      ]
-    },
-    "https://graphics.pixar.com/usd/release/spec_usdpreviewsurface.html": {
-      "title": "USDPreviewSurface shader page",
-      "titleInlineContent": [
-        {
-          "type": "text",
-          "text": "USDPreviewSurface shader page"
+          "text": "A component that can load another entity from a file.",
+          "type": "text"
         }
       ],
-      "type": "link",
-      "identifier": "https://graphics.pixar.com/usd/release/spec_usdpreviewsurface.html",
-      "url": "https://graphics.pixar.com/usd/release/spec_usdpreviewsurface.html"
+      "type": "topic",
+      "title": "ReferenceComponent",
+      "role": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ReferenceComponent"
+        }
+      ]
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/stored-entities": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/stored-entities",
       "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/stored-entities",
       "title": "Stored entities",
-      "kind": "article",
       "role": "collectionGroup",
+      "kind": "article",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/stored-entities",
+      "url": "https://developer.apple.com/documentation/realitykit/stored-entities",
       "abstract": [
         {
           "text": "Manage entities that you store as assets on disk.",
@@ -990,85 +928,50 @@
         }
       ]
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/Entity/init(contentsOf:withName:)": {
-      "role": "symbol",
-      "abstract": [
+    "https://graphics.pixar.com/usd/release/spec_usdpreviewsurface.html": {
+      "type": "link",
+      "titleInlineContent": [
         {
-          "text": "Creates a new entity by asynchronously loading it from a file URL.",
+          "text": "USDPreviewSurface shader page",
           "type": "text"
         }
       ],
-      "url": "https://developer.apple.com/documentation/realitykit/entity/init(contentsof:withname:)",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Entity/init(contentsOf:withName:)",
-      "fragments": [
+      "title": "USDPreviewSurface shader page",
+      "identifier": "https://graphics.pixar.com/usd/release/spec_usdpreviewsurface.html",
+      "url": "https://graphics.pixar.com/usd/release/spec_usdpreviewsurface.html"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/realitykit-usd-assets": {
+      "url": "https://developer.apple.com/documentation/realitykit/realitykit-usd-assets",
+      "title": "USD Assets",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/realitykit-usd-assets",
+      "type": "topic",
+      "kind": "article",
+      "role": "collectionGroup",
+      "abstract": [
         {
-          "text": "convenience",
-          "kind": "keyword"
-        },
+          "text": "Import and use 3D scenes by importing USD files.",
+          "type": "text"
+        }
+      ]
+    },
+    "https://developer.apple.com/download/files/USD-Support-Scripts.zip": {
+      "type": "link",
+      "titleInlineContent": [
         {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "init",
-          "kind": "identifier"
-        },
-        {
-          "text": "(",
-          "kind": "text"
-        },
-        {
-          "text": "contentsOf",
-          "kind": "externalParam"
-        },
-        {
-          "text": ": ",
-          "kind": "text"
-        },
-        {
-          "text": "URL",
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation3URLV"
-        },
-        {
-          "text": ", ",
-          "kind": "text"
-        },
-        {
-          "text": "withName",
-          "kind": "externalParam"
-        },
-        {
-          "text": ": ",
-          "kind": "text"
-        },
-        {
-          "text": "String",
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:SS"
-        },
-        {
-          "text": "?) ",
-          "kind": "text"
-        },
-        {
-          "text": "async",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "throws",
-          "kind": "keyword"
+          "text": "USD Support Scripts",
+          "type": "text"
         }
       ],
-      "title": "init(contentsOf:withName:)",
-      "type": "topic",
-      "kind": "symbol"
+      "title": "USD Support Scripts",
+      "identifier": "https://developer.apple.com/download/files/USD-Support-Scripts.zip",
+      "url": "https://developer.apple.com/download/files/USD-Support-Scripts.zip"
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/Entity/init(named:in:)": {
+      "type": "topic",
+      "title": "init(named:in:)",
+      "role": "symbol",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Entity/init(named:in:)",
       "fragments": [
         {
           "kind": "keyword",
@@ -1095,9 +998,9 @@
           "text": ": "
         },
         {
-          "preciseIdentifier": "s:SS",
           "kind": "typeIdentifier",
-          "text": "String"
+          "text": "String",
+          "preciseIdentifier": "s:SS"
         },
         {
           "kind": "text",
@@ -1112,9 +1015,9 @@
           "text": ": "
         },
         {
-          "preciseIdentifier": "c:objc(cs)NSBundle",
           "kind": "typeIdentifier",
-          "text": "Bundle"
+          "text": "Bundle",
+          "preciseIdentifier": "c:objc(cs)NSBundle"
         },
         {
           "kind": "text",
@@ -1133,107 +1036,42 @@
           "text": "throws"
         }
       ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Entity/init(named:in:)",
-      "type": "topic",
       "url": "https://developer.apple.com/documentation/realitykit/entity/init(named:in:)",
-      "role": "symbol",
-      "title": "init(named:in:)",
-      "kind": "symbol",
       "abstract": [
         {
-          "type": "text",
-          "text": "Creates a new entity by asynchronously loading it from a bundle."
+          "text": "Creates a new entity by asynchronously loading it from a bundle.",
+          "type": "text"
         }
       ]
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/loading-entities-from-a-file": {
-      "kind": "article",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Retrieve an entity from storage on disk using a synchronous or an asynchronous load"
-        },
-        {
-          "type": "text",
-          "text": " "
-        },
-        {
-          "type": "text",
-          "text": "operation."
-        }
-      ],
-      "title": "Loading entities from a file",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/loading-entities-from-a-file",
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/loading-entities-from-a-file",
-      "role": "article"
-    },
     "https://graphics.pixar.com/usd/release/api/class_usd_geom_mesh.html#a01c7ff0dc2e9b6be9f09db6cfafb7c0a": {
-      "title": "documentation for GetSubdivisionSchemeAttr() in the USD specification.",
+      "type": "link",
       "titleInlineContent": [
         {
-          "type": "text",
-          "text": "documentation for "
+          "text": "documentation for ",
+          "type": "text"
         },
         {
           "code": "GetSubdivisionSchemeAttr()",
           "type": "codeVoice"
         },
         {
-          "type": "text",
-          "text": " in the USD specification."
+          "text": " in the USD specification.",
+          "type": "text"
         }
       ],
-      "type": "link",
+      "title": "documentation for GetSubdivisionSchemeAttr() in the USD specification.",
       "identifier": "https://graphics.pixar.com/usd/release/api/class_usd_geom_mesh.html#a01c7ff0dc2e9b6be9f09db6cfafb7c0a",
       "url": "https://graphics.pixar.com/usd/release/api/class_usd_geom_mesh.html#a01c7ff0dc2e9b6be9f09db6cfafb7c0a"
     },
-    "https://developer.apple.com/download/files/USD-Support-Scripts.zip": {
-      "title": "USD Support Scripts",
-      "titleInlineContent": [
-        {
-          "type": "text",
-          "text": "USD Support Scripts"
-        }
-      ],
-      "type": "link",
-      "identifier": "https://developer.apple.com/download/files/USD-Support-Scripts.zip",
-      "url": "https://developer.apple.com/download/files/USD-Support-Scripts.zip"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/realitykit-usd-assets": {
+    "doc://com.apple.RealityKit/documentation/RealityKit/Entity": {
       "type": "topic",
-      "role": "collectionGroup",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/realitykit-usd-assets",
-      "title": "USD Assets",
-      "url": "https://developer.apple.com/documentation/realitykit/realitykit-usd-assets",
-      "kind": "article",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Import and use 3D scenes by importing USD files."
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/ReferenceComponent": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ReferenceComponent",
-      "title": "ReferenceComponent",
-      "navigatorTitle": [
-        {
-          "text": "ReferenceComponent",
-          "kind": "identifier"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/realitykit/referencecomponent",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A component that can load another entity from a file."
-        }
-      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Entity",
+      "kind": "symbol",
       "role": "symbol",
       "fragments": [
         {
-          "text": "struct",
+          "text": "class",
           "kind": "keyword"
         },
         {
@@ -1241,12 +1079,174 @@
           "kind": "text"
         },
         {
-          "text": "ReferenceComponent",
+          "text": "Entity",
           "kind": "identifier"
         }
       ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An element of a RealityKit scene to which you attach components that provide"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "type": "text",
+          "text": "appearance and behavior characteristics for the entity."
+        }
+      ],
+      "title": "Entity",
+      "url": "https://developer.apple.com/documentation/realitykit/entity",
+      "navigatorTitle": [
+        {
+          "text": "Entity",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.documentation/documentation/technologies": {
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
       "type": "topic",
-      "kind": "symbol"
+      "url": "https://developer.apple.com/documentation/technologies",
+      "abstract": [
+        {
+          "type": "text",
+          "text": ""
+        }
+      ],
+      "kind": "technologies",
+      "title": "Technologies",
+      "role": "overview"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/loading-entities-from-a-file": {
+      "type": "topic",
+      "title": "Loading entities from a file",
+      "role": "article",
+      "kind": "article",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/loading-entities-from-a-file",
+      "url": "https://developer.apple.com/documentation/realitykit/loading-entities-from-a-file",
+      "abstract": [
+        {
+          "text": "Retrieve an entity from storage on disk using a synchronous or an asynchronous load",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "operation.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/validating-usd-files": {
+      "type": "topic",
+      "title": "Validating feature support for USD files",
+      "role": "article",
+      "kind": "article",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/validating-usd-files",
+      "url": "https://developer.apple.com/documentation/realitykit/validating-usd-files",
+      "abstract": [
+        {
+          "text": "Ensure that the renderer that displays your USD assets supports its features.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/realitykit",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Simulate and render 3D content for use in your augmented reality apps."
+        }
+      ],
+      "kind": "symbol",
+      "title": "RealityKit",
+      "role": "collection"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/Entity/init(contentsOf:withName:)": {
+      "type": "topic",
+      "title": "init(contentsOf:withName:)",
+      "role": "symbol",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Entity/init(contentsOf:withName:)",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "convenience"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "contentsOf"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "URL",
+          "preciseIdentifier": "s:10Foundation3URLV"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "withName"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "String",
+          "preciseIdentifier": "s:SS"
+        },
+        {
+          "kind": "text",
+          "text": "?) "
+        },
+        {
+          "kind": "keyword",
+          "text": "async"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "throws"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/entity/init(contentsof:withname:)",
+      "abstract": [
+        {
+          "text": "Creates a new entity by asynchronously loading it from a file URL.",
+          "type": "text"
+        }
+      ]
     }
   },
   "legalNotices": {
