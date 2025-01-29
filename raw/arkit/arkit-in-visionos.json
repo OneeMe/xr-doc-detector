@@ -1,0 +1,1868 @@
+{
+  "topicSections": [
+    {
+      "title": "Setup",
+      "identifiers": [
+        "doc://com.apple.documentation/documentation/visionOS/setting-up-access-to-arkit-data",
+        "doc://com.apple.arkit/documentation/ARKit/ARKitSession",
+        "doc://com.apple.arkit/documentation/ARKit/DataProvider",
+        "doc://com.apple.arkit/documentation/ARKit/DataProviderState",
+        "doc://com.apple.arkit/documentation/ARKit/Anchor",
+        "doc://com.apple.arkit/documentation/ARKit/TrackableAnchor"
+      ],
+      "anchor": "Setup"
+    },
+    {
+      "title": "Barcode detection",
+      "identifiers": [
+        "doc://com.apple.arkit/documentation/ARKit/BarcodeDetectionProvider",
+        "doc://com.apple.arkit/documentation/ARKit/BarcodeAnchor"
+      ],
+      "anchor": "Barcode-detection"
+    },
+    {
+      "title": "Camera sampling",
+      "identifiers": [
+        "doc://com.apple.arkit/documentation/ARKit/CameraFrameProvider",
+        "doc://com.apple.arkit/documentation/ARKit/CameraFrame",
+        "doc://com.apple.arkit/documentation/ARKit/CameraVideoFormat"
+      ],
+      "anchor": "Camera-sampling"
+    },
+    {
+      "title": "Plane detection",
+      "identifiers": [
+        "doc://com.apple.documentation/documentation/visionOS/placing-content-on-detected-planes",
+        "doc://com.apple.arkit/documentation/ARKit/PlaneDetectionProvider",
+        "doc://com.apple.arkit/documentation/ARKit/PlaneAnchor"
+      ],
+      "anchor": "Plane-detection"
+    },
+    {
+      "title": "World tracking",
+      "identifiers": [
+        "doc://com.apple.documentation/documentation/visionOS/tracking-points-in-world-space",
+        "doc://com.apple.arkit/documentation/ARKit/WorldTrackingProvider",
+        "doc://com.apple.arkit/documentation/ARKit/WorldAnchor",
+        "doc://com.apple.arkit/documentation/ARKit/DeviceAnchor"
+      ],
+      "anchor": "World-tracking"
+    },
+    {
+      "title": "Hand tracking",
+      "identifiers": [
+        "doc://com.apple.documentation/documentation/visionOS/happybeam",
+        "doc://com.apple.arkit/documentation/ARKit/HandTrackingProvider",
+        "doc://com.apple.arkit/documentation/ARKit/HandAnchor",
+        "doc://com.apple.arkit/documentation/ARKit/HandSkeleton"
+      ],
+      "anchor": "Hand-tracking"
+    },
+    {
+      "title": "Scene reconstruction",
+      "identifiers": [
+        "doc://com.apple.documentation/documentation/visionOS/incorporating-real-world-surroundings-in-an-immersive-experience",
+        "doc://com.apple.arkit/documentation/ARKit/SceneReconstructionProvider",
+        "doc://com.apple.arkit/documentation/ARKit/MeshAnchor"
+      ],
+      "anchor": "Scene-reconstruction"
+    },
+    {
+      "title": "Image tracking",
+      "identifiers": [
+        "doc://com.apple.arkit/documentation/ARKit/tracking-and-altering-images",
+        "doc://com.apple.arkit/documentation/ARKit/detecting-images-in-an-ar-experience",
+        "doc://com.apple.documentation/documentation/visionOS/tracking-images-in-3d-space",
+        "doc://com.apple.arkit/documentation/ARKit/ImageTrackingProvider",
+        "doc://com.apple.arkit/documentation/ARKit/ImageAnchor",
+        "doc://com.apple.arkit/documentation/ARKit/ReferenceImage"
+      ],
+      "anchor": "Image-tracking"
+    },
+    {
+      "title": "Geometry",
+      "identifiers": [
+        "doc://com.apple.arkit/documentation/ARKit/GeometryElement",
+        "doc://com.apple.arkit/documentation/ARKit/GeometrySource"
+      ],
+      "anchor": "Geometry"
+    },
+    {
+      "title": "Lighting estimation",
+      "identifiers": [
+        "doc://com.apple.arkit/documentation/ARKit/EnvironmentLightEstimationProvider",
+        "doc://com.apple.arkit/documentation/ARKit/EnvironmentProbeAnchor"
+      ],
+      "anchor": "Lighting-estimation"
+    },
+    {
+      "title": "Object tracking",
+      "identifiers": [
+        "doc://com.apple.arkit/documentation/ARKit/ObjectTrackingProvider",
+        "doc://com.apple.arkit/documentation/ARKit/ObjectAnchor",
+        "doc://com.apple.documentation/documentation/visionOS/exploring_object_tracking_with_arkit"
+      ],
+      "anchor": "Object-tracking"
+    },
+    {
+      "identifiers": [
+        "doc://com.apple.arkit/documentation/ARKit/RoomTrackingProvider",
+        "doc://com.apple.arkit/documentation/ARKit/RoomAnchor",
+        "doc://com.apple.documentation/documentation/visionOS/building_local_experiences_with_room_tracking"
+      ],
+      "title": "Room tracking",
+      "anchor": "Room-tracking"
+    }
+  ],
+  "identifier": {
+    "url": "doc://com.apple.arkit/documentation/ARKit/arkit-in-visionos",
+    "interfaceLanguage": "swift"
+  },
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.arkit/documentation/ARKit"
+      ]
+    ]
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "primaryContentSections": [
+    {
+      "kind": "content",
+      "content": [
+        {
+          "anchor": "overview",
+          "level": 2,
+          "text": "Overview",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "ARKit in visionOS offers a new set of sensing capabilities that you adopt individually in your app, using data providers to deliver updates asynchronously. The available capabilities include:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            {
+              "content": [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "inlineContent": [
+                        {
+                          "type": "text",
+                          "text": "Plane detection."
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "type": "text",
+                      "text": " Detect surfaces in a person’s surroundings and use them to anchor content."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "content": [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "inlineContent": [
+                        {
+                          "text": "World tracking.",
+                          "type": "text"
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "text": " Determine the position and orientation of Apple Vision Pro relative to its surroundings, and add world anchors to place content.",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "content": [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "strong",
+                      "inlineContent": [
+                        {
+                          "text": "Hand tracking.",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "text": " Use a person’s hand and finger positions as input for custom gestures and interactivity."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            },
+            {
+              "content": [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "type": "strong",
+                      "inlineContent": [
+                        {
+                          "type": "text",
+                          "text": "Scene reconstruction."
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "text": " Build a mesh of a person’s physical surroundings and incorporate it into your immersive spaces to support interactions."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "content": [
+                {
+                  "inlineContent": [
+                    {
+                      "inlineContent": [
+                        {
+                          "text": "Image tracking.",
+                          "type": "text"
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "text": " Look for known images in a person’s surroundings and use them as anchor points for custom content.",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            },
+            {
+              "content": [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "inlineContent": [
+                        {
+                          "text": "Object tracking.",
+                          "type": "text"
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "text": " Use 3D reference objects to find and track real-world objects in a person’s environment.",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "content": [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "strong",
+                      "inlineContent": [
+                        {
+                          "text": "Barcode detection.",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "text": " Detect and scan QR codes and barcodes in a variety of formats in a person’s surroundings."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            },
+            {
+              "content": [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "strong",
+                      "inlineContent": [
+                        {
+                          "text": "Room tracking",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Use room anchors to identify specific rooms and implement per-room experiences."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            },
+            {
+              "content": [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "inlineContent": [
+                        {
+                          "text": "Light estimation.",
+                          "type": "text"
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "text": " Understand the lighting characteristics of a room to help improve the appearance of shiny or semi-reflective materials in your virtual content.",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "content": [
+                {
+                  "inlineContent": [
+                    {
+                      "inlineContent": [
+                        {
+                          "type": "text",
+                          "text": "Camera frames."
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "text": " Access camera frames from a device in several formats.",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            }
+          ],
+          "type": "unorderedList"
+        },
+        {
+          "inlineContent": [
+            {
+              "identifier": "media-4330791",
+              "type": "image"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "modules": [
+      {
+        "name": "ARKit"
+      }
+    ],
+    "title": "ARKit in visionOS",
+    "role": "collectionGroup",
+    "roleHeading": "API Collection"
+  },
+  "seeAlsoSections": [
+    {
+      "identifiers": [
+        "doc://com.apple.documentation/documentation/visionOS/setting-up-access-to-arkit-data",
+        "doc://com.apple.arkit/documentation/ARKit/ARKitSession",
+        "doc://com.apple.arkit/documentation/ARKit/DataProvider",
+        "doc://com.apple.arkit/documentation/ARKit/Anchor"
+      ],
+      "generated": true,
+      "title": "visionOS",
+      "anchor": "visionOS"
+    }
+  ],
+  "abstract": [
+    {
+      "text": "Create immersive augmented reality experiences.",
+      "type": "text"
+    }
+  ],
+  "sections": [],
+  "variants": [
+    {
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ],
+      "paths": [
+        "/documentation/arkit/arkit-in-visionos"
+      ]
+    },
+    {
+      "traits": [
+        {
+          "interfaceLanguage": "occ"
+        }
+      ],
+      "paths": [
+        "/documentation/arkit/arkit-in-visionos"
+      ]
+    }
+  ],
+  "kind": "article",
+  "references": {
+    "doc://com.apple.arkit/documentation/ARKit/GeometryElement": {
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "GeometryElement",
+          "kind": "identifier"
+        }
+      ],
+      "role": "symbol",
+      "abstract": [
+        {
+          "text": "A container for vertex indices of lines or triangles.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "title": "GeometryElement",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "GeometryElement"
+        }
+      ],
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/arkit/geometryelement",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/GeometryElement"
+    },
+    "doc://com.apple.documentation/documentation/visionOS/tracking-points-in-world-space": {
+      "kind": "article",
+      "type": "topic",
+      "role": "sampleCode",
+      "url": "https://developer.apple.com/documentation/visionOS/tracking-points-in-world-space",
+      "identifier": "doc://com.apple.documentation/documentation/visionOS/tracking-points-in-world-space",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Retrieve the position and orientation of anchors your app stores in ARKit."
+        }
+      ],
+      "title": "Tracking specific points in world space"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/PlaneAnchor": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An anchor that represents horizontal and vertical planes."
+        }
+      ],
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/PlaneAnchor",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "PlaneAnchor"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/arkit/planeanchor",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "PlaneAnchor"
+        }
+      ],
+      "role": "symbol",
+      "kind": "symbol",
+      "title": "PlaneAnchor",
+      "type": "topic"
+    },
+    "doc://com.apple.documentation/documentation/technologies": {
+      "type": "topic",
+      "role": "overview",
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "url": "https://developer.apple.com/documentation/technologies",
+      "abstract": [
+        {
+          "type": "text",
+          "text": ""
+        }
+      ],
+      "kind": "technologies",
+      "title": "Technologies"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/ReferenceImage": {
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ReferenceImage"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ReferenceImage"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A 2D image the system uses as a reference to find the same image in a person’s surroundings."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/arkit/referenceimage",
+      "type": "topic",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ReferenceImage",
+      "title": "ReferenceImage",
+      "role": "symbol",
+      "kind": "symbol"
+    },
+    "media-4330791": {
+      "type": "image",
+      "alt": "An illustration showing a split view of someone using Apple Vision Pro; the left side shows a person’s perspective of the room and the right side depicts ARKit’s perspective of the room. The right side illustrates ARKit’s sensing capabilities, including the detected shape of the room and the individual joints of a person’s hand.",
+      "identifier": "media-4330791",
+      "variants": [
+        {
+          "url": "https://docs-assets.developer.apple.com/published/b1742d9029cfb818bd01ad8d395b7e7d/media-4330791@2x.png",
+          "traits": [
+            "2x",
+            "light"
+          ]
+        }
+      ]
+    },
+    "doc://com.apple.arkit/documentation/ARKit/DeviceAnchor": {
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/DeviceAnchor",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "DeviceAnchor",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "The position and orientation of Apple Vision Pro.",
+          "type": "text"
+        }
+      ],
+      "title": "DeviceAnchor",
+      "type": "topic",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/arkit/deviceanchor",
+      "navigatorTitle": [
+        {
+          "text": "DeviceAnchor",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.documentation/documentation/visionOS/placing-content-on-detected-planes": {
+      "url": "https://developer.apple.com/documentation/visionOS/placing-content-on-detected-planes",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Detect horizontal surfaces like tables and floors, as well as vertical planes like walls and doors."
+        }
+      ],
+      "type": "topic",
+      "title": "Placing content on detected planes",
+      "identifier": "doc://com.apple.documentation/documentation/visionOS/placing-content-on-detected-planes",
+      "kind": "article",
+      "role": "sampleCode"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/Anchor": {
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "Anchor"
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/Anchor",
+      "url": "https://developer.apple.com/documentation/arkit/anchor",
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Anchor"
+        }
+      ],
+      "title": "Anchor",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The identity, location, and orientation of an object in world space."
+        }
+      ],
+      "kind": "symbol"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/HandSkeleton": {
+      "kind": "symbol",
+      "title": "HandSkeleton",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "HandSkeleton"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/arkit/handskeleton",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A collection of joints in a hand."
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "HandSkeleton"
+        }
+      ],
+      "role": "symbol",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/HandSkeleton"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/CameraFrameProvider": {
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "CameraFrameProvider"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "An object that provides camera streams.",
+          "type": "text"
+        }
+      ],
+      "title": "CameraFrameProvider",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "CameraFrameProvider"
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/CameraFrameProvider",
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/arkit/cameraframeprovider",
+      "role": "symbol"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/detecting-images-in-an-ar-experience": {
+      "abstract": [
+        {
+          "text": "React to known 2D images in the user’s environment, and use their positions to place AR content.",
+          "type": "text"
+        }
+      ],
+      "role": "sampleCode",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/arkit/detecting-images-in-an-ar-experience",
+      "kind": "article",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/detecting-images-in-an-ar-experience",
+      "title": "Detecting Images in an AR Experience"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/BarcodeDetectionProvider": {
+      "url": "https://developer.apple.com/documentation/arkit/barcodedetectionprovider",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/BarcodeDetectionProvider",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "class",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "BarcodeDetectionProvider",
+          "kind": "identifier"
+        }
+      ],
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "An object that provides the real-time position of barcodes the framework detects in a person’s environment.",
+          "type": "text"
+        }
+      ],
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "BarcodeDetectionProvider",
+          "kind": "identifier"
+        }
+      ],
+      "title": "BarcodeDetectionProvider"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/tracking-and-altering-images": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Create images from rectangular shapes found in the user’s environment, and augment their appearance."
+        }
+      ],
+      "role": "sampleCode",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/arkit/tracking-and-altering-images",
+      "kind": "article",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/tracking-and-altering-images",
+      "title": "Tracking and altering images"
+    },
+    "doc://com.apple.documentation/documentation/visionOS/incorporating-real-world-surroundings-in-an-immersive-experience": {
+      "title": "Incorporating real-world surroundings in an immersive experience",
+      "role": "sampleCode",
+      "identifier": "doc://com.apple.documentation/documentation/visionOS/incorporating-real-world-surroundings-in-an-immersive-experience",
+      "abstract": [
+        {
+          "text": "Create an immersive experience by making your app’s content respond to the local shape of the world.",
+          "type": "text"
+        }
+      ],
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/visionOS/incorporating-real-world-surroundings-in-an-immersive-experience",
+      "type": "topic"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/RoomTrackingProvider": {
+      "type": "topic",
+      "title": "RoomTrackingProvider",
+      "kind": "symbol",
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "RoomTrackingProvider"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A source of real-time information about the room that a person is currently in."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/arkit/roomtrackingprovider",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/RoomTrackingProvider",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "RoomTrackingProvider"
+        }
+      ]
+    },
+    "doc://com.apple.arkit/documentation/ARKit/GeometrySource": {
+      "type": "topic",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/GeometrySource",
+      "url": "https://developer.apple.com/documentation/arkit/geometrysource",
+      "title": "GeometrySource",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "GeometrySource"
+        }
+      ],
+      "kind": "symbol",
+      "role": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "GeometrySource"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A container for geometrical vector data."
+        }
+      ]
+    },
+    "doc://com.apple.documentation/documentation/visionOS/setting-up-access-to-arkit-data": {
+      "type": "topic",
+      "title": "Setting up access to ARKit data",
+      "kind": "article",
+      "role": "article",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Check whether your app can use ARKit and respect people’s privacy."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/visionOS/setting-up-access-to-arkit-data",
+      "identifier": "doc://com.apple.documentation/documentation/visionOS/setting-up-access-to-arkit-data"
+    },
+    "Building-local-experiences-with-room-tracking-PageImage-card.png": {
+      "type": "image",
+      "alt": null,
+      "identifier": "Building-local-experiences-with-room-tracking-PageImage-card.png",
+      "variants": [
+        {
+          "url": "https://docs-assets.developer.apple.com/published/af99ba5e2e307907caed07d89553f518/Building-local-experiences-with-room-tracking-PageImage-card~dark@2x.png",
+          "traits": [
+            "2x",
+            "dark"
+          ]
+        },
+        {
+          "url": "https://docs-assets.developer.apple.com/published/ecb2f88d37f7bba036c739568409febf/Building-local-experiences-with-room-tracking-PageImage-card@2x.png",
+          "traits": [
+            "2x",
+            "light"
+          ]
+        }
+      ]
+    },
+    "doc://com.apple.arkit/documentation/ARKit/MeshAnchor": {
+      "navigatorTitle": [
+        {
+          "text": "MeshAnchor",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "A volume of space that contains a mesh of a person’s surroundings.",
+          "type": "text"
+        }
+      ],
+      "title": "MeshAnchor",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "MeshAnchor",
+          "kind": "identifier"
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/MeshAnchor",
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/arkit/meshanchor",
+      "role": "symbol"
+    },
+    "doc://com.apple.arkit/documentation/ARKit": {
+      "type": "topic",
+      "role": "collection",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit",
+      "url": "https://developer.apple.com/documentation/arkit",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Integrate hardware sensing features to produce augmented reality apps and games."
+        }
+      ],
+      "kind": "symbol",
+      "title": "ARKit"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/PlaneDetectionProvider": {
+      "url": "https://developer.apple.com/documentation/arkit/planedetectionprovider",
+      "type": "topic",
+      "title": "PlaneDetectionProvider",
+      "kind": "symbol",
+      "role": "symbol",
+      "abstract": [
+        {
+          "text": "A source of live data about planes in a person’s surroundings.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "text": "class",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "PlaneDetectionProvider",
+          "kind": "identifier"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "PlaneDetectionProvider",
+          "kind": "identifier"
+        }
+      ],
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/PlaneDetectionProvider"
+    },
+    "doc://com.apple.documentation/documentation/visionOS/happybeam": {
+      "kind": "article",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Leverage a Full Space to create a fun game using ARKit."
+        }
+      ],
+      "images": [
+        {
+          "type": "card",
+          "identifier": "Happy-Beam-intro.png"
+        }
+      ],
+      "role": "sampleCode",
+      "identifier": "doc://com.apple.documentation/documentation/visionOS/happybeam",
+      "title": "Happy Beam",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/visionOS/happybeam"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/HandTrackingProvider": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A source of live data about the position of a person’s hands and hand joints."
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "HandTrackingProvider"
+        }
+      ],
+      "type": "topic",
+      "kind": "symbol",
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "HandTrackingProvider"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/arkit/handtrackingprovider",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/HandTrackingProvider",
+      "title": "HandTrackingProvider"
+    },
+    "Happy-Beam-intro.png": {
+      "type": "image",
+      "alt": null,
+      "identifier": "Happy-Beam-intro.png",
+      "variants": [
+        {
+          "url": "https://docs-assets.developer.apple.com/published/52b497b6d705af322726d7371dee6ddd/Happy-Beam-intro@2x.png",
+          "traits": [
+            "2x",
+            "light"
+          ]
+        }
+      ]
+    },
+    "doc://com.apple.arkit/documentation/ARKit/CameraFrame": {
+      "type": "topic",
+      "title": "CameraFrame",
+      "kind": "symbol",
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "CameraFrame"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The representation of a camera frame."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/arkit/cameraframe",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/CameraFrame",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "CameraFrame",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.arkit/documentation/ARKit/ObjectTrackingProvider": {
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ObjectTrackingProvider"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "ObjectTrackingProvider",
+          "kind": "identifier"
+        }
+      ],
+      "role": "symbol",
+      "kind": "symbol",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "A source of real-time position of reference objects in a person’s environment.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/arkit/objecttrackingprovider",
+      "title": "ObjectTrackingProvider",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ObjectTrackingProvider"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/TrackableAnchor": {
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "TrackableAnchor"
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/TrackableAnchor",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "TrackableAnchor"
+        }
+      ],
+      "title": "TrackableAnchor",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An anchor that can gain and lose its tracking state over the course of a session."
+        }
+      ],
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/arkit/trackableanchor"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/DataProviderState": {
+      "type": "topic",
+      "title": "DataProviderState",
+      "kind": "symbol",
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "DataProviderState"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The possible states of a data provider."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/arkit/dataproviderstate",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/DataProviderState",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "DataProviderState"
+        }
+      ]
+    },
+    "doc://com.apple.arkit/documentation/ARKit/ObjectAnchor": {
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ObjectAnchor",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ObjectAnchor"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A reference object ARKit is tracking."
+        }
+      ],
+      "title": "ObjectAnchor",
+      "type": "topic",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/arkit/objectanchor",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ObjectAnchor"
+        }
+      ]
+    },
+    "Object-Tracking-PageImage-card.png": {
+      "type": "image",
+      "alt": null,
+      "identifier": "Object-Tracking-PageImage-card.png",
+      "variants": [
+        {
+          "url": "https://docs-assets.developer.apple.com/published/2332d74827799a86de0261e14c5a61f5/Object-Tracking-PageImage-card~dark@2x.png",
+          "traits": [
+            "2x",
+            "dark"
+          ]
+        },
+        {
+          "url": "https://docs-assets.developer.apple.com/published/dfd3696d1b7df884ded8407cef3e8045/Object-Tracking-PageImage-card@2x.png",
+          "traits": [
+            "2x",
+            "light"
+          ]
+        }
+      ]
+    },
+    "doc://com.apple.arkit/documentation/ARKit/ARKitSession": {
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ARKitSession"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ARKitSession"
+        }
+      ],
+      "role": "symbol",
+      "kind": "symbol",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The main entry point for receiving data from ARKit."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/arkit/arkitsession",
+      "title": "ARKitSession",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARKitSession"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/ImageTrackingProvider": {
+      "url": "https://developer.apple.com/documentation/arkit/imagetrackingprovider",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ImageTrackingProvider"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A source of live data about a 2D image’s position in a person’s surroundings."
+        }
+      ],
+      "role": "symbol",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ImageTrackingProvider",
+      "type": "topic",
+      "title": "ImageTrackingProvider",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ImageTrackingProvider"
+        }
+      ]
+    },
+    "doc://com.apple.arkit/documentation/ARKit/RoomAnchor": {
+      "type": "topic",
+      "role": "symbol",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/RoomAnchor",
+      "navigatorTitle": [
+        {
+          "text": "RoomAnchor",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/arkit/roomanchor",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The representation of a room ARKit is currently tracking."
+        }
+      ],
+      "kind": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "RoomAnchor",
+          "kind": "identifier"
+        }
+      ],
+      "title": "RoomAnchor"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/HandAnchor": {
+      "type": "topic",
+      "role": "symbol",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/HandAnchor",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "HandAnchor"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/arkit/handanchor",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A hand’s position in a person’s surroundings."
+        }
+      ],
+      "kind": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "HandAnchor"
+        }
+      ],
+      "title": "HandAnchor"
+    },
+    "doc://com.apple.documentation/documentation/visionOS/building_local_experiences_with_room_tracking": {
+      "title": "Building local experiences with room tracking",
+      "abstract": [
+        {
+          "text": "Use room tracking in visionOS to provide custom interactions with physical spaces.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/visionOS/building_local_experiences_with_room_tracking",
+      "role": "sampleCode",
+      "kind": "article",
+      "identifier": "doc://com.apple.documentation/documentation/visionOS/building_local_experiences_with_room_tracking",
+      "images": [
+        {
+          "identifier": "Building-local-experiences-with-room-tracking-PageImage-card.png",
+          "type": "card"
+        }
+      ],
+      "type": "topic"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/ImageAnchor": {
+      "kind": "symbol",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/arkit/imageanchor",
+      "type": "topic",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ImageAnchor",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ImageAnchor"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A 2D image’s position in a person’s surroundings."
+        }
+      ],
+      "title": "ImageAnchor",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ImageAnchor"
+        }
+      ]
+    },
+    "doc://com.apple.arkit/documentation/ARKit/WorldTrackingProvider": {
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "WorldTrackingProvider"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "WorldTrackingProvider"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A source of live data about the device pose and anchors in a person’s surroundings."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/arkit/worldtrackingprovider",
+      "type": "topic",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/WorldTrackingProvider",
+      "title": "WorldTrackingProvider",
+      "role": "symbol",
+      "kind": "symbol"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/EnvironmentLightEstimationProvider": {
+      "url": "https://developer.apple.com/documentation/arkit/environmentlightestimationprovider",
+      "fragments": [
+        {
+          "text": "class",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "EnvironmentLightEstimationProvider",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "A source of live data about lighting information in the environment.",
+          "type": "text"
+        }
+      ],
+      "role": "symbol",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/EnvironmentLightEstimationProvider",
+      "type": "topic",
+      "title": "EnvironmentLightEstimationProvider",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "EnvironmentLightEstimationProvider",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.arkit/documentation/ARKit/arkit-in-visionos-c-api": {
+      "kind": "article",
+      "type": "topic",
+      "role": "collectionGroup",
+      "title": "ARKit in visionOS C API",
+      "url": "https://developer.apple.com/documentation/arkit/arkit-in-visionos-c-api",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/arkit-in-visionos-c-api",
+      "abstract": [
+        {
+          "text": "Integrate ARKit with low-level libraries and functionality.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.arkit/documentation/ARKit/CameraVideoFormat": {
+      "url": "https://developer.apple.com/documentation/arkit/cameravideoformat",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A structure that represents a camera video format."
+        }
+      ],
+      "role": "symbol",
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "CameraVideoFormat"
+        }
+      ],
+      "title": "CameraVideoFormat",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "CameraVideoFormat"
+        }
+      ],
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/CameraVideoFormat",
+      "kind": "symbol"
+    },
+    "doc://com.apple.documentation/documentation/visionOS/exploring_object_tracking_with_arkit": {
+      "type": "topic",
+      "role": "sampleCode",
+      "identifier": "doc://com.apple.documentation/documentation/visionOS/exploring_object_tracking_with_arkit",
+      "url": "https://developer.apple.com/documentation/visionOS/exploring_object_tracking_with_arkit",
+      "abstract": [
+        {
+          "text": "Find and track real-world objects in visionOS using reference objects trained with Create ML.",
+          "type": "text"
+        }
+      ],
+      "kind": "article",
+      "images": [
+        {
+          "identifier": "Object-Tracking-PageImage-card.png",
+          "type": "card"
+        }
+      ],
+      "title": "Exploring object tracking with ARKit"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/DataProvider": {
+      "kind": "symbol",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/arkit/dataprovider",
+      "type": "topic",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/DataProvider",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "DataProvider"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A source of live data from ARKit."
+        }
+      ],
+      "title": "DataProvider",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "DataProvider"
+        }
+      ]
+    },
+    "doc://com.apple.documentation/documentation/visionOS/tracking-images-in-3d-space": {
+      "url": "https://developer.apple.com/documentation/visionOS/tracking-images-in-3d-space",
+      "role": "article",
+      "identifier": "doc://com.apple.documentation/documentation/visionOS/tracking-images-in-3d-space",
+      "kind": "article",
+      "title": "Tracking preregistered images in 3D space",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "Place content based on the current position of a known image in a person’s surroundings.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.arkit/documentation/ARKit/BarcodeAnchor": {
+      "url": "https://developer.apple.com/documentation/arkit/barcodeanchor",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A barcode’s position in a person’s surroundings."
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "BarcodeAnchor"
+        }
+      ],
+      "title": "BarcodeAnchor",
+      "role": "symbol",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/BarcodeAnchor",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "BarcodeAnchor"
+        }
+      ]
+    },
+    "doc://com.apple.arkit/documentation/ARKit/EnvironmentProbeAnchor": {
+      "type": "topic",
+      "role": "symbol",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/EnvironmentProbeAnchor",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "EnvironmentProbeAnchor"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/arkit/environmentprobeanchor",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An environment probe in the world."
+        }
+      ],
+      "kind": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "EnvironmentProbeAnchor"
+        }
+      ],
+      "title": "EnvironmentProbeAnchor"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/WorldAnchor": {
+      "url": "https://developer.apple.com/documentation/arkit/worldanchor",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A fixed location in a person’s surroundings."
+        }
+      ],
+      "role": "symbol",
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "WorldAnchor"
+        }
+      ],
+      "title": "WorldAnchor",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "WorldAnchor"
+        }
+      ],
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/WorldAnchor",
+      "kind": "symbol"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/SceneReconstructionProvider": {
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "SceneReconstructionProvider",
+          "kind": "identifier"
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/SceneReconstructionProvider",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "SceneReconstructionProvider",
+          "kind": "identifier"
+        }
+      ],
+      "title": "SceneReconstructionProvider",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A source of live data about the shape of a person’s surroundings."
+        }
+      ],
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/arkit/scenereconstructionprovider"
+    }
+  },
+  "variantOverrides": [
+    {
+      "traits": [
+        {
+          "interfaceLanguage": "occ"
+        }
+      ],
+      "patch": [
+        {
+          "path": "/identifier/interfaceLanguage",
+          "op": "replace",
+          "value": "occ"
+        },
+        {
+          "path": "/topicSections",
+          "op": "replace",
+          "value": [
+            {
+              "title": "Setup",
+              "identifiers": [
+                "doc://com.apple.documentation/documentation/visionOS/setting-up-access-to-arkit-data"
+              ],
+              "anchor": "Setup"
+            },
+            {
+              "title": "Plane detection",
+              "identifiers": [
+                "doc://com.apple.documentation/documentation/visionOS/placing-content-on-detected-planes"
+              ],
+              "anchor": "Plane-detection"
+            },
+            {
+              "title": "World tracking",
+              "identifiers": [
+                "doc://com.apple.documentation/documentation/visionOS/tracking-points-in-world-space"
+              ],
+              "anchor": "World-tracking"
+            },
+            {
+              "title": "Hand tracking",
+              "identifiers": [
+                "doc://com.apple.documentation/documentation/visionOS/happybeam"
+              ],
+              "anchor": "Hand-tracking"
+            },
+            {
+              "title": "Scene reconstruction",
+              "identifiers": [
+                "doc://com.apple.documentation/documentation/visionOS/incorporating-real-world-surroundings-in-an-immersive-experience"
+              ],
+              "anchor": "Scene-reconstruction"
+            },
+            {
+              "title": "Image tracking",
+              "identifiers": [
+                "doc://com.apple.arkit/documentation/ARKit/tracking-and-altering-images",
+                "doc://com.apple.arkit/documentation/ARKit/detecting-images-in-an-ar-experience",
+                "doc://com.apple.documentation/documentation/visionOS/tracking-images-in-3d-space"
+              ],
+              "anchor": "Image-tracking"
+            },
+            {
+              "title": "Object tracking",
+              "identifiers": [
+                "doc://com.apple.documentation/documentation/visionOS/exploring_object_tracking_with_arkit"
+              ],
+              "anchor": "Object-tracking"
+            },
+            {
+              "identifiers": [
+                "doc://com.apple.documentation/documentation/visionOS/building_local_experiences_with_room_tracking"
+              ],
+              "title": "Room tracking",
+              "anchor": "Room-tracking"
+            }
+          ]
+        },
+        {
+          "path": "/seeAlsoSections",
+          "op": "replace",
+          "value": [
+            {
+              "anchor": "visionOS",
+              "generated": true,
+              "identifiers": [
+                "doc://com.apple.arkit/documentation/ARKit/arkit-in-visionos-c-api"
+              ],
+              "title": "visionOS"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "legalNotices": {
+    "copyright": "Copyright &copy; 2025 Apple Inc. All rights reserved.",
+    "termsOfUse": "https://www.apple.com/legal/internet-services/terms/site.html",
+    "privacyPolicy": "https://www.apple.com/privacy/privacy-policy"
+  }
+}
