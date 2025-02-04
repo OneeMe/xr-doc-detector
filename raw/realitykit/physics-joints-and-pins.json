@@ -1,27 +1,69 @@
 {
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://com.apple.RealityKit/documentation/RealityKit/physics-joints-and-pins"
   },
-  "metadata": {
-    "title": "Physics joints and pins",
-    "modules": [
-      {
-        "name": "RealityKit"
-      }
-    ],
-    "roleHeading": "API Collection",
-    "role": "collectionGroup"
-  },
-  "kind": "article",
   "sections": [],
+  "seeAlsoSections": [
+    {
+      "generated": true,
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/physics-collision-detection",
+        "doc://com.apple.RealityKit/documentation/RealityKit/physics-simulations-and-motion",
+        "doc://com.apple.RealityKit/documentation/RealityKit/physics-force-effects"
+      ],
+      "title": "Physics simulation",
+      "anchor": "Physics-simulation"
+    }
+  ],
   "abstract": [
     {
       "type": "text",
       "text": "Simulate joint physics that connect virtual objects."
     }
   ],
+  "topicSections": [
+    {
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/simulating-physics-joints-in-your-realitykit-app",
+        "doc://com.apple.RealityKit/documentation/RealityKit/GeometricPin",
+        "doc://com.apple.RealityKit/documentation/RealityKit/GeometricPinsComponent",
+        "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsJoint",
+        "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsJointsComponent",
+        "doc://com.apple.RealityKit/documentation/RealityKit/EntityGeometricPins"
+      ],
+      "title": "Pin and joint components",
+      "anchor": "Pin-and-joint-components"
+    },
+    {
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsRevoluteJoint",
+        "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsPrismaticJoint",
+        "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsSphericalJoint",
+        "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsCustomJoint",
+        "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsDistanceJoint",
+        "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsFixedJoint",
+        "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsJoints"
+      ],
+      "title": "Built-in joint types",
+      "anchor": "Built-in-joint-types"
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "metadata": {
+    "modules": [
+      {
+        "name": "RealityKit"
+      }
+    ],
+    "title": "Physics joints and pins",
+    "role": "collectionGroup",
+    "roleHeading": "API Collection"
+  },
   "hierarchy": {
     "paths": [
       [
@@ -30,15 +72,16 @@
       ]
     ]
   },
-  "seeAlsoSections": [
+  "kind": "article",
+  "variants": [
     {
-      "title": "Physics simulation",
-      "generated": true,
-      "anchor": "Physics-simulation",
-      "identifiers": [
-        "doc://com.apple.RealityKit/documentation/RealityKit/physics-collision-detection",
-        "doc://com.apple.RealityKit/documentation/RealityKit/physics-simulations-and-motion",
-        "doc://com.apple.RealityKit/documentation/RealityKit/physics-force-effects"
+      "paths": [
+        "/documentation/realitykit/physics-joints-and-pins"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
       ]
     }
   ],
@@ -46,9 +89,9 @@
     {
       "content": [
         {
-          "text": "Overview",
-          "anchor": "Overview",
           "level": 2,
+          "anchor": "Overview",
+          "text": "Overview",
           "type": "heading"
         },
         {
@@ -58,9 +101,9 @@
               "type": "text"
             },
             {
+              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Entity",
               "isActive": true,
-              "type": "reference",
-              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Entity"
+              "type": "reference"
             },
             {
               "text": " such as its location,",
@@ -75,53 +118,11 @@
               "type": "text"
             },
             {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": "This is ideal for simple pre-defined motion, but does not allow for interaction with external forces,"
-            },
-            {
-              "type": "text",
-              "text": " "
-            },
-            {
-              "type": "text",
-              "text": "such as collisions with other objects, or gestures."
-            },
-            {
-              "type": "text",
-              "text": " "
-            },
-            {
-              "type": "text",
-              "text": "With a "
-            },
-            {
-              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsJoint",
-              "isActive": true,
-              "type": "reference"
-            },
-            {
-              "type": "text",
-              "text": " you can connect entities with pins,"
-            },
-            {
-              "type": "text",
-              "text": " "
-            },
-            {
-              "type": "text",
-              "text": "and RealityKit keeps your entities bound by constraints that you define."
-            }
-          ],
-          "type": "paragraph"
-        },
-        {
-          "inlineContent": [
-            {
-              "text": "Each joint consists of two pins, each of which belongs to a different entity.",
+              "text": "This is ideal for simple pre-defined motion, but does not allow for interaction with external forces,",
               "type": "text"
             },
             {
@@ -129,17 +130,59 @@
               "type": "text"
             },
             {
-              "text": "Each ",
+              "text": "such as collisions with other objects, or gestures.",
               "type": "text"
             },
             {
-              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/GeometricPin",
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "With a ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsJoint",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": " you can connect entities with pins,",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "and RealityKit keeps your entities bound by constraints that you define.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "Each joint consists of two pins, each of which belongs to a different entity."
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "Each "
+            },
+            {
               "type": "reference",
-              "isActive": true
+              "isActive": true,
+              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/GeometricPin"
             },
             {
-              "text": " moves and rotates relative to each other within the bounds of the joint’s constraints.",
-              "type": "text"
+              "type": "text",
+              "text": " moves and rotates relative to each other within the bounds of the joint’s constraints."
             }
           ],
           "type": "paragraph"
@@ -148,272 +191,91 @@
       "kind": "content"
     }
   ],
-  "topicSections": [
-    {
-      "title": "Pin and joint components",
-      "anchor": "Pin-and-joint-components",
-      "identifiers": [
-        "doc://com.apple.RealityKit/documentation/RealityKit/simulating-physics-joints-in-your-realitykit-app",
-        "doc://com.apple.RealityKit/documentation/RealityKit/GeometricPin",
-        "doc://com.apple.RealityKit/documentation/RealityKit/GeometricPinsComponent",
-        "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsJoint",
-        "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsJointsComponent",
-        "doc://com.apple.RealityKit/documentation/RealityKit/EntityGeometricPins"
-      ]
-    },
-    {
-      "title": "Built-in joint types",
-      "anchor": "Built-in-joint-types",
-      "identifiers": [
-        "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsRevoluteJoint",
-        "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsPrismaticJoint",
-        "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsSphericalJoint",
-        "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsCustomJoint",
-        "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsDistanceJoint",
-        "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsFixedJoint",
-        "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsJoints"
-      ]
-    }
-  ],
-  "identifier": {
-    "url": "doc://com.apple.RealityKit/documentation/RealityKit/physics-joints-and-pins",
-    "interfaceLanguage": "swift"
-  },
-  "variants": [
-    {
-      "paths": [
-        "/documentation/realitykit/physics-joints-and-pins"
-      ],
-      "traits": [
-        {
-          "interfaceLanguage": "swift"
-        }
-      ]
-    }
-  ],
   "references": {
-    "doc://com.apple.RealityKit/documentation/RealityKit/GeometricPinsComponent": {
+    "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsDistanceJoint": {
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "PhysicsDistanceJoint"
+        }
+      ],
+      "role": "symbol",
+      "type": "topic",
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/physicsdistancejoint",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsDistanceJoint",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "PhysicsDistanceJoint"
+        }
+      ],
+      "title": "PhysicsDistanceJoint",
       "abstract": [
         {
-          "text": "A component that stores a sequence of geometric pins.",
-          "type": "text"
+          "type": "text",
+          "text": "A joint that maintains a minimum and maximum distance between two entity pins."
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/GeometricPinsComponent": {
+      "kind": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A component that stores a sequence of geometric pins."
         }
       ],
-      "type": "topic",
+      "navigatorTitle": [
+        {
+          "text": "GeometricPinsComponent",
+          "kind": "identifier"
+        }
+      ],
+      "role": "symbol",
       "title": "GeometricPinsComponent",
       "fragments": [
         {
-          "kind": "keyword",
-          "text": "struct"
+          "text": "struct",
+          "kind": "keyword"
         },
         {
-          "kind": "text",
-          "text": " "
+          "text": " ",
+          "kind": "text"
         },
         {
-          "kind": "identifier",
-          "text": "GeometricPinsComponent"
+          "text": "GeometricPinsComponent",
+          "kind": "identifier"
         }
       ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "GeometricPinsComponent"
-        }
-      ],
-      "role": "symbol",
       "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/GeometricPinsComponent",
-      "kind": "symbol",
+      "type": "topic",
       "url": "https://developer.apple.com/documentation/realitykit/geometricpinscomponent"
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsJoints": {
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "PhysicsJoints"
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsJoints",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A collection of physics joints."
-        }
-      ],
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/physicsjoints",
-      "kind": "symbol",
-      "title": "PhysicsJoints",
-      "role": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "PhysicsJoints"
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/physics-collision-detection": {
-      "abstract": [
-        {
-          "text": "Determine when entities collide with each other or the environment.",
-          "type": "text"
-        }
-      ],
-      "type": "topic",
-      "title": "Collision detection",
-      "role": "collectionGroup",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/physics-collision-detection",
-      "kind": "article",
-      "url": "https://developer.apple.com/documentation/realitykit/physics-collision-detection"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/Entity": {
-      "title": "Entity",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An element of a RealityKit scene to which you attach components that provide"
-        },
-        {
-          "type": "text",
-          "text": " "
-        },
-        {
-          "type": "text",
-          "text": "appearance and behavior characteristics for the entity."
-        }
-      ],
-      "type": "topic",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "class"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "Entity"
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Entity",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "Entity"
-        }
-      ],
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/realitykit/entity"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsPrismaticJoint": {
-      "type": "topic",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "PhysicsPrismaticJoint"
-        }
-      ],
-      "title": "PhysicsPrismaticJoint",
-      "kind": "symbol",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A joint that allows movement along a straight line, similar to a sliding drawer."
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "PhysicsPrismaticJoint"
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsPrismaticJoint",
-      "url": "https://developer.apple.com/documentation/realitykit/physicsprismaticjoint",
-      "role": "symbol"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/physics-force-effects": {
-      "title": "Force effects",
-      "type": "topic",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/physics-force-effects",
-      "url": "https://developer.apple.com/documentation/realitykit/physics-force-effects",
-      "kind": "article",
-      "role": "collectionGroup",
-      "abstract": [
-        {
-          "text": "Control the movement of virtual objects with forces.",
-          "type": "text"
-        }
-      ]
-    },
-    "doc://com.apple.documentation/documentation/technologies": {
-      "identifier": "doc://com.apple.documentation/documentation/technologies",
-      "abstract": [
-        {
-          "type": "text",
-          "text": ""
-        }
-      ],
-      "title": "Technologies",
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/technologies",
-      "kind": "technologies",
-      "role": "overview"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsSphericalJoint": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsSphericalJoint",
-      "url": "https://developer.apple.com/documentation/realitykit/physicssphericaljoint",
-      "abstract": [
-        {
-          "text": "A spherical joint that allows free rotational movement between two entities’ pins.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "PhysicsSphericalJoint"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "PhysicsSphericalJoint"
-        }
-      ],
-      "role": "symbol",
-      "kind": "symbol",
-      "type": "topic",
-      "title": "PhysicsSphericalJoint"
-    },
     "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsJoint": {
+      "navigatorTitle": [
+        {
+          "text": "PhysicsJoint",
+          "kind": "identifier"
+        }
+      ],
       "url": "https://developer.apple.com/documentation/realitykit/physicsjoint",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A type that describes physics joints."
+        }
+      ],
+      "kind": "symbol",
+      "type": "topic",
       "fragments": [
         {
           "text": "protocol",
@@ -428,25 +290,268 @@
           "kind": "identifier"
         }
       ],
-      "type": "topic",
       "role": "symbol",
+      "title": "PhysicsJoint",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsJoint"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsPrismaticJoint": {
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "PhysicsPrismaticJoint",
+          "kind": "identifier"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsPrismaticJoint",
       "abstract": [
         {
-          "text": "A type that describes physics joints.",
+          "text": "A joint that allows movement along a straight line, similar to a sliding drawer.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/physicsprismaticjoint",
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "text": "PhysicsPrismaticJoint",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "PhysicsPrismaticJoint"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsJointsComponent": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A component that stores physics joints which RealityKit simulates."
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "PhysicsJointsComponent",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "PhysicsJointsComponent",
+      "type": "topic",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "PhysicsJointsComponent",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/physicsjointscomponent",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsJointsComponent"
+    },
+    "doc://com.apple.documentation/documentation/technologies": {
+      "kind": "technologies",
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "url": "https://developer.apple.com/documentation/technologies",
+      "title": "Technologies",
+      "abstract": [
+        {
+          "type": "text",
+          "text": ""
+        }
+      ],
+      "role": "overview",
+      "type": "topic"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/EntityGeometricPins": {
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "EntityGeometricPins"
+        }
+      ],
+      "type": "topic",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/entitygeometricpins",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/EntityGeometricPins",
+      "title": "EntityGeometricPins",
+      "abstract": [
+        {
+          "text": "A structure that wraps all geometric pins an entity owns.",
           "type": "text"
         }
       ],
       "kind": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsJoint",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "EntityGeometricPins"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsRevoluteJoint": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsRevoluteJoint",
+      "url": "https://developer.apple.com/documentation/realitykit/physicsrevolutejoint",
       "navigatorTitle": [
         {
-          "text": "PhysicsJoint",
+          "text": "PhysicsRevoluteJoint",
           "kind": "identifier"
         }
       ],
-      "title": "PhysicsJoint"
+      "type": "topic",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "PhysicsRevoluteJoint",
+          "kind": "identifier"
+        }
+      ],
+      "title": "PhysicsRevoluteJoint",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "text": "A joint that allows one degree of rotational freedom between two entity pins,",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "similar to a door swinging on its hinges.",
+          "type": "text"
+        }
+      ],
+      "role": "symbol"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/Entity": {
+      "url": "https://developer.apple.com/documentation/realitykit/entity",
+      "role": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An element of a RealityKit scene to which you attach components that provide"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "type": "text",
+          "text": "appearance and behavior characteristics for the entity."
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "Entity"
+        }
+      ],
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Entity"
+        }
+      ],
+      "title": "Entity",
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Entity"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/simulating-physics-joints-in-your-realitykit-app": {
+      "abstract": [
+        {
+          "text": "Create realistic, connected motion using physics joints.",
+          "type": "text"
+        }
+      ],
+      "kind": "article",
+      "role": "sampleCode",
+      "title": "Simulating physics joints in your RealityKit app",
+      "type": "topic",
+      "images": [
+        {
+          "identifier": "pendulum-swinging-poster.jpg",
+          "type": "card"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/simulating-physics-joints-in-your-realitykit-app",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/simulating-physics-joints-in-your-realitykit-app"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsCustomJoint": {
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "PhysicsCustomJoint",
+          "kind": "identifier"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsCustomJoint",
+      "abstract": [
+        {
+          "text": "A joint with six degrees of freedom that can be individually specified.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/physicscustomjoint",
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "text": "PhysicsCustomJoint",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "PhysicsCustomJoint"
     },
     "pendulum-swinging-poster.jpg": {
+      "identifier": "pendulum-swinging-poster.jpg",
+      "type": "image",
+      "alt": null,
       "variants": [
         {
           "url": "https://docs-assets.developer.apple.com/published/610d8b2efb1448ff9c7aae7cf4f9af01/pendulum-swinging-poster.jpg",
@@ -462,244 +567,168 @@
             "dark"
           ]
         }
-      ],
-      "type": "image",
-      "identifier": "pendulum-swinging-poster.jpg",
-      "alt": null
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/GeometricPin": {
-      "abstract": [
-        {
-          "text": "A structure that identifies a local transform relative to an entity or entity’s animating skeletal joint.",
-          "type": "text"
-        }
-      ],
-      "type": "topic",
-      "title": "GeometricPin",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "GeometricPin"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "GeometricPin"
-        }
-      ],
-      "role": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/GeometricPin",
-      "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/realitykit/geometricpin"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsRevoluteJoint": {
-      "url": "https://developer.apple.com/documentation/realitykit/physicsrevolutejoint",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "PhysicsRevoluteJoint"
-        }
-      ],
-      "type": "topic",
-      "role": "symbol",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A joint that allows one degree of rotational freedom between two entity pins,"
-        },
-        {
-          "type": "text",
-          "text": " "
-        },
-        {
-          "type": "text",
-          "text": "similar to a door swinging on its hinges."
-        }
-      ],
-      "kind": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsRevoluteJoint",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "PhysicsRevoluteJoint"
-        }
-      ],
-      "title": "PhysicsRevoluteJoint"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/EntityGeometricPins": {
-      "title": "EntityGeometricPins",
-      "abstract": [
-        {
-          "text": "A structure that wraps all geometric pins an entity owns.",
-          "type": "text"
-        }
-      ],
-      "type": "topic",
-      "fragments": [
-        {
-          "text": "struct",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "EntityGeometricPins",
-          "kind": "identifier"
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/EntityGeometricPins",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "text": "EntityGeometricPins",
-          "kind": "identifier"
-        }
-      ],
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/realitykit/entitygeometricpins"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsDistanceJoint": {
-      "kind": "symbol",
-      "role": "symbol",
-      "fragments": [
-        {
-          "text": "struct",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "PhysicsDistanceJoint",
-          "kind": "identifier"
-        }
-      ],
-      "type": "topic",
-      "navigatorTitle": [
-        {
-          "text": "PhysicsDistanceJoint",
-          "kind": "identifier"
-        }
-      ],
-      "title": "PhysicsDistanceJoint",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsDistanceJoint",
-      "url": "https://developer.apple.com/documentation/realitykit/physicsdistancejoint",
-      "abstract": [
-        {
-          "text": "A joint that maintains a minimum and maximum distance between two entity pins.",
-          "type": "text"
-        }
       ]
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsJointsComponent": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsJointsComponent",
-      "url": "https://developer.apple.com/documentation/realitykit/physicsjointscomponent",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A component that stores physics joints which RealityKit simulates."
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "PhysicsJointsComponent"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "PhysicsJointsComponent"
-        }
-      ],
-      "role": "symbol",
-      "kind": "symbol",
-      "type": "topic",
-      "title": "PhysicsJointsComponent"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsFixedJoint": {
-      "type": "topic",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "PhysicsFixedJoint"
-        }
-      ],
-      "abstract": [
-        {
-          "text": "A joint that rigidly connects two entity pins, with zero degrees of freedom.",
-          "type": "text"
-        }
-      ],
-      "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/realitykit/physicsfixedjoint",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "PhysicsFixedJoint"
-        }
-      ],
-      "title": "PhysicsFixedJoint",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsFixedJoint",
-      "role": "symbol"
-    },
     "doc://com.apple.RealityKit/documentation/RealityKit": {
+      "kind": "symbol",
       "identifier": "doc://com.apple.RealityKit/documentation/RealityKit",
+      "url": "https://developer.apple.com/documentation/realitykit",
+      "title": "RealityKit",
       "abstract": [
         {
           "type": "text",
           "text": "Simulate and render 3D content for use in your augmented reality apps."
         }
       ],
-      "title": "RealityKit",
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit",
-      "kind": "symbol",
-      "role": "collection"
+      "role": "collection",
+      "type": "topic"
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsCustomJoint": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsCustomJoint",
-      "url": "https://developer.apple.com/documentation/realitykit/physicscustomjoint",
+    "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsSphericalJoint": {
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "PhysicsSphericalJoint",
+          "kind": "identifier"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsSphericalJoint",
       "abstract": [
         {
-          "text": "A joint with six degrees of freedom that can be individually specified.",
+          "text": "A spherical joint that allows free rotational movement between two entities’ pins.",
           "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/physicssphericaljoint",
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "text": "PhysicsSphericalJoint",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "PhysicsSphericalJoint"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsFixedJoint": {
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "PhysicsFixedJoint",
+          "kind": "identifier"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsFixedJoint",
+      "abstract": [
+        {
+          "text": "A joint that rigidly connects two entity pins, with zero degrees of freedom.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/physicsfixedjoint",
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "text": "PhysicsFixedJoint",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "PhysicsFixedJoint"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsJoints": {
+      "navigatorTitle": [
+        {
+          "text": "PhysicsJoints",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/physicsjoints",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A collection of physics joints."
+        }
+      ],
+      "kind": "symbol",
+      "type": "topic",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "PhysicsJoints",
+          "kind": "identifier"
+        }
+      ],
+      "role": "symbol",
+      "title": "PhysicsJoints",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsJoints"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/physics-collision-detection": {
+      "kind": "article",
+      "abstract": [
+        {
+          "text": "Determine when entities collide with each other or the environment.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/physics-collision-detection",
+      "role": "collectionGroup",
+      "title": "Collision detection",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/realitykit/physics-collision-detection"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/physics-force-effects": {
+      "abstract": [
+        {
+          "text": "Control the movement of virtual objects with forces.",
+          "type": "text"
+        }
+      ],
+      "kind": "article",
+      "role": "collectionGroup",
+      "title": "Force effects",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/realitykit/physics-force-effects",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/physics-force-effects"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/GeometricPin": {
+      "kind": "symbol",
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/GeometricPin",
+      "navigatorTitle": [
+        {
+          "text": "GeometricPin",
+          "kind": "identifier"
+        }
+      ],
+      "title": "GeometricPin",
+      "url": "https://developer.apple.com/documentation/realitykit/geometricpin",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A structure that identifies a local transform relative to an entity or entity’s animating skeletal joint."
         }
       ],
       "fragments": [
@@ -712,52 +741,23 @@
           "kind": "text"
         },
         {
-          "text": "PhysicsCustomJoint",
+          "text": "GeometricPin",
           "kind": "identifier"
         }
       ],
-      "navigatorTitle": [
-        {
-          "text": "PhysicsCustomJoint",
-          "kind": "identifier"
-        }
-      ],
-      "role": "symbol",
-      "kind": "symbol",
-      "type": "topic",
-      "title": "PhysicsCustomJoint"
+      "role": "symbol"
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/physics-simulations-and-motion": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/physics-simulations-and-motion",
-      "url": "https://developer.apple.com/documentation/realitykit/physics-simulations-and-motion",
-      "abstract": [
-        {
-          "text": "Simulate physical interactions between entities or systems.",
-          "type": "text"
-        }
-      ],
-      "role": "collectionGroup",
       "kind": "article",
-      "type": "topic",
-      "title": "Simulations and motion"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/simulating-physics-joints-in-your-realitykit-app": {
-      "title": "Simulating physics joints in your RealityKit app",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/simulating-physics-joints-in-your-realitykit-app",
-      "url": "https://developer.apple.com/documentation/realitykit/simulating-physics-joints-in-your-realitykit-app",
+      "url": "https://developer.apple.com/documentation/realitykit/physics-simulations-and-motion",
+      "role": "collectionGroup",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/physics-simulations-and-motion",
+      "title": "Simulations and motion",
       "type": "topic",
       "abstract": [
         {
           "type": "text",
-          "text": "Create realistic, connected motion using physics joints."
-        }
-      ],
-      "kind": "article",
-      "role": "sampleCode",
-      "images": [
-        {
-          "type": "card",
-          "identifier": "pendulum-swinging-poster.jpg"
+          "text": "Simulate physical interactions between entities or systems."
         }
       ]
     }
