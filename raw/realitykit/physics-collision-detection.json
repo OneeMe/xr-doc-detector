@@ -5,10 +5,30 @@
         "name": "RealityKit"
       }
     ],
+    "role": "collectionGroup",
     "title": "Collision detection",
-    "roleHeading": "API Collection",
-    "role": "collectionGroup"
+    "roleHeading": "API Collection"
   },
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.RealityKit/documentation/RealityKit"
+      ]
+    ]
+  },
+  "variants": [
+    {
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ],
+      "paths": [
+        "/documentation/realitykit/physics-collision-detection"
+      ]
+    }
+  ],
   "schemaVersion": {
     "major": 0,
     "minor": 3,
@@ -16,6 +36,7 @@
   },
   "topicSections": [
     {
+      "anchor": "Collision-shapes-and-groups",
       "title": "Collision shapes and groups",
       "identifiers": [
         "doc://com.apple.RealityKit/documentation/RealityKit/simulating-physics-with-collisions-in-your-visionos-app",
@@ -27,48 +48,35 @@
         "doc://com.apple.RealityKit/documentation/RealityKit/CollisionGroup",
         "doc://com.apple.RealityKit/documentation/RealityKit/CollisionFilter",
         "doc://com.apple.RealityKit/documentation/RealityKit/TriggerVolume"
-      ],
-      "anchor": "Collision-shapes-and-groups"
+      ]
     },
     {
+      "anchor": "Collision-related-notifications",
       "title": "Collision-related notifications",
       "identifiers": [
         "doc://com.apple.RealityKit/documentation/RealityKit/CollisionEvents",
         "doc://com.apple.RealityKit/documentation/RealityKit/Contact"
-      ],
-      "anchor": "Collision-related-notifications"
+      ]
     },
     {
+      "anchor": "Ray-casting",
       "title": "Ray casting",
       "identifiers": [
         "doc://com.apple.RealityKit/documentation/RealityKit/CollisionCastHit",
         "doc://com.apple.RealityKit/documentation/RealityKit/CollisionCastHit/TriangleHit-swift.struct",
         "doc://com.apple.RealityKit/documentation/RealityKit/CollisionCastQueryType",
         "doc://com.apple.RealityKit/documentation/RealityKit/PixelCastHit"
-      ],
-      "anchor": "Ray-casting"
+      ]
     },
     {
+      "anchor": "Entity-compliance",
       "title": "Entity compliance",
       "identifiers": [
         "doc://com.apple.RealityKit/documentation/RealityKit/HasCollision"
-      ],
-      "anchor": "Entity-compliance"
+      ]
     }
   ],
-  "seeAlsoSections": [
-    {
-      "generated": true,
-      "title": "Physics simulation",
-      "identifiers": [
-        "doc://com.apple.RealityKit/documentation/RealityKit/physics-simulations-and-motion",
-        "doc://com.apple.RealityKit/documentation/RealityKit/physics-force-effects",
-        "doc://com.apple.RealityKit/documentation/RealityKit/physics-joints-and-pins"
-      ],
-      "anchor": "Physics-simulation"
-    }
-  ],
-  "sections": [],
+  "kind": "article",
   "abstract": [
     {
       "type": "text",
@@ -76,41 +84,53 @@
     }
   ],
   "identifier": {
-    "url": "doc://com.apple.RealityKit/documentation/RealityKit/physics-collision-detection",
-    "interfaceLanguage": "swift"
+    "interfaceLanguage": "swift",
+    "url": "doc://com.apple.RealityKit/documentation/RealityKit/physics-collision-detection"
   },
+  "seeAlsoSections": [
+    {
+      "anchor": "Physics-simulation",
+      "title": "Physics simulation",
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/physics-simulations-and-motion",
+        "doc://com.apple.RealityKit/documentation/RealityKit/physics-force-effects",
+        "doc://com.apple.RealityKit/documentation/RealityKit/physics-joints-and-pins"
+      ],
+      "generated": true
+    }
+  ],
   "primaryContentSections": [
     {
       "kind": "content",
       "content": [
         {
-          "anchor": "Overview",
-          "text": "Overview",
+          "level": 2,
           "type": "heading",
-          "level": 2
+          "anchor": "Overview",
+          "text": "Overview"
         },
         {
           "inlineContent": [
             {
-              "type": "text",
-              "text": "RealityKit can automatically detect when two objects participating in the physics system"
+              "text": "RealityKit can automatically detect when two objects participating in the physics system",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": "collide with each other if both entities have a "
+              "text": "collide with each other if both entities have a ",
+              "type": "text"
             },
             {
               "isActive": true,
-              "type": "reference",
-              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionComponent"
+              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionComponent",
+              "type": "reference"
             },
             {
-              "type": "text",
-              "text": " with at least one "
+              "text": " with at least one ",
+              "type": "text"
             },
             {
               "inlineContent": [
@@ -122,24 +142,24 @@
               "type": "emphasis"
             },
             {
-              "type": "text",
-              "text": "."
+              "text": ".",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": "Because doing collision detection with complex 3D models can be computationally expensive, collision shapes are simpler,"
+              "text": "Because doing collision detection with complex 3D models can be computationally expensive, collision shapes are simpler,",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": "invisible shapes RealityKit uses to detect collision, as well as doing hit testing, ray casts, and convex shape casts."
+              "text": "invisible shapes RealityKit uses to detect collision, as well as doing hit testing, ray casts, and convex shape casts.",
+              "type": "text"
             }
           ],
           "type": "paragraph"
@@ -151,26 +171,26 @@
               "type": "text"
             },
             {
+              "type": "emphasis",
               "inlineContent": [
                 {
                   "type": "text",
                   "text": "rigid body"
                 }
-              ],
-              "type": "emphasis"
+              ]
             },
             {
               "text": " or as a ",
               "type": "text"
             },
             {
+              "type": "emphasis",
               "inlineContent": [
                 {
                   "type": "text",
                   "text": "trigger"
                 }
-              ],
-              "type": "emphasis"
+              ]
             },
             {
               "text": ".",
@@ -202,8 +222,8 @@
             },
             {
               "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsBodyComponent/mode",
-              "isActive": true,
-              "type": "reference"
+              "type": "reference",
+              "isActive": true
             },
             {
               "text": " of ",
@@ -211,8 +231,8 @@
             },
             {
               "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsBodyMode/dynamic",
-              "isActive": true,
-              "type": "reference"
+              "type": "reference",
+              "isActive": true
             },
             {
               "text": ",",
@@ -253,8 +273,8 @@
             },
             {
               "type": "reference",
-              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionComponent",
-              "isActive": true
+              "isActive": true,
+              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionComponent"
             },
             {
               "text": " to it and setting its",
@@ -266,8 +286,8 @@
             },
             {
               "type": "reference",
-              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionComponent/mode-swift.property",
-              "isActive": true
+              "isActive": true,
+              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionComponent/mode-swift.property"
             },
             {
               "text": " to ",
@@ -275,8 +295,8 @@
             },
             {
               "type": "reference",
-              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionComponent/Mode-swift.enum/trigger",
-              "isActive": true
+              "isActive": true,
+              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionComponent/Mode-swift.enum/trigger"
             },
             {
               "text": ".",
@@ -305,8 +325,8 @@
               "type": "text"
             },
             {
-              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsBodyComponent",
               "isActive": true,
+              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsBodyComponent",
               "type": "reference"
             },
             {
@@ -314,8 +334,8 @@
               "type": "text"
             },
             {
-              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionComponent",
               "isActive": true,
+              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionComponent",
               "type": "reference"
             },
             {
@@ -331,8 +351,8 @@
               "type": "text"
             },
             {
-              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsBodyComponent",
               "isActive": true,
+              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsBodyComponent",
               "type": "reference"
             },
             {
@@ -343,7 +363,6 @@
           "type": "paragraph"
         },
         {
-          "name": "Note",
           "style": "note",
           "content": [
             {
@@ -353,9 +372,9 @@
                   "type": "text"
                 },
                 {
-                  "isActive": true,
+                  "type": "reference",
                   "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsBodyComponent",
-                  "type": "reference"
+                  "isActive": true
                 },
                 {
                   "text": ".",
@@ -373,128 +392,16 @@
               "type": "paragraph"
             }
           ],
-          "type": "aside"
+          "type": "aside",
+          "name": "Note"
         }
       ]
     }
   ],
-  "hierarchy": {
-    "paths": [
-      [
-        "doc://com.apple.documentation/documentation/technologies",
-        "doc://com.apple.RealityKit/documentation/RealityKit"
-      ]
-    ]
-  },
-  "variants": [
-    {
-      "traits": [
-        {
-          "interfaceLanguage": "swift"
-        }
-      ],
-      "paths": [
-        "/documentation/realitykit/physics-collision-detection"
-      ]
-    }
-  ],
-  "kind": "article",
+  "sections": [],
   "references": {
-    "doc://com.apple.RealityKit/documentation/RealityKit/CollisionEvents": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionEvents",
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/realitykit/collisionevents",
-      "title": "CollisionEvents",
-      "fragments": [
-        {
-          "text": "enum",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "CollisionEvents",
-          "kind": "identifier"
-        }
-      ],
-      "type": "topic",
-      "abstract": [],
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "text": "CollisionEvents",
-          "kind": "identifier"
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/PixelCastHit": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PixelCastHit",
-      "url": "https://developer.apple.com/documentation/realitykit/pixelcasthit",
-      "role": "symbol",
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "PixelCastHit"
-        }
-      ],
-      "kind": "symbol",
-      "type": "topic",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "PixelCastHit"
-        }
-      ],
-      "title": "PixelCastHit"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/HasCollision": {
-      "kind": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/HasCollision",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An interface used for ray casting and collision detection."
-        }
-      ],
-      "role": "symbol",
-      "title": "HasCollision",
-      "url": "https://developer.apple.com/documentation/realitykit/hascollision",
-      "type": "topic",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "protocol"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "HasCollision"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "HasCollision"
-        }
-      ]
-    },
     "doc://com.apple.RealityKit/documentation/RealityKit/ShapeResource": {
-      "kind": "symbol",
-      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/shaperesource",
       "fragments": [
         {
           "text": "class",
@@ -509,36 +416,442 @@
           "kind": "identifier"
         }
       ],
-      "navigatorTitle": [
-        {
-          "text": "ShapeResource",
-          "kind": "identifier"
-        }
-      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ShapeResource",
       "type": "topic",
-      "title": "ShapeResource",
       "abstract": [
         {
           "text": "A representation of a shape.",
           "type": "text"
         }
       ],
-      "url": "https://developer.apple.com/documentation/realitykit/shaperesource",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ShapeResource"
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "ShapeResource",
+          "kind": "identifier"
+        }
+      ],
+      "title": "ShapeResource",
+      "role": "symbol"
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/CollisionComponent/mode-swift.property": {
-      "url": "https://developer.apple.com/documentation/realitykit/collisioncomponent/mode-swift.property",
-      "title": "mode",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionComponent/mode-swift.property",
+    "doc://com.apple.RealityKit/documentation/RealityKit/TriggerVolume": {
+      "type": "topic",
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "TriggerVolume"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/TriggerVolume",
       "abstract": [
         {
           "type": "text",
-          "text": "The collision mode."
+          "text": "An invisible 3D shape that detects when objects enter or exit a given region"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "type": "text",
+          "text": "of space."
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "TriggerVolume"
         }
       ],
       "kind": "symbol",
+      "title": "TriggerVolume",
+      "url": "https://developer.apple.com/documentation/realitykit/triggervolume"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/HasCollision": {
+      "navigatorTitle": [
+        {
+          "text": "HasCollision",
+          "kind": "identifier"
+        }
+      ],
       "role": "symbol",
+      "title": "HasCollision",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An interface used for ray casting and collision detection."
+        }
+      ],
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "HasCollision",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/HasCollision",
       "type": "topic",
+      "url": "https://developer.apple.com/documentation/realitykit/hascollision"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/PixelCastHit": {
+      "abstract": [],
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "text": "PixelCastHit",
+          "kind": "identifier"
+        }
+      ],
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "PixelCastHit",
+          "kind": "identifier"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PixelCastHit",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "PixelCastHit",
+      "url": "https://developer.apple.com/documentation/realitykit/pixelcasthit"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/configuring-collision-in-realitykit": {
+      "type": "topic",
+      "role": "sampleCode",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/configuring-collision-in-realitykit",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Use collision groups and collision filters to control which objects collide."
+        }
+      ],
+      "kind": "article",
+      "title": "Configuring Collision in RealityKit",
+      "url": "https://developer.apple.com/documentation/realitykit/configuring-collision-in-realitykit"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsBodyComponent/mode": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsBodyComponent/mode",
+      "url": "https://developer.apple.com/documentation/realitykit/physicsbodycomponent/mode",
+      "role": "symbol",
+      "kind": "symbol",
+      "title": "mode",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "mode"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:17RealityFoundation15PhysicsBodyModeO",
+          "text": "PhysicsBodyMode"
+        }
+      ],
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The behavioral mode that controls the way the physics body moves"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "type": "text",
+          "text": "and interacts with other physics bodies in a simulation."
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/simulating-physics-with-collisions-in-your-visionos-app": {
+      "images": [
+        {
+          "identifier": "Simulating-physics-with-collisions-in-your-visionOS-app-PageImage-card.png",
+          "type": "card"
+        }
+      ],
+      "role": "sampleCode",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Create entities that behave and react like physical objects in a RealityKit view."
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/simulating-physics-with-collisions-in-your-visionos-app",
+      "url": "https://developer.apple.com/documentation/realitykit/simulating-physics-with-collisions-in-your-visionos-app",
+      "title": "Simulating physics with collisions in your visionOS app",
+      "kind": "article"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsBodyComponent": {
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "PhysicsBodyComponent"
+        }
+      ],
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "PhysicsBodyComponent"
+        }
+      ],
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/physicsbodycomponent",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A component that defines an entity’s behavior in physics body simulations."
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsBodyComponent",
+      "title": "PhysicsBodyComponent",
+      "type": "topic",
+      "role": "symbol"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/CollisionEvents": {
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/collisionevents",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "CollisionEvents"
+        }
+      ],
+      "role": "symbol",
+      "abstract": [],
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionEvents",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "CollisionEvents"
+        }
+      ],
+      "title": "CollisionEvents"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/CollisionComponent": {
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "CollisionComponent"
+        }
+      ],
+      "role": "symbol",
+      "title": "CollisionComponent",
+      "abstract": [
+        {
+          "text": "A component that gives an entity the ability to collide with other entities",
+          "type": "text"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "type": "text",
+          "text": "that also have collision components."
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "CollisionComponent"
+        }
+      ],
+      "kind": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionComponent",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/realitykit/collisioncomponent"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/CollisionGroup": {
+      "kind": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "CollisionGroup",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A bitmask used to define the collision group to which an entity belongs."
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionGroup",
+      "url": "https://developer.apple.com/documentation/realitykit/collisiongroup",
+      "role": "symbol",
+      "title": "CollisionGroup",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "CollisionGroup"
+        }
+      ]
+    },
+    "doc://com.apple.documentation/documentation/technologies": {
+      "role": "overview",
+      "type": "topic",
+      "kind": "technologies",
+      "abstract": [
+        {
+          "type": "text",
+          "text": ""
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/technologies",
+      "title": "Technologies",
+      "identifier": "doc://com.apple.documentation/documentation/technologies"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/CollisionFilter": {
+      "title": "CollisionFilter",
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/collisionfilter",
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionFilter",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A set of masks that determine whether entities can collide during"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "type": "text",
+          "text": "simulations."
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "CollisionFilter"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "CollisionFilter"
+        }
+      ],
+      "role": "symbol"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/physics-force-effects": {
+      "type": "topic",
+      "title": "Force effects",
+      "role": "collectionGroup",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/physics-force-effects",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Control the movement of virtual objects with forces."
+        }
+      ],
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/realitykit/physics-force-effects"
+    },
+    "Simulating-physics-with-collisions-in-your-visionOS-app-PageImage-card.png": {
+      "alt": "An image of a large, light orange cube covered with and surrounded by smaller orange cubes.",
+      "variants": [
+        {
+          "url": "https://docs-assets.developer.apple.com/published/507347325f58b49ec440b0040cc8623d/Simulating-physics-with-collisions-in-your-visionOS-app-PageImage-card@2x.png",
+          "traits": [
+            "2x",
+            "light"
+          ]
+        },
+        {
+          "url": "https://docs-assets.developer.apple.com/published/3f1d5f817b7cca76c58f645a4e903f59/Simulating-physics-with-collisions-in-your-visionOS-app-PageImage-card~dark@2x.png",
+          "traits": [
+            "2x",
+            "dark"
+          ]
+        }
+      ],
+      "type": "image",
+      "identifier": "Simulating-physics-with-collisions-in-your-visionOS-app-PageImage-card.png"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/CollisionComponent/mode-swift.property": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionComponent/mode-swift.property",
+      "role": "symbol",
+      "title": "mode",
       "fragments": [
         {
           "kind": "keyword",
@@ -570,235 +883,36 @@
           "preciseIdentifier": "s:17RealityFoundation18CollisionComponentV4ModeO",
           "text": "Mode"
         }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsBodyComponent/mode": {
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/realitykit/physicsbodycomponent/mode",
-      "title": "mode",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "The behavioral mode that controls the way the physics body moves"
-        },
-        {
-          "type": "text",
-          "text": " "
-        },
-        {
-          "type": "text",
-          "text": "and interacts with other physics bodies in a simulation."
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsBodyComponent/mode",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "var"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "mode"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "preciseIdentifier": "s:17RealityFoundation15PhysicsBodyModeO",
-          "kind": "typeIdentifier",
-          "text": "PhysicsBodyMode"
-        }
       ],
       "kind": "symbol",
-      "type": "topic"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/physics-simulations-and-motion": {
       "abstract": [
         {
-          "text": "Simulate physical interactions between entities or systems.",
-          "type": "text"
+          "type": "text",
+          "text": "The collision mode."
         }
       ],
-      "title": "Simulations and motion",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/physics-simulations-and-motion",
-      "role": "collectionGroup",
       "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/physics-simulations-and-motion",
-      "kind": "article"
+      "url": "https://developer.apple.com/documentation/realitykit/collisioncomponent/mode-swift.property"
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/TriggerVolume": {
-      "type": "topic",
-      "title": "TriggerVolume",
-      "url": "https://developer.apple.com/documentation/realitykit/triggervolume",
+    "doc://com.apple.RealityKit/documentation/RealityKit/CollisionComponent/Mode-swift.enum": {
+      "title": "CollisionComponent.Mode",
       "fragments": [
         {
-          "kind": "keyword",
-          "text": "class"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "TriggerVolume"
-        }
-      ],
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "TriggerVolume"
-        }
-      ],
-      "role": "symbol",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An invisible 3D shape that detects when objects enter or exit a given region"
-        },
-        {
-          "type": "text",
-          "text": " "
-        },
-        {
-          "type": "text",
-          "text": "of space."
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/TriggerVolume"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/ShapeResourceError": {
-      "kind": "symbol",
-      "role": "symbol",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "enum"
+          "text": "enum",
+          "kind": "keyword"
         },
         {
           "text": " ",
           "kind": "text"
         },
         {
-          "text": "ShapeResourceError",
+          "text": "Mode",
           "kind": "identifier"
         }
       ],
-      "navigatorTitle": [
-        {
-          "text": "ShapeResourceError",
-          "kind": "identifier"
-        }
-      ],
+      "url": "https://developer.apple.com/documentation/realitykit/collisioncomponent/mode-swift.enum",
       "type": "topic",
-      "title": "ShapeResourceError",
-      "abstract": [],
-      "url": "https://developer.apple.com/documentation/realitykit/shaperesourceerror",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ShapeResourceError"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/physics-joints-and-pins": {
-      "title": "Physics joints and pins",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/physics-joints-and-pins",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Simulate joint physics that connect virtual objects."
-        }
-      ],
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/physics-joints-and-pins",
-      "kind": "article",
-      "role": "collectionGroup"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/Contact": {
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/realitykit/contact",
-      "title": "Contact",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Events associated with collisions."
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Contact",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "Contact"
-        }
-      ],
       "kind": "symbol",
-      "type": "topic",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "Contact"
-        }
-      ]
-    },
-    "doc://com.apple.documentation/documentation/technologies": {
-      "type": "topic",
-      "identifier": "doc://com.apple.documentation/documentation/technologies",
-      "url": "https://developer.apple.com/documentation/technologies",
-      "role": "overview",
-      "title": "Technologies",
-      "kind": "technologies",
-      "abstract": [
-        {
-          "text": "",
-          "type": "text"
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsBodyComponent": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsBodyComponent",
-      "url": "https://developer.apple.com/documentation/realitykit/physicsbodycomponent",
-      "role": "symbol",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A component that defines an entity’s behavior in physics body simulations."
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "PhysicsBodyComponent"
-        }
-      ],
-      "kind": "symbol",
-      "type": "topic",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "PhysicsBodyComponent"
-        }
-      ],
-      "title": "PhysicsBodyComponent"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/CollisionComponent/Mode-swift.enum": {
       "abstract": [
         {
           "type": "text",
@@ -813,222 +927,62 @@
           "text": "entity."
         }
       ],
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "text": "Mode",
-          "kind": "identifier"
-        }
-      ],
-      "title": "CollisionComponent.Mode",
-      "url": "https://developer.apple.com/documentation/realitykit/collisioncomponent/mode-swift.enum",
-      "role": "symbol",
       "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionComponent/Mode-swift.enum",
-      "fragments": [
-        {
-          "text": "enum",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
+      "navigatorTitle": [
         {
           "text": "Mode",
           "kind": "identifier"
         }
       ],
-      "type": "topic"
+      "role": "symbol"
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/simulating-physics-with-collisions-in-your-visionos-app": {
-      "role": "sampleCode",
-      "url": "https://developer.apple.com/documentation/realitykit/simulating-physics-with-collisions-in-your-visionos-app",
-      "title": "Simulating physics with collisions in your visionOS app",
-      "images": [
-        {
-          "type": "card",
-          "identifier": "Simulating-physics-with-collisions-in-your-visionOS-app-PageImage-card.png"
-        }
-      ],
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Create entities that behave and react like physical objects in a RealityKit view."
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/simulating-physics-with-collisions-in-your-visionos-app",
-      "kind": "article",
-      "type": "topic"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/physics-force-effects": {
-      "role": "collectionGroup",
-      "url": "https://developer.apple.com/documentation/realitykit/physics-force-effects",
-      "title": "Force effects",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Control the movement of virtual objects with forces."
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/physics-force-effects",
-      "kind": "article",
-      "type": "topic"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/CollisionComponent": {
-      "url": "https://developer.apple.com/documentation/realitykit/collisioncomponent",
-      "navigatorTitle": [
-        {
-          "text": "CollisionComponent",
-          "kind": "identifier"
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionComponent",
-      "type": "topic",
+    "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsBodyMode/dynamic": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsBodyMode/dynamic",
+      "url": "https://developer.apple.com/documentation/realitykit/physicsbodymode/dynamic",
       "role": "symbol",
       "kind": "symbol",
-      "abstract": [
-        {
-          "text": "A component that gives an entity the ability to collide with other entities",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "that also have collision components.",
-          "type": "text"
-        }
-      ],
-      "title": "CollisionComponent",
-      "fragments": [
-        {
-          "text": "struct",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "CollisionComponent",
-          "kind": "identifier"
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/CollisionCastHit": {
-      "type": "topic",
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/realitykit/collisioncasthit",
-      "kind": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionCastHit",
-      "abstract": [
-        {
-          "text": "A hit result of a collision cast.",
-          "type": "text"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "text": "CollisionCastHit",
-          "kind": "identifier"
-        }
-      ],
+      "title": "PhysicsBodyMode.dynamic",
       "fragments": [
         {
           "kind": "keyword",
-          "text": "struct"
+          "text": "case"
         },
         {
-          "text": " ",
-          "kind": "text"
+          "kind": "text",
+          "text": " "
         },
         {
-          "text": "CollisionCastHit",
-          "kind": "identifier"
+          "kind": "identifier",
+          "text": "dynamic"
         }
       ],
-      "title": "CollisionCastHit"
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Forces and collisions control body movement."
+        }
+      ]
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/CollisionCastHit/TriangleHit-swift.struct": {
-      "title": "CollisionCastHit.TriangleHit",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionCastHit/TriangleHit-swift.struct",
-      "url": "https://developer.apple.com/documentation/realitykit/collisioncasthit/trianglehit-swift.struct",
-      "type": "topic",
       "abstract": [
         {
           "type": "text",
           "text": "Information returned when ray intersects a triangle mesh."
         }
       ],
-      "role": "symbol",
-      "navigatorTitle": [
-        {
-          "text": "TriangleHit",
-          "kind": "identifier"
-        }
-      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionCastHit/TriangleHit-swift.struct",
       "kind": "symbol",
-      "fragments": [
-        {
-          "text": "struct",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "TriangleHit",
-          "kind": "identifier"
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/configuring-collision-in-realitykit": {
-      "role": "sampleCode",
-      "url": "https://developer.apple.com/documentation/realitykit/configuring-collision-in-realitykit",
-      "title": "Configuring Collision in RealityKit",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Use collision groups and collision filters to control which objects collide."
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/configuring-collision-in-realitykit",
-      "kind": "article",
-      "type": "topic"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit": {
-      "type": "topic",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit",
-      "url": "https://developer.apple.com/documentation/realitykit",
-      "role": "collection",
-      "title": "RealityKit",
-      "kind": "symbol",
-      "abstract": [
-        {
-          "text": "Simulate and render 3D content for use in your augmented reality apps.",
-          "type": "text"
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/CollisionGroup": {
-      "title": "CollisionGroup",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionGroup",
-      "abstract": [
-        {
-          "text": "A bitmask used to define the collision group to which an entity belongs.",
-          "type": "text"
-        }
-      ],
+      "url": "https://developer.apple.com/documentation/realitykit/collisioncasthit/trianglehit-swift.struct",
       "navigatorTitle": [
         {
           "kind": "identifier",
-          "text": "CollisionGroup"
+          "text": "TriangleHit"
         }
       ],
-      "role": "symbol",
+      "title": "CollisionCastHit.TriangleHit",
       "type": "topic",
+      "role": "symbol",
       "fragments": [
         {
           "kind": "keyword",
@@ -1040,114 +994,91 @@
         },
         {
           "kind": "identifier",
-          "text": "CollisionGroup"
-        }
-      ],
-      "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/realitykit/collisiongroup"
-    },
-    "Simulating-physics-with-collisions-in-your-visionOS-app-PageImage-card.png": {
-      "alt": "An image of a large, light orange cube covered with and surrounded by smaller orange cubes.",
-      "identifier": "Simulating-physics-with-collisions-in-your-visionOS-app-PageImage-card.png",
-      "variants": [
-        {
-          "traits": [
-            "2x",
-            "light"
-          ],
-          "url": "https://docs-assets.developer.apple.com/published/507347325f58b49ec440b0040cc8623d/Simulating-physics-with-collisions-in-your-visionOS-app-PageImage-card@2x.png"
-        },
-        {
-          "traits": [
-            "2x",
-            "dark"
-          ],
-          "url": "https://docs-assets.developer.apple.com/published/3f1d5f817b7cca76c58f645a4e903f59/Simulating-physics-with-collisions-in-your-visionOS-app-PageImage-card~dark@2x.png"
-        }
-      ],
-      "type": "image"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/CollisionFilter": {
-      "fragments": [
-        {
-          "text": "struct",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "CollisionFilter",
-          "kind": "identifier"
-        }
-      ],
-      "title": "CollisionFilter",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionFilter",
-      "abstract": [
-        {
-          "text": "A set of masks that determine whether entities can collide during",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "type": "text",
-          "text": "simulations."
-        }
-      ],
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/collisionfilter",
-      "kind": "symbol",
-      "role": "symbol",
-      "navigatorTitle": [
-        {
-          "text": "CollisionFilter",
-          "kind": "identifier"
+          "text": "TriangleHit"
         }
       ]
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsBodyMode/dynamic": {
+    "doc://com.apple.RealityKit/documentation/RealityKit/ShapeResourceError": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ShapeResourceError",
       "kind": "symbol",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Forces and collisions control body movement."
-        }
-      ],
       "role": "symbol",
       "fragments": [
         {
-          "text": "case",
-          "kind": "keyword"
+          "kind": "keyword",
+          "text": "enum"
         },
         {
-          "text": " ",
-          "kind": "text"
+          "kind": "text",
+          "text": " "
         },
         {
-          "text": "dynamic",
-          "kind": "identifier"
+          "kind": "identifier",
+          "text": "ShapeResourceError"
         }
       ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsBodyMode/dynamic",
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/physicsbodymode/dynamic",
-      "title": "PhysicsBodyMode.dynamic"
+      "abstract": [],
+      "url": "https://developer.apple.com/documentation/realitykit/shaperesourceerror",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ShapeResourceError"
+        }
+      ],
+      "title": "ShapeResourceError",
+      "type": "topic"
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/CollisionComponent/Mode-swift.enum/trigger": {
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/realitykit/collisioncomponent/mode-swift.enum/trigger",
-      "title": "CollisionComponent.Mode.trigger",
+    "doc://com.apple.RealityKit/documentation/RealityKit/physics-joints-and-pins": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/physics-joints-and-pins",
+      "url": "https://developer.apple.com/documentation/realitykit/physics-joints-and-pins",
       "abstract": [
         {
           "type": "text",
-          "text": "A trigger collision object."
+          "text": "Simulate joint physics that connect virtual objects."
         }
       ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionComponent/Mode-swift.enum/trigger",
+      "type": "topic",
+      "role": "collectionGroup",
+      "title": "Physics joints and pins",
+      "kind": "article"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/CollisionCastHit": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A hit result of a collision cast."
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionCastHit",
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/collisioncasthit",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "CollisionCastHit"
+        }
+      ],
+      "title": "CollisionCastHit",
+      "type": "topic",
+      "role": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "CollisionCastHit"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/CollisionComponent/Mode-swift.enum/trigger": {
+      "url": "https://developer.apple.com/documentation/realitykit/collisioncomponent/mode-swift.enum/trigger",
+      "role": "symbol",
+      "kind": "symbol",
       "fragments": [
         {
           "kind": "keyword",
@@ -1162,42 +1093,111 @@
           "text": "trigger"
         }
       ],
-      "kind": "symbol",
-      "type": "topic"
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionComponent/Mode-swift.enum/trigger",
+      "title": "CollisionComponent.Mode.trigger",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A trigger collision object."
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/physics-simulations-and-motion": {
+      "title": "Simulations and motion",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/physics-simulations-and-motion",
+      "abstract": [
+        {
+          "text": "Simulate physical interactions between entities or systems.",
+          "type": "text"
+        }
+      ],
+      "role": "collectionGroup",
+      "url": "https://developer.apple.com/documentation/realitykit/physics-simulations-and-motion",
+      "type": "topic",
+      "kind": "article"
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/CollisionCastQueryType": {
-      "fragments": [
-        {
-          "text": "enum",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "CollisionCastQueryType"
-        }
-      ],
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "CollisionCastQueryType"
-        }
-      ],
-      "type": "topic",
       "abstract": [
         {
           "type": "text",
           "text": "The kinds of ray and convex shape cast queries that you can make."
         }
       ],
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/realitykit/collisioncastquerytype",
+      "navigatorTitle": [
+        {
+          "text": "CollisionCastQueryType",
+          "kind": "identifier"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionCastQueryType",
+      "fragments": [
+        {
+          "text": "enum",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "CollisionCastQueryType",
+          "kind": "identifier"
+        }
+      ],
       "title": "CollisionCastQueryType",
       "role": "symbol",
-      "url": "https://developer.apple.com/documentation/realitykit/collisioncastquerytype",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionCastQueryType"
+      "kind": "symbol"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/Contact": {
+      "kind": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Contact",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Events associated with collisions."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/contact",
+      "title": "Contact",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "Contact",
+          "kind": "identifier"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "Contact",
+          "kind": "identifier"
+        }
+      ],
+      "type": "topic"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit": {
+      "role": "collection",
+      "type": "topic",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Simulate and render 3D content for use in your augmented reality apps."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit",
+      "title": "RealityKit",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit"
     }
   },
   "legalNotices": {
