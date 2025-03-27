@@ -1,469 +1,1322 @@
 {
+  "metadata": {
+    "roleHeading": "Structure",
+    "role": "symbol",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "struct"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "EmphasizeAction"
+      }
+    ],
+    "title": "EmphasizeAction",
+    "symbolKind": "struct",
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "EmphasizeAction"
+      }
+    ],
+    "platforms": [
+      {
+        "unavailable": false,
+        "deprecated": false,
+        "beta": false,
+        "name": "iOS",
+        "introducedAt": "18.0"
+      },
+      {
+        "unavailable": false,
+        "deprecated": false,
+        "beta": false,
+        "name": "iPadOS",
+        "introducedAt": "18.0"
+      },
+      {
+        "unavailable": false,
+        "deprecated": false,
+        "beta": false,
+        "name": "Mac Catalyst",
+        "introducedAt": "18.0"
+      },
+      {
+        "unavailable": false,
+        "deprecated": false,
+        "beta": false,
+        "name": "macOS",
+        "introducedAt": "15.0"
+      },
+      {
+        "unavailable": false,
+        "deprecated": false,
+        "beta": false,
+        "name": "visionOS",
+        "introducedAt": "2.0"
+      }
+    ],
+    "modules": [
+      {
+        "name": "RealityKit"
+      }
+    ],
+    "externalID": "s:17RealityFoundation15EmphasizeActionV"
+  },
+  "variants": [
+    {
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ],
+      "paths": [
+        "/documentation/realitykit/emphasizeaction"
+      ]
+    }
+  ],
+  "seeAlsoSections": [
+    {
+      "anchor": "Built-in-actions",
+      "generated": true,
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/BillboardAction",
+        "doc://com.apple.RealityKit/documentation/RealityKit/FromToByAction",
+        "doc://com.apple.RealityKit/documentation/RealityKit/ImpulseAction",
+        "doc://com.apple.RealityKit/documentation/RealityKit/OrbitEntityAction",
+        "doc://com.apple.RealityKit/documentation/RealityKit/PlayAnimationAction",
+        "doc://com.apple.RealityKit/documentation/RealityKit/PlayAudioAction",
+        "doc://com.apple.RealityKit/documentation/RealityKit/SetEntityEnabledAction",
+        "doc://com.apple.RealityKit/documentation/RealityKit/SpinAction"
+      ],
+      "title": "Built-in actions"
+    }
+  ],
   "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "struct"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "EmphasizeAction"
+            }
+          ],
+          "platforms": [
+            "iOS",
+            "iPadOS",
+            "Mac Catalyst",
+            "macOS",
+            "visionOS"
+          ],
+          "languages": [
+            "swift"
+          ]
+        }
+      ],
+      "kind": "declarations"
+    },
     {
       "content": [
         {
-          "type": "heading",
-          "level": 2,
           "text": "Overview",
-          "anchor": "overview"
+          "level": 2,
+          "anchor": "overview",
+          "type": "heading"
         },
         {
-          "type": "paragraph",
           "inlineContent": [
             {
               "type": "text",
-              "text": "Instead of specifying your own animation, choose from the preexisting options in "
+              "text": "This action plays a preexisting animation, dependent on the "
             },
             {
-              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/motiontype",
-              "type": "reference",
-              "isActive": true
+              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/style",
+              "isActive": true,
+              "type": "reference"
             },
             {
               "type": "text",
-              "text": "."
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "and "
+            },
+            {
+              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/motionType",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "type": "text",
+              "text": " options."
             }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "The example below creates an animation that causes the entity to bounce in a",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "playful style.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "codeListing",
+          "syntax": "swift",
+          "code": [
+            "// An action that performs a bounce motion in a playful style.",
+            "let emphasizeAction = EmphasizeAction(motionType: .bounce,",
+            "                                      style: .playful,",
+            "                                      isAdditive: false)",
+            "",
+            "// A five second animation that plays the preexisting animation.",
+            "//",
+            "// This animation causes the entity to raise up, and then drop,",
+            "// appearing to bounce on the ground in a playful style,",
+            "// before returning to its original position.",
+            "let playfulBounceAnimation = try AnimationResource",
+            "    .makeActionAnimation(for: emphasizeAction,",
+            "                         duration: 5.0,",
+            "                         bindTarget: .transform)",
+            "",
+            "// Play the five second emphasize animation that causes the entity to",
+            "// bounce in a playful style.",
+            "entity.playAnimation(playfulBounceAnimation)"
           ]
         },
         {
-          "type": "heading",
-          "level": 3,
-          "text": "Declaration",
-          "anchor": "Declaration"
+          "identifier": "emphasizeaction-bounce",
+          "type": "video"
         },
         {
-          "syntax": "other",
-          "type": "codeListing",
-          "code": [
-            "class Preliminary_Action \"EmphasizeAction\""
+          "style": "important",
+          "name": "Important",
+          "type": "aside",
+          "content": [
+            {
+              "type": "paragraph",
+              "inlineContent": [
+                {
+                  "text": "This action directly animates the ",
+                  "type": "text"
+                },
+                {
+                  "type": "reference",
+                  "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/BindTarget/transform",
+                  "isActive": true
+                },
+                {
+                  "text": " on the bound entity.",
+                  "type": "text"
+                },
+                {
+                  "text": " ",
+                  "type": "text"
+                },
+                {
+                  "text": "Ensure a correct bind target is supplied when creating the animation.",
+                  "type": "text"
+                }
+              ]
+            }
           ]
         }
       ],
       "kind": "content"
     }
   ],
-  "sections": [],
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "kind": "article",
-  "seeAlsoSections": [
-    {
-      "anchor": "Actions",
-      "generated": true,
-      "identifiers": [
-        "doc://com.apple.RealityKit/documentation/RealityKit/preliminary-action",
-        "doc://com.apple.RealityKit/documentation/RealityKit/audioaction",
-        "doc://com.apple.RealityKit/documentation/RealityKit/changesceneaction",
-        "doc://com.apple.RealityKit/documentation/RealityKit/groupaction",
-        "doc://com.apple.RealityKit/documentation/RealityKit/impulseaction",
-        "doc://com.apple.RealityKit/documentation/RealityKit/lookatcameraaction",
-        "doc://com.apple.RealityKit/documentation/RealityKit/orbitaction",
-        "doc://com.apple.RealityKit/documentation/RealityKit/spinaction",
-        "doc://com.apple.RealityKit/documentation/RealityKit/startanimationaction",
-        "doc://com.apple.RealityKit/documentation/RealityKit/transformaction",
-        "doc://com.apple.RealityKit/documentation/RealityKit/transformanimationaction",
-        "doc://com.apple.RealityKit/documentation/RealityKit/visibilityaction",
-        "doc://com.apple.RealityKit/documentation/RealityKit/waitaction",
-        "doc://com.apple.RealityKit/documentation/RealityKit/notificationaction"
-      ],
-      "title": "Actions"
-    }
-  ],
   "abstract": [
     {
       "type": "text",
-      "text": "An action that performs an animation to call attention to an object."
-    }
-  ],
-  "topicSections": [
-    {
-      "anchor": "Properties",
-      "identifiers": [
-        "doc://com.apple.RealityKit/documentation/RealityKit/info-id",
-        "doc://com.apple.RealityKit/documentation/RealityKit/affectedobjects",
-        "doc://com.apple.RealityKit/documentation/RealityKit/duration",
-        "doc://com.apple.RealityKit/documentation/RealityKit/style",
-        "doc://com.apple.RealityKit/documentation/RealityKit/motiontype"
-      ],
-      "title": "Properties"
-    }
-  ],
-  "variants": [
-    {
-      "paths": [
-        "/documentation/realitykit/emphasizeaction"
-      ],
-      "traits": [
-        {
-          "interfaceLanguage": "swift"
-        }
-      ]
+      "text": "An action that performs an animation to call attention to an entity."
     }
   ],
   "identifier": {
-    "url": "doc://com.apple.RealityKit/documentation/RealityKit/emphasizeaction",
+    "url": "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction",
     "interfaceLanguage": "swift"
-  },
-  "metadata": {
-    "modules": [
-      {
-        "name": "RealityKit"
-      }
-    ],
-    "title": "EmphasizeAction",
-    "role": "collectionGroup"
   },
   "hierarchy": {
     "paths": [
       [
         "doc://com.apple.documentation/documentation/technologies",
-        "doc://com.apple.RealityKit/documentation/RealityKit",
-        "doc://com.apple.RealityKit/documentation/RealityKit/realitykit-usd-assets",
-        "doc://com.apple.RealityKit/documentation/RealityKit/usdz-schemas-for-ar",
-        "doc://com.apple.RealityKit/documentation/RealityKit/actions-and-triggers"
+        "doc://com.apple.RealityKit/documentation/RealityKit"
       ]
     ]
   },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "topicSections": [
+    {
+      "title": "Initializers",
+      "generated": true,
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/init(from:)",
+        "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/init(motionType:style:isAdditive:)"
+      ],
+      "anchor": "Initializers"
+    },
+    {
+      "title": "Instance Properties",
+      "generated": true,
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/animatedValueType",
+        "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/isAdditive",
+        "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/motionType",
+        "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/style"
+      ],
+      "anchor": "Instance-Properties"
+    },
+    {
+      "title": "Instance Methods",
+      "generated": true,
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/encode(to:)"
+      ],
+      "anchor": "Instance-Methods"
+    },
+    {
+      "title": "Type Aliases",
+      "generated": true,
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/EventParameterType"
+      ],
+      "anchor": "Type-Aliases"
+    },
+    {
+      "title": "Enumerations",
+      "generated": true,
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/EmphasisAnimationStyle",
+        "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/EmphasisMotionType"
+      ],
+      "anchor": "Enumerations"
+    },
+    {
+      "anchor": "Default-Implementations",
+      "generated": true,
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/EntityAction-Implementations"
+      ],
+      "title": "Default Implementations"
+    }
+  ],
+  "relationshipsSections": [
+    {
+      "type": "conformsTo",
+      "identifiers": [
+        "doc://com.externally.resolved.symbol/s:Se",
+        "doc://com.externally.resolved.symbol/s:SE",
+        "doc://com.apple.RealityKit/documentation/RealityKit/EntityAction"
+      ],
+      "kind": "relationships",
+      "title": "Conforms To"
+    }
+  ],
+  "kind": "symbol",
+  "sections": [],
   "references": {
-    "doc://com.apple.RealityKit/documentation/RealityKit/orbitaction": {
-      "role": "collectionGroup",
+    "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/EmphasisMotionType": {
+      "kind": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/EmphasisMotionType",
       "abstract": [
         {
           "type": "text",
-          "text": "An action that orbits a set of prims around another."
+          "text": "Options available to determine the kinds of animation effects."
         }
       ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/orbitaction",
-      "title": "OrbitAction",
-      "kind": "article",
-      "url": "https://developer.apple.com/documentation/realitykit/orbitaction",
-      "type": "topic"
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "EmphasisMotionType"
+        }
+      ],
+      "type": "topic",
+      "role": "symbol",
+      "title": "EmphasizeAction.EmphasisMotionType",
+      "url": "https://developer.apple.com/documentation/realitykit/emphasizeaction/emphasismotiontype",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "EmphasisMotionType"
+        }
+      ]
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/info-id": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/info-id",
-      "url": "https://developer.apple.com/documentation/realitykit/info-id",
+    "doc://com.externally.resolved.symbol/s:Se": {
+      "kind": "symbol",
+      "type": "topic",
+      "role": "symbol",
+      "identifier": "doc://com.externally.resolved.symbol/s:Se",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "Decodable"
+        }
+      ],
+      "title": "Decodable",
       "abstract": [
         {
-          "text": "The action’s unique identifier.",
+          "text": "A type that can decode itself from an external representation.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/Swift/Decodable"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/BindTarget/transform": {
+      "role": "symbol",
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/bindtarget/transform",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/BindTarget/transform",
+      "fragments": [
+        {
+          "text": "case",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "transform",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "A option that specifies that the target entity’s transform animates.",
           "type": "text"
         }
       ],
       "type": "topic",
-      "role": "article",
-      "title": "info:id",
-      "kind": "article"
+      "title": "BindTarget.transform"
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/changesceneaction": {
-      "kind": "article",
-      "url": "https://developer.apple.com/documentation/realitykit/changesceneaction",
-      "abstract": [
+    "doc://com.apple.RealityKit/documentation/RealityKit/PlayAnimationAction": {
+      "title": "PlayAnimationAction",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PlayAnimationAction",
+      "type": "topic",
+      "navigatorTitle": [
         {
-          "text": "An action that transitions from one scene to another.",
-          "type": "text"
+          "kind": "identifier",
+          "text": "PlayAnimationAction"
         }
       ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/changesceneaction",
-      "title": "ChangeSceneAction",
-      "type": "topic",
-      "role": "collectionGroup"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/usdz-schemas-for-ar": {
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/usdz-schemas-for-ar",
-      "abstract": [
+      "role": "symbol",
+      "fragments": [
         {
-          "text": "Add augmented reality functionality to your 3D content using USDZ schemas.",
-          "type": "text"
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "PlayAnimationAction"
         }
       ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/usdz-schemas-for-ar",
-      "role": "collectionGroup",
-      "kind": "article",
-      "title": "USDZ schemas for AR"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/affectedobjects": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/affectedobjects",
-      "type": "topic",
-      "kind": "article",
-      "abstract": [
-        {
-          "text": "A list of prims that respond to the notification.",
-          "type": "text"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/realitykit/affectedobjects",
-      "role": "article",
-      "title": "affectedObjects"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/spinaction": {
-      "type": "topic",
-      "role": "collectionGroup",
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/playanimationaction",
       "abstract": [
         {
           "type": "text",
-          "text": "An action that spins a prim."
+          "text": "An action that plays an animation on the given target entity with a range of playback options."
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/EntityAction": {
+      "title": "EntityAction",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/EntityAction",
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "text": "EntityAction",
+          "kind": "identifier"
         }
       ],
-      "kind": "article",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/spinaction",
-      "url": "https://developer.apple.com/documentation/realitykit/spinaction",
-      "title": "SpinAction"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/transformanimationaction": {
-      "title": "TransformAnimationAction",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/transformanimationaction",
-      "url": "https://developer.apple.com/documentation/realitykit/transformanimationaction",
-      "type": "topic",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "EntityAction",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/entityaction",
       "abstract": [
         {
-          "text": "An action that plays a transform animation.",
-          "type": "text"
+          "type": "text",
+          "text": "A protocol that defines an action for an entity."
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/encode(to:)": {
+      "fragments": [
+        {
+          "text": "func",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "encode",
+          "kind": "identifier"
+        },
+        {
+          "text": "(",
+          "kind": "text"
+        },
+        {
+          "text": "to",
+          "kind": "externalParam"
+        },
+        {
+          "text": ": any ",
+          "kind": "text"
+        },
+        {
+          "text": "Encoder",
+          "preciseIdentifier": "s:s7EncoderP",
+          "kind": "typeIdentifier"
+        },
+        {
+          "text": ") ",
+          "kind": "text"
+        },
+        {
+          "text": "throws",
+          "kind": "keyword"
         }
       ],
-      "role": "collectionGroup",
-      "kind": "article"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit": {
-      "role": "collection",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Encodes this value into the given encoder."
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/encode(to:)",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/emphasizeaction/encode(to:)",
       "type": "topic",
       "kind": "symbol",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Simulate and render 3D content for use in your augmented reality apps."
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/realitykit",
-      "title": "RealityKit",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit"
+      "title": "encode(to:)"
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/lookatcameraaction": {
-      "title": "LookAtCameraAction",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/lookatcameraaction",
-      "url": "https://developer.apple.com/documentation/realitykit/lookatcameraaction",
-      "type": "topic",
-      "abstract": [
-        {
-          "text": "An action that reorients an object to face the user’s camera.",
-          "type": "text"
-        }
-      ],
-      "role": "collectionGroup",
-      "kind": "article"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/transformaction": {
-      "title": "TransformAction",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/transformaction",
-      "url": "https://developer.apple.com/documentation/realitykit/transformaction",
-      "type": "topic",
-      "abstract": [
-        {
-          "text": "An action that animates from one transform to another.",
-          "type": "text"
-        }
-      ],
-      "role": "collectionGroup",
-      "kind": "article"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/waitaction": {
-      "title": "WaitAction",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/waitaction",
-      "url": "https://developer.apple.com/documentation/realitykit/waitaction",
-      "type": "topic",
-      "abstract": [
-        {
-          "text": "An action that performs a delay.",
-          "type": "text"
-        }
-      ],
-      "role": "collectionGroup",
-      "kind": "article"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/motiontype": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/motiontype",
-      "title": "motionType",
-      "kind": "article",
-      "role": "article",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An option that determines how the action displays or hides a prim."
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/realitykit/motiontype",
-      "type": "topic"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/style": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/style",
-      "url": "https://developer.apple.com/documentation/realitykit/style",
-      "kind": "article",
-      "type": "topic",
+    "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/style": {
       "abstract": [
         {
           "text": "An option that implements different kinds of animation timing.",
           "type": "text"
         }
       ],
-      "title": "style",
-      "role": "article"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/duration": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/duration",
-      "url": "https://developer.apple.com/documentation/realitykit/duration",
-      "abstract": [
+      "kind": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/style",
+      "type": "topic",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/emphasizeaction/style",
+      "fragments": [
         {
-          "text": "The amount of time that the objects face the camera.",
-          "type": "text"
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "style",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:17RealityFoundation15EmphasizeActionV",
+          "text": "EmphasizeAction",
+          "kind": "typeIdentifier"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "text": "EmphasisAnimationStyle",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:17RealityFoundation15EmphasizeActionV22EmphasisAnimationStyleO"
         }
       ],
-      "type": "topic",
-      "role": "article",
-      "title": "duration",
-      "kind": "article"
+      "title": "style"
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/actions-and-triggers": {
-      "role": "collectionGroup",
-      "type": "topic",
-      "abstract": [
+    "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/motionType": {
+      "fragments": [
         {
-          "text": "Enable visual and audible responses to programmatic or environmental events.",
-          "type": "text"
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "motionType",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "EmphasizeAction",
+          "preciseIdentifier": "s:17RealityFoundation15EmphasizeActionV",
+          "kind": "typeIdentifier"
+        },
+        {
+          "text": ".",
+          "kind": "text"
+        },
+        {
+          "text": "EmphasisMotionType",
+          "preciseIdentifier": "s:17RealityFoundation15EmphasizeActionV18EmphasisMotionTypeO",
+          "kind": "typeIdentifier"
         }
       ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/actions-and-triggers",
-      "kind": "article",
-      "url": "https://developer.apple.com/documentation/realitykit/actions-and-triggers",
-      "title": "Actions and triggers"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/impulseaction": {
-      "title": "ImpulseAction",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/impulseaction",
-      "url": "https://developer.apple.com/documentation/realitykit/impulseaction",
-      "type": "topic",
-      "abstract": [
-        {
-          "text": "An action that adds velocity to an prim.",
-          "type": "text"
-        }
-      ],
-      "role": "collectionGroup",
-      "kind": "article"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/groupaction": {
-      "title": "GroupAction",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/groupaction",
-      "url": "https://developer.apple.com/documentation/realitykit/groupaction",
-      "type": "topic",
-      "abstract": [
-        {
-          "text": "An action that runs a list of other actions.",
-          "type": "text"
-        }
-      ],
-      "role": "collectionGroup",
-      "kind": "article"
-    },
-    "doc://com.apple.documentation/documentation/technologies": {
-      "role": "overview",
-      "type": "topic",
-      "kind": "technologies",
       "abstract": [
         {
           "type": "text",
-          "text": ""
+          "text": "An option that implements animation effects."
         }
       ],
-      "url": "https://developer.apple.com/documentation/technologies",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/motionType",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/emphasizeaction/motiontype",
+      "type": "topic",
+      "kind": "symbol",
+      "title": "motionType"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/BillboardAction": {
+      "kind": "symbol",
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "BillboardAction"
+        }
+      ],
+      "role": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/BillboardAction",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "BillboardAction"
+        }
+      ],
+      "title": "BillboardAction",
+      "abstract": [
+        {
+          "text": "An action that animates the blend factor of an entity’s billboard component.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/billboardaction"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An action that performs an animation to call attention to an entity."
+        }
+      ],
+      "kind": "symbol",
+      "title": "EmphasizeAction",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "EmphasizeAction"
+        }
+      ],
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/realitykit/emphasizeaction",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "EmphasizeAction"
+        }
+      ],
+      "role": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/ImpulseAction": {
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "ImpulseAction",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/impulseaction",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ImpulseAction",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "ImpulseAction",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "An action that applies an impulse to the physics body at its center of mass when",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "played as an animation.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "title": "ImpulseAction"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/SpinAction": {
+      "kind": "symbol",
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "SpinAction"
+        }
+      ],
+      "role": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/SpinAction",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "SpinAction"
+        }
+      ],
+      "title": "SpinAction",
+      "abstract": [
+        {
+          "text": "An action which animates the transform of an entity to rotate around a specified local axis.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/spinaction"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/OrbitEntityAction": {
+      "kind": "symbol",
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "OrbitEntityAction"
+        }
+      ],
+      "role": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/OrbitEntityAction",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "OrbitEntityAction"
+        }
+      ],
+      "title": "OrbitEntityAction",
+      "abstract": [
+        {
+          "text": "An action which animates the transform of an entity to revolve around a specified pivot entity.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/orbitentityaction"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/PlayAudioAction": {
+      "title": "PlayAudioAction",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "PlayAudioAction"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PlayAudioAction",
+      "type": "topic",
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/playaudioaction",
+      "role": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An action which plays an audio resource on the given target entity."
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "PlayAudioAction"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/SetEntityEnabledAction": {
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "SetEntityEnabledAction",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/setentityenabledaction",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/SetEntityEnabledAction",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "SetEntityEnabledAction",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "An action that enables or disables the targeted entity and its descendants when played as an animation.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "title": "SetEntityEnabledAction"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/init(from:)": {
+      "fragments": [
+        {
+          "text": "init",
+          "kind": "identifier"
+        },
+        {
+          "text": "(",
+          "kind": "text"
+        },
+        {
+          "text": "from",
+          "kind": "externalParam"
+        },
+        {
+          "text": ": any ",
+          "kind": "text"
+        },
+        {
+          "text": "Decoder",
+          "preciseIdentifier": "s:s7DecoderP",
+          "kind": "typeIdentifier"
+        },
+        {
+          "text": ") ",
+          "kind": "text"
+        },
+        {
+          "text": "throws",
+          "kind": "keyword"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Creates a new instance by decoding from the given decoder."
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/init(from:)",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/emphasizeaction/init(from:)",
+      "type": "topic",
+      "kind": "symbol",
+      "title": "init(from:)"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/EventParameterType": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The associated event parameter type."
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "typealias"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "EventParameterType"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/EventParameterType",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "EmphasizeAction.EventParameterType",
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "EventParameterType"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/emphasizeaction/eventparametertype"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/init(motionType:style:isAdditive:)": {
+      "fragments": [
+        {
+          "text": "init",
+          "kind": "identifier"
+        },
+        {
+          "text": "(",
+          "kind": "text"
+        },
+        {
+          "text": "motionType",
+          "kind": "externalParam"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "EmphasizeAction",
+          "preciseIdentifier": "s:17RealityFoundation15EmphasizeActionV",
+          "kind": "typeIdentifier"
+        },
+        {
+          "text": ".",
+          "kind": "text"
+        },
+        {
+          "text": "EmphasisMotionType",
+          "preciseIdentifier": "s:17RealityFoundation15EmphasizeActionV18EmphasisMotionTypeO",
+          "kind": "typeIdentifier"
+        },
+        {
+          "text": ", ",
+          "kind": "text"
+        },
+        {
+          "text": "style",
+          "kind": "externalParam"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "EmphasizeAction",
+          "preciseIdentifier": "s:17RealityFoundation15EmphasizeActionV",
+          "kind": "typeIdentifier"
+        },
+        {
+          "text": ".",
+          "kind": "text"
+        },
+        {
+          "text": "EmphasisAnimationStyle",
+          "preciseIdentifier": "s:17RealityFoundation15EmphasizeActionV22EmphasisAnimationStyleO",
+          "kind": "typeIdentifier"
+        },
+        {
+          "text": ", ",
+          "kind": "text"
+        },
+        {
+          "text": "isAdditive",
+          "kind": "externalParam"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "Bool",
+          "preciseIdentifier": "s:Sb",
+          "kind": "typeIdentifier"
+        },
+        {
+          "text": ")",
+          "kind": "text"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Creates a new emphasize action."
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/init(motionType:style:isAdditive:)",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/emphasizeaction/init(motiontype:style:isadditive:)",
+      "type": "topic",
+      "kind": "symbol",
+      "title": "init(motionType:style:isAdditive:)"
+    },
+    "emphasizeaction-bounce-poster": {
+      "variants": [
+        {
+          "traits": [
+            "1x",
+            "light"
+          ],
+          "url": "https://docs-assets.developer.apple.com/published/f7801f716db3f31cbe001b6e4d86ef38/emphasizeaction-bounce-poster.jpg"
+        },
+        {
+          "traits": [
+            "1x",
+            "dark"
+          ],
+          "url": "https://docs-assets.developer.apple.com/published/b0b5af8b136c7bb7650ffdedb5a5a869/emphasizeaction-bounce-poster~dark.jpg"
+        }
+      ],
+      "alt": null,
+      "identifier": "emphasizeaction-bounce-poster",
+      "type": "image"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/EmphasisAnimationStyle": {
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/emphasizeaction/emphasisanimationstyle",
+      "type": "topic",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "EmphasisAnimationStyle"
+        }
+      ],
+      "title": "EmphasizeAction.EmphasisAnimationStyle",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/EmphasisAnimationStyle",
+      "abstract": [
+        {
+          "text": "Options available to determine the kinds of animation timing.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "EmphasisAnimationStyle"
+        }
+      ]
+    },
+    "doc://com.apple.documentation/documentation/technologies": {
+      "abstract": [
+        {
+          "text": "",
+          "type": "text"
+        }
+      ],
+      "role": "overview",
       "title": "Technologies",
-      "identifier": "doc://com.apple.documentation/documentation/technologies"
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/technologies",
+      "kind": "technologies"
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/audioaction": {
-      "kind": "article",
-      "url": "https://developer.apple.com/documentation/realitykit/audioaction",
+    "doc://com.externally.resolved.symbol/s:SE": {
+      "role": "symbol",
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/Swift/Encodable",
+      "identifier": "doc://com.externally.resolved.symbol/s:SE",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "Encodable",
+          "kind": "identifier"
+        }
+      ],
       "abstract": [
         {
-          "text": "An action that plays audio.",
+          "text": "A type that can encode itself to an external representation.",
           "type": "text"
         }
       ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/audioaction",
-      "title": "AudioAction",
       "type": "topic",
-      "role": "collectionGroup"
+      "title": "Encodable"
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/visibilityaction": {
-      "kind": "article",
-      "url": "https://developer.apple.com/documentation/realitykit/visibilityaction",
+    "doc://com.apple.RealityKit/documentation/RealityKit/FromToByAction": {
       "abstract": [
         {
-          "text": "An action that displays or hides objects over a period of time.",
+          "text": "An action that starts, stops, or increments by a specific value.",
           "type": "text"
         }
       ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/visibilityaction",
-      "title": "VisibilityAction",
-      "type": "topic",
-      "role": "collectionGroup"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/notificationaction": {
-      "kind": "article",
-      "url": "https://developer.apple.com/documentation/realitykit/notificationaction",
-      "abstract": [
+      "navigatorTitle": [
         {
-          "text": "An action that sends a custom notification to an app.",
-          "type": "text"
+          "text": "FromToByAction",
+          "kind": "identifier"
         }
       ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/notificationaction",
-      "title": "NotificationAction",
+      "role": "symbol",
+      "title": "FromToByAction",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/FromToByAction",
       "type": "topic",
-      "role": "collectionGroup"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/realitykit-usd-assets": {
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/realitykit-usd-assets",
-      "abstract": [
+      "url": "https://developer.apple.com/documentation/realitykit/fromtobyaction",
+      "fragments": [
         {
-          "text": "Import and use 3D scenes by importing USD files.",
-          "type": "text"
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "FromToByAction",
+          "kind": "identifier"
         }
       ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/realitykit-usd-assets",
+      "kind": "symbol"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/EntityAction-Implementations": {
+      "abstract": [],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/EntityAction-Implementations",
       "role": "collectionGroup",
+      "url": "https://developer.apple.com/documentation/realitykit/emphasizeaction/entityaction-implementations",
+      "type": "topic",
       "kind": "article",
-      "title": "USD Assets"
+      "title": "EntityAction Implementations"
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/preliminary-action": {
-      "kind": "article",
-      "url": "https://developer.apple.com/documentation/realitykit/preliminary-action",
+    "emphasizeaction-bounce": {
+      "variants": [
+        {
+          "traits": [
+            "1x",
+            "light"
+          ],
+          "url": "https://docs-assets.developer.apple.com/published/b027293c388cefbf9aafa5cb2cd824b2/emphasizeaction-bounce.mp4"
+        },
+        {
+          "traits": [
+            "1x",
+            "dark"
+          ],
+          "url": "https://docs-assets.developer.apple.com/published/1b48f34d4a4aefd1eb46f014cfc10f31/emphasizeaction-bounce~dark.mp4"
+        }
+      ],
+      "poster": "emphasizeaction-bounce-poster",
+      "alt": "A screen recording of a red cube in a living room scene. At the start, the cube begins to raise up in a whimsical motion, and then drops, appearing to bounce. This motion is repeated twice more, before returning to its original position.",
+      "identifier": "emphasizeaction-bounce",
+      "type": "video"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit": {
       "abstract": [
         {
-          "text": "A specific task that a trigger performs.",
+          "text": "Simulate and render 3D content for use in your augmented reality apps.",
           "type": "text"
         }
       ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/preliminary-action",
-      "title": "Preliminary_Action",
+      "role": "collection",
+      "title": "RealityKit",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit",
       "type": "topic",
-      "role": "collectionGroup"
+      "url": "https://developer.apple.com/documentation/realitykit",
+      "kind": "symbol"
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/startanimationaction": {
-      "title": "StartAnimationAction",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/startanimationaction",
-      "url": "https://developer.apple.com/documentation/realitykit/startanimationaction",
+    "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/animatedValueType": {
+      "title": "animatedValueType",
       "type": "topic",
       "abstract": [
         {
-          "text": "An action that plays an asset’s animation.",
+          "text": "The type for the value that the action modifies over time.",
           "type": "text"
         }
       ],
-      "role": "collectionGroup",
-      "kind": "article"
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "animatedValueType"
+        },
+        {
+          "kind": "text",
+          "text": ": (any "
+        },
+        {
+          "preciseIdentifier": "s:17RealityFoundation14AnimatableDataP",
+          "kind": "typeIdentifier",
+          "text": "AnimatableData"
+        },
+        {
+          "kind": "text",
+          "text": ".Type)?"
+        }
+      ],
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/emphasizeaction/animatedvaluetype",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/animatedValueType",
+      "kind": "symbol"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/isAdditive": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/EmphasizeAction/isAdditive",
+      "role": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A Boolean value that indicates whether the animation system additively blends the action’s output with the base value."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/emphasizeaction/isadditive",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "isAdditive",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "Bool",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sb"
+        }
+      ],
+      "type": "topic",
+      "title": "isAdditive",
+      "kind": "symbol"
     }
   },
   "diffAvailability": {
