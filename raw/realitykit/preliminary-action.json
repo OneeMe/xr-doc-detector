@@ -1,39 +1,29 @@
 {
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
   "topicSections": [
     {
+      "anchor": "Properties",
       "identifiers": [
         "doc://com.apple.RealityKit/documentation/RealityKit/info-id",
         "doc://com.apple.RealityKit/documentation/RealityKit/multipleperformoperation"
       ],
-      "title": "Properties",
-      "anchor": "Properties"
+      "title": "Properties"
     }
   ],
-  "variants": [
+  "abstract": [
     {
-      "paths": [
-        "/documentation/realitykit/preliminary-action"
-      ],
-      "traits": [
-        {
-          "interfaceLanguage": "swift"
-        }
-      ]
+      "text": "A specific task that a trigger performs.",
+      "type": "text"
     }
   ],
-  "sections": [],
-  "metadata": {
-    "modules": [
-      {
-        "name": "RealityKit"
-      }
-    ],
-    "role": "collectionGroup",
-    "title": "Preliminary_Action"
-  },
   "kind": "article",
   "seeAlsoSections": [
     {
+      "anchor": "Actions",
       "identifiers": [
         "doc://com.apple.RealityKit/documentation/RealityKit/audioaction",
         "doc://com.apple.RealityKit/documentation/RealityKit/changesceneaction",
@@ -50,20 +40,132 @@
         "doc://com.apple.RealityKit/documentation/RealityKit/waitaction",
         "doc://com.apple.RealityKit/documentation/RealityKit/notificationaction"
       ],
-      "title": "Actions",
       "generated": true,
-      "anchor": "Actions"
+      "title": "Actions"
     }
   ],
-  "abstract": [
+  "primaryContentSections": [
     {
-      "text": "A specific task that a trigger performs.",
-      "type": "text"
+      "kind": "content",
+      "content": [
+        {
+          "type": "heading",
+          "anchor": "overview",
+          "text": "Overview",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "text": "Because it inherits ",
+              "type": "text"
+            },
+            {
+              "type": "codeVoice",
+              "code": "Typed"
+            },
+            {
+              "text": ", this schema declares a ",
+              "type": "text"
+            },
+            {
+              "type": "codeVoice",
+              "code": "Preliminary_Action"
+            },
+            {
+              "text": " as a type of prim. For more information about typed schemas, see USD Specification > ",
+              "type": "text"
+            },
+            {
+              "isActive": true,
+              "identifier": "http://graphics.pixar.com/usd/docs/USD-Glossary.html#USDGlossary-TypedSchema",
+              "type": "reference"
+            },
+            {
+              "text": ".",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "When a behavior executes an action, the behavior modifies the state of the scene dynamically. For example, an action might start an animation, change the location of a prim, or start playing audio."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "anchor": "Declaration",
+          "text": "Declaration",
+          "level": 3
+        },
+        {
+          "type": "codeListing",
+          "code": [
+            "class \"Preliminary_Action\" (",
+            "    inherits = </Typed>",
+            ")"
+          ],
+          "syntax": "swift"
+        },
+        {
+          "type": "heading",
+          "anchor": "Define-an-action-that-slides-a-cube",
+          "text": "Define an action that slides a cube",
+          "level": 3
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "text": "The following example shows an action prim called ",
+              "type": "text"
+            },
+            {
+              "type": "codeVoice",
+              "code": "PushCube"
+            },
+            {
+              "text": " that affects an impulse feature.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "codeListing",
+          "code": [
+            "#usda 1.0",
+            "",
+            "def Cube \"Cube\" {}",
+            "",
+            "def Preliminary_Action \"PushCube\" {    ",
+            "    uniform token info:id = \"Impulse\"",
+            "    rel affectedObjects = [ </Cube> ]",
+            "    uniform vector3d velocity = (1.0, 0.0, 0.0)",
+            "}"
+          ],
+          "syntax": "swift"
+        }
+      ]
     }
   ],
+  "sections": [],
   "identifier": {
-    "url": "doc://com.apple.RealityKit/documentation/RealityKit/preliminary-action",
-    "interfaceLanguage": "swift"
+    "interfaceLanguage": "swift",
+    "url": "doc://com.apple.RealityKit/documentation/RealityKit/preliminary-action"
+  },
+  "metadata": {
+    "title": "Preliminary_Action",
+    "role": "collectionGroup",
+    "modules": [
+      {
+        "name": "RealityKit"
+      }
+    ]
   },
   "hierarchy": {
     "paths": [
@@ -76,416 +178,220 @@
       ]
     ]
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "primaryContentSections": [
+  "variants": [
     {
-      "kind": "content",
-      "content": [
+      "paths": [
+        "/documentation/realitykit/preliminary-action"
+      ],
+      "traits": [
         {
-          "level": 2,
-          "type": "heading",
-          "anchor": "overview",
-          "text": "Overview"
-        },
-        {
-          "inlineContent": [
-            {
-              "type": "text",
-              "text": "Because it inherits "
-            },
-            {
-              "code": "Typed",
-              "type": "codeVoice"
-            },
-            {
-              "type": "text",
-              "text": ", this schema declares a "
-            },
-            {
-              "code": "Preliminary_Action",
-              "type": "codeVoice"
-            },
-            {
-              "type": "text",
-              "text": " as a type of prim. For more information about typed schemas, see USD Specification > "
-            },
-            {
-              "isActive": true,
-              "identifier": "http://graphics.pixar.com/usd/docs/USD-Glossary.html#USDGlossary-TypedSchema",
-              "type": "reference"
-            },
-            {
-              "type": "text",
-              "text": "."
-            }
-          ],
-          "type": "paragraph"
-        },
-        {
-          "inlineContent": [
-            {
-              "text": "When a behavior executes an action, the behavior modifies the state of the scene dynamically. For example, an action might start an animation, change the location of a prim, or start playing audio.",
-              "type": "text"
-            }
-          ],
-          "type": "paragraph"
-        },
-        {
-          "text": "Declaration",
-          "type": "heading",
-          "level": 3,
-          "anchor": "Declaration"
-        },
-        {
-          "syntax": "swift",
-          "code": [
-            "class \"Preliminary_Action\" (",
-            "    inherits = </Typed>",
-            ")"
-          ],
-          "type": "codeListing"
-        },
-        {
-          "text": "Define an action that slides a cube",
-          "type": "heading",
-          "level": 3,
-          "anchor": "Define-an-action-that-slides-a-cube"
-        },
-        {
-          "inlineContent": [
-            {
-              "text": "The following example shows an action prim called ",
-              "type": "text"
-            },
-            {
-              "code": "PushCube",
-              "type": "codeVoice"
-            },
-            {
-              "text": " that affects an impulse feature.",
-              "type": "text"
-            }
-          ],
-          "type": "paragraph"
-        },
-        {
-          "syntax": "swift",
-          "code": [
-            "#usda 1.0",
-            "",
-            "def Cube \"Cube\" {}",
-            "",
-            "def Preliminary_Action \"PushCube\" {    ",
-            "    uniform token info:id = \"Impulse\"",
-            "    rel affectedObjects = [ </Cube> ]",
-            "    uniform vector3d velocity = (1.0, 0.0, 0.0)",
-            "}"
-          ],
-          "type": "codeListing"
+          "interfaceLanguage": "swift"
         }
       ]
     }
   ],
   "references": {
-    "doc://com.apple.RealityKit/documentation/RealityKit/waitaction": {
+    "doc://com.apple.RealityKit/documentation/RealityKit": {
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit",
+      "type": "topic",
+      "role": "collection",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit",
+      "title": "RealityKit",
       "abstract": [
         {
           "type": "text",
-          "text": "An action that performs a delay."
+          "text": "Simulate and render 3D content for use in your augmented reality apps."
         }
-      ],
-      "kind": "article",
-      "role": "collectionGroup",
-      "type": "topic",
-      "title": "WaitAction",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/waitaction",
-      "url": "https://developer.apple.com/documentation/realitykit/waitaction"
+      ]
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/notificationaction": {
-      "url": "https://developer.apple.com/documentation/realitykit/notificationaction",
+    "doc://com.apple.RealityKit/documentation/RealityKit/waitaction": {
       "type": "topic",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/notificationaction",
-      "title": "NotificationAction",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/waitaction",
+      "url": "https://developer.apple.com/documentation/realitykit/waitaction",
       "role": "collectionGroup",
+      "title": "WaitAction",
       "abstract": [
         {
-          "type": "text",
-          "text": "An action that sends a custom notification to an app."
+          "text": "An action that performs a delay.",
+          "type": "text"
         }
       ],
       "kind": "article"
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/visibilityaction": {
-      "title": "VisibilityAction",
-      "kind": "article",
-      "type": "topic",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/visibilityaction",
+    "doc://com.apple.RealityKit/documentation/RealityKit/lookatcameraaction": {
       "abstract": [
         {
           "type": "text",
-          "text": "An action that displays or hides objects over a period of time."
+          "text": "An action that reorients an object to face the user’s camera."
         }
       ],
       "role": "collectionGroup",
-      "url": "https://developer.apple.com/documentation/realitykit/visibilityaction"
-    },
-    "doc://com.apple.documentation/documentation/technologies": {
-      "role": "overview",
-      "url": "https://developer.apple.com/documentation/technologies",
-      "abstract": [
-        {
-          "text": "",
-          "type": "text"
-        }
-      ],
-      "title": "Technologies",
-      "identifier": "doc://com.apple.documentation/documentation/technologies",
-      "type": "topic",
-      "kind": "technologies"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/spinaction": {
-      "title": "SpinAction",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An action that spins a prim."
-        }
-      ],
-      "type": "topic",
+      "url": "https://developer.apple.com/documentation/realitykit/lookatcameraaction",
+      "title": "LookAtCameraAction",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/lookatcameraaction",
       "kind": "article",
-      "url": "https://developer.apple.com/documentation/realitykit/spinaction",
-      "role": "collectionGroup",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/spinaction"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/transformanimationaction": {
-      "abstract": [
-        {
-          "text": "An action that plays a transform animation.",
-          "type": "text"
-        }
-      ],
-      "title": "TransformAnimationAction",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/transformanimationaction",
-      "type": "topic",
-      "role": "collectionGroup",
-      "kind": "article",
-      "url": "https://developer.apple.com/documentation/realitykit/transformanimationaction"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/audioaction": {
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An action that plays audio."
-        }
-      ],
-      "kind": "article",
-      "role": "collectionGroup",
-      "type": "topic",
-      "title": "AudioAction",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/audioaction",
-      "url": "https://developer.apple.com/documentation/realitykit/audioaction"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/startanimationaction": {
-      "kind": "article",
-      "type": "topic",
-      "title": "StartAnimationAction",
-      "abstract": [
-        {
-          "text": "An action that plays an asset’s animation.",
-          "type": "text"
-        }
-      ],
-      "role": "collectionGroup",
-      "url": "https://developer.apple.com/documentation/realitykit/startanimationaction",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/startanimationaction"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/realitykit-usd-assets": {
-      "title": "USD Assets",
-      "kind": "article",
-      "role": "collectionGroup",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/realitykit-usd-assets",
-      "abstract": [
-        {
-          "text": "Import and use 3D scenes by importing USD files.",
-          "type": "text"
-        }
-      ],
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/realitykit-usd-assets"
+      "type": "topic"
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/impulseaction": {
+      "type": "topic",
+      "title": "ImpulseAction",
       "abstract": [
         {
           "type": "text",
           "text": "An action that adds velocity to an prim."
         }
       ],
-      "kind": "article",
-      "role": "collectionGroup",
-      "type": "topic",
-      "title": "ImpulseAction",
       "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/impulseaction",
+      "role": "collectionGroup",
+      "kind": "article",
       "url": "https://developer.apple.com/documentation/realitykit/impulseaction"
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/multipleperformoperation": {
-      "type": "topic",
+    "doc://com.apple.RealityKit/documentation/RealityKit/usdz-schemas-for-ar": {
       "abstract": [
         {
           "type": "text",
-          "text": "An option that indicates how an action handles an additional invocation while running."
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/multipleperformoperation",
-      "kind": "article",
-      "title": "multiplePerformOperation",
-      "url": "https://developer.apple.com/documentation/realitykit/multipleperformoperation",
-      "role": "article"
-    },
-    "http://graphics.pixar.com/usd/docs/USD-Glossary.html#USDGlossary-TypedSchema": {
-      "titleInlineContent": [
-        {
-          "type": "text",
-          "text": "Typed"
-        }
-      ],
-      "type": "link",
-      "identifier": "http://graphics.pixar.com/usd/docs/USD-Glossary.html#USDGlossary-TypedSchema",
-      "title": "Typed",
-      "url": "http://graphics.pixar.com/usd/docs/USD-Glossary.html#USDGlossary-TypedSchema"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/changesceneaction": {
-      "kind": "article",
-      "type": "topic",
-      "title": "ChangeSceneAction",
-      "abstract": [
-        {
-          "text": "An action that transitions from one scene to another.",
-          "type": "text"
+          "text": "Add augmented reality functionality to your 3D content using USDZ schemas."
         }
       ],
       "role": "collectionGroup",
-      "url": "https://developer.apple.com/documentation/realitykit/changesceneaction",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/changesceneaction"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/lookatcameraaction": {
-      "title": "LookAtCameraAction",
+      "url": "https://developer.apple.com/documentation/realitykit/usdz-schemas-for-ar",
+      "title": "USDZ schemas for AR",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/usdz-schemas-for-ar",
       "kind": "article",
-      "role": "collectionGroup",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/lookatcameraaction",
+      "type": "topic"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/visibilityaction": {
+      "url": "https://developer.apple.com/documentation/realitykit/visibilityaction",
+      "type": "topic",
+      "title": "VisibilityAction",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/visibilityaction",
       "abstract": [
         {
-          "text": "An action that reorients an object to face the user’s camera.",
+          "text": "An action that displays or hides objects over a period of time.",
           "type": "text"
         }
       ],
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/lookatcameraaction"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/info-id": {
-      "title": "info:id",
-      "kind": "article",
-      "role": "article",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/info-id",
-      "abstract": [
-        {
-          "text": "The action’s unique identifier.",
-          "type": "text"
-        }
-      ],
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/info-id"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/actions-and-triggers": {
-      "title": "Actions and triggers",
-      "kind": "article",
-      "role": "collectionGroup",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/actions-and-triggers",
-      "abstract": [
-        {
-          "text": "Enable visual and audible responses to programmatic or environmental events.",
-          "type": "text"
-        }
-      ],
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/actions-and-triggers"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/emphasizeaction": {
-      "url": "https://developer.apple.com/documentation/realitykit/emphasizeaction",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/emphasizeaction",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An action that performs an animation to call attention to an object."
-        }
-      ],
-      "type": "topic",
-      "title": "EmphasizeAction",
       "kind": "article",
       "role": "collectionGroup"
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/usdz-schemas-for-ar": {
-      "title": "USDZ schemas for AR",
-      "kind": "article",
-      "role": "collectionGroup",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/usdz-schemas-for-ar",
-      "abstract": [
-        {
-          "text": "Add augmented reality functionality to your 3D content using USDZ schemas.",
-          "type": "text"
-        }
-      ],
+    "doc://com.apple.RealityKit/documentation/RealityKit/audioaction": {
       "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/usdz-schemas-for-ar"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/orbitaction": {
-      "title": "OrbitAction",
+      "title": "AudioAction",
       "abstract": [
         {
           "type": "text",
-          "text": "An action that orbits a set of prims around another."
+          "text": "An action that plays audio."
         }
       ],
-      "type": "topic",
-      "kind": "article",
-      "url": "https://developer.apple.com/documentation/realitykit/orbitaction",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/audioaction",
       "role": "collectionGroup",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/orbitaction"
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/realitykit/audioaction"
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/transformaction": {
+      "type": "topic",
+      "title": "TransformAction",
+      "url": "https://developer.apple.com/documentation/realitykit/transformaction",
       "abstract": [
         {
           "type": "text",
           "text": "An action that animates from one transform to another."
         }
       ],
-      "kind": "article",
-      "role": "collectionGroup",
-      "type": "topic",
-      "title": "TransformAction",
       "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/transformaction",
-      "url": "https://developer.apple.com/documentation/realitykit/transformaction"
+      "role": "collectionGroup",
+      "kind": "article"
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit": {
-      "role": "collection",
-      "url": "https://developer.apple.com/documentation/realitykit",
+    "doc://com.apple.RealityKit/documentation/RealityKit/actions-and-triggers": {
       "abstract": [
         {
-          "text": "Simulate and render 3D content for use in your augmented reality apps.",
+          "type": "text",
+          "text": "Enable visual and audible responses to programmatic or environmental events."
+        }
+      ],
+      "role": "collectionGroup",
+      "url": "https://developer.apple.com/documentation/realitykit/actions-and-triggers",
+      "title": "Actions and triggers",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/actions-and-triggers",
+      "kind": "article",
+      "type": "topic"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/multipleperformoperation": {
+      "abstract": [
+        {
+          "text": "An option that indicates how an action handles an additional invocation while running.",
           "type": "text"
         }
       ],
-      "title": "RealityKit",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit",
+      "role": "article",
+      "kind": "article",
+      "title": "multiplePerformOperation",
+      "url": "https://developer.apple.com/documentation/realitykit/multipleperformoperation",
       "type": "topic",
-      "kind": "symbol"
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/multipleperformoperation"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/transformanimationaction": {
+      "type": "topic",
+      "title": "TransformAnimationAction",
+      "url": "https://developer.apple.com/documentation/realitykit/transformanimationaction",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An action that plays a transform animation."
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/transformanimationaction",
+      "role": "collectionGroup",
+      "kind": "article"
+    },
+    "doc://com.apple.documentation/documentation/technologies": {
+      "kind": "technologies",
+      "url": "https://developer.apple.com/documentation/technologies",
+      "type": "topic",
+      "role": "overview",
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "title": "Technologies",
+      "abstract": [
+        {
+          "type": "text",
+          "text": ""
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/info-id": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The action’s unique identifier."
+        }
+      ],
+      "role": "article",
+      "url": "https://developer.apple.com/documentation/realitykit/info-id",
+      "title": "info:id",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/info-id",
+      "kind": "article",
+      "type": "topic"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/startanimationaction": {
+      "type": "topic",
+      "title": "StartAnimationAction",
+      "url": "https://developer.apple.com/documentation/realitykit/startanimationaction",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An action that plays an asset’s animation."
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/startanimationaction",
+      "role": "collectionGroup",
+      "kind": "article"
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/groupaction": {
-      "kind": "article",
       "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/groupaction",
+      "url": "https://developer.apple.com/documentation/realitykit/groupaction",
+      "role": "collectionGroup",
       "title": "GroupAction",
       "abstract": [
         {
@@ -493,9 +399,103 @@
           "type": "text"
         }
       ],
+      "kind": "article"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/notificationaction": {
+      "type": "topic",
+      "title": "NotificationAction",
+      "url": "https://developer.apple.com/documentation/realitykit/notificationaction",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An action that sends a custom notification to an app."
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/notificationaction",
       "role": "collectionGroup",
-      "url": "https://developer.apple.com/documentation/realitykit/groupaction",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/groupaction"
+      "kind": "article"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/orbitaction": {
+      "type": "topic",
+      "title": "OrbitAction",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An action that orbits a set of prims around another."
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/orbitaction",
+      "role": "collectionGroup",
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/realitykit/orbitaction"
+    },
+    "http://graphics.pixar.com/usd/docs/USD-Glossary.html#USDGlossary-TypedSchema": {
+      "title": "Typed",
+      "url": "http://graphics.pixar.com/usd/docs/USD-Glossary.html#USDGlossary-TypedSchema",
+      "type": "link",
+      "identifier": "http://graphics.pixar.com/usd/docs/USD-Glossary.html#USDGlossary-TypedSchema",
+      "titleInlineContent": [
+        {
+          "text": "Typed",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/realitykit-usd-assets": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Import and use 3D scenes by importing USD files."
+        }
+      ],
+      "role": "collectionGroup",
+      "url": "https://developer.apple.com/documentation/realitykit/realitykit-usd-assets",
+      "title": "USD Assets",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/realitykit-usd-assets",
+      "kind": "article",
+      "type": "topic"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/spinaction": {
+      "type": "topic",
+      "title": "SpinAction",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An action that spins a prim."
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/spinaction",
+      "role": "collectionGroup",
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/realitykit/spinaction"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/emphasizeaction": {
+      "type": "topic",
+      "title": "EmphasizeAction",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An action that performs an animation to call attention to an object."
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/emphasizeaction",
+      "role": "collectionGroup",
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/realitykit/emphasizeaction"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/changesceneaction": {
+      "type": "topic",
+      "title": "ChangeSceneAction",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An action that transitions from one scene to another."
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/changesceneaction",
+      "role": "collectionGroup",
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/realitykit/changesceneaction"
     }
   },
   "legalNotices": {
