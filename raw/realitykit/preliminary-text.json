@@ -1,22 +1,6 @@
 {
-  "identifier": {
-    "url": "doc://com.apple.RealityKit/documentation/RealityKit/preliminary-text",
-    "interfaceLanguage": "swift"
-  },
-  "hierarchy": {
-    "paths": [
-      [
-        "doc://com.apple.documentation/documentation/technologies",
-        "doc://com.apple.RealityKit/documentation/RealityKit",
-        "doc://com.apple.RealityKit/documentation/RealityKit/realitykit-usd-assets",
-        "doc://com.apple.RealityKit/documentation/RealityKit/usdz-schemas-for-ar"
-      ]
-    ]
-  },
-  "kind": "article",
   "topicSections": [
     {
-      "anchor": "Properties",
       "title": "Properties",
       "identifiers": [
         "doc://com.apple.RealityKit/documentation/RealityKit/content",
@@ -28,28 +12,155 @@
         "doc://com.apple.RealityKit/documentation/RealityKit/wrapmode",
         "doc://com.apple.RealityKit/documentation/RealityKit/horizontalalignment",
         "doc://com.apple.RealityKit/documentation/RealityKit/verticalalignment"
-      ]
+      ],
+      "anchor": "Properties"
     }
   ],
-  "sections": [],
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.RealityKit/documentation/RealityKit",
+        "doc://com.apple.RealityKit/documentation/RealityKit/realitykit-usd-assets",
+        "doc://com.apple.RealityKit/documentation/RealityKit/usdz-schemas-for-ar"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://com.apple.RealityKit/documentation/RealityKit/preliminary-text"
   },
   "metadata": {
+    "role": "collectionGroup",
+    "title": "Preliminary_Text",
     "modules": [
       {
         "name": "RealityKit"
       }
-    ],
-    "role": "collectionGroup",
-    "title": "Preliminary_Text"
+    ]
   },
-  "abstract": [
+  "primaryContentSections": [
     {
-      "text": "A prim that renders 3D text in a scene.",
-      "type": "text"
+      "kind": "content",
+      "content": [
+        {
+          "level": 2,
+          "anchor": "overview",
+          "type": "heading",
+          "text": "Overview"
+        },
+        {
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "Because "
+            },
+            {
+              "type": "codeVoice",
+              "code": "Preliminary_Text"
+            },
+            {
+              "type": "text",
+              "text": " prim is an "
+            },
+            {
+              "type": "codeVoice",
+              "code": "Xformable"
+            },
+            {
+              "type": "text",
+              "text": " prim, you define its position either by specifying an offset in world coordinates, or by specifying that the prim should inherit its parent transform."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "Alternatively, you can request that the runtime anchor a text prim in the real world by inheriting "
+            },
+            {
+              "type": "codeVoice",
+              "code": "Preliminary_AnchoringAPI"
+            },
+            {
+              "type": "text",
+              "text": ". Many AR experiences include anchored text to add information or context about real-world objects or virtual content."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "anchor": "Declaration",
+          "text": "Declaration"
+        },
+        {
+          "syntax": "other",
+          "type": "codeListing",
+          "code": [
+            "class Preliminary_Text \"Preliminary_Text\" (",
+            "    inherits = </Gprim>",
+            ")"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "anchor": "Create-single-line-or-flowing-text",
+          "text": "Create single-line or flowing text"
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "text": "The following example demonstrates single-line text.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "syntax": "other",
+          "type": "codeListing",
+          "code": [
+            "def Preliminary_Text \"heading\"",
+            "{",
+            "    string content = \"Units Sold\"",
+            "    string[] font = [ \"Helvetica\", \"Arial\" ]",
+            "    token wrapMode = \"singleLine\"",
+            "    token horizontalAlignment = \"left\"",
+            "    token verticalAlignment = \"baseline\"",
+            "}"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "The following example shows text flowing in a rectangular region, with line breaks as needed."
+            }
+          ]
+        },
+        {
+          "syntax": "other",
+          "type": "codeListing",
+          "code": [
+            "def Preliminary_Text \"sign\"",
+            "{",
+            "    string content = \"Now is the time for all good people to come to the aid of their country.\"",
+            "    string[] font = [ \"ZapfChancery\", \"Bradley Hand\", \"cursive\" ]",
+            "    token wrapMode = \"flowing\"",
+            "    float width = 120",
+            "    float height = 100",
+            "    token horizontalAlignment = \"center\"",
+            "    token verticalAlignment = \"top\"",
+            "}"
+          ]
+        }
+      ]
     }
   ],
   "variants": [
@@ -64,161 +175,25 @@
       ]
     }
   ],
-  "primaryContentSections": [
+  "kind": "article",
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "abstract": [
     {
-      "kind": "content",
-      "content": [
-        {
-          "type": "heading",
-          "text": "Overview",
-          "anchor": "overview",
-          "level": 2
-        },
-        {
-          "type": "paragraph",
-          "inlineContent": [
-            {
-              "type": "text",
-              "text": "Because "
-            },
-            {
-              "code": "Preliminary_Text",
-              "type": "codeVoice"
-            },
-            {
-              "type": "text",
-              "text": " prim is an "
-            },
-            {
-              "code": "Xformable",
-              "type": "codeVoice"
-            },
-            {
-              "type": "text",
-              "text": " prim, you define its position either by specifying an offset in world coordinates, or by specifying that the prim should inherit its parent transform."
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "inlineContent": [
-            {
-              "text": "Alternatively, you can request that the runtime anchor a text prim in the real world by inheriting ",
-              "type": "text"
-            },
-            {
-              "type": "codeVoice",
-              "code": "Preliminary_AnchoringAPI"
-            },
-            {
-              "text": ". Many AR experiences include anchored text to add information or context about real-world objects or virtual content.",
-              "type": "text"
-            }
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Declaration",
-          "anchor": "Declaration",
-          "level": 3
-        },
-        {
-          "code": [
-            "class Preliminary_Text \"Preliminary_Text\" (",
-            "    inherits = </Gprim>",
-            ")"
-          ],
-          "type": "codeListing",
-          "syntax": "other"
-        },
-        {
-          "type": "heading",
-          "text": "Create single-line or flowing text",
-          "anchor": "Create-single-line-or-flowing-text",
-          "level": 3
-        },
-        {
-          "type": "paragraph",
-          "inlineContent": [
-            {
-              "text": "The following example demonstrates single-line text.",
-              "type": "text"
-            }
-          ]
-        },
-        {
-          "code": [
-            "def Preliminary_Text \"heading\"",
-            "{",
-            "    string content = \"Units Sold\"",
-            "    string[] font = [ \"Helvetica\", \"Arial\" ]",
-            "    token wrapMode = \"singleLine\"",
-            "    token horizontalAlignment = \"left\"",
-            "    token verticalAlignment = \"baseline\"",
-            "}"
-          ],
-          "type": "codeListing",
-          "syntax": "other"
-        },
-        {
-          "type": "paragraph",
-          "inlineContent": [
-            {
-              "type": "text",
-              "text": "The following example shows text flowing in a rectangular region, with line breaks as needed."
-            }
-          ]
-        },
-        {
-          "code": [
-            "def Preliminary_Text \"sign\"",
-            "{",
-            "    string content = \"Now is the time for all good people to come to the aid of their country.\"",
-            "    string[] font = [ \"ZapfChancery\", \"Bradley Hand\", \"cursive\" ]",
-            "    token wrapMode = \"flowing\"",
-            "    float width = 120",
-            "    float height = 100",
-            "    token horizontalAlignment = \"center\"",
-            "    token verticalAlignment = \"top\"",
-            "}"
-          ],
-          "type": "codeListing",
-          "syntax": "other"
-        }
-      ]
+      "text": "A prim that renders 3D text in a scene.",
+      "type": "text"
     }
   ],
   "references": {
-    "doc://com.apple.RealityKit/documentation/RealityKit/font": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/font",
-      "url": "https://developer.apple.com/documentation/realitykit/font",
-      "title": "font",
-      "type": "topic",
-      "role": "article",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An array of font names."
-        }
-      ],
-      "kind": "article"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/width": {
-      "abstract": [
-        {
-          "text": "The width of the text’s bounding box.",
-          "type": "text"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/realitykit/width",
-      "type": "topic",
-      "kind": "article",
-      "title": "width",
-      "role": "article",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/width"
-    },
     "doc://com.apple.RealityKit/documentation/RealityKit/content": {
+      "role": "article",
+      "type": "topic",
       "kind": "article",
+      "title": "content",
       "url": "https://developer.apple.com/documentation/realitykit/content",
       "abstract": [
         {
@@ -226,150 +201,175 @@
           "type": "text"
         }
       ],
-      "role": "article",
-      "title": "content",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/content",
-      "type": "topic"
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/content"
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/wrapmode": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/wrapmode",
-      "url": "https://developer.apple.com/documentation/realitykit/wrapmode",
-      "title": "wrapMode",
-      "type": "topic",
       "role": "article",
+      "type": "topic",
+      "kind": "article",
+      "title": "wrapMode",
+      "url": "https://developer.apple.com/documentation/realitykit/wrapmode",
       "abstract": [
         {
           "type": "text",
           "text": "An option that determines the flow of the text."
         }
       ],
-      "kind": "article"
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/wrapmode"
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit": {
-      "kind": "symbol",
-      "title": "RealityKit",
+    "doc://com.apple.RealityKit/documentation/RealityKit/depth": {
+      "role": "article",
       "type": "topic",
-      "role": "collection",
-      "url": "https://developer.apple.com/documentation/realitykit",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit",
+      "kind": "article",
+      "title": "depth",
+      "url": "https://developer.apple.com/documentation/realitykit/depth",
       "abstract": [
         {
           "type": "text",
-          "text": "Simulate and render 3D content for use in your augmented reality apps."
+          "text": "A value that defines the depth, in scene units, of the text’s extrusion."
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/depth"
+    },
+    "doc://com.apple.documentation/documentation/technologies": {
+      "title": "Technologies",
+      "kind": "technologies",
+      "url": "https://developer.apple.com/documentation/technologies",
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "role": "overview",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/horizontalalignment": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/horizontalalignment",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An option that controls the text’s horizontal placement within its bounding box."
+        }
+      ],
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/realitykit/horizontalalignment",
+      "kind": "article",
+      "title": "horizontalAlignment",
+      "role": "article"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit": {
+      "title": "RealityKit",
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit",
+      "role": "collection",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "Simulate and render 3D content for use in your augmented reality apps.",
+          "type": "text"
         }
       ]
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/verticalalignment": {
+      "role": "article",
+      "type": "topic",
       "kind": "article",
+      "title": "verticalAlignment",
       "url": "https://developer.apple.com/documentation/realitykit/verticalalignment",
       "abstract": [
         {
-          "text": "An option that controls the text’s vertical placement within its bounding rectangle.",
-          "type": "text"
+          "type": "text",
+          "text": "An option that controls the text’s vertical placement within its bounding rectangle."
         }
       ],
-      "role": "article",
-      "title": "verticalAlignment",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/verticalalignment",
-      "type": "topic"
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/verticalalignment"
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/height": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/height",
-      "url": "https://developer.apple.com/documentation/realitykit/height",
+      "role": "article",
+      "type": "topic",
+      "kind": "article",
       "title": "height",
-      "type": "topic",
-      "role": "article",
+      "url": "https://developer.apple.com/documentation/realitykit/height",
       "abstract": [
         {
-          "type": "text",
-          "text": "The height of the text’s bounding box."
-        }
-      ],
-      "kind": "article"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/usdz-schemas-for-ar": {
-      "kind": "article",
-      "title": "USDZ schemas for AR",
-      "type": "topic",
-      "role": "collectionGroup",
-      "url": "https://developer.apple.com/documentation/realitykit/usdz-schemas-for-ar",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/usdz-schemas-for-ar",
-      "abstract": [
-        {
-          "text": "Add augmented reality functionality to your 3D content using USDZ schemas.",
-          "type": "text"
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/depth": {
-      "title": "depth",
-      "abstract": [
-        {
-          "text": "A value that defines the depth, in scene units, of the text’s extrusion.",
+          "text": "The height of the text’s bounding box.",
           "type": "text"
         }
       ],
-      "kind": "article",
-      "url": "https://developer.apple.com/documentation/realitykit/depth",
-      "role": "article",
-      "type": "topic",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/depth"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/horizontalalignment": {
-      "abstract": [
-        {
-          "text": "An option that controls the text’s horizontal placement within its bounding box.",
-          "type": "text"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/realitykit/horizontalalignment",
-      "type": "topic",
-      "kind": "article",
-      "title": "horizontalAlignment",
-      "role": "article",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/horizontalalignment"
-    },
-    "doc://com.apple.documentation/documentation/technologies": {
-      "kind": "technologies",
-      "title": "Technologies",
-      "type": "topic",
-      "role": "overview",
-      "url": "https://developer.apple.com/documentation/technologies",
-      "identifier": "doc://com.apple.documentation/documentation/technologies",
-      "abstract": [
-        {
-          "type": "text",
-          "text": ""
-        }
-      ]
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/height"
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/pointsize": {
-      "abstract": [
-        {
-          "text": "The size of the text’s font.",
-          "type": "text"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/realitykit/pointsize",
+      "role": "article",
       "type": "topic",
       "kind": "article",
       "title": "pointSize",
-      "role": "article",
+      "url": "https://developer.apple.com/documentation/realitykit/pointsize",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The size of the text’s font."
+        }
+      ],
       "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/pointsize"
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/realitykit-usd-assets": {
-      "url": "https://developer.apple.com/documentation/realitykit/realitykit-usd-assets",
-      "type": "topic",
-      "kind": "article",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/realitykit-usd-assets",
-      "role": "collectionGroup",
-      "title": "USD Assets",
       "abstract": [
         {
           "type": "text",
           "text": "Import and use 3D scenes by importing USD files."
         }
-      ]
+      ],
+      "role": "collectionGroup",
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/realitykit/realitykit-usd-assets",
+      "type": "topic",
+      "title": "USD Assets",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/realitykit-usd-assets"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/usdz-schemas-for-ar": {
+      "title": "USDZ schemas for AR",
+      "abstract": [
+        {
+          "text": "Add augmented reality functionality to your 3D content using USDZ schemas.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "role": "collectionGroup",
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/realitykit/usdz-schemas-for-ar",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/usdz-schemas-for-ar"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/width": {
+      "role": "article",
+      "type": "topic",
+      "kind": "article",
+      "title": "width",
+      "url": "https://developer.apple.com/documentation/realitykit/width",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The width of the text’s bounding box."
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/width"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/font": {
+      "role": "article",
+      "type": "topic",
+      "kind": "article",
+      "title": "font",
+      "url": "https://developer.apple.com/documentation/realitykit/font",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An array of font names."
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/font"
     }
   },
   "legalNotices": {
