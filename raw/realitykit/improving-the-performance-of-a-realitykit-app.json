@@ -1,23 +1,5 @@
 {
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://com.apple.RealityKit/documentation/RealityKit/improving-the-performance-of-a-realitykit-app"
-  },
-  "metadata": {
-    "title": "Improving the Performance of a RealityKit App",
-    "role": "collectionGroup",
-    "modules": [
-      {
-        "name": "RealityKit"
-      }
-    ]
-  },
-  "kind": "article",
+  "sections": [],
   "topicSections": [
     {
       "identifiers": [
@@ -28,18 +10,44 @@
       "title": "Optimization targets"
     }
   ],
-  "variants": [
-    {
-      "paths": [
-        "/documentation/realitykit/improving-the-performance-of-a-realitykit-app"
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.RealityKit/documentation/RealityKit"
       ],
-      "traits": [
-        {
-          "interfaceLanguage": "swift"
-        }
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.RealityKit/documentation/RealityKit",
+        "doc://com.apple.RealityKit/documentation/RealityKit/presentation-views-and-attachments",
+        "doc://com.apple.RealityKit/documentation/RealityKit/ARView"
       ]
+    ]
+  },
+  "identifier": {
+    "url": "doc://com.apple.RealityKit/documentation/RealityKit/improving-the-performance-of-a-realitykit-app",
+    "interfaceLanguage": "swift"
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "abstract": [
+    {
+      "text": "Measure CPU and GPU utilization to find ways to improve your app’s performance.",
+      "type": "text"
     }
   ],
+  "metadata": {
+    "role": "collectionGroup",
+    "modules": [
+      {
+        "name": "RealityKit"
+      }
+    ],
+    "title": "Improving the Performance of a RealityKit App"
+  },
   "seeAlsoSections": [
     {
       "generated": true,
@@ -54,64 +62,96 @@
       "title": "Performance improvements"
     }
   ],
-  "abstract": [
+  "variants": [
     {
-      "type": "text",
-      "text": "Measure CPU and GPU utilization to find ways to improve your app’s performance."
+      "paths": [
+        "/documentation/realitykit/improving-the-performance-of-a-realitykit-app"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
     }
   ],
   "primaryContentSections": [
     {
-      "kind": "content",
       "content": [
         {
           "level": 2,
-          "anchor": "Overview",
           "type": "heading",
+          "anchor": "Overview",
           "text": "Overview"
         },
         {
+          "type": "paragraph",
           "inlineContent": [
             {
-              "text": "You use the RealityKit framework to add 3D content to an ",
-              "type": "text"
+              "type": "text",
+              "text": "You use the RealityKit framework to add 3D content to an "
             },
             {
-              "identifier": "doc://com.apple.documentation/documentation/ARKit",
               "type": "reference",
-              "isActive": true
-            },
-            {
-              "text": " ",
-              "type": "text"
-            },
-            {
-              "text": "app. The framework runs an entity component system (ECS) on the CPU to manage tasks",
-              "type": "text"
-            },
-            {
-              "text": " ",
-              "type": "text"
-            },
-            {
-              "text": "like physics calculations, animations, audio processing, and network synchronization.",
-              "type": "text"
-            },
-            {
-              "text": " ",
-              "type": "text"
-            },
-            {
-              "text": "It also relies on the ",
-              "type": "text"
-            },
-            {
               "isActive": true,
-              "identifier": "doc://com.apple.documentation/documentation/Metal",
-              "type": "reference"
+              "identifier": "doc://com.apple.documentation/documentation/ARKit"
             },
             {
-              "text": " framework",
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "app. The framework runs an entity component system (ECS) on the CPU to manage tasks"
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "like physics calculations, animations, audio processing, and network synchronization."
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "It also relies on the "
+            },
+            {
+              "type": "reference",
+              "isActive": true,
+              "identifier": "doc://com.apple.documentation/documentation/Metal"
+            },
+            {
+              "type": "text",
+              "text": " framework"
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "and GPU hardware to perform multithreaded rendering."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "identifier": "improving-the-performance-of-a-realitykit-app-1",
+              "type": "image"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "text": "Although RealityKit handles much of the complexity of this system for you, it’s still",
               "type": "text"
             },
             {
@@ -119,89 +159,63 @@
               "type": "text"
             },
             {
-              "text": "and GPU hardware to perform multithreaded rendering.",
+              "text": "important to optimize your app for performance. Use debugging features built in to",
               "type": "text"
-            }
-          ],
-          "type": "paragraph"
-        },
-        {
-          "inlineContent": [
-            {
-              "type": "image",
-              "identifier": "improving-the-performance-of-a-realitykit-app-1"
-            }
-          ],
-          "type": "paragraph"
-        },
-        {
-          "inlineContent": [
-            {
-              "type": "text",
-              "text": "Although RealityKit handles much of the complexity of this system for you, it’s still"
             },
             {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": "important to optimize your app for performance. Use debugging features built in to"
+              "text": "RealityKit — along with standard tools like Xcode and Instruments — to pinpoint the",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": "RealityKit — along with standard tools like Xcode and Instruments — to pinpoint the"
+              "text": "causes of reduced frame rate. Then make data-driven adjustments to your assets or",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": " "
-            },
-            {
-              "type": "text",
-              "text": "causes of reduced frame rate. Then make data-driven adjustments to your assets or"
-            },
-            {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
               "text": "to the way you use the framework to improve performance.",
               "type": "text"
             }
-          ],
-          "type": "paragraph"
+          ]
         },
         {
           "level": 3,
-          "anchor": "Locate-performance-bottlenecks",
           "type": "heading",
+          "anchor": "Locate-performance-bottlenecks",
           "text": "Locate performance bottlenecks"
         },
         {
+          "type": "paragraph",
           "inlineContent": [
             {
-              "text": "To address performance problems, you need data. RealityKit provides a debugging option",
-              "type": "text"
+              "type": "text",
+              "text": "To address performance problems, you need data. RealityKit provides a debugging option"
             },
             {
-              "text": " ",
-              "type": "text"
+              "type": "text",
+              "text": " "
             },
             {
-              "text": "to collect a basic set of statistics, like CPU utilization, ECS operations, and memory",
-              "type": "text"
+              "type": "text",
+              "text": "to collect a basic set of statistics, like CPU utilization, ECS operations, and memory"
             },
             {
-              "text": " ",
-              "type": "text"
+              "type": "text",
+              "text": " "
             },
             {
-              "text": "footprint. Add the ",
-              "type": "text"
+              "type": "text",
+              "text": "footprint. Add the "
             },
             {
               "type": "reference",
@@ -209,12 +223,12 @@
               "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ARView/DebugOptions-swift.struct/showStatistics"
             },
             {
-              "text": " ",
-              "type": "text"
+              "type": "text",
+              "text": " "
             },
             {
-              "text": "option to the ",
-              "type": "text"
+              "type": "text",
+              "text": "option to the "
             },
             {
               "type": "reference",
@@ -222,12 +236,12 @@
               "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ARView/debugOptions-swift.property"
             },
             {
-              "text": " option set of your",
-              "type": "text"
+              "type": "text",
+              "text": " option set of your"
             },
             {
-              "text": " ",
-              "type": "text"
+              "type": "text",
+              "text": " "
             },
             {
               "type": "reference",
@@ -235,112 +249,112 @@
               "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ARView"
             },
             {
-              "text": ":",
-              "type": "text"
+              "type": "text",
+              "text": ":"
             }
-          ],
-          "type": "paragraph"
+          ]
         },
         {
+          "type": "codeListing",
           "code": [
             "arView.debugOptions.insert(.showStatistics)"
           ],
-          "type": "codeListing",
           "syntax": "swift"
         },
         {
+          "type": "paragraph",
           "inlineContent": [
             {
-              "type": "text",
-              "text": "As a result, the view draws an overlay that displays statistics, updated in real"
+              "text": "As a result, the view draws an overlay that displays statistics, updated in real",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": "time."
+              "text": "time.",
+              "type": "text"
             }
-          ],
-          "type": "paragraph"
+          ]
         },
         {
+          "type": "paragraph",
           "inlineContent": [
             {
               "identifier": "improving-the-performance-of-a-realitykit-app-2",
               "type": "image"
             }
-          ],
-          "type": "paragraph"
+          ]
         },
         {
+          "type": "paragraph",
           "inlineContent": [
             {
-              "type": "text",
-              "text": "RealityKit typically limits the refresh rate — the rate at which the framework renders"
+              "text": "RealityKit typically limits the refresh rate — the rate at which the framework renders",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": "updates for the screen — to 60 frames per second (fps). This rate limits each of"
+              "text": "updates for the screen — to 60 frames per second (fps). This rate limits each of",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": "the main and render threads, as well as the GPU, to 16.6 ms to complete all computations"
+              "text": "the main and render threads, as well as the GPU, to 16.6 ms to complete all computations",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": "per rendered frame. The overlay reports the observed frame rate, as well as the measured"
+              "text": "per rendered frame. The overlay reports the observed frame rate, as well as the measured",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": "main and render thread times. It also provides granular detail about time spent in"
+              "text": "main and render thread times. It also provides granular detail about time spent in",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": "the main thread, such as when performing tasks like ECS updates and physics calculations."
+              "text": "the main thread, such as when performing tasks like ECS updates and physics calculations.",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": "For more information about the visible metrics, see "
+              "text": "For more information about the visible metrics, see ",
+              "type": "text"
             },
             {
+              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ARView/DebugOptions-swift.struct/showStatistics",
               "isActive": true,
-              "type": "reference",
-              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ARView/DebugOptions-swift.struct/showStatistics"
+              "type": "reference"
             },
             {
-              "type": "text",
-              "text": "."
+              "text": ".",
+              "type": "text"
             }
-          ],
-          "type": "paragraph"
+          ]
         },
         {
+          "type": "paragraph",
           "inlineContent": [
             {
               "text": "If the main thread consumes more than 16.6 ms, then the app is CPU limited. If not,",
@@ -370,197 +384,197 @@
               "text": "in your app.",
               "type": "text"
             }
-          ],
-          "type": "paragraph"
+          ]
         },
         {
+          "type": "aside",
+          "style": "tip",
+          "name": "Tip",
           "content": [
             {
               "type": "paragraph",
               "inlineContent": [
                 {
-                  "type": "text",
-                  "text": "If you need more detailed data, use tools like Xcode’s "
+                  "text": "If you need more detailed data, use tools like Xcode’s ",
+                  "type": "text"
                 },
                 {
-                  "type": "reference",
+                  "isActive": true,
                   "identifier": "https://help.apple.com/xcode/mac/current/#/dev94c128b7b",
-                  "isActive": true
+                  "type": "reference"
                 },
                 {
-                  "type": "text",
-                  "text": " "
+                  "text": " ",
+                  "type": "text"
                 },
                 {
-                  "type": "text",
-                  "text": "and the "
+                  "text": "and the ",
+                  "type": "text"
                 },
                 {
-                  "type": "reference",
+                  "isActive": true,
                   "identifier": "https://help.apple.com/instruments/mac/current/",
-                  "isActive": true
+                  "type": "reference"
                 },
                 {
-                  "type": "text",
-                  "text": " app. Combined"
+                  "text": " app. Combined",
+                  "type": "text"
                 },
                 {
-                  "type": "text",
-                  "text": " "
+                  "text": " ",
+                  "type": "text"
                 },
                 {
-                  "type": "text",
-                  "text": "with OS signposts, available among the "
+                  "text": "with OS signposts, available among the ",
+                  "type": "text"
                 },
                 {
-                  "type": "reference",
+                  "isActive": true,
                   "identifier": "doc://com.apple.documentation/documentation/os/logging",
-                  "isActive": true
+                  "type": "reference"
                 },
                 {
-                  "type": "text",
-                  "text": " "
+                  "text": " ",
+                  "type": "text"
                 },
                 {
-                  "type": "text",
-                  "text": "methods of the "
+                  "text": "methods of the ",
+                  "type": "text"
                 },
                 {
-                  "type": "reference",
+                  "isActive": true,
                   "identifier": "doc://com.apple.documentation/documentation/os",
-                  "isActive": true
+                  "type": "reference"
                 },
                 {
-                  "type": "text",
-                  "text": " framework, you can"
+                  "text": " framework, you can",
+                  "type": "text"
                 },
                 {
-                  "type": "text",
-                  "text": " "
+                  "text": " ",
+                  "type": "text"
                 },
                 {
-                  "type": "text",
-                  "text": "identify processor utilization with a great deal of precision, as described in "
+                  "text": "identify processor utilization with a great deal of precision, as described in ",
+                  "type": "text"
                 },
                 {
-                  "type": "reference",
+                  "isActive": true,
                   "identifier": "doc://com.apple.documentation/documentation/Xcode/improving-your-app-s-performance",
-                  "isActive": true
+                  "type": "reference"
                 },
                 {
-                  "type": "text",
-                  "text": "."
+                  "text": ".",
+                  "type": "text"
                 }
               ]
             }
-          ],
-          "type": "aside",
-          "style": "tip",
-          "name": "Tip"
+          ]
         },
         {
           "level": 3,
-          "anchor": "Reduce-CPU-utilization",
           "type": "heading",
+          "anchor": "Reduce-CPU-utilization",
           "text": "Reduce CPU utilization"
         },
         {
+          "type": "paragraph",
           "inlineContent": [
             {
-              "type": "text",
-              "text": "For an app that’s CPU limited, examine what RealityKit task or tasks — like rendering,"
+              "text": "For an app that’s CPU limited, examine what RealityKit task or tasks — like rendering,",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": "ECS, physics, network, and so on — consume the most time during each frame. Also"
+              "text": "ECS, physics, network, and so on — consume the most time during each frame. Also",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": "consider your app’s custom logic, which contributes to the main thread time. Then"
+              "text": "consider your app’s custom logic, which contributes to the main thread time. Then",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": "target the appropriate areas for optimization, as described in "
+              "text": "target the appropriate areas for optimization, as described in ",
+              "type": "text"
             },
             {
-              "type": "reference",
+              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/reducing-cpu-utilization-in-your-realitykit-app",
               "isActive": true,
-              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/reducing-cpu-utilization-in-your-realitykit-app"
-            },
-            {
-              "type": "text",
-              "text": "."
-            }
-          ],
-          "type": "paragraph"
-        },
-        {
-          "level": 3,
-          "anchor": "Reduce-GPU-utilization",
-          "type": "heading",
-          "text": "Reduce GPU utilization"
-        },
-        {
-          "inlineContent": [
-            {
-              "text": "If your app is GPU limited, look for ways to reduce render work. For example, you",
-              "type": "text"
-            },
-            {
-              "text": " ",
-              "type": "text"
-            },
-            {
-              "text": "can reduce the complexity of your content, like textures, meshes, and materials.",
-              "type": "text"
-            },
-            {
-              "text": " ",
-              "type": "text"
-            },
-            {
-              "text": "Alternatively, you can disable or scale back certain render features, like depth",
-              "type": "text"
-            },
-            {
-              "text": " ",
-              "type": "text"
-            },
-            {
-              "text": "of field, shadows, and environmental texturing. For more information, see ",
-              "type": "text"
-            },
-            {
-              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/reducing-gpu-utilization-in-your-realitykit-app",
-              "type": "reference",
-              "isActive": true
+              "type": "reference"
             },
             {
               "text": ".",
               "type": "text"
             }
-          ],
-          "type": "paragraph"
+          ]
         },
         {
           "level": 3,
-          "anchor": "Make-runtime-adjustments-for-older-devices",
           "type": "heading",
+          "anchor": "Reduce-GPU-utilization",
+          "text": "Reduce GPU utilization"
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "If your app is GPU limited, look for ways to reduce render work. For example, you"
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "can reduce the complexity of your content, like textures, meshes, and materials."
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "Alternatively, you can disable or scale back certain render features, like depth"
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "of field, shadows, and environmental texturing. For more information, see "
+            },
+            {
+              "type": "reference",
+              "isActive": true,
+              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/reducing-gpu-utilization-in-your-realitykit-app"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "type": "heading",
+          "anchor": "Make-runtime-adjustments-for-older-devices",
           "text": "Make runtime adjustments for older devices"
         },
         {
+          "type": "paragraph",
           "inlineContent": [
             {
               "type": "text",
@@ -582,14 +596,15 @@
               "type": "text",
               "text": "reductions that you can make dynamically. For example:"
             }
-          ],
-          "type": "paragraph"
+          ]
         },
         {
+          "type": "unorderedList",
           "items": [
             {
               "content": [
                 {
+                  "type": "paragraph",
                   "inlineContent": [
                     {
                       "text": "Scale back effects, as described in ",
@@ -604,6 +619,18 @@
                       "text": ". Depth of field and motion blur tend to be particularly expensive.",
                       "type": "text"
                     }
+                  ]
+                }
+              ]
+            },
+            {
+              "content": [
+                {
+                  "inlineContent": [
+                    {
+                      "text": "Substitute simpler models with fewer polygons in place of your standard models.",
+                      "type": "text"
+                    }
                   ],
                   "type": "paragraph"
                 }
@@ -616,19 +643,7 @@
                   "inlineContent": [
                     {
                       "type": "text",
-                      "text": "Substitute simpler models with fewer polygons in place of your standard models."
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "content": [
-                {
-                  "inlineContent": [
-                    {
-                      "text": "Reduce the rendering resolution by scaling the ",
-                      "type": "text"
+                      "text": "Reduce the rendering resolution by scaling the "
                     },
                     {
                       "type": "reference",
@@ -636,22 +651,21 @@
                       "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ARView/contentScaleFactor"
                     },
                     {
-                      "text": " ",
-                      "type": "text"
+                      "type": "text",
+                      "text": " "
                     },
                     {
-                      "text": "property of the view, whose default value depends on the device:",
-                      "type": "text"
+                      "type": "text",
+                      "text": "property of the view, whose default value depends on the device:"
                     }
-                  ],
-                  "type": "paragraph"
+                  ]
                 }
               ]
             }
-          ],
-          "type": "unorderedList"
+          ]
         },
         {
+          "type": "codeListing",
           "code": [
             "// Capture the default value after you initialize the view.",
             "let defaultScaleFactor = arView.contentScaleFactor",
@@ -660,69 +674,256 @@
             "// set to 75% of the default value.",
             "arView.contentScaleFactor = 0.75 * defaultScaleFactor"
           ],
-          "type": "codeListing",
           "syntax": "swift"
         },
         {
+          "type": "paragraph",
           "inlineContent": [
             {
-              "text": "Determine which adjustments you need for different kinds of hardware, and then choose",
-              "type": "text"
+              "type": "text",
+              "text": "Determine which adjustments you need for different kinds of hardware, and then choose"
             },
             {
-              "text": " ",
-              "type": "text"
+              "type": "text",
+              "text": " "
             },
             {
-              "text": "different code paths based on the hardware you detect at runtime. To learn about",
-              "type": "text"
+              "type": "text",
+              "text": "different code paths based on the hardware you detect at runtime. To learn about"
             },
             {
-              "text": " ",
-              "type": "text"
+              "type": "text",
+              "text": " "
             },
             {
-              "text": "identifying the available GPU hardware, see ",
-              "type": "text"
+              "type": "text",
+              "text": "identifying the available GPU hardware, see "
             },
             {
-              "type": "reference",
               "isActive": true,
+              "type": "reference",
               "identifier": "doc://com.apple.documentation/documentation/Metal/detecting-gpu-features-and-metal-software-versions"
             },
             {
-              "text": ".",
-              "type": "text"
+              "type": "text",
+              "text": "."
             }
-          ],
-          "type": "paragraph"
+          ]
         }
-      ]
+      ],
+      "kind": "content"
     }
   ],
-  "hierarchy": {
-    "paths": [
-      [
-        "doc://com.apple.documentation/documentation/technologies",
-        "doc://com.apple.RealityKit/documentation/RealityKit"
-      ],
-      [
-        "doc://com.apple.documentation/documentation/technologies",
-        "doc://com.apple.RealityKit/documentation/RealityKit",
-        "doc://com.apple.RealityKit/documentation/RealityKit/presentation-views-and-attachments",
-        "doc://com.apple.RealityKit/documentation/RealityKit/ARView"
-      ]
-    ]
-  },
-  "sections": [],
+  "kind": "article",
   "references": {
-    "doc://com.apple.RealityKit/documentation/RealityKit/Resource": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Resource",
-      "title": "Resource",
-      "role": "symbol",
+    "doc://com.apple.documentation/documentation/Metal": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Render advanced 3D graphics and compute data in parallel with graphics processors."
+        }
+      ],
+      "title": "Metal",
       "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/resource",
+      "url": "https://developer.apple.com/documentation/Metal",
       "kind": "symbol",
+      "role": "collection",
+      "identifier": "doc://com.apple.documentation/documentation/Metal"
+    },
+    "improving-the-performance-of-a-realitykit-app-2": {
+      "type": "image",
+      "variants": [
+        {
+          "traits": [
+            "2x",
+            "light"
+          ],
+          "url": "https://docs-assets.developer.apple.com/published/4ae6ce5c8e636852322064a0932f33d4/improving-the-performance-of-a-realitykit-app-2%402x.png"
+        },
+        {
+          "traits": [
+            "2x",
+            "dark"
+          ],
+          "url": "https://docs-assets.developer.apple.com/published/4ae6ce5c8e636852322064a0932f33d4/improving-the-performance-of-a-realitykit-app-2~dark%402x.png"
+        }
+      ],
+      "identifier": "improving-the-performance-of-a-realitykit-app-2",
+      "alt": "A screenshot of a RealityKit app running on an iPad, showing statistics in the lower third of the display overlaid with partial transparency onto a scene with a virtual cube placed on a real wooden surface."
+    },
+    "doc://com.apple.documentation/documentation/technologies": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": ""
+        }
+      ],
+      "title": "Technologies",
+      "role": "overview",
+      "type": "topic",
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "url": "https://developer.apple.com/documentation/technologies",
+      "kind": "technologies"
+    },
+    "doc://com.apple.documentation/documentation/os/logging": {
+      "abstract": [
+        {
+          "text": "Capture telemetry from your app for debugging and performance analysis using the unified logging system.",
+          "type": "text"
+        }
+      ],
+      "title": "Logging",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/os/logging",
+      "kind": "article",
+      "role": "article",
+      "identifier": "doc://com.apple.documentation/documentation/os/logging"
+    },
+    "doc://com.apple.documentation/documentation/Metal/detecting-gpu-features-and-metal-software-versions": {
+      "url": "https://developer.apple.com/documentation/Metal/detecting-gpu-features-and-metal-software-versions",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Use the device object’s properties to determine how you perform tasks in Metal."
+        }
+      ],
+      "identifier": "doc://com.apple.documentation/documentation/Metal/detecting-gpu-features-and-metal-software-versions",
+      "type": "topic",
+      "title": "Detecting GPU Features and Metal Software Versions",
+      "role": "article",
+      "kind": "article"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/reducing-gpu-utilization-in-your-realitykit-app": {
+      "title": "Reducing GPU Utilization in Your RealityKit App",
+      "role": "article",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Prevent the GPU from limiting your app’s frame rate by reducing the complexity of"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "type": "text",
+          "text": "your render."
+        }
+      ],
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/realitykit/reducing-gpu-utilization-in-your-realitykit-app",
+      "kind": "article",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/reducing-gpu-utilization-in-your-realitykit-app"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/reducing-gpu-utilization-in-your-realitykit-app#Choose-render-effects-carefully": {
+      "url": "https://developer.apple.com/documentation/realitykit/reducing-gpu-utilization-in-your-realitykit-app#Choose-render-effects-carefully",
+      "abstract": [],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/reducing-gpu-utilization-in-your-realitykit-app#Choose-render-effects-carefully",
+      "type": "topic",
+      "title": "Choose render effects carefully",
+      "kind": "section"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Simulate and render 3D content for use in your augmented reality apps."
+        }
+      ],
+      "title": "RealityKit",
+      "role": "collection",
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit",
+      "url": "https://developer.apple.com/documentation/realitykit",
+      "kind": "symbol"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/passing-metal-command-objects-around-your-application": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Build a system that creates and passes Metal command objects to entities dispatching Metal compute shaders."
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/passing-metal-command-objects-around-your-application",
+      "title": "Passing Metal command objects around your application",
+      "role": "article",
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/realitykit/passing-metal-command-objects-around-your-application",
+      "type": "topic"
+    },
+    "improving-the-performance-of-a-realitykit-app-1": {
+      "variants": [
+        {
+          "traits": [
+            "2x",
+            "light"
+          ],
+          "url": "https://docs-assets.developer.apple.com/published/46121d5e2ef35e29f7453c9edf9c5087/improving-the-performance-of-a-realitykit-app-1%402x.png"
+        },
+        {
+          "traits": [
+            "2x",
+            "dark"
+          ],
+          "url": "https://docs-assets.developer.apple.com/published/3f993656bf8bb8bacff264dea18ba1c5/improving-the-performance-of-a-realitykit-app-1~dark%402x.png"
+        }
+      ],
+      "alt": "A diagram showing how your app runs on the CPU, supported by RealityKit, ARKit, and Metal, with Metal running vertex, compute, and fragment shaders on the GPU, resulting in your app’s content rendering on the display.",
+      "identifier": "improving-the-performance-of-a-realitykit-app-1",
+      "type": "image"
+    },
+    "https://help.apple.com/instruments/mac/current/": {
+      "url": "https://help.apple.com/instruments/mac/current/",
+      "titleInlineContent": [
+        {
+          "type": "text",
+          "text": "Instruments"
+        }
+      ],
+      "identifier": "https://help.apple.com/instruments/mac/current/",
+      "type": "link",
+      "title": "Instruments"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/presentation-views-and-attachments": {
+      "url": "https://developer.apple.com/documentation/realitykit/presentation-views-and-attachments",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Bring RealityKit content into your app with views and renderers."
+        }
+      ],
+      "role": "collectionGroup",
+      "type": "topic",
+      "kind": "article",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/presentation-views-and-attachments",
+      "title": "Views and attachments"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/Resource": {
+      "abstract": [
+        {
+          "text": "A shared resource you use to configure a component, like a material, mesh,",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "or texture.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Resource"
+        }
+      ],
+      "kind": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Resource",
+      "url": "https://developer.apple.com/documentation/realitykit/resource",
+      "role": "symbol",
       "fragments": [
         {
           "kind": "keyword",
@@ -737,216 +938,54 @@
           "text": "Resource"
         }
       ],
+      "title": "Resource"
+    },
+    "doc://com.apple.documentation/documentation/os": {
+      "url": "https://developer.apple.com/documentation/os",
       "abstract": [
         {
           "type": "text",
-          "text": "A shared resource you use to configure a component, like a material, mesh,"
-        },
-        {
-          "type": "text",
-          "text": " "
-        },
-        {
-          "type": "text",
-          "text": "or texture."
+          "text": "Coordinate the scheduling and synchronization of your app’s tasks, and log information to the console to diagnose issues."
         }
       ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "Resource"
-        }
-      ]
-    },
-    "doc://com.apple.documentation/documentation/os/logging": {
-      "role": "article",
-      "identifier": "doc://com.apple.documentation/documentation/os/logging",
-      "kind": "article",
-      "url": "https://developer.apple.com/documentation/os/logging",
-      "title": "Logging",
-      "abstract": [
-        {
-          "text": "Capture telemetry from your app for debugging and performance analysis using the unified logging system.",
-          "type": "text"
-        }
-      ],
-      "type": "topic"
-    },
-    "doc://com.apple.documentation/documentation/ARKit": {
-      "identifier": "doc://com.apple.documentation/documentation/ARKit",
-      "title": "ARKit",
+      "identifier": "doc://com.apple.documentation/documentation/os",
+      "type": "topic",
+      "title": "os",
       "role": "collection",
+      "kind": "symbol"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/reducing-cpu-utilization-in-your-realitykit-app": {
       "type": "topic",
-      "url": "https://developer.apple.com/documentation/ARKit",
-      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/reducing-cpu-utilization-in-your-realitykit-app",
+      "title": "Reducing CPU Utilization in Your RealityKit App",
       "abstract": [
         {
           "type": "text",
-          "text": "Integrate hardware sensing features to produce augmented reality apps and games."
-        }
-      ]
-    },
-    "improving-the-performance-of-a-realitykit-app-2": {
-      "identifier": "improving-the-performance-of-a-realitykit-app-2",
-      "variants": [
-        {
-          "url": "https://docs-assets.developer.apple.com/published/4ae6ce5c8e636852322064a0932f33d4/improving-the-performance-of-a-realitykit-app-2%402x.png",
-          "traits": [
-            "2x",
-            "light"
-          ]
-        },
-        {
-          "url": "https://docs-assets.developer.apple.com/published/4ae6ce5c8e636852322064a0932f33d4/improving-the-performance-of-a-realitykit-app-2~dark%402x.png",
-          "traits": [
-            "2x",
-            "dark"
-          ]
+          "text": "Target specific CPU metrics with adjustments to your app and its content."
         }
       ],
-      "alt": "A screenshot of a RealityKit app running on an iPad, showing statistics in the lower third of the display overlaid with partial transparency onto a scene with a virtual cube placed on a real wooden surface.",
-      "type": "image"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/ARView": {
-      "abstract": [
-        {
-          "text": "A view that enables you to display an AR experience with RealityKit.",
-          "type": "text"
-        }
-      ],
-      "role": "symbol",
-      "type": "topic",
-      "kind": "symbol",
-      "title": "ARView",
-      "fragments": [
-        {
-          "text": "class",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "ARView",
-          "kind": "identifier"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "text": "ARView",
-          "kind": "identifier"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/realitykit/arview",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ARView"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/passing-metal-command-objects-around-your-application": {
       "role": "article",
-      "title": "Passing Metal command objects around your application",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/passing-metal-command-objects-around-your-application",
       "kind": "article",
-      "type": "topic",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Build a system that creates and passes Metal command objects to entities dispatching Metal compute shaders."
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/realitykit/passing-metal-command-objects-around-your-application"
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/reducing-cpu-utilization-in-your-realitykit-app"
     },
     "https://help.apple.com/xcode/mac/current/#/dev94c128b7b": {
       "url": "https://help.apple.com/xcode/mac/current/#/dev94c128b7b",
-      "identifier": "https://help.apple.com/xcode/mac/current/#/dev94c128b7b",
-      "title": "debug gauges",
       "titleInlineContent": [
         {
           "type": "text",
           "text": "debug gauges"
         }
       ],
-      "type": "link"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/ARView/contentScaleFactor": {
-      "fragments": [
-        {
-          "text": "var",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "contentScaleFactor",
-          "kind": "identifier"
-        },
-        {
-          "text": ": ",
-          "kind": "text"
-        },
-        {
-          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
-          "text": "CGFloat",
-          "kind": "typeIdentifier"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/realitykit/arview/contentscalefactor",
-      "title": "contentScaleFactor",
-      "role": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ARView/contentScaleFactor",
-      "kind": "symbol",
-      "type": "topic",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "The scale factor of the content in the view."
-        }
-      ]
-    },
-    "doc://com.apple.documentation/documentation/Metal/detecting-gpu-features-and-metal-software-versions": {
-      "role": "article",
-      "url": "https://developer.apple.com/documentation/Metal/detecting-gpu-features-and-metal-software-versions",
-      "identifier": "doc://com.apple.documentation/documentation/Metal/detecting-gpu-features-and-metal-software-versions",
-      "title": "Detecting GPU Features and Metal Software Versions",
-      "type": "topic",
-      "kind": "article",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Use the device object’s properties to determine how you perform tasks in Metal."
-        }
-      ]
-    },
-    "https://help.apple.com/instruments/mac/current/": {
-      "url": "https://help.apple.com/instruments/mac/current/",
-      "identifier": "https://help.apple.com/instruments/mac/current/",
-      "title": "Instruments",
-      "titleInlineContent": [
-        {
-          "type": "text",
-          "text": "Instruments"
-        }
-      ],
-      "type": "link"
+      "identifier": "https://help.apple.com/xcode/mac/current/#/dev94c128b7b",
+      "type": "link",
+      "title": "debug gauges"
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/ARView/debugOptions-swift.property": {
-      "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/realitykit/arview/debugoptions-swift.property",
       "role": "symbol",
-      "title": "debugOptions",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ARView/debugOptions-swift.property",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "The current debugging options."
-        }
-      ],
-      "type": "topic",
       "fragments": [
         {
-          "text": "var",
-          "kind": "keyword"
+          "kind": "keyword",
+          "text": "var"
         },
         {
           "text": " ",
@@ -962,37 +1001,61 @@
         },
         {
           "preciseIdentifier": "c:@M@RealityKit@objc(cs)ARView",
-          "text": "ARView",
-          "kind": "typeIdentifier"
+          "kind": "typeIdentifier",
+          "text": "ARView"
         },
         {
-          "text": ".",
-          "kind": "text"
+          "kind": "text",
+          "text": "."
         },
         {
           "preciseIdentifier": "s:10RealityKit6ARViewC12DebugOptionsV",
-          "text": "DebugOptions",
-          "kind": "typeIdentifier"
+          "kind": "typeIdentifier",
+          "text": "DebugOptions"
         }
-      ]
-    },
-    "doc://com.apple.documentation/documentation/Metal": {
-      "role": "collection",
-      "url": "https://developer.apple.com/documentation/Metal",
-      "identifier": "doc://com.apple.documentation/documentation/Metal",
-      "title": "Metal",
+      ],
+      "title": "debugOptions",
       "type": "topic",
-      "kind": "symbol",
       "abstract": [
         {
           "type": "text",
-          "text": "Render advanced 3D graphics and compute data in parallel with graphics processors."
+          "text": "The current debugging options."
         }
-      ]
+      ],
+      "kind": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ARView/debugOptions-swift.property",
+      "url": "https://developer.apple.com/documentation/realitykit/arview/debugoptions-swift.property"
+    },
+    "doc://com.apple.documentation/documentation/Xcode/improving-your-app-s-performance": {
+      "url": "https://developer.apple.com/documentation/Xcode/improving-your-app-s-performance",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Model, measure, and boost the performance of your app by using a continuous-improvement cycle."
+        }
+      ],
+      "identifier": "doc://com.apple.documentation/documentation/Xcode/improving-your-app-s-performance",
+      "type": "topic",
+      "title": "Improving your app’s performance",
+      "role": "article",
+      "kind": "article"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/construct-an-immersive-environment-for-visionOS": {
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/realitykit/construct-an-immersive-environment-for-visionos",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Build efficient custom worlds for your app."
+        }
+      ],
+      "kind": "article",
+      "title": "Construct an immersive environment for visionOS",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/construct-an-immersive-environment-for-visionOS",
+      "role": "sampleCode"
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/ARView/DebugOptions-swift.struct/showStatistics": {
       "kind": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ARView/DebugOptions-swift.struct/showStatistics",
       "fragments": [
         {
           "text": "static",
@@ -1019,8 +1082,8 @@
           "kind": "text"
         },
         {
-          "preciseIdentifier": "c:@M@RealityKit@objc(cs)ARView",
           "text": "ARView",
+          "preciseIdentifier": "c:@M@RealityKit@objc(cs)ARView",
           "kind": "typeIdentifier"
         },
         {
@@ -1028,170 +1091,107 @@
           "kind": "text"
         },
         {
-          "preciseIdentifier": "s:10RealityKit6ARViewC12DebugOptionsV",
           "text": "DebugOptions",
+          "preciseIdentifier": "s:10RealityKit6ARViewC12DebugOptionsV",
           "kind": "typeIdentifier"
         }
       ],
-      "title": "showStatistics",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ARView/DebugOptions-swift.struct/showStatistics",
       "url": "https://developer.apple.com/documentation/realitykit/arview/debugoptions-swift.struct/showstatistics",
+      "role": "symbol",
+      "title": "showStatistics",
       "type": "topic",
       "abstract": [
         {
-          "type": "text",
-          "text": "Collect performance statistics and display them in the view."
-        }
-      ],
-      "role": "symbol"
-    },
-    "doc://com.apple.documentation/documentation/technologies": {
-      "abstract": [
-        {
-          "text": "",
+          "text": "Collect performance statistics and display them in the view.",
           "type": "text"
-        }
-      ],
-      "role": "overview",
-      "type": "topic",
-      "kind": "technologies",
-      "title": "Technologies",
-      "url": "https://developer.apple.com/documentation/technologies",
-      "identifier": "doc://com.apple.documentation/documentation/technologies"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/reducing-cpu-utilization-in-your-realitykit-app": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/reducing-cpu-utilization-in-your-realitykit-app",
-      "abstract": [
-        {
-          "text": "Target specific CPU metrics with adjustments to your app and its content.",
-          "type": "text"
-        }
-      ],
-      "kind": "article",
-      "role": "article",
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/reducing-cpu-utilization-in-your-realitykit-app",
-      "title": "Reducing CPU Utilization in Your RealityKit App"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/presentation-views-and-attachments": {
-      "type": "topic",
-      "role": "collectionGroup",
-      "kind": "article",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/presentation-views-and-attachments",
-      "abstract": [
-        {
-          "text": "Bring RealityKit content into your app with views and renderers.",
-          "type": "text"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/realitykit/presentation-views-and-attachments",
-      "title": "Views and attachments"
-    },
-    "doc://com.apple.documentation/documentation/Xcode/improving-your-app-s-performance": {
-      "role": "article",
-      "url": "https://developer.apple.com/documentation/Xcode/improving-your-app-s-performance",
-      "identifier": "doc://com.apple.documentation/documentation/Xcode/improving-your-app-s-performance",
-      "title": "Improving your app’s performance",
-      "type": "topic",
-      "kind": "article",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Model, measure, and boost the performance of your app by using a continuous-improvement cycle."
         }
       ]
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/construct-an-immersive-environment-for-visionOS": {
-      "kind": "article",
-      "title": "Construct an immersive environment for visionOS",
-      "role": "sampleCode",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/construct-an-immersive-environment-for-visionOS",
-      "abstract": [
-        {
-          "text": "Build efficient custom worlds for your app.",
-          "type": "text"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/realitykit/construct-an-immersive-environment-for-visionos",
-      "type": "topic"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/reducing-gpu-utilization-in-your-realitykit-app#Choose-render-effects-carefully": {
-      "abstract": [],
-      "title": "Choose render effects carefully",
+    "doc://com.apple.documentation/documentation/ARKit": {
+      "title": "ARKit",
+      "url": "https://developer.apple.com/documentation/ARKit",
       "type": "topic",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/reducing-gpu-utilization-in-your-realitykit-app#Choose-render-effects-carefully",
-      "kind": "section",
-      "url": "https://developer.apple.com/documentation/realitykit/reducing-gpu-utilization-in-your-realitykit-app#Choose-render-effects-carefully"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit": {
-      "type": "topic",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit",
+      "identifier": "doc://com.apple.documentation/documentation/ARKit",
       "abstract": [
         {
           "type": "text",
-          "text": "Simulate and render 3D content for use in your augmented reality apps."
+          "text": "Integrate hardware sensing features to produce augmented reality apps and games."
         }
       ],
       "kind": "symbol",
-      "title": "RealityKit",
-      "url": "https://developer.apple.com/documentation/realitykit",
       "role": "collection"
     },
-    "doc://com.apple.documentation/documentation/os": {
-      "role": "collection",
-      "url": "https://developer.apple.com/documentation/os",
-      "identifier": "doc://com.apple.documentation/documentation/os",
-      "title": "os",
-      "type": "topic",
-      "kind": "symbol",
-      "abstract": [
+    "doc://com.apple.RealityKit/documentation/RealityKit/ARView": {
+      "fragments": [
         {
-          "type": "text",
-          "text": "Coordinate the scheduling and synchronization of your app’s tasks, and log information to the console to diagnose issues."
-        }
-      ]
-    },
-    "improving-the-performance-of-a-realitykit-app-1": {
-      "variants": [
-        {
-          "url": "https://docs-assets.developer.apple.com/published/46121d5e2ef35e29f7453c9edf9c5087/improving-the-performance-of-a-realitykit-app-1%402x.png",
-          "traits": [
-            "2x",
-            "light"
-          ]
-        },
-        {
-          "url": "https://docs-assets.developer.apple.com/published/3f993656bf8bb8bacff264dea18ba1c5/improving-the-performance-of-a-realitykit-app-1~dark%402x.png",
-          "traits": [
-            "2x",
-            "dark"
-          ]
-        }
-      ],
-      "identifier": "improving-the-performance-of-a-realitykit-app-1",
-      "alt": "A diagram showing how your app runs on the CPU, supported by RealityKit, ARKit, and Metal, with Metal running vertex, compute, and fragment shaders on the GPU, resulting in your app’s content rendering on the display.",
-      "type": "image"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/reducing-gpu-utilization-in-your-realitykit-app": {
-      "role": "article",
-      "abstract": [
-        {
-          "text": "Prevent the GPU from limiting your app’s frame rate by reducing the complexity of",
-          "type": "text"
+          "text": "class",
+          "kind": "keyword"
         },
         {
           "text": " ",
-          "type": "text"
+          "kind": "text"
         },
         {
-          "text": "your render.",
+          "text": "ARView",
+          "kind": "identifier"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ARView",
+      "abstract": [
+        {
+          "text": "A view that enables you to display an AR experience with RealityKit.",
           "type": "text"
         }
       ],
-      "url": "https://developer.apple.com/documentation/realitykit/reducing-gpu-utilization-in-your-realitykit-app",
-      "kind": "article",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/reducing-gpu-utilization-in-your-realitykit-app",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "ARView",
+          "kind": "identifier"
+        }
+      ],
+      "role": "symbol",
+      "title": "ARView",
+      "url": "https://developer.apple.com/documentation/realitykit/arview",
+      "type": "topic"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/ARView/contentScaleFactor": {
       "type": "topic",
-      "title": "Reducing GPU Utilization in Your RealityKit App"
+      "url": "https://developer.apple.com/documentation/realitykit/arview/contentscalefactor",
+      "title": "contentScaleFactor",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The scale factor of the content in the view."
+        }
+      ],
+      "role": "symbol",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "contentScaleFactor"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "CGFloat",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ARView/contentScaleFactor"
     }
   },
   "legalNotices": {
