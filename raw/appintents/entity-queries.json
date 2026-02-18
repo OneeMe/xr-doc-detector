@@ -1,38 +1,62 @@
 {
-  "abstract": [
+  "metadata": {
+    "modules": [
+      {
+        "name": "App Intents"
+      }
+    ],
+    "roleHeading": "API Collection",
+    "role": "collectionGroup",
+    "title": "Entity queries"
+  },
+  "variants": [
     {
-      "type": "text",
-      "text": "Help the system find the entities your app defines and use"
-    },
-    {
-      "type": "text",
-      "text": " "
-    },
-    {
-      "text": "them to resolve parameters.",
-      "type": "text"
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ],
+      "paths": [
+        "/documentation/appintents/entity-queries"
+      ]
     }
   ],
   "sections": [],
+  "identifier": {
+    "url": "doc://com.apple.AppIntents/documentation/AppIntents/entity-queries",
+    "interfaceLanguage": "swift"
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.AppIntents/documentation/AppIntents"
+      ]
+    ]
+  },
+  "kind": "article",
   "topicSections": [
     {
+      "anchor": "Identifier-based-queries",
       "title": "Identifier-based queries",
       "identifiers": [
         "doc://com.apple.AppIntents/documentation/AppIntents/EntityQuery",
         "doc://com.apple.AppIntents/documentation/AppIntents/EnumerableEntityQuery"
-      ],
-      "anchor": "Identifier-based-queries"
+      ]
     },
     {
+      "title": "String-based queries",
+      "anchor": "String-based-queries",
       "identifiers": [
         "doc://com.apple.AppIntents/documentation/AppIntents/EntityStringQuery"
-      ],
-      "anchor": "String-based-queries",
-      "title": "String-based queries"
+      ]
     },
     {
-      "title": "Property-matched queries",
-      "anchor": "Property-matched-queries",
       "identifiers": [
         "doc://com.apple.AppIntents/documentation/AppIntents/EntityPropertyQuery",
         "doc://com.apple.AppIntents/documentation/AppIntents/EntityQueryProperties",
@@ -41,25 +65,56 @@
         "doc://com.apple.AppIntents/documentation/AppIntents/EntityQuerySortingOptions",
         "doc://com.apple.AppIntents/documentation/AppIntents/EntityQuerySortableByProperty",
         "doc://com.apple.AppIntents/documentation/AppIntents/EntityQuerySort"
-      ]
+      ],
+      "anchor": "Property-matched-queries",
+      "title": "Property-matched queries"
     },
     {
+      "anchor": "Unique-entity-queries",
+      "title": "Unique entity queries",
       "identifiers": [
         "doc://com.apple.AppIntents/documentation/AppIntents/UniqueAppEntityQuery",
         "doc://com.apple.AppIntents/documentation/AppIntents/UniqueAppEntityProvider"
+      ]
+    }
+  ],
+  "seeAlsoSections": [
+    {
+      "anchor": "Parameters-custom-data-types-and-queries",
+      "title": "Parameters, custom data types, and queries",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/Adding-parameters-to-an-app-intent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/Integrating-custom-types-into-your-intents",
+        "doc://com.apple.AppIntents/documentation/AppIntents/parameter-resolution",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-entities",
+        "doc://com.apple.AppIntents/documentation/AppIntents/resolvers"
       ],
-      "title": "Unique entity queries",
-      "anchor": "Unique-entity-queries"
+      "generated": true
+    }
+  ],
+  "abstract": [
+    {
+      "text": "Help the system find the entities your app defines and use",
+      "type": "text"
+    },
+    {
+      "type": "text",
+      "text": " "
+    },
+    {
+      "type": "text",
+      "text": "them to resolve parameters."
     }
   ],
   "primaryContentSections": [
     {
+      "kind": "content",
       "content": [
         {
-          "anchor": "Overview",
-          "level": 2,
           "text": "Overview",
-          "type": "heading"
+          "type": "heading",
+          "anchor": "Overview",
+          "level": 2
         },
         {
           "inlineContent": [
@@ -68,16 +123,16 @@
               "text": "When the system needs to retrieve one or more specific instances of an app"
             },
             {
-              "text": " ",
-              "type": "text"
+              "type": "text",
+              "text": " "
             },
             {
-              "text": "entity, it asks you to provide a relevant query type. The system uses queries",
-              "type": "text"
+              "type": "text",
+              "text": "entity, it asks you to provide a relevant query type. The system uses queries"
             },
             {
-              "text": " ",
-              "type": "text"
+              "type": "text",
+              "text": " "
             },
             {
               "type": "text",
@@ -88,16 +143,16 @@
               "text": " "
             },
             {
-              "text": "an entity. The system also uses them to resolve information in a different",
-              "type": "text"
-            },
-            {
-              "text": " ",
-              "type": "text"
+              "type": "text",
+              "text": "an entity. The system also uses them to resolve information in a different"
             },
             {
               "type": "text",
-              "text": "format into one of your app’s entities. For example, it uses them to"
+              "text": " "
+            },
+            {
+              "text": "format into one of your app’s entities. For example, it uses them to",
+              "type": "text"
             },
             {
               "text": " ",
@@ -111,14 +166,15 @@
           "type": "paragraph"
         },
         {
+          "type": "paragraph",
           "inlineContent": [
             {
-              "type": "text",
-              "text": "The system can sometimes determine which entities it needs and provide you"
+              "text": "The system can sometimes determine which entities it needs and provide you",
+              "type": "text"
             },
             {
-              "text": " ",
-              "type": "text"
+              "type": "text",
+              "text": " "
             },
             {
               "type": "text",
@@ -142,135 +198,63 @@
               "type": "text"
             },
             {
-              "type": "text",
-              "text": " "
-            },
-            {
-              "type": "text",
-              "text": "types to perform more advanced searches, such as a search that matches"
-            },
-            {
               "text": " ",
               "type": "text"
             },
             {
+              "text": "types to perform more advanced searches, such as a search that matches",
+              "type": "text"
+            },
+            {
               "type": "text",
-              "text": "specific properties of the entity."
+              "text": " "
+            },
+            {
+              "text": "specific properties of the entity.",
+              "type": "text"
             }
-          ],
-          "type": "paragraph"
-        }
-      ],
-      "kind": "content"
-    }
-  ],
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://com.apple.AppIntents/documentation/AppIntents/entity-queries"
-  },
-  "variants": [
-    {
-      "paths": [
-        "/documentation/appintents/entity-queries"
-      ],
-      "traits": [
-        {
-          "interfaceLanguage": "swift"
+          ]
         }
       ]
     }
   ],
-  "seeAlsoSections": [
-    {
-      "title": "Parameters, custom data types, and queries",
-      "generated": true,
-      "anchor": "Parameters-custom-data-types-and-queries",
-      "identifiers": [
-        "doc://com.apple.AppIntents/documentation/AppIntents/Adding-parameters-to-an-app-intent",
-        "doc://com.apple.AppIntents/documentation/AppIntents/Integrating-custom-types-into-your-intents",
-        "doc://com.apple.AppIntents/documentation/AppIntents/parameter-resolution",
-        "doc://com.apple.AppIntents/documentation/AppIntents/app-entities",
-        "doc://com.apple.AppIntents/documentation/AppIntents/resolvers"
-      ]
-    }
-  ],
-  "metadata": {
-    "title": "Entity queries",
-    "role": "collectionGroup",
-    "roleHeading": "API Collection",
-    "modules": [
-      {
-        "name": "App Intents"
-      }
-    ]
-  },
-  "kind": "article",
-  "hierarchy": {
-    "paths": [
-      [
-        "doc://com.apple.documentation/documentation/technologies",
-        "doc://com.apple.AppIntents/documentation/AppIntents"
-      ]
-    ]
-  },
   "references": {
-    "doc://com.apple.AppIntents/documentation/AppIntents/EntityQuerySortingOptions": {
-      "navigatorTitle": [
-        {
-          "text": "EntityQuerySortingOptions",
-          "kind": "identifier"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "EntityQuerySortingOptions",
-          "kind": "identifier"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/entityquerysortingoptions",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/EntityQuerySortingOptions",
-      "kind": "symbol",
-      "type": "topic",
-      "role": "symbol",
-      "title": "EntityQuerySortingOptions",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "The potential properties you can use to sort the results of a query."
-        }
-      ]
-    },
     "doc://com.apple.AppIntents/documentation/AppIntents/EntityQuerySortableByProperty": {
-      "type": "topic",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/EntityQuerySortableByProperty",
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/entityquerysortablebyproperty",
+      "role": "symbol",
       "abstract": [
         {
           "text": "Details about a specific property you use to sort the query results.",
           "type": "text"
         }
       ],
-      "role": "symbol",
-      "title": "EntityQuerySortableByProperty",
       "navigatorTitle": [
         {
-          "text": "EntityQuerySortableByProperty",
-          "kind": "identifier"
+          "kind": "identifier",
+          "text": "EntityQuerySortableByProperty"
         }
       ],
-      "url": "https://developer.apple.com/documentation/appintents/entityquerysortablebyproperty",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/EntityQuerySortableByProperty",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "EntityQuerySortableByProperty"
+        }
+      ],
+      "title": "EntityQuerySortableByProperty",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/EntityQueryProperties": {
+      "role": "symbol",
       "fragments": [
         {
           "text": "struct",
@@ -281,16 +265,57 @@
           "kind": "text"
         },
         {
-          "text": "EntityQuerySortableByProperty",
-          "kind": "identifier"
+          "kind": "identifier",
+          "text": "EntityQueryProperties"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "EntityQueryProperties"
+        }
+      ],
+      "title": "EntityQueryProperties",
+      "url": "https://developer.apple.com/documentation/appintents/entityqueryproperties",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/EntityQueryProperties",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A type that provides the properties to include in a property-matched query."
         }
       ],
       "kind": "symbol"
     },
     "doc://com.apple.AppIntents/documentation/AppIntents/UniqueAppEntityQuery": {
+      "title": "UniqueAppEntityQuery",
       "kind": "symbol",
       "url": "https://developer.apple.com/documentation/appintents/uniqueappentityquery",
-      "title": "UniqueAppEntityQuery",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/UniqueAppEntityQuery",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A query designed for only returning a single possible value, provided by "
+        },
+        {
+          "type": "codeVoice",
+          "code": "uniqueEntity"
+        },
+        {
+          "type": "text",
+          "text": "."
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "Protocol extensions will provide the other required query methods based on that.",
+          "type": "text"
+        }
+      ],
+      "role": "symbol",
       "fragments": [
         {
           "text": "protocol",
@@ -305,171 +330,28 @@
           "kind": "identifier"
         }
       ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/UniqueAppEntityQuery",
-      "role": "symbol",
       "navigatorTitle": [
         {
-          "kind": "identifier",
-          "text": "UniqueAppEntityQuery"
-        }
-      ],
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A query designed for only returning a single possible value, provided by "
-        },
-        {
-          "code": "uniqueEntity",
-          "type": "codeVoice"
-        },
-        {
-          "text": ".",
-          "type": "text"
-        },
-        {
-          "type": "text",
-          "text": " "
-        },
-        {
-          "text": "Protocol extensions will provide the other required query methods based on that.",
-          "type": "text"
-        }
-      ],
-      "type": "topic"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/EntityQueryProperty": {
-      "url": "https://developer.apple.com/documentation/appintents/entityqueryproperty",
-      "fragments": [
-        {
-          "text": "class",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "EntityQueryProperty"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "EntityQueryProperty"
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/EntityQueryProperty",
-      "type": "topic",
-      "kind": "symbol",
-      "role": "symbol",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An object that provides the supported comparators you use to describe the different ways users can query against a property"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "type": "text",
-          "text": "of an app entity."
-        }
-      ],
-      "title": "EntityQueryProperty"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/Adding-parameters-to-an-app-intent": {
-      "title": "Adding parameters to an app intent",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/Adding-parameters-to-an-app-intent",
-      "kind": "article",
-      "type": "topic",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Enable people to configure app intents with their custom input values."
-        }
-      ],
-      "role": "article",
-      "url": "https://developer.apple.com/documentation/appintents/adding-parameters-to-an-app-intent"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents": {
-      "kind": "symbol",
-      "type": "topic",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Make your app’s content and actions discoverable with system experiences like Spotlight, widgets, and the Shortcuts app."
-        }
-      ],
-      "title": "App Intents",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents",
-      "url": "https://developer.apple.com/documentation/appintents",
-      "role": "collection"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/resolvers": {
-      "type": "topic",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Resolve the parameters of your app intents, and extend the standard resolution"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "types to include your app’s custom types.",
-          "type": "text"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/resolvers",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/resolvers",
-      "role": "collectionGroup",
-      "kind": "article",
-      "title": "Resolvers"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/property-comparators": {
-      "title": "Property comparators",
-      "role": "collectionGroup",
-      "kind": "article",
-      "url": "https://developer.apple.com/documentation/appintents/property-comparators",
-      "type": "topic",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/property-comparators",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Specify the type of comparison to perform during a property-matched query."
+          "text": "UniqueAppEntityQuery",
+          "kind": "identifier"
         }
       ]
     },
-    "doc://com.apple.documentation/documentation/technologies": {
-      "role": "overview",
-      "kind": "technologies",
-      "identifier": "doc://com.apple.documentation/documentation/technologies",
+    "doc://com.apple.AppIntents/documentation/AppIntents/property-comparators": {
       "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/property-comparators",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/property-comparators",
+      "role": "collectionGroup",
+      "title": "Property comparators",
       "abstract": [
         {
-          "type": "text",
-          "text": ""
+          "text": "Specify the type of comparison to perform during a property-matched query.",
+          "type": "text"
         }
       ],
-      "url": "https://developer.apple.com/documentation/technologies",
-      "title": "Technologies"
+      "kind": "article"
     },
     "doc://com.apple.AppIntents/documentation/AppIntents/EntityStringQuery": {
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/EntityStringQuery",
-      "url": "https://developer.apple.com/documentation/appintents/entitystringquery",
-      "title": "EntityStringQuery",
-      "type": "topic",
-      "role": "symbol",
-      "kind": "symbol",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An interface that locates entities using arbitrary string input."
-        }
-      ],
       "fragments": [
         {
           "text": "protocol",
@@ -486,22 +368,175 @@
       ],
       "navigatorTitle": [
         {
+          "text": "EntityStringQuery",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/entitystringquery",
+      "title": "EntityStringQuery",
+      "role": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An interface that locates entities using arbitrary string input."
+        }
+      ],
+      "kind": "symbol",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/EntityStringQuery"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/parameter-resolution": {
+      "title": "Parameter resolution",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/parameter-resolution",
+      "url": "https://developer.apple.com/documentation/appintents/parameter-resolution",
+      "kind": "article",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "text": "Define the required parameters for your app intents and specify how to resolve",
+          "type": "text"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "type": "text",
+          "text": "those parameters at runtime."
+        }
+      ],
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-entities": {
+      "abstract": [
+        {
+          "text": "Make core types or concepts discoverable to the system by declaring",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "type": "text",
+          "text": "them as app entities."
+        }
+      ],
+      "role": "collectionGroup",
+      "type": "topic",
+      "title": "App entities",
+      "kind": "article",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-entities",
+      "url": "https://developer.apple.com/documentation/appintents/app-entities"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/EnumerableEntityQuery": {
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/enumerableentityquery",
+      "navigatorTitle": [
+        {
           "kind": "identifier",
-          "text": "EntityStringQuery"
+          "text": "EnumerableEntityQuery"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "An interface you use to provide a short list of entities that are relatively small in size.",
+          "type": "text"
+        }
+      ],
+      "title": "EnumerableEntityQuery",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "EnumerableEntityQuery"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/EnumerableEntityQuery",
+      "type": "topic",
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/UniqueAppEntityProvider": {
+      "role": "symbol",
+      "type": "topic",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "UniqueAppEntityProvider"
+        }
+      ],
+      "title": "UniqueAppEntityProvider",
+      "url": "https://developer.apple.com/documentation/appintents/uniqueappentityprovider",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/UniqueAppEntityProvider",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "UniqueAppEntityProvider"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "A simplified query type conforming to ",
+          "type": "text"
+        },
+        {
+          "type": "codeVoice",
+          "code": "UniqueAppEntityQuery"
+        },
+        {
+          "text": ".  Use this as the value",
+          "type": "text"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "of the ",
+          "type": "text"
+        },
+        {
+          "type": "codeVoice",
+          "code": "defaultQuery"
+        },
+        {
+          "type": "text",
+          "text": " of an entity conforming to "
+        },
+        {
+          "type": "codeVoice",
+          "code": "UniqueAppEntity"
+        },
+        {
+          "text": ".",
+          "type": "text"
         }
       ]
     },
     "doc://com.apple.AppIntents/documentation/AppIntents/EntityPropertyQuery": {
       "abstract": [
         {
-          "text": "An interface for locating entities by matching values against one or more of their properties.",
-          "type": "text"
+          "type": "text",
+          "text": "An interface for locating entities by matching values against one or more of their properties."
         }
       ],
-      "title": "EntityPropertyQuery",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/EntityPropertyQuery",
-      "kind": "symbol",
-      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/entitypropertyquery",
       "fragments": [
         {
           "text": "protocol",
@@ -516,223 +551,74 @@
           "kind": "identifier"
         }
       ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "EntityPropertyQuery"
-        }
-      ],
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/appintents/entitypropertyquery"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/EntityQuery": {
       "kind": "symbol",
       "type": "topic",
-      "title": "EntityQuery",
       "navigatorTitle": [
         {
-          "kind": "identifier",
-          "text": "EntityQuery"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "protocol"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "EntityQuery"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/entityquery",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/EntityQuery",
-      "role": "symbol",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An interface for locating entities using their identifiers."
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/EnumerableEntityQuery": {
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "EnumerableEntityQuery"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/enumerableentityquery",
-      "title": "EnumerableEntityQuery",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "protocol"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "EnumerableEntityQuery",
+          "text": "EntityPropertyQuery",
           "kind": "identifier"
         }
       ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/EnumerableEntityQuery",
-      "type": "topic",
-      "abstract": [
-        {
-          "text": "An interface you use to provide a short list of entities that are relatively small in size.",
-          "type": "text"
-        }
-      ],
-      "role": "symbol",
-      "kind": "symbol"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/app-entities": {
-      "abstract": [
-        {
-          "text": "Make core types or concepts discoverable to the system by declaring",
-          "type": "text"
-        },
-        {
-          "type": "text",
-          "text": " "
-        },
-        {
-          "text": "them as app entities.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-entities",
-      "role": "collectionGroup",
-      "type": "topic",
-      "kind": "article",
-      "title": "App entities",
-      "url": "https://developer.apple.com/documentation/appintents/app-entities"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/parameter-resolution": {
-      "kind": "article",
-      "abstract": [
-        {
-          "text": "Define the required parameters for your app intents and specify how to resolve",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "type": "text",
-          "text": "those parameters at runtime."
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/parameter-resolution",
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/appintents/parameter-resolution",
-      "title": "Parameter resolution",
-      "role": "collectionGroup"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/Integrating-custom-types-into-your-intents": {
-      "type": "topic",
-      "abstract": [
-        {
-          "text": "Provide the system with information about the types your app uses to model its",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "data so that your intents can use those types as parameters.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/Integrating-custom-types-into-your-intents",
-      "kind": "article",
-      "role": "article",
-      "title": "Integrating custom data types into your intents",
-      "url": "https://developer.apple.com/documentation/appintents/integrating-custom-types-into-your-intents"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/EntityQueryProperties": {
-      "role": "symbol",
-      "fragments": [
-        {
-          "text": "struct",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "EntityQueryProperties",
-          "kind": "identifier"
-        }
-      ],
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A type that provides the properties to include in a property-matched query."
-        }
-      ],
-      "type": "topic",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/EntityQueryProperties",
-      "url": "https://developer.apple.com/documentation/appintents/entityqueryproperties",
-      "title": "EntityQueryProperties",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "EntityQueryProperties"
-        }
-      ]
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/EntityPropertyQuery",
+      "title": "EntityPropertyQuery",
+      "role": "symbol"
     },
     "doc://com.apple.AppIntents/documentation/AppIntents/EntityQuerySort": {
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/entityquerysort",
+      "abstract": [
+        {
+          "text": "The properties to use to sort the results when the query runs.",
+          "type": "text"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "EntityQuerySort"
+        }
+      ],
       "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/EntityQuerySort",
-      "title": "EntityQuerySort",
-      "kind": "symbol",
+      "role": "symbol",
       "fragments": [
         {
-          "text": "struct",
-          "kind": "keyword"
+          "kind": "keyword",
+          "text": "struct"
         },
         {
-          "kind": "text",
-          "text": " "
+          "text": " ",
+          "kind": "text"
         },
         {
           "kind": "identifier",
           "text": "EntityQuerySort"
         }
       ],
-      "url": "https://developer.apple.com/documentation/appintents/entityquerysort",
+      "title": "EntityQuerySort",
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/EntityQuerySortingOptions": {
+      "abstract": [
+        {
+          "text": "The potential properties you can use to sort the results of a query.",
+          "type": "text"
+        }
+      ],
       "type": "topic",
       "role": "symbol",
+      "kind": "symbol",
       "navigatorTitle": [
         {
-          "text": "EntityQuerySort",
+          "text": "EntityQuerySortingOptions",
           "kind": "identifier"
         }
       ],
-      "abstract": [
-        {
-          "type": "text",
-          "text": "The properties to use to sort the results when the query runs."
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/UniqueAppEntityProvider": {
-      "type": "topic",
+      "title": "EntityQuerySortingOptions",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/EntityQuerySortingOptions",
       "fragments": [
         {
-          "text": "struct",
-          "kind": "keyword"
+          "kind": "keyword",
+          "text": "struct"
         },
         {
           "text": " ",
@@ -740,58 +626,172 @@
         },
         {
           "kind": "identifier",
-          "text": "UniqueAppEntityProvider"
+          "text": "EntityQuerySortingOptions"
         }
       ],
-      "navigatorTitle": [
-        {
-          "text": "UniqueAppEntityProvider",
-          "kind": "identifier"
-        }
-      ],
-      "role": "symbol",
-      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/entityquerysortingoptions"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/resolvers": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/resolvers",
+      "title": "Resolvers",
+      "kind": "article",
+      "type": "topic",
       "abstract": [
         {
           "type": "text",
-          "text": "A simplified query type conforming to "
-        },
-        {
-          "type": "codeVoice",
-          "code": "UniqueAppEntityQuery"
-        },
-        {
-          "type": "text",
-          "text": ".  Use this as the value"
+          "text": "Resolve the parameters of your app intents, and extend the standard resolution"
         },
         {
           "type": "text",
           "text": " "
         },
         {
-          "type": "text",
-          "text": "of the "
-        },
-        {
-          "code": "defaultQuery",
-          "type": "codeVoice"
-        },
-        {
-          "type": "text",
-          "text": " of an entity conforming to "
-        },
-        {
-          "type": "codeVoice",
-          "code": "UniqueAppEntity"
-        },
-        {
-          "text": ".",
+          "text": "types to include your app’s custom types.",
           "type": "text"
         }
       ],
-      "url": "https://developer.apple.com/documentation/appintents/uniqueappentityprovider",
-      "title": "UniqueAppEntityProvider",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/UniqueAppEntityProvider"
+      "url": "https://developer.apple.com/documentation/appintents/resolvers",
+      "role": "collectionGroup"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/EntityQueryProperty": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/EntityQueryProperty",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "text": "class",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "EntityQueryProperty"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "EntityQueryProperty",
+          "kind": "identifier"
+        }
+      ],
+      "role": "symbol",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/entityqueryproperty",
+      "abstract": [
+        {
+          "text": "An object that provides the supported comparators you use to describe the different ways users can query against a property",
+          "type": "text"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "of an app entity.",
+          "type": "text"
+        }
+      ],
+      "title": "EntityQueryProperty"
+    },
+    "doc://com.apple.documentation/documentation/technologies": {
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "kind": "technologies",
+      "type": "topic",
+      "role": "overview",
+      "title": "Technologies",
+      "url": "https://developer.apple.com/documentation/technologies",
+      "abstract": [
+        {
+          "type": "text",
+          "text": ""
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/EntityQuery": {
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "EntityQuery"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "EntityQuery"
+        }
+      ],
+      "kind": "symbol",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/EntityQuery",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An interface for locating entities using their identifiers."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/entityquery",
+      "title": "EntityQuery",
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/Integrating-custom-types-into-your-intents": {
+      "kind": "article",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/Integrating-custom-types-into-your-intents",
+      "type": "topic",
+      "title": "Integrating custom data types into your intents",
+      "role": "article",
+      "url": "https://developer.apple.com/documentation/appintents/integrating-custom-types-into-your-intents",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Provide the system with information about the types your app uses to model its"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "type": "text",
+          "text": "data so that your intents can use those types as parameters."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/Adding-parameters-to-an-app-intent": {
+      "title": "Adding parameters to an app intent",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/Adding-parameters-to-an-app-intent",
+      "url": "https://developer.apple.com/documentation/appintents/adding-parameters-to-an-app-intent",
+      "type": "topic",
+      "kind": "article",
+      "role": "article",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Enable people to configure app intents with their custom input values."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents",
+      "abstract": [
+        {
+          "text": "Make your app’s content and actions discoverable with system experiences like Spotlight, widgets, and the Shortcuts app.",
+          "type": "text"
+        }
+      ],
+      "title": "App Intents",
+      "url": "https://developer.apple.com/documentation/appintents",
+      "role": "collection",
+      "type": "topic",
+      "kind": "symbol"
     }
   },
   "legalNotices": {
