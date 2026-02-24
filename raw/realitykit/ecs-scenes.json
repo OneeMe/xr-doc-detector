@@ -1,15 +1,5 @@
 {
   "sections": [],
-  "metadata": {
-    "roleHeading": "API Collection",
-    "title": "Scenes",
-    "role": "collectionGroup",
-    "modules": [
-      {
-        "name": "RealityKit"
-      }
-    ]
-  },
   "hierarchy": {
     "paths": [
       [
@@ -18,37 +8,55 @@
       ]
     ]
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
+  "metadata": {
+    "role": "collectionGroup",
+    "roleHeading": "API Collection",
+    "modules": [
+      {
+        "name": "RealityKit"
+      }
+    ],
+    "title": "Scenes"
   },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://com.apple.RealityKit/documentation/RealityKit/ecs-scenes"
+  },
+  "kind": "article",
+  "abstract": [
+    {
+      "type": "text",
+      "text": "The context that holds all RealityKit entities."
+    }
+  ],
   "topicSections": [
     {
+      "anchor": "Scene-management",
+      "title": "Scene management",
       "identifiers": [
         "doc://com.apple.RealityKit/documentation/RealityKit/Scene",
         "doc://com.apple.RealityKit/documentation/RealityKit/Scene/AnchorCollection"
-      ],
-      "title": "Scene management",
-      "anchor": "Scene-management"
+      ]
     },
     {
+      "anchor": "Entity-searches",
       "title": "Entity searches",
       "identifiers": [
         "doc://com.apple.RealityKit/documentation/RealityKit/QueryPredicate",
         "doc://com.apple.RealityKit/documentation/RealityKit/PixelCastHit"
-      ],
-      "anchor": "Entity-searches"
+      ]
     },
     {
-      "anchor": "Event-publishers-and-subscription",
       "title": "Event publishers and subscription",
       "identifiers": [
         "doc://com.apple.RealityKit/documentation/RealityKit/SceneEvents",
         "doc://com.apple.RealityKit/documentation/RealityKit/Scene/Publisher"
-      ]
+      ],
+      "anchor": "Event-publishers-and-subscription"
     },
     {
+      "anchor": "Scene-reconstructions-and-analysis",
+      "title": "Scene reconstructions and analysis",
       "identifiers": [
         "doc://com.apple.RealityKit/documentation/RealityKit/creating-a-game-with-scene-understanding",
         "doc://com.apple.RealityKit/documentation/RealityKit/realitykit-scene-understanding",
@@ -61,12 +69,146 @@
         "doc://com.apple.RealityKit/documentation/RealityKit/HasSceneUnderstanding",
         "doc://com.apple.documentation/documentation/ARKit/SceneReconstructionProvider",
         "doc://com.apple.documentation/documentation/ARKit/ARSession"
-      ],
-      "anchor": "Scene-reconstructions-and-analysis",
-      "title": "Scene reconstructions and analysis"
+      ]
     }
   ],
-  "kind": "article",
+  "seeAlsoSections": [
+    {
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/ecs-systems",
+        "doc://com.apple.RealityKit/documentation/RealityKit/ecs-events",
+        "doc://com.apple.RealityKit/documentation/RealityKit/ecs-entity-actions"
+      ],
+      "generated": true,
+      "anchor": "Scene-management-and-logic",
+      "title": "Scene management and logic"
+    }
+  ],
+  "primaryContentSections": [
+    {
+      "content": [
+        {
+          "level": 2,
+          "text": "Overview",
+          "type": "heading",
+          "anchor": "Overview"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "The system adds an ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Entity",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "type": "text",
+              "text": " to a "
+            },
+            {
+              "type": "reference",
+              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Scene",
+              "isActive": true
+            },
+            {
+              "type": "text",
+              "text": " when you add it to a "
+            },
+            {
+              "type": "reference",
+              "isActive": true,
+              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/RealityView"
+            },
+            {
+              "text": " with",
+              "type": "text"
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "a "
+            },
+            {
+              "type": "reference",
+              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/RealityViewCameraContent",
+              "isActive": true
+            },
+            {
+              "type": "text",
+              "text": " or "
+            },
+            {
+              "isActive": true,
+              "type": "reference",
+              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/RealityViewContent"
+            },
+            {
+              "text": " instance.",
+              "type": "text"
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "text": "These scenes contain anchors and a hierarchy of entities that",
+              "type": "text"
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "text": "make up your RealityKit content.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "The "
+            },
+            {
+              "isActive": true,
+              "type": "reference",
+              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Scene"
+            },
+            {
+              "text": " instance has helpful methods to",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "type": "text",
+              "text": "perform ray casts to help you better understand your scene,"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "type": "text",
+              "text": "and methods that find entities either by name or by components they own."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
+    }
+  ],
   "variants": [
     {
       "paths": [
@@ -79,164 +221,752 @@
       ]
     }
   ],
-  "seeAlsoSections": [
-    {
-      "anchor": "Scene-management-and-logic",
-      "identifiers": [
-        "doc://com.apple.RealityKit/documentation/RealityKit/ecs-systems",
-        "doc://com.apple.RealityKit/documentation/RealityKit/ecs-events",
-        "doc://com.apple.RealityKit/documentation/RealityKit/ecs-entity-actions"
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "references": {
+    "doc://com.apple.documentation/documentation/ARKit/SceneReconstructionProvider": {
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "class",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "SceneReconstructionProvider",
+          "kind": "identifier"
+        }
       ],
-      "title": "Scene management and logic",
-      "generated": true
-    }
-  ],
-  "primaryContentSections": [
-    {
-      "kind": "content",
-      "content": [
+      "abstract": [
         {
-          "anchor": "Overview",
-          "text": "Overview",
-          "type": "heading",
-          "level": 2
+          "type": "text",
+          "text": "A source of live data about the shape of a person’s surroundings."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/ARKit/SceneReconstructionProvider",
+      "type": "topic",
+      "kind": "symbol",
+      "title": "SceneReconstructionProvider",
+      "identifier": "doc://com.apple.documentation/documentation/ARKit/SceneReconstructionProvider"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/ecs-entity-actions": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ecs-entity-actions",
+      "title": "Entity actions",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Create simple, reusable actions that can change your app state, RealityKit scene, or animate an entity."
+        }
+      ],
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/realitykit/ecs-entity-actions",
+      "kind": "article"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/ecs-events": {
+      "abstract": [
+        {
+          "text": "Respond to things happening in your RealityKit scene by subscribing to specific event types.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/ecs-events",
+      "role": "collectionGroup",
+      "title": "Events",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ecs-events",
+      "kind": "article",
+      "type": "topic"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/creating-a-game-with-scene-understanding": {
+      "url": "https://developer.apple.com/documentation/realitykit/creating-a-game-with-scene-understanding",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "Create AR games and experiences that interact with real-world objects on LiDAR-equipped iOS devices.",
+          "type": "text"
+        }
+      ],
+      "role": "sampleCode",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/creating-a-game-with-scene-understanding",
+      "title": "Creating a game with scene understanding",
+      "kind": "article"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/Entity": {
+      "role": "symbol",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Entity"
+        }
+      ],
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "An element of a RealityKit scene to which you attach components that provide",
+          "type": "text"
         },
         {
-          "inlineContent": [
-            {
-              "type": "text",
-              "text": "The system adds an "
-            },
-            {
-              "type": "reference",
-              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Entity",
-              "isActive": true
-            },
-            {
-              "type": "text",
-              "text": " to a "
-            },
-            {
-              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Scene",
-              "type": "reference",
-              "isActive": true
-            },
-            {
-              "text": " when you add it to a ",
-              "type": "text"
-            },
-            {
-              "type": "reference",
-              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/RealityView",
-              "isActive": true
-            },
-            {
-              "type": "text",
-              "text": " with"
-            },
-            {
-              "text": " ",
-              "type": "text"
-            },
-            {
-              "type": "text",
-              "text": "a "
-            },
-            {
-              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/RealityViewCameraContent",
-              "type": "reference",
-              "isActive": true
-            },
-            {
-              "type": "text",
-              "text": " or "
-            },
-            {
-              "type": "reference",
-              "isActive": true,
-              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/RealityViewContent"
-            },
-            {
-              "type": "text",
-              "text": " instance."
-            },
-            {
-              "type": "text",
-              "text": " "
-            },
-            {
-              "type": "text",
-              "text": "These scenes contain anchors and a hierarchy of entities that"
-            },
-            {
-              "type": "text",
-              "text": " "
-            },
-            {
-              "type": "text",
-              "text": "make up your RealityKit content."
-            }
-          ],
-          "type": "paragraph"
+          "text": " ",
+          "type": "text"
         },
         {
-          "inlineContent": [
-            {
-              "type": "text",
-              "text": "The "
-            },
-            {
-              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Scene",
-              "type": "reference",
-              "isActive": true
-            },
-            {
-              "type": "text",
-              "text": " instance has helpful methods to"
-            },
-            {
-              "type": "text",
-              "text": " "
-            },
-            {
-              "text": "perform ray casts to help you better understand your scene,",
-              "type": "text"
-            },
-            {
-              "text": " ",
-              "type": "text"
-            },
-            {
-              "text": "and methods that find entities either by name or by components they own.",
-              "type": "text"
-            }
-          ],
-          "type": "paragraph"
+          "type": "text",
+          "text": "appearance and behavior characteristics for the entity."
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "Entity",
+          "kind": "identifier"
+        }
+      ],
+      "title": "Entity",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Entity",
+      "url": "https://developer.apple.com/documentation/realitykit/entity"
+    },
+    "doc://com.apple.documentation/documentation/ARKit/visualizing-and-interacting-with-a-reconstructed-scene": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Estimate the shape of the physical environment using a polygonal mesh."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/ARKit/visualizing-and-interacting-with-a-reconstructed-scene",
+      "role": "sampleCode",
+      "identifier": "doc://com.apple.documentation/documentation/ARKit/visualizing-and-interacting-with-a-reconstructed-scene",
+      "type": "topic",
+      "kind": "article",
+      "title": "Visualizing and interacting with a reconstructed scene"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/ARView/Environment-swift.struct/SceneUnderstanding-swift.struct/Options-swift.struct": {
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "Options",
+          "kind": "identifier"
+        }
+      ],
+      "role": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ARView/Environment-swift.struct/SceneUnderstanding-swift.struct/Options-swift.struct",
+      "navigatorTitle": [
+        {
+          "text": "Options",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/arview/environment-swift.struct/sceneunderstanding-swift.struct/options-swift.struct",
+      "abstract": [
+        {
+          "text": "Available scene-understanding options.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "kind": "symbol",
+      "title": "ARView.Environment.SceneUnderstanding.Options"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/HasSceneUnderstanding": {
+      "url": "https://developer.apple.com/documentation/realitykit/hassceneunderstanding",
+      "type": "topic",
+      "title": "HasSceneUnderstanding",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "HasSceneUnderstanding",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "HasSceneUnderstanding",
+          "kind": "identifier"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/HasSceneUnderstanding",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A specification that detects and reacts to features of the physical"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "type": "text",
+          "text": "environment."
+        }
+      ],
+      "role": "symbol"
+    },
+    "doc://com.apple.documentation/documentation/ARKit/ARWorldTrackingConfiguration/supportsSceneReconstruction(_:)": {
+      "abstract": [
+        {
+          "text": "Checks if the device supports scene reconstruction.",
+          "type": "text"
+        }
+      ],
+      "kind": "symbol",
+      "type": "topic",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "func",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "supportsSceneReconstruction",
+          "kind": "identifier"
+        },
+        {
+          "text": "(",
+          "kind": "text"
+        },
+        {
+          "text": "ARConfiguration",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:objc(cs)ARConfiguration"
+        },
+        {
+          "text": ".",
+          "kind": "text"
+        },
+        {
+          "text": "SceneReconstruction",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@E@ARSceneReconstruction"
+        },
+        {
+          "text": ") -> ",
+          "kind": "text"
+        },
+        {
+          "text": "Bool",
+          "preciseIdentifier": "s:Sb",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "role": "symbol",
+      "title": "supportsSceneReconstruction(_:)",
+      "identifier": "doc://com.apple.documentation/documentation/ARKit/ARWorldTrackingConfiguration/supportsSceneReconstruction(_:)",
+      "url": "https://developer.apple.com/documentation/ARKit/ARWorldTrackingConfiguration/supportsSceneReconstruction(_:)"
+    },
+    "doc://com.apple.documentation/documentation/technologies": {
+      "title": "Technologies",
+      "url": "https://developer.apple.com/documentation/technologies",
+      "kind": "technologies",
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "role": "overview",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "",
+          "type": "text"
         }
       ]
-    }
-  ],
-  "identifier": {
-    "url": "doc://com.apple.RealityKit/documentation/RealityKit/ecs-scenes",
-    "interfaceLanguage": "swift"
-  },
-  "abstract": [
-    {
-      "text": "The context that holds all RealityKit entities.",
-      "type": "text"
-    }
-  ],
-  "references": {
-    "doc://com.apple.RealityKit/documentation/RealityKit/PixelCastHit": {
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit": {
+      "title": "RealityKit",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Simulate and render 3D content for use in your augmented reality apps."
+        }
+      ],
       "kind": "symbol",
-      "abstract": [],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PixelCastHit",
+      "role": "collection",
+      "url": "https://developer.apple.com/documentation/realitykit",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit",
+      "type": "topic"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/RealityViewContent": {
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "RealityViewContent",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "The content of a visionOS reality view.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/realityviewcontent",
+      "type": "topic",
+      "title": "RealityViewContent",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/RealityViewContent",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "RealityViewContent",
+          "kind": "identifier"
+        }
+      ],
+      "role": "symbol"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/SceneEvents": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/SceneEvents",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Events the scene invokes."
+        }
+      ],
+      "fragments": [
+        {
+          "text": "enum",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "SceneEvents",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "title": "SceneEvents",
+      "navigatorTitle": [
+        {
+          "text": "SceneEvents",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/sceneevents",
+      "type": "topic",
+      "role": "symbol"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/Scene/Publisher": {
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "Publisher",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/scene/publisher",
+      "type": "topic",
       "role": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A publisher for the given event type in the scene."
+        }
+      ],
+      "title": "Scene.Publisher",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Scene/Publisher",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Publisher"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/ARView/Environment-swift.struct/SceneUnderstanding-swift.struct": {
+      "kind": "symbol",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "SceneUnderstanding",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An object that holds scene-understanding options for the view."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/arview/environment-swift.struct/sceneunderstanding-swift.struct",
+      "navigatorTitle": [
+        {
+          "text": "SceneUnderstanding",
+          "kind": "identifier"
+        }
+      ],
+      "title": "ARView.Environment.SceneUnderstanding",
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ARView/Environment-swift.struct/SceneUnderstanding-swift.struct"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/realitykit-scene-understanding": {
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/realitykit/realitykit-scene-understanding",
+      "role": "article",
+      "title": "Implementing scene understanding and reconstruction in your RealityKit app",
+      "abstract": [
+        {
+          "text": "Detect objects in an AR scene or create a detailed 3D reconstruction of the real-world environment.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/realitykit-scene-understanding",
+      "kind": "article"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/SceneUnderstandingComponent": {
       "type": "topic",
       "fragments": [
         {
           "text": "struct",
           "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "SceneUnderstandingComponent",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/sceneunderstandingcomponent",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/SceneUnderstandingComponent",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A component that specifies an entity is participating in the system’s scene-understanding features."
+        }
+      ],
+      "role": "symbol",
+      "kind": "symbol",
+      "title": "SceneUnderstandingComponent",
+      "navigatorTitle": [
+        {
+          "text": "SceneUnderstandingComponent",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/Scene/AnchorCollection": {
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AnchorCollection",
+          "kind": "identifier"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "AnchorCollection",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/scene/anchorcollection",
+      "role": "symbol",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Scene/AnchorCollection",
+      "title": "Scene.AnchorCollection",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "A collection of anchor entities.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.documentation/documentation/ARKit/ARSession": {
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/ARKit/ARSession",
+      "title": "ARSession",
+      "identifier": "doc://com.apple.documentation/documentation/ARKit/ARSession",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The object that manages the major tasks associated with every AR experience, such as motion tracking, camera passthrough, and image analysis."
+        }
+      ],
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "class",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "ARSession",
+          "kind": "identifier"
+        }
+      ],
+      "type": "topic"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/RealityView": {
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/RealityView",
+      "abstract": [
+        {
+          "text": "A view that contains RealityKit content.",
+          "type": "text"
+        }
+      ],
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/realityview",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "RealityView",
+          "kind": "identifier"
+        }
+      ],
+      "title": "RealityView",
+      "navigatorTitle": [
+        {
+          "text": "RealityView",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/RealityViewCameraContent": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/RealityViewCameraContent",
+      "url": "https://developer.apple.com/documentation/realitykit/realityviewcameracontent",
+      "type": "topic",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "RealityViewCameraContent",
+          "kind": "identifier"
+        }
+      ],
+      "title": "RealityViewCameraContent",
+      "navigatorTitle": [
+        {
+          "text": "RealityViewCameraContent",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The content of a reality view that is displayed through a camera."
+        }
+      ]
+    },
+    "doc://com.apple.documentation/documentation/ARKit/ARWorldTrackingConfiguration/sceneReconstruction": {
+      "title": "sceneReconstruction",
+      "identifier": "doc://com.apple.documentation/documentation/ARKit/ARWorldTrackingConfiguration/sceneReconstruction",
+      "kind": "symbol",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/ARKit/ARWorldTrackingConfiguration/sceneReconstruction",
+      "type": "topic",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "sceneReconstruction",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "ARConfiguration",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:objc(cs)ARConfiguration"
+        },
+        {
+          "text": ".",
+          "kind": "text"
+        },
+        {
+          "text": "SceneReconstruction",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@E@ARSceneReconstruction"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A flag that enables scene reconstruction."
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/Scene": {
+      "kind": "symbol",
+      "type": "topic",
+      "role": "symbol",
+      "title": "Scene",
+      "fragments": [
+        {
+          "text": "class",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "Scene",
+          "kind": "identifier"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Scene",
+      "abstract": [
+        {
+          "text": "A container that holds the collection of entities that an AR view renders.",
+          "type": "text"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "Scene",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/scene"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/ecs-systems": {
+      "role": "collectionGroup",
+      "title": "Systems",
+      "kind": "article",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Apply behaviors and physical effects to the entities in a RealityKit scene."
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ecs-systems",
+      "url": "https://developer.apple.com/documentation/realitykit/ecs-systems",
+      "type": "topic"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/QueryPredicate": {
+      "title": "QueryPredicate",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "QueryPredicate"
+        }
+      ],
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/realitykit/querypredicate",
+      "role": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/QueryPredicate",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "QueryPredicate"
+        }
+      ],
+      "kind": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An object that defines the criteria for an entity query."
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/PixelCastHit": {
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
         },
         {
           "kind": "text",
@@ -253,743 +983,13 @@
           "kind": "identifier"
         }
       ],
+      "abstract": [],
+      "url": "https://developer.apple.com/documentation/realitykit/pixelcasthit",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PixelCastHit",
+      "kind": "symbol",
       "title": "PixelCastHit",
-      "url": "https://developer.apple.com/documentation/realitykit/pixelcasthit"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/Scene": {
-      "title": "Scene",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Scene",
-      "url": "https://developer.apple.com/documentation/realitykit/scene",
-      "role": "symbol",
-      "kind": "symbol",
-      "fragments": [
-        {
-          "text": "class",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "Scene"
-        }
-      ],
-      "abstract": [
-        {
-          "text": "A container that holds the collection of entities that an AR view renders.",
-          "type": "text"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "Scene"
-        }
-      ],
-      "type": "topic"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/ecs-events": {
-      "title": "Events",
-      "kind": "article",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Respond to things happening in your RealityKit scene by subscribing to specific event types."
-        }
-      ],
       "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/ecs-events",
-      "role": "collectionGroup",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ecs-events"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit",
-      "role": "collection",
-      "title": "RealityKit",
-      "abstract": [
-        {
-          "text": "Simulate and render 3D content for use in your augmented reality apps.",
-          "type": "text"
-        }
-      ],
-      "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/realitykit",
-      "type": "topic"
-    },
-    "doc://com.apple.documentation/documentation/ARKit/ARSession": {
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/ARKit/ARSession",
-      "type": "topic",
-      "identifier": "doc://com.apple.documentation/documentation/ARKit/ARSession",
-      "fragments": [
-        {
-          "text": "class",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "ARSession",
-          "kind": "identifier"
-        }
-      ],
-      "abstract": [
-        {
-          "text": "The object that manages the major tasks associated with every AR experience, such as motion tracking, camera passthrough, and image analysis.",
-          "type": "text"
-        }
-      ],
-      "kind": "symbol",
-      "title": "ARSession"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/Entity": {
-      "type": "topic",
-      "abstract": [
-        {
-          "text": "An element of a RealityKit scene to which you attach components that provide",
-          "type": "text"
-        },
-        {
-          "type": "text",
-          "text": " "
-        },
-        {
-          "type": "text",
-          "text": "appearance and behavior characteristics for the entity."
-        }
-      ],
-      "role": "symbol",
-      "fragments": [
-        {
-          "text": "class",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "Entity",
-          "kind": "identifier"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/realitykit/entity",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Entity",
-      "title": "Entity",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "text": "Entity",
-          "kind": "identifier"
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/HasSceneUnderstanding": {
-      "url": "https://developer.apple.com/documentation/realitykit/hassceneunderstanding",
-      "type": "topic",
-      "title": "HasSceneUnderstanding",
-      "kind": "symbol",
-      "role": "symbol",
-      "abstract": [
-        {
-          "text": "A specification that detects and reacts to features of the physical",
-          "type": "text"
-        },
-        {
-          "type": "text",
-          "text": " "
-        },
-        {
-          "text": "environment.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/HasSceneUnderstanding",
-      "fragments": [
-        {
-          "text": "protocol",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "HasSceneUnderstanding"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "text": "HasSceneUnderstanding",
-          "kind": "identifier"
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/Scene/Publisher": {
-      "kind": "symbol",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A publisher for the given event type in the scene."
-        }
-      ],
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/scene/publisher",
-      "role": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Scene/Publisher",
-      "title": "Scene.Publisher",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "Publisher"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "Publisher"
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/ARView/Environment-swift.struct/SceneUnderstanding-swift.struct": {
-      "abstract": [
-        {
-          "text": "An object that holds scene-understanding options for the view.",
-          "type": "text"
-        }
-      ],
-      "type": "topic",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ARView/Environment-swift.struct/SceneUnderstanding-swift.struct",
-      "url": "https://developer.apple.com/documentation/realitykit/arview/environment-swift.struct/sceneunderstanding-swift.struct",
-      "role": "symbol",
-      "kind": "symbol",
-      "title": "ARView.Environment.SceneUnderstanding",
-      "fragments": [
-        {
-          "text": "struct",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "SceneUnderstanding",
-          "kind": "identifier"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "text": "SceneUnderstanding",
-          "kind": "identifier"
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/ARView/Environment-swift.struct/SceneUnderstanding-swift.struct/Options-swift.struct": {
-      "url": "https://developer.apple.com/documentation/realitykit/arview/environment-swift.struct/sceneunderstanding-swift.struct/options-swift.struct",
-      "title": "ARView.Environment.SceneUnderstanding.Options",
-      "kind": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ARView/Environment-swift.struct/SceneUnderstanding-swift.struct/Options-swift.struct",
-      "abstract": [
-        {
-          "text": "Available scene-understanding options.",
-          "type": "text"
-        }
-      ],
-      "role": "symbol",
-      "type": "topic",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "Options"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "text": "Options",
-          "kind": "identifier"
-        }
-      ]
-    },
-    "doc://com.apple.documentation/documentation/ARKit/visualizing-and-interacting-with-a-reconstructed-scene": {
-      "type": "topic",
-      "abstract": [
-        {
-          "text": "Estimate the shape of the physical environment using a polygonal mesh.",
-          "type": "text"
-        }
-      ],
-      "kind": "article",
-      "url": "https://developer.apple.com/documentation/ARKit/visualizing-and-interacting-with-a-reconstructed-scene",
-      "role": "sampleCode",
-      "identifier": "doc://com.apple.documentation/documentation/ARKit/visualizing-and-interacting-with-a-reconstructed-scene",
-      "title": "Visualizing and interacting with a reconstructed scene"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/QueryPredicate": {
-      "type": "topic",
-      "kind": "symbol",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An object that defines the criteria for an entity query."
-        }
-      ],
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/realitykit/querypredicate",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/QueryPredicate",
-      "fragments": [
-        {
-          "text": "struct",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "QueryPredicate",
-          "kind": "identifier"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "QueryPredicate"
-        }
-      ],
-      "title": "QueryPredicate"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/SceneUnderstandingComponent": {
-      "url": "https://developer.apple.com/documentation/realitykit/sceneunderstandingcomponent",
-      "abstract": [
-        {
-          "text": "A component that specifies an entity is participating in the system’s scene-understanding features.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "SceneUnderstandingComponent"
-        }
-      ],
-      "type": "topic",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/SceneUnderstandingComponent",
-      "role": "symbol",
-      "navigatorTitle": [
-        {
-          "text": "SceneUnderstandingComponent",
-          "kind": "identifier"
-        }
-      ],
-      "kind": "symbol",
-      "title": "SceneUnderstandingComponent"
-    },
-    "doc://com.apple.documentation/documentation/technologies": {
-      "kind": "technologies",
-      "type": "topic",
-      "title": "Technologies",
-      "role": "overview",
-      "abstract": [
-        {
-          "text": "",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://com.apple.documentation/documentation/technologies",
-      "url": "https://developer.apple.com/documentation/technologies"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/ecs-systems": {
-      "title": "Systems",
-      "kind": "article",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ecs-systems",
-      "url": "https://developer.apple.com/documentation/realitykit/ecs-systems",
-      "abstract": [
-        {
-          "text": "Apply behaviors and physical effects to the entities in a RealityKit scene.",
-          "type": "text"
-        }
-      ],
-      "type": "topic",
-      "role": "collectionGroup"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/Scene/AnchorCollection": {
-      "kind": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Scene/AnchorCollection",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "AnchorCollection"
-        }
-      ],
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A collection of anchor entities."
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "text": "AnchorCollection",
-          "kind": "identifier"
-        }
-      ],
-      "type": "topic",
-      "role": "symbol",
-      "title": "Scene.AnchorCollection",
-      "url": "https://developer.apple.com/documentation/realitykit/scene/anchorcollection"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/RealityView": {
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "RealityView"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/realitykit/realityview",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/RealityView",
-      "title": "RealityView",
-      "kind": "symbol",
-      "type": "topic",
-      "role": "symbol",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A view that contains RealityKit content."
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "text": "RealityView",
-          "kind": "identifier"
-        }
-      ]
-    },
-    "doc://com.apple.documentation/documentation/ARKit/ARWorldTrackingConfiguration/supportsSceneReconstruction(_:)": {
-      "role": "symbol",
-      "title": "supportsSceneReconstruction(_:)",
-      "fragments": [
-        {
-          "text": "class",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "func",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "supportsSceneReconstruction",
-          "kind": "identifier"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "text": "ARConfiguration",
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "c:objc(cs)ARConfiguration"
-        },
-        {
-          "text": ".",
-          "kind": "text"
-        },
-        {
-          "preciseIdentifier": "c:@E@ARSceneReconstruction",
-          "text": "SceneReconstruction",
-          "kind": "typeIdentifier"
-        },
-        {
-          "text": ") -> ",
-          "kind": "text"
-        },
-        {
-          "preciseIdentifier": "s:Sb",
-          "text": "Bool",
-          "kind": "typeIdentifier"
-        }
-      ],
-      "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/ARKit/ARWorldTrackingConfiguration/supportsSceneReconstruction(_:)",
-      "type": "topic",
-      "identifier": "doc://com.apple.documentation/documentation/ARKit/ARWorldTrackingConfiguration/supportsSceneReconstruction(_:)",
-      "abstract": [
-        {
-          "text": "Checks if the device supports scene reconstruction.",
-          "type": "text"
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/ecs-entity-actions": {
-      "title": "Entity actions",
-      "role": "collectionGroup",
-      "kind": "article",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ecs-entity-actions",
-      "url": "https://developer.apple.com/documentation/realitykit/ecs-entity-actions",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Create simple, reusable actions that can change your app state, RealityKit scene, or animate an entity."
-        }
-      ],
-      "type": "topic"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/SceneEvents": {
-      "title": "SceneEvents",
-      "type": "topic",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Events the scene invokes."
-        }
-      ],
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "SceneEvents"
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/SceneEvents",
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/realitykit/sceneevents",
-      "fragments": [
-        {
-          "text": "enum",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "SceneEvents",
-          "kind": "identifier"
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/RealityViewContent": {
-      "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/realitykit/realityviewcontent",
-      "type": "topic",
-      "abstract": [
-        {
-          "text": "The content of a visionOS reality view.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/RealityViewContent",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "RealityViewContent"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "RealityViewContent"
-        }
-      ],
-      "title": "RealityViewContent",
       "role": "symbol"
-    },
-    "doc://com.apple.documentation/documentation/ARKit/ARWorldTrackingConfiguration/sceneReconstruction": {
-      "type": "topic",
-      "identifier": "doc://com.apple.documentation/documentation/ARKit/ARWorldTrackingConfiguration/sceneReconstruction",
-      "abstract": [
-        {
-          "text": "A flag that enables scene reconstruction.",
-          "type": "text"
-        }
-      ],
-      "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/ARKit/ARWorldTrackingConfiguration/sceneReconstruction",
-      "role": "symbol",
-      "fragments": [
-        {
-          "text": "var",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "sceneReconstruction",
-          "kind": "identifier"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "preciseIdentifier": "c:objc(cs)ARConfiguration",
-          "text": "ARConfiguration",
-          "kind": "typeIdentifier"
-        },
-        {
-          "kind": "text",
-          "text": "."
-        },
-        {
-          "text": "SceneReconstruction",
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "c:@E@ARSceneReconstruction"
-        }
-      ],
-      "title": "sceneReconstruction"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/creating-a-game-with-scene-understanding": {
-      "role": "sampleCode",
-      "kind": "article",
-      "url": "https://developer.apple.com/documentation/realitykit/creating-a-game-with-scene-understanding",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/creating-a-game-with-scene-understanding",
-      "title": "Creating a game with scene understanding",
-      "type": "topic",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Create AR games and experiences that interact with real-world objects on LiDAR-equipped iOS devices."
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/RealityViewCameraContent": {
-      "url": "https://developer.apple.com/documentation/realitykit/realityviewcameracontent",
-      "title": "RealityViewCameraContent",
-      "role": "symbol",
-      "kind": "symbol",
-      "type": "topic",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/RealityViewCameraContent",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "RealityViewCameraContent"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "RealityViewCameraContent",
-          "kind": "identifier"
-        }
-      ],
-      "abstract": [
-        {
-          "type": "text",
-          "text": "The content of a reality view that is displayed through a camera."
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/realitykit-scene-understanding": {
-      "kind": "article",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Detect objects in an AR scene or create a detailed 3D reconstruction of the real-world environment."
-        }
-      ],
-      "role": "article",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/realitykit-scene-understanding",
-      "url": "https://developer.apple.com/documentation/realitykit/realitykit-scene-understanding",
-      "type": "topic",
-      "title": "Implementing scene understanding and reconstruction in your RealityKit app"
-    },
-    "doc://com.apple.documentation/documentation/ARKit/SceneReconstructionProvider": {
-      "identifier": "doc://com.apple.documentation/documentation/ARKit/SceneReconstructionProvider",
-      "abstract": [
-        {
-          "text": "A source of live data about the shape of a person’s surroundings.",
-          "type": "text"
-        }
-      ],
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "SceneReconstructionProvider",
-      "url": "https://developer.apple.com/documentation/ARKit/SceneReconstructionProvider",
-      "fragments": [
-        {
-          "text": "class",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "SceneReconstructionProvider",
-          "kind": "identifier"
-        }
-      ],
-      "type": "topic"
     }
   },
   "variantOverrides": [
@@ -1001,31 +1001,21 @@
       ],
       "patch": [
         {
-          "value": [
-            {
-              "text": "ARSession",
-              "kind": "identifier"
-            }
-          ],
+          "value": "supportsSceneReconstruction:",
           "op": "replace",
-          "path": "/references/doc:~1~1com.apple.documentation~1documentation~1ARKit~1ARSession/fragments"
-        },
-        {
-          "path": "/references/doc:~1~1com.apple.documentation~1documentation~1ARKit~1ARWorldTrackingConfiguration~1supportsSceneReconstruction(_:)/title",
-          "op": "replace",
-          "value": "supportsSceneReconstruction:"
+          "path": "/references/doc:~1~1com.apple.documentation~1documentation~1ARKit~1ARWorldTrackingConfiguration~1supportsSceneReconstruction(_:)/title"
         },
         {
           "op": "replace",
           "path": "/references/doc:~1~1com.apple.documentation~1documentation~1ARKit~1ARWorldTrackingConfiguration~1supportsSceneReconstruction(_:)/fragments",
           "value": [
             {
-              "kind": "text",
-              "text": "+ "
+              "text": "+ ",
+              "kind": "text"
             },
             {
-              "kind": "identifier",
-              "text": "supportsSceneReconstruction:"
+              "text": "supportsSceneReconstruction:",
+              "kind": "identifier"
             }
           ]
         },
@@ -1033,7 +1023,17 @@
           "value": [
             {
               "kind": "identifier",
-              "text": "sceneReconstruction"
+              "text": "ARSession"
+            }
+          ],
+          "path": "/references/doc:~1~1com.apple.documentation~1documentation~1ARKit~1ARSession/fragments",
+          "op": "replace"
+        },
+        {
+          "value": [
+            {
+              "text": "sceneReconstruction",
+              "kind": "identifier"
             }
           ],
           "op": "replace",
