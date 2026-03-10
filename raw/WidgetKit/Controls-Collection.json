@@ -1,0 +1,956 @@
+{
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://com.apple.WidgetKit/documentation/WidgetKit/Controls-Collection"
+  },
+  "sections": [],
+  "abstract": [
+    {
+      "text": "Offer controls that people place in Control Center, on the Lock Screen, and on the Action button to quickly perform an action from your app.",
+      "type": "text"
+    }
+  ],
+  "topicSections": [
+    {
+      "anchor": "Essentials",
+      "identifiers": [
+        "doc://com.apple.WidgetKit/documentation/WidgetKit/Developing-a-WidgetKit-strategy",
+        "doc://com.apple.WidgetKit/documentation/WidgetKit/Creating-a-Widget-Extension",
+        "doc://com.apple.WidgetKit/documentation/WidgetKit/emoji-rangers-supporting-live-activities-interactivity-and-animations"
+      ],
+      "title": "Essentials"
+    },
+    {
+      "anchor": "Setup-and-configuration",
+      "title": "Setup and configuration",
+      "identifiers": [
+        "doc://com.apple.WidgetKit/documentation/WidgetKit/Creating-controls-to-perform-actions-across-the-system",
+        "doc://com.apple.WidgetKit/documentation/WidgetKit/Adding-refinements-and-configuration-to-controls",
+        "doc://com.apple.WidgetKit/documentation/WidgetKit/StaticControlConfiguration",
+        "doc://com.apple.WidgetKit/documentation/WidgetKit/AppIntentControlConfiguration",
+        "doc://com.apple.WidgetKit/documentation/WidgetKit/ControlCenter",
+        "doc://com.apple.WidgetKit/documentation/WidgetKit/ControlInfo",
+        "doc://com.apple.WidgetKit/documentation/WidgetKit/ControlWidgetButton",
+        "doc://com.apple.WidgetKit/documentation/WidgetKit/ControlWidgetToggle"
+      ]
+    },
+    {
+      "identifiers": [
+        "doc://com.apple.WidgetKit/documentation/WidgetKit/Updating-controls-locally-and-remotely",
+        "doc://com.apple.WidgetKit/documentation/WidgetKit/ControlPushHandler",
+        "doc://com.apple.WidgetKit/documentation/WidgetKit/ControlPushInfo"
+      ],
+      "anchor": "Updates",
+      "title": "Updates"
+    },
+    {
+      "anchor": "Previews",
+      "identifiers": [
+        "doc://com.apple.WidgetKit/documentation/WidgetKit/ControlValueProvider",
+        "doc://com.apple.WidgetKit/documentation/WidgetKit/AppIntentControlValueProvider"
+      ],
+      "title": "Previews"
+    }
+  ],
+  "variants": [
+    {
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ],
+      "paths": [
+        "/documentation/widgetkit/controls-collection"
+      ]
+    },
+    {
+      "traits": [
+        {
+          "interfaceLanguage": "occ"
+        }
+      ],
+      "paths": [
+        "/documentation/widgetkit/controls-collection"
+      ]
+    }
+  ],
+  "kind": "article",
+  "seeAlsoSections": [
+    {
+      "identifiers": [
+        "doc://com.apple.WidgetKit/documentation/WidgetKit/Widgets-and-Complications-Collection",
+        "doc://com.apple.WidgetKit/documentation/WidgetKit/LiveActivities-Collection"
+      ],
+      "anchor": "System-experiences",
+      "title": "System experiences",
+      "generated": true
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.WidgetKit/documentation/WidgetKit"
+      ]
+    ]
+  },
+  "primaryContentSections": [
+    {
+      "kind": "content",
+      "content": [
+        {
+          "text": "Overview",
+          "level": 2,
+          "type": "heading",
+          "anchor": "overview"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Controls act as a button that initiates an action from your app or opens your app to a specific view, or as a toggle.",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "type": "text",
+              "text": "A toggle can turn a light on and off, or open and close a garage door. People place controls in prominent locations to personalize how"
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "text": "they use their devices:",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "content": [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "text": "On devices with an Action button, people can place a controls action in the Action button.",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "content": [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "On iPhone and iPad, people place controls in Control Center and on the Lock Screen."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "content": [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "text": "On Mac, people place controls from your macOS app in Control Center or as menu bar items.",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "content": [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "text": "On Apple Watch, people place controls from your watchOS app or from a paired iPhone in Control Center or the Smart Stack. If you offer watchOS app in addition to an iPhone app and both apps offer controls, people can only place controls from your watchOS app in Control Center or the Smart Stack.",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "To offer a control for your app, use WidgetKit API to configure and update the control,  create its layout with "
+            },
+            {
+              "isActive": true,
+              "type": "reference",
+              "identifier": "doc://com.apple.documentation/documentation/SwiftUI"
+            },
+            {
+              "text": ", and perform its action using ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://com.apple.documentation/documentation/AppIntents",
+              "type": "reference",
+              "isActive": true
+            },
+            {
+              "text": ". For more information about the App Intents framework, refer to ",
+              "type": "text"
+            },
+            {
+              "isActive": true,
+              "type": "reference",
+              "identifier": "doc://com.apple.documentation/documentation/AppIntents/Making-actions-and-content-discoverable-and-widely-available"
+            },
+            {
+              "text": ".",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "role": "collectionGroup",
+    "roleHeading": "API Collection",
+    "modules": [
+      {
+        "name": "WidgetKit"
+      }
+    ],
+    "title": "Controls"
+  },
+  "references": {
+    "doc://com.apple.WidgetKit/documentation/WidgetKit/Adding-refinements-and-configuration-to-controls": {
+      "title": "Adding refinements and configuration to controls",
+      "identifier": "doc://com.apple.WidgetKit/documentation/WidgetKit/Adding-refinements-and-configuration-to-controls",
+      "url": "https://developer.apple.com/documentation/widgetkit/adding-refinements-and-configuration-to-controls",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Customize the way controls display across the system and offer people the ability to configure them."
+        }
+      ],
+      "kind": "article",
+      "type": "topic",
+      "role": "article"
+    },
+    "doc://com.apple.WidgetKit/documentation/WidgetKit/Developing-a-WidgetKit-strategy": {
+      "role": "article",
+      "title": "Developing a WidgetKit strategy",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Explore features, tasks, related frameworks, and constraints as you make a plan to implement widgets, controls, watch complications, and Live Activities."
+        }
+      ],
+      "kind": "article",
+      "images": [
+        {
+          "identifier": "Developing-a-WidgetKit-strategy-PageImage-card.png",
+          "type": "card"
+        }
+      ],
+      "identifier": "doc://com.apple.WidgetKit/documentation/WidgetKit/Developing-a-WidgetKit-strategy",
+      "url": "https://developer.apple.com/documentation/widgetkit/developing-a-widgetkit-strategy",
+      "type": "topic"
+    },
+    "doc://com.apple.WidgetKit/documentation/WidgetKit/emoji-rangers-supporting-live-activities-interactivity-and-animations": {
+      "title": "Emoji Rangers: Supporting Live Activities, interactivity, and animations",
+      "abstract": [
+        {
+          "text": "Offer Live Activities, controls, animate data updates, and add interactivity to widgets.",
+          "type": "text"
+        }
+      ],
+      "kind": "article",
+      "type": "topic",
+      "role": "sampleCode",
+      "identifier": "doc://com.apple.WidgetKit/documentation/WidgetKit/emoji-rangers-supporting-live-activities-interactivity-and-animations",
+      "images": [
+        {
+          "identifier": "Emoji-Rangers-PageImage-card.png",
+          "type": "card"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/widgetkit/emoji-rangers-supporting-live-activities-interactivity-and-animations"
+    },
+    "doc://com.apple.documentation/documentation/technologies": {
+      "type": "topic",
+      "kind": "technologies",
+      "title": "Technologies",
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "role": "overview",
+      "url": "https://developer.apple.com/documentation/technologies",
+      "abstract": [
+        {
+          "type": "text",
+          "text": ""
+        }
+      ]
+    },
+    "doc://com.apple.WidgetKit/documentation/WidgetKit/ControlWidgetButton": {
+      "kind": "symbol",
+      "title": "ControlWidgetButton",
+      "url": "https://developer.apple.com/documentation/widgetkit/controlwidgetbutton",
+      "identifier": "doc://com.apple.WidgetKit/documentation/WidgetKit/ControlWidgetButton",
+      "role": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "ControlWidgetButton",
+          "kind": "identifier"
+        }
+      ],
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A control template representing a button."
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "ControlWidgetButton",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.WidgetKit/documentation/WidgetKit/ControlValueProvider": {
+      "url": "https://developer.apple.com/documentation/widgetkit/controlvalueprovider",
+      "role": "symbol",
+      "abstract": [
+        {
+          "text": "A type that provides a value to a control template.",
+          "type": "text"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ControlValueProvider"
+        }
+      ],
+      "kind": "symbol",
+      "type": "topic",
+      "title": "ControlValueProvider",
+      "identifier": "doc://com.apple.WidgetKit/documentation/WidgetKit/ControlValueProvider",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "ControlValueProvider"
+        }
+      ]
+    },
+    "doc://com.apple.WidgetKit/documentation/WidgetKit/Widgets-and-Complications-Collection": {
+      "url": "https://developer.apple.com/documentation/widgetkit/widgets-and-complications-collection",
+      "identifier": "doc://com.apple.WidgetKit/documentation/WidgetKit/Widgets-and-Complications-Collection",
+      "title": "Widgets and watch complications",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Allow people to personalize their devices, view relevant information, and perform interactions with widgets and watch complications."
+        }
+      ],
+      "type": "topic",
+      "kind": "article"
+    },
+    "Developing-a-WidgetKit-strategy-PageImage-card.png": {
+      "identifier": "Developing-a-WidgetKit-strategy-PageImage-card.png",
+      "type": "image",
+      "variants": [
+        {
+          "url": "https://docs-assets.developer.apple.com/published/071918d37fee7b44676a44d474427491/Developing-a-WidgetKit-strategy-PageImage-card%402x.png",
+          "traits": [
+            "2x",
+            "light"
+          ]
+        },
+        {
+          "url": "https://docs-assets.developer.apple.com/published/e254588ba5ba299290ab48ed1e7259dc/Developing-a-WidgetKit-strategy-PageImage-card~dark%402x.png",
+          "traits": [
+            "2x",
+            "dark"
+          ]
+        }
+      ],
+      "alt": "A collection of widgets in different sizes."
+    },
+    "SwiftUI-PageImage-card.png": {
+      "identifier": "SwiftUI-PageImage-card.png",
+      "type": "image",
+      "alt": "A stylized Swift logo using dashes on a white or blue background.",
+      "variants": [
+        {
+          "traits": [
+            "2x",
+            "light"
+          ],
+          "url": "https://docs-assets.developer.apple.com/published/a0ca0e84aabe29cd5bf4d29b4ab5046e/SwiftUI-PageImage-card%402x.png"
+        },
+        {
+          "url": "https://docs-assets.developer.apple.com/published/a6ddc19a84fa8156d8ec8353a9622d0e/SwiftUI-PageImage-card~dark%402x.png",
+          "traits": [
+            "2x",
+            "dark"
+          ]
+        }
+      ]
+    },
+    "doc://com.apple.WidgetKit/documentation/WidgetKit/ControlPushInfo": {
+      "type": "topic",
+      "identifier": "doc://com.apple.WidgetKit/documentation/WidgetKit/ControlPushInfo",
+      "kind": "symbol",
+      "title": "ControlPushInfo",
+      "url": "https://developer.apple.com/documentation/widgetkit/controlpushinfo",
+      "role": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ControlPushInfo"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "ControlPushInfo",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A structure that contains information about the push token of a"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "user-configured control.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.WidgetKit/documentation/WidgetKit/ControlPushHandler": {
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "ControlPushHandler",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/widgetkit/controlpushhandler",
+      "title": "ControlPushHandler",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "ControlPushHandler",
+          "kind": "identifier"
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.WidgetKit/documentation/WidgetKit/ControlPushHandler",
+      "abstract": [
+        {
+          "text": "A type that can receive push information about user-configured controls.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.documentation/documentation/AppIntents/Making-actions-and-content-discoverable-and-widely-available": {
+      "identifier": "doc://com.apple.documentation/documentation/AppIntents/Making-actions-and-content-discoverable-and-widely-available",
+      "kind": "article",
+      "role": "article",
+      "url": "https://developer.apple.com/documentation/AppIntents/Making-actions-and-content-discoverable-and-widely-available",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "Adopt App Intents to make your app discoverable with Spotlight, controls, widgets, and the Action button.",
+          "type": "text"
+        }
+      ],
+      "title": "Making actions and content discoverable and widely available"
+    },
+    "doc://com.apple.WidgetKit/documentation/WidgetKit/Updating-controls-locally-and-remotely": {
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Update and reload controls from your app or using push notifications."
+        }
+      ],
+      "kind": "article",
+      "identifier": "doc://com.apple.WidgetKit/documentation/WidgetKit/Updating-controls-locally-and-remotely",
+      "title": "Updating controls locally and remotely",
+      "url": "https://developer.apple.com/documentation/widgetkit/updating-controls-locally-and-remotely",
+      "role": "article"
+    },
+    "doc://com.apple.WidgetKit/documentation/WidgetKit/AppIntentControlConfiguration": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The description of a control that uses a custom app intent to provide"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "type": "text",
+          "text": "user-configurable options."
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "AppIntentControlConfiguration",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "type": "topic",
+      "identifier": "doc://com.apple.WidgetKit/documentation/WidgetKit/AppIntentControlConfiguration",
+      "url": "https://developer.apple.com/documentation/widgetkit/appintentcontrolconfiguration",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "AppIntentControlConfiguration"
+        }
+      ],
+      "title": "AppIntentControlConfiguration",
+      "role": "symbol"
+    },
+    "doc://com.apple.WidgetKit/documentation/WidgetKit/ControlCenter": {
+      "abstract": [
+        {
+          "text": "An object you use to access configuration information for controls and reload them.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.WidgetKit/documentation/WidgetKit/ControlCenter",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ControlCenter"
+        }
+      ],
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/widgetkit/controlcenter",
+      "title": "ControlCenter",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "text": "class",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "ControlCenter",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "Emoji-Rangers-PageImage-card.png": {
+      "identifier": "Emoji-Rangers-PageImage-card.png",
+      "variants": [
+        {
+          "url": "/images/com.apple.WidgetKit/Emoji-Rangers-PageImage-card@2x.png",
+          "traits": [
+            "2x",
+            "light"
+          ]
+        },
+        {
+          "traits": [
+            "2x",
+            "dark"
+          ],
+          "url": "/images/com.apple.WidgetKit/Emoji-Rangers-PageImage-card~dark@2x.png"
+        }
+      ],
+      "type": "image",
+      "alt": "An illustration that shows a screen shot of an Emoji Rangers Live Activity on Apple Watch, next to an illustration of a panda bear."
+    },
+    "doc://com.apple.WidgetKit/documentation/WidgetKit/ControlInfo": {
+      "url": "https://developer.apple.com/documentation/widgetkit/controlinfo",
+      "abstract": [
+        {
+          "text": "A structure that contains information about user-configured controls.",
+          "type": "text"
+        }
+      ],
+      "role": "symbol",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ControlInfo"
+        }
+      ],
+      "identifier": "doc://com.apple.WidgetKit/documentation/WidgetKit/ControlInfo",
+      "title": "ControlInfo",
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "text": "ControlInfo",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.WidgetKit/documentation/WidgetKit/StaticControlConfiguration": {
+      "type": "topic",
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "StaticControlConfiguration",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/widgetkit/staticcontrolconfiguration",
+      "abstract": [
+        {
+          "text": "The description of a control that has no user-configurable options.",
+          "type": "text"
+        }
+      ],
+      "kind": "symbol",
+      "identifier": "doc://com.apple.WidgetKit/documentation/WidgetKit/StaticControlConfiguration",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "StaticControlConfiguration"
+        }
+      ],
+      "title": "StaticControlConfiguration"
+    },
+    "doc://com.apple.WidgetKit/documentation/WidgetKit": {
+      "identifier": "doc://com.apple.WidgetKit/documentation/WidgetKit",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Extend the reach of your app by creating widgets, watch complications, Live Activities, and controls."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/widgetkit",
+      "title": "WidgetKit",
+      "role": "collection",
+      "kind": "symbol"
+    },
+    "doc://com.apple.WidgetKit/documentation/WidgetKit/AppIntentControlValueProvider": {
+      "navigatorTitle": [
+        {
+          "text": "AppIntentControlValueProvider",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/widgetkit/appintentcontrolvalueprovider",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "text": "A type that uses a custom intent to provide a value to a control template.",
+          "type": "text"
+        }
+      ],
+      "title": "AppIntentControlValueProvider",
+      "type": "topic",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppIntentControlValueProvider",
+          "kind": "identifier"
+        }
+      ],
+      "identifier": "doc://com.apple.WidgetKit/documentation/WidgetKit/AppIntentControlValueProvider",
+      "role": "symbol"
+    },
+    "doc://com.apple.documentation/documentation/AppIntents": {
+      "url": "https://developer.apple.com/documentation/AppIntents",
+      "title": "App Intents",
+      "kind": "symbol",
+      "type": "topic",
+      "identifier": "doc://com.apple.documentation/documentation/AppIntents",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your app’s content and actions discoverable with system experiences like Spotlight, widgets, and the Shortcuts app."
+        }
+      ],
+      "role": "collection"
+    },
+    "doc://com.apple.documentation/documentation/SwiftUI": {
+      "images": [
+        {
+          "identifier": "SwiftUI-PageImage-card.png",
+          "type": "card"
+        }
+      ],
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/SwiftUI",
+      "kind": "symbol",
+      "role": "collection",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Declare the user interface and behavior for your app on every platform."
+        }
+      ],
+      "title": "SwiftUI",
+      "identifier": "doc://com.apple.documentation/documentation/SwiftUI"
+    },
+    "doc://com.apple.WidgetKit/documentation/WidgetKit/ControlWidgetToggle": {
+      "navigatorTitle": [
+        {
+          "text": "ControlWidgetToggle",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/widgetkit/controlwidgettoggle",
+      "identifier": "doc://com.apple.WidgetKit/documentation/WidgetKit/ControlWidgetToggle",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "ControlWidgetToggle",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A control template representing a toggle."
+        }
+      ],
+      "title": "ControlWidgetToggle",
+      "type": "topic",
+      "kind": "symbol",
+      "role": "symbol"
+    },
+    "creating-controls-to-perform-actions-PageImage-card.png": {
+      "identifier": "creating-controls-to-perform-actions-PageImage-card.png",
+      "type": "image",
+      "alt": "A stylistic representation of various controls in Control Center.",
+      "variants": [
+        {
+          "traits": [
+            "2x",
+            "light"
+          ],
+          "url": "https://docs-assets.developer.apple.com/published/89b3200777246c98d3bbd28ebaaafe5b/creating-controls-to-perform-actions-PageImage-card%402x.png"
+        },
+        {
+          "url": "https://docs-assets.developer.apple.com/published/c63a545b551c9c7a56541562a57c11ab/creating-controls-to-perform-actions-PageImage-card~dark%402x.png",
+          "traits": [
+            "2x",
+            "dark"
+          ]
+        }
+      ]
+    },
+    "doc://com.apple.WidgetKit/documentation/WidgetKit/Creating-controls-to-perform-actions-across-the-system": {
+      "title": "Creating controls to perform actions across the system",
+      "abstract": [
+        {
+          "text": "Perform your app’s actions from Control Center, the Lock Screen, and the Action button.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.WidgetKit/documentation/WidgetKit/Creating-controls-to-perform-actions-across-the-system",
+      "kind": "article",
+      "role": "article",
+      "url": "https://developer.apple.com/documentation/widgetkit/creating-controls-to-perform-actions-across-the-system",
+      "type": "topic",
+      "images": [
+        {
+          "type": "card",
+          "identifier": "creating-controls-to-perform-actions-PageImage-card.png"
+        }
+      ]
+    },
+    "doc://com.apple.WidgetKit/documentation/WidgetKit/LiveActivities-Collection": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Let people track updates from your app with Live Activities."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/widgetkit/liveactivities-collection",
+      "title": "Live Activities",
+      "kind": "article",
+      "type": "topic",
+      "identifier": "doc://com.apple.WidgetKit/documentation/WidgetKit/LiveActivities-Collection",
+      "role": "collectionGroup"
+    },
+    "doc://com.apple.WidgetKit/documentation/WidgetKit/Creating-a-Widget-Extension": {
+      "role": "article",
+      "title": "Creating a widget extension",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Display your app’s content in a convenient, informative widget on various devices."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/widgetkit/creating-a-widget-extension",
+      "kind": "article",
+      "identifier": "doc://com.apple.WidgetKit/documentation/WidgetKit/Creating-a-Widget-Extension"
+    }
+  },
+  "variantOverrides": [
+    {
+      "traits": [
+        {
+          "interfaceLanguage": "occ"
+        }
+      ],
+      "patch": [
+        {
+          "value": "occ",
+          "op": "replace",
+          "path": "/identifier/interfaceLanguage"
+        },
+        {
+          "value": [
+            {
+              "anchor": "Essentials",
+              "title": "Essentials",
+              "identifiers": [
+                "doc://com.apple.WidgetKit/documentation/WidgetKit/Developing-a-WidgetKit-strategy",
+                "doc://com.apple.WidgetKit/documentation/WidgetKit/Creating-a-Widget-Extension"
+              ]
+            },
+            {
+              "anchor": "Setup-and-configuration",
+              "identifiers": [
+                "doc://com.apple.WidgetKit/documentation/WidgetKit/Creating-controls-to-perform-actions-across-the-system",
+                "doc://com.apple.WidgetKit/documentation/WidgetKit/Adding-refinements-and-configuration-to-controls"
+              ],
+              "title": "Setup and configuration"
+            },
+            {
+              "identifiers": [
+                "doc://com.apple.WidgetKit/documentation/WidgetKit/Updating-controls-locally-and-remotely"
+              ],
+              "anchor": "Updates",
+              "title": "Updates"
+            }
+          ],
+          "op": "replace",
+          "path": "/topicSections"
+        },
+        {
+          "value": [
+            {
+              "anchor": "System-experiences",
+              "generated": true,
+              "title": "System experiences",
+              "identifiers": [
+                "doc://com.apple.WidgetKit/documentation/WidgetKit/Widgets-and-Complications-Collection",
+                "doc://com.apple.WidgetKit/documentation/WidgetKit/LiveActivities-Collection"
+              ]
+            }
+          ],
+          "op": "replace",
+          "path": "/seeAlsoSections"
+        }
+      ]
+    }
+  ],
+  "legalNotices": {
+    "copyright": "Copyright &copy; 2026 Apple Inc. All rights reserved.",
+    "termsOfUse": "https://www.apple.com/legal/internet-services/terms/site.html",
+    "privacyPolicy": "https://www.apple.com/privacy/privacy-policy"
+  }
+}

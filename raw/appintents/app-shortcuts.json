@@ -1,14 +1,88 @@
 {
-  "kind": "article",
-  "seeAlsoSections": [
+  "topicSections": [
     {
-      "title": "Actions",
-      "anchor": "Actions",
-      "generated": true,
       "identifiers": [
-        "doc://com.apple.AppIntents/documentation/AppIntents/app-intents",
-        "doc://com.apple.AppIntents/documentation/AppIntents/intent-discovery"
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutsProvider"
+      ],
+      "title": "App Shortcut management",
+      "anchor": "App-Shortcut-management"
+    },
+    {
+      "title": "App Shortcut definition",
+      "anchor": "App-Shortcut-definition",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcut",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutsContent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutPhrase",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutPhraseToken",
+        "doc://com.apple.AppIntents/documentation/AppIntents/NegativeAppShortcutPhrase",
+        "doc://com.apple.AppIntents/documentation/AppIntents/NegativeAppShortcutPhrases",
+        "doc://com.apple.documentation/documentation/BundleResources/Information-Property-List/CFBundleIcons/CFBundlePrimaryIcon/NSAppIconActionTintColorName",
+        "doc://com.apple.documentation/documentation/BundleResources/Information-Property-List/CFBundleIcons/CFBundlePrimaryIcon/NSAppIconComplementingColorNames",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutsBuilder",
+        "doc://com.apple.AppIntents/documentation/AppIntents/ShortcutTileColor"
       ]
+    },
+    {
+      "title": "App Shortcut options",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutOptionsCollection",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutOptionsCollectionProtocol",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutOptionsCollectionSpecification",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutOptionsCollectionSpecificationBuilder"
+      ],
+      "anchor": "App-Shortcut-options"
+    },
+    {
+      "title": "App Shortcut parameter presentation",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentation",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentationSummary",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentationSummaryString",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentationTitle",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentationTitleString"
+      ],
+      "anchor": "App-Shortcut-parameter-presentation"
+    },
+    {
+      "discussion": {
+        "kind": "content",
+        "content": [
+          {
+            "level": 2,
+            "text": "Discussion",
+            "anchor": "discussion",
+            "type": "heading"
+          }
+        ]
+      },
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/ShortcutsUIButton",
+        "doc://com.apple.AppIntents/documentation/AppIntents/ShortcutsLink",
+        "doc://com.apple.AppIntents/documentation/AppIntents/ShortcutsLinkStyle"
+      ],
+      "anchor": "Buttons",
+      "title": "Buttons"
+    },
+    {
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/SiriTipUIView",
+        "doc://com.apple.AppIntents/documentation/AppIntents/SiriTipView",
+        "doc://com.apple.AppIntents/documentation/AppIntents/SiriTipViewStyle"
+      ],
+      "discussion": {
+        "kind": "content",
+        "content": [
+          {
+            "type": "heading",
+            "level": 2,
+            "anchor": "discussion",
+            "text": "Discussion"
+          }
+        ]
+      },
+      "anchor": "Tip-views",
+      "title": "Tip views"
     }
   ],
   "variants": [
@@ -23,11 +97,6 @@
       ]
     }
   ],
-  "identifier": {
-    "url": "doc://com.apple.AppIntents/documentation/AppIntents/app-shortcuts",
-    "interfaceLanguage": "swift"
-  },
-  "sections": [],
   "abstract": [
     {
       "text": "Integrate your app’s intents and entities with the Shortcuts app, Siri, Spotlight, and the Action button on supported iPhone and Apple Watch models.",
@@ -38,8 +107,8 @@
     {
       "content": [
         {
-          "level": 2,
           "type": "heading",
+          "level": 2,
           "text": "Overview",
           "anchor": "Overview"
         },
@@ -54,9 +123,9 @@
         },
         {
           "type": "aside",
-          "style": "note",
           "content": [
             {
+              "type": "paragraph",
               "inlineContent": [
                 {
                   "type": "text",
@@ -67,70 +136,70 @@
                   "text": " "
                 },
                 {
-                  "text": "phrases, display representation values, and the title and description of",
-                  "type": "text"
+                  "type": "text",
+                  "text": "phrases, display representation values, and the title and description of"
                 },
                 {
                   "text": " ",
+                  "type": "text"
+                },
+                {
+                  "text": "related intents. Machine learning models use this data when training to help",
                   "type": "text"
                 },
                 {
                   "type": "text",
-                  "text": "related intents. Machine learning models use this data when training to help"
-                },
-                {
-                  "text": " ",
-                  "type": "text"
+                  "text": " "
                 },
                 {
                   "type": "text",
                   "text": "improve the App Shortcuts experience."
                 }
-              ],
-              "type": "paragraph"
+              ]
             }
           ],
+          "style": "note",
           "name": "Note"
         },
         {
+          "type": "paragraph",
           "inlineContent": [
             {
-              "text": "Key app functionalities that people use to complete a task quickly and that you expose to the system with app intents are great candidates for App Shortcuts. For each high-value app intent, create an App Shortcut that specifies the intended action, the required parameters, the spoken phrases someone uses to run it, and the short title and the image that appear in the Shortcuts app.",
-              "type": "text"
+              "type": "text",
+              "text": "Key app functionalities that people use to complete a task quickly and that you expose to the system with app intents are great candidates for App Shortcuts. For each high-value app intent, create an App Shortcut that specifies the intended action, the required parameters, the spoken phrases someone uses to run it, and the short title and the image that appear in the Shortcuts app."
             }
-          ],
-          "type": "paragraph"
+          ]
         },
         {
+          "type": "paragraph",
           "inlineContent": [
             {
-              "text": "To offer an App Shortcut:",
-              "type": "text"
+              "type": "text",
+              "text": "To offer an App Shortcut:"
             }
-          ],
-          "type": "paragraph"
+          ]
         },
         {
           "items": [
             {
               "content": [
                 {
-                  "type": "paragraph",
                   "inlineContent": [
                     {
-                      "type": "text",
-                      "text": "Create an app intent for a key app functionality as described in "
+                      "text": "Create an app intent for a key app functionality as described in ",
+                      "type": "text"
                     },
                     {
-                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/Creating-your-first-app-intent",
                       "type": "reference",
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/Creating-your-first-app-intent",
                       "isActive": true
                     },
                     {
-                      "text": ".",
-                      "type": "text"
+                      "type": "text",
+                      "text": "."
                     }
-                  ]
+                  ],
+                  "type": "paragraph"
                 }
               ]
             },
@@ -139,8 +208,8 @@
                 {
                   "inlineContent": [
                     {
-                      "type": "text",
-                      "text": "Create the "
+                      "text": "Create the ",
+                      "type": "text"
                     },
                     {
                       "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcut",
@@ -148,17 +217,17 @@
                       "isActive": true
                     },
                     {
-                      "text": " object for your app intent using the ",
-                      "type": "text"
+                      "type": "text",
+                      "text": " object for your app intent using the "
                     },
                     {
                       "type": "reference",
-                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcut/init(intent:phrases:shortTitle:systemImageName:)-2hk1x",
-                      "isActive": true
+                      "isActive": true,
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcut/init(intent:phrases:shortTitle:systemImageName:)-2hk1x"
                     },
                     {
-                      "text": " initializer with phrases people can use to run the app intent and with the metadata that appears in the Shortcuts app.",
-                      "type": "text"
+                      "type": "text",
+                      "text": " initializer with phrases people can use to run the app intent and with the metadata that appears in the Shortcuts app."
                     }
                   ],
                   "type": "paragraph"
@@ -174,13 +243,13 @@
                       "type": "text"
                     },
                     {
-                      "isActive": true,
+                      "type": "reference",
                       "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutsProvider",
-                      "type": "reference"
+                      "isActive": true
                     },
                     {
-                      "text": " protocol that provides the App Shortcuts you offer to the Shortcuts app.",
-                      "type": "text"
+                      "type": "text",
+                      "text": " protocol that provides the App Shortcuts you offer to the Shortcuts app."
                     }
                   ],
                   "type": "paragraph"
@@ -191,86 +260,86 @@
           "type": "orderedList"
         },
         {
-          "type": "paragraph",
           "inlineContent": [
             {
-              "text": "With these three steps, you make your app’s functionality more discoverable and enable people to interact with your app in a lightweight way. However, the system displays a default interface for your App Shortcut. To display a custom view for each shortcut, return a SwiftUI view in your app intent’s ",
-              "type": "text"
+              "type": "text",
+              "text": "With these three steps, you make your app’s functionality more discoverable and enable people to interact with your app in a lightweight way. However, the system displays a default interface for your App Shortcut. To display a custom view for each shortcut, return a SwiftUI view in your app intent’s "
             },
             {
               "type": "reference",
-              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent/perform()",
-              "isActive": true
+              "isActive": true,
+              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent/perform()"
             },
             {
-              "type": "text",
-              "text": " method."
+              "text": " method.",
+              "type": "text"
             }
-          ]
+          ],
+          "type": "paragraph"
         },
         {
           "style": "note",
-          "type": "aside",
           "content": [
             {
+              "type": "paragraph",
               "inlineContent": [
                 {
-                  "type": "text",
-                  "text": ""
-                },
-                {
-                  "type": "reference",
-                  "identifier": "https://developer.apple.com/videos/play/wwdc2022/10170",
-                  "isActive": true
-                },
-                {
-                  "text": " and ",
+                  "text": "",
                   "type": "text"
                 },
                 {
                   "isActive": true,
                   "type": "reference",
-                  "identifier": "https://developer.apple.com/videos/play/wwdc2022/10169"
+                  "identifier": "https://developer.apple.com/videos/play/wwdc2022/10170"
+                },
+                {
+                  "type": "text",
+                  "text": " and "
+                },
+                {
+                  "type": "reference",
+                  "identifier": "https://developer.apple.com/videos/play/wwdc2022/10169",
+                  "isActive": true
                 },
                 {
                   "type": "text",
                   "text": "."
                 }
-              ],
-              "type": "paragraph"
+              ]
             }
           ],
-          "name": "Related sessions from WWDC22"
+          "name": "Related sessions from WWDC22",
+          "type": "aside"
         },
         {
           "type": "heading",
-          "text": "Offer App Shortcuts with preconfigured parameters",
           "anchor": "Offer-App-Shortcuts-with-preconfigured-parameters",
+          "text": "Offer App Shortcuts with preconfigured parameters",
           "level": 2
         },
         {
+          "type": "paragraph",
           "inlineContent": [
             {
               "type": "text",
               "text": "With App Shortcuts, you can also preconfigure phrases for app intents that use specific parameters. When you include parameters, people can use one phrase to start an interaction with an app without Siri having to ask for clarification. For example, a meditation app could offer an app intent to start a meditation with the phrase “Start a meditation”. Because the app offers many different meditations, Siri would require an additional clarification which meditation a person wants to start."
             }
-          ],
-          "type": "paragraph"
+          ]
         },
         {
+          "type": "paragraph",
           "inlineContent": [
             {
-              "text": "With an App Shortcut, you can supply preconfigured parameters ahead of time that enable a person to skip this clarification step. For example, the meditation app could provide parameterized phrases where each phrase represents a common meditation. A person could then start a meditation with one phrase like “Start a mindfulness meditation.” or “Start a short meditation.”",
-              "type": "text"
+              "type": "text",
+              "text": "With an App Shortcut, you can supply preconfigured parameters ahead of time that enable a person to skip this clarification step. For example, the meditation app could provide parameterized phrases where each phrase represents a common meditation. A person could then start a meditation with one phrase like “Start a mindfulness meditation.” or “Start a short meditation.”"
             }
-          ],
-          "type": "paragraph"
+          ]
         },
         {
-          "type": "heading",
-          "level": 2,
           "text": "Make your App Shortcuts even more discoverable",
-          "anchor": "Make-your-App-Shortcuts-even-more-discoverable"
+          "level": 2,
+          "anchor": "Make-your-App-Shortcuts-even-more-discoverable",
+          "type": "heading"
         },
         {
           "type": "paragraph",
@@ -290,8 +359,8 @@
                   "inlineContent": [
                     {
                       "type": "reference",
-                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/SiriTipView",
-                      "isActive": true
+                      "isActive": true,
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/SiriTipView"
                     },
                     {
                       "type": "text",
@@ -299,12 +368,12 @@
                     },
                     {
                       "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/SiriTipUIView",
-                      "type": "reference",
-                      "isActive": true
+                      "isActive": true,
+                      "type": "reference"
                     },
                     {
-                      "type": "text",
-                      "text": " present a view that tells a person that an App Shortcut is available."
+                      "text": " present a view that tells a person that an App Shortcut is available.",
+                      "type": "text"
                     }
                   ]
                 }
@@ -313,18 +382,18 @@
             {
               "content": [
                 {
-                  "type": "paragraph",
                   "inlineContent": [
                     {
                       "type": "reference",
-                      "isActive": true,
-                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ShortcutsLink"
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ShortcutsLink",
+                      "isActive": true
                     },
                     {
                       "text": " enables you to display a link to your App Shortcut.",
                       "type": "text"
                     }
-                  ]
+                  ],
+                  "type": "paragraph"
                 }
               ]
             }
@@ -338,8 +407,8 @@
               "code": "ShortcutsLink"
             },
             {
-              "text": " is especially convenient if your app displays a list of its available App Shortcuts.",
-              "type": "text"
+              "type": "text",
+              "text": " is especially convenient if your app displays a list of its available App Shortcuts."
             }
           ],
           "type": "paragraph"
@@ -348,87 +417,20 @@
       "kind": "content"
     }
   ],
-  "topicSections": [
+  "seeAlsoSections": [
     {
-      "title": "App Shortcut management",
-      "anchor": "App-Shortcut-management",
+      "generated": true,
+      "anchor": "System-experiences",
+      "title": "System experiences",
       "identifiers": [
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutsProvider"
-      ]
-    },
-    {
-      "title": "App Shortcut definition",
-      "identifiers": [
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcut",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutPhrase",
-        "doc://com.apple.AppIntents/documentation/AppIntents/NegativeAppShortcutPhrase",
-        "doc://com.apple.AppIntents/documentation/AppIntents/NegativeAppShortcutPhrases",
-        "doc://com.apple.documentation/documentation/BundleResources/Information-Property-List/CFBundleIcons/CFBundlePrimaryIcon/NSAppIconActionTintColorName",
-        "doc://com.apple.documentation/documentation/BundleResources/Information-Property-List/CFBundleIcons/CFBundlePrimaryIcon/NSAppIconComplementingColorNames",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutsBuilder",
-        "doc://com.apple.AppIntents/documentation/AppIntents/ShortcutTileColor"
-      ],
-      "anchor": "App-Shortcut-definition"
-    },
-    {
-      "identifiers": [
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutOptionsCollection",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutOptionsCollectionProtocol",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutOptionsCollectionSpecification",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutOptionsCollectionSpecificationBuilder"
-      ],
-      "anchor": "App-Shortcut-options",
-      "title": "App Shortcut options"
-    },
-    {
-      "identifiers": [
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentation",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentationSummary",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentationSummaryString",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentationTitle",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentationTitleString"
-      ],
-      "title": "App Shortcut parameter presentation",
-      "anchor": "App-Shortcut-parameter-presentation"
-    },
-    {
-      "title": "Buttons",
-      "anchor": "Buttons",
-      "identifiers": [
-        "doc://com.apple.AppIntents/documentation/AppIntents/ShortcutsUIButton",
-        "doc://com.apple.AppIntents/documentation/AppIntents/ShortcutsLink",
-        "doc://com.apple.AppIntents/documentation/AppIntents/ShortcutsLinkStyle"
-      ],
-      "discussion": {
-        "kind": "content",
-        "content": [
-          {
-            "anchor": "discussion",
-            "level": 2,
-            "text": "Discussion",
-            "type": "heading"
-          }
-        ]
-      }
-    },
-    {
-      "discussion": {
-        "content": [
-          {
-            "text": "Discussion",
-            "type": "heading",
-            "level": 2,
-            "anchor": "discussion"
-          }
-        ],
-        "kind": "content"
-      },
-      "title": "Tip views",
-      "anchor": "Tip-views",
-      "identifiers": [
-        "doc://com.apple.AppIntents/documentation/AppIntents/SiriTipUIView",
-        "doc://com.apple.AppIntents/documentation/AppIntents/SiriTipView",
-        "doc://com.apple.AppIntents/documentation/AppIntents/SiriTipViewStyle"
+        "doc://com.apple.AppIntents/documentation/AppIntents/adopting-app-intents-to-support-system-experiences",
+        "doc://com.apple.AppIntents/documentation/AppIntents/making-app-entities-available-in-spotlight",
+        "doc://com.apple.AppIntents/documentation/AppIntents/Launching-your-voice-based-conversational-app-from-the-side-button-of-iPhone",
+        "doc://com.apple.AppIntents/documentation/AppIntents/siri",
+        "doc://com.apple.AppIntents/documentation/AppIntents/visual-intelligence",
+        "doc://com.apple.AppIntents/documentation/AppIntents/widgets-and-live-activities",
+        "doc://com.apple.AppIntents/documentation/AppIntents/ActionButton",
+        "doc://com.apple.AppIntents/documentation/AppIntents/focus"
       ]
     }
   ],
@@ -439,9 +441,14 @@
         "name": "App Intents"
       }
     ],
-    "roleHeading": "API Collection",
-    "title": "App Shortcuts"
+    "title": "App Shortcuts",
+    "roleHeading": "API Collection"
   },
+  "identifier": {
+    "url": "doc://com.apple.AppIntents/documentation/AppIntents/app-shortcuts",
+    "interfaceLanguage": "swift"
+  },
+  "sections": [],
   "hierarchy": {
     "paths": [
       [
@@ -450,22 +457,41 @@
       ]
     ]
   },
+  "kind": "article",
   "schemaVersion": {
     "major": 0,
     "minor": 3,
     "patch": 0
   },
   "references": {
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcut": {
-      "kind": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcut",
-      "title": "AppShortcut",
+    "doc://com.apple.documentation/documentation/technologies": {
+      "kind": "technologies",
+      "role": "overview",
       "abstract": [
         {
-          "text": "A type that defines a preconfigured shortcut for a specific app intent.",
+          "text": "",
           "type": "text"
         }
       ],
+      "type": "topic",
+      "title": "Technologies",
+      "url": "https://developer.apple.com/documentation/technologies",
+      "identifier": "doc://com.apple.documentation/documentation/technologies"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentationTitleString": {
+      "abstract": [],
+      "title": "AppShortcutParameterPresentationTitleString",
+      "deprecated": true,
+      "navigatorTitle": [
+        {
+          "text": "AppShortcutParameterPresentationTitleString",
+          "kind": "identifier"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentationTitleString",
+      "kind": "symbol",
+      "type": "topic",
+      "role": "symbol",
       "fragments": [
         {
           "kind": "keyword",
@@ -477,251 +503,109 @@
         },
         {
           "kind": "identifier",
-          "text": "AppShortcut"
+          "text": "AppShortcutParameterPresentationTitleString"
         }
       ],
-      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appshortcutparameterpresentationtitlestring"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/Launching-your-voice-based-conversational-app-from-the-side-button-of-iPhone": {
+      "title": "Launching your voice-based conversational app from the side button of iPhone",
+      "role": "article",
+      "kind": "article",
       "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/Launching-your-voice-based-conversational-app-from-the-side-button-of-iPhone",
+      "url": "https://developer.apple.com/documentation/appintents/launching-your-voice-based-conversational-app-from-the-side-button-of-iphone",
+      "abstract": [
+        {
+          "text": "Let people in Japan configure the side button of iPhone to launch your voice-based conversational app.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/Creating-your-first-app-intent": {
+      "title": "Creating your first app intent",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Create your first app intent that makes your app available in system experiences like Spotlight or the Shortcuts app."
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/Creating-your-first-app-intent",
+      "url": "https://developer.apple.com/documentation/appintents/creating-your-first-app-intent",
+      "role": "article",
+      "kind": "article"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutPhraseToken": {
       "navigatorTitle": [
         {
           "kind": "identifier",
-          "text": "AppShortcut"
+          "text": "AppShortcutPhraseToken"
         }
       ],
-      "url": "https://developer.apple.com/documentation/appintents/appshortcut"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentationSummaryString": {
       "kind": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentationSummaryString",
+      "title": "AppShortcutPhraseToken",
+      "fragments": [
+        {
+          "text": "enum",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AppShortcutPhraseToken",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Dynamic values you can include in the spoken phrases that run your shortcut."
+        }
+      ],
       "type": "topic",
       "role": "symbol",
-      "title": "AppShortcutParameterPresentationSummaryString",
-      "abstract": [],
+      "url": "https://developer.apple.com/documentation/appintents/appshortcutphrasetoken",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutPhraseToken"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentation": {
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "AppShortcutParameterPresentation"
+        }
+      ],
+      "title": "AppShortcutParameterPresentation",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentation",
+      "url": "https://developer.apple.com/documentation/appintents/appshortcutparameterpresentation",
       "fragments": [
         {
           "text": "struct",
           "kind": "keyword"
         },
         {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "AppShortcutParameterPresentationSummaryString"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "AppShortcutParameterPresentationSummaryString"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/appshortcutparameterpresentationsummarystring"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/SiriTipView": {
-      "abstract": [
-        {
-          "text": "A SwiftUI view that displays the phrase someone uses to invoke an App Shortcut.",
-          "type": "text"
-        }
-      ],
-      "role": "symbol",
-      "kind": "symbol",
-      "type": "topic",
-      "title": "SiriTipView",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/SiriTipView",
-      "url": "https://developer.apple.com/documentation/appintents/siritipview",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
           "kind": "text",
           "text": " "
         },
         {
           "kind": "identifier",
-          "text": "SiriTipView"
+          "text": "AppShortcutParameterPresentation"
         }
       ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "SiriTipView"
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/ShortcutsLinkStyle": {
-      "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/shortcutslinkstyle",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "ShortcutsLinkStyle"
-        }
-      ],
-      "role": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ShortcutsLinkStyle"
-        }
-      ],
-      "title": "ShortcutsLinkStyle",
       "abstract": [
         {
           "type": "text",
-          "text": "The styles to apply to buttons you use to open your app’s page in the Shortcuts app."
-        }
-      ],
-      "type": "topic",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ShortcutsLinkStyle"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/SiriTipViewStyle": {
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/SiriTipViewStyle",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "SiriTipViewStyle"
+          "text": "Describes the presentation of an App Shortcut  for the provided parameter."
         }
       ],
       "role": "symbol",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "The styles to apply to the tip views you use to display spoken phrases."
-        }
-      ],
       "type": "topic",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "SiriTipViewStyle",
-          "kind": "identifier"
-        }
-      ],
-      "title": "SiriTipViewStyle",
-      "url": "https://developer.apple.com/documentation/appintents/siritipviewstyle",
       "kind": "symbol"
     },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutOptionsCollectionProtocol": {
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutOptionsCollectionProtocol",
-      "role": "symbol",
-      "abstract": [],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "AppShortcutOptionsCollectionProtocol"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/appshortcutoptionscollectionprotocol",
-      "kind": "symbol",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "protocol"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "AppShortcutOptionsCollectionProtocol"
-        }
-      ],
-      "title": "AppShortcutOptionsCollectionProtocol",
-      "type": "topic"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/ShortcutsUIButton": {
-      "fragments": [
-        {
-          "text": "class",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ShortcutsUIButton"
-        }
-      ],
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ShortcutsUIButton"
-        }
-      ],
-      "title": "ShortcutsUIButton",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A button that opens the current app’s page in the Shortcuts app."
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/shortcutsuibutton",
-      "role": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ShortcutsUIButton",
-      "type": "topic"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutOptionsCollection": {
-      "url": "https://developer.apple.com/documentation/appintents/appshortcutoptionscollection",
-      "title": "AppShortcutOptionsCollection",
-      "type": "topic",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "AppShortcutOptionsCollection"
-        }
-      ],
-      "role": "symbol",
-      "kind": "symbol",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Represents a collection of options for parameters of an App Shortcut."
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutOptionsCollection",
-      "fragments": [
-        {
-          "text": "struct",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "AppShortcutOptionsCollection",
-          "kind": "identifier"
-        }
-      ]
-    },
     "doc://com.apple.documentation/documentation/BundleResources/Information-Property-List/CFBundleIcons/CFBundlePrimaryIcon/NSAppIconComplementingColorNames": {
-      "role": "symbol",
       "url": "https://developer.apple.com/documentation/BundleResources/Information-Property-List/CFBundleIcons/CFBundlePrimaryIcon/NSAppIconComplementingColorNames",
-      "identifier": "doc://com.apple.documentation/documentation/BundleResources/Information-Property-List/CFBundleIcons/CFBundlePrimaryIcon/NSAppIconComplementingColorNames",
       "title": "NSAppIconComplementingColorNames",
       "abstract": [
         {
@@ -729,112 +613,20 @@
           "text": "The names of the colors to use for the background of the App Shortcuts platter."
         }
       ],
+      "role": "symbol",
       "type": "topic",
+      "identifier": "doc://com.apple.documentation/documentation/BundleResources/Information-Property-List/CFBundleIcons/CFBundlePrimaryIcon/NSAppIconComplementingColorNames",
       "kind": "symbol"
     },
-    "doc://com.apple.AppIntents/documentation/AppIntents/NegativeAppShortcutPhrase": {
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/NegativeAppShortcutPhrase",
-      "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/negativeappshortcutphrase",
-      "title": "NegativeAppShortcutPhrase",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "NegativeAppShortcutPhrase",
-          "kind": "identifier"
-        }
-      ],
+    "doc://com.apple.AppIntents/documentation/AppIntents/focus": {
+      "type": "topic",
+      "kind": "article",
+      "title": "Focus",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/focus",
       "abstract": [
         {
           "type": "text",
-          "text": "An object that represents a negative phrase."
-        }
-      ],
-      "role": "symbol",
-      "type": "topic",
-      "navigatorTitle": [
-        {
-          "text": "NegativeAppShortcutPhrase",
-          "kind": "identifier"
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentationTitleString": {
-      "fragments": [
-        {
-          "text": "struct",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "AppShortcutParameterPresentationTitleString",
-          "kind": "identifier"
-        }
-      ],
-      "kind": "symbol",
-      "deprecated": true,
-      "title": "AppShortcutParameterPresentationTitleString",
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/appshortcutparameterpresentationtitlestring",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentationTitleString",
-      "abstract": [],
-      "type": "topic",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "AppShortcutParameterPresentationTitleString"
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentationSummary": {
-      "abstract": [
-        {
-          "type": "text",
-          "text": "The summary of the presentation of an App Shortcut parameter."
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "AppShortcutParameterPresentationSummary"
-        }
-      ],
-      "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/appshortcutparameterpresentationsummary",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentationSummary",
-      "type": "topic",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "AppShortcutParameterPresentationSummary"
-        }
-      ],
-      "title": "AppShortcutParameterPresentationSummary",
-      "role": "symbol"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/NegativeAppShortcutPhrases": {
-      "abstract": [
-        {
-          "type": "text",
-          "text": "This is a set of negative phrases, which will all be added to the app-level negative"
+          "text": "Adjust your app’s behavior and filter incoming notifications when the"
         },
         {
           "text": " ",
@@ -842,299 +634,90 @@
         },
         {
           "type": "text",
-          "text": "training set. All the training data specified here, will be used to completely bypass your app"
+          "text": "current Focus changes."
         }
       ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/NegativeAppShortcutPhrases",
-      "type": "topic",
-      "title": "NegativeAppShortcutPhrases",
-      "role": "symbol",
-      "kind": "symbol",
-      "fragments": [
-        {
-          "text": "struct",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "NegativeAppShortcutPhrases"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/negativeappshortcutphrases",
-      "navigatorTitle": [
-        {
-          "text": "NegativeAppShortcutPhrases",
-          "kind": "identifier"
-        }
-      ]
+      "url": "https://developer.apple.com/documentation/appintents/focus",
+      "role": "collectionGroup"
     },
-    "doc://com.apple.documentation/documentation/BundleResources/Information-Property-List/CFBundleIcons/CFBundlePrimaryIcon/NSAppIconActionTintColorName": {
-      "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/BundleResources/Information-Property-List/CFBundleIcons/CFBundlePrimaryIcon/NSAppIconActionTintColorName",
-      "type": "topic",
-      "title": "NSAppIconActionTintColorName",
-      "role": "symbol",
+    "doc://com.apple.AppIntents/documentation/AppIntents/making-app-entities-available-in-spotlight": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/making-app-entities-available-in-spotlight",
       "abstract": [
         {
           "type": "text",
-          "text": "The tint color to apply to text and symbols in the App Shortcuts platter."
+          "text": "Annotate your app entity types to support Spotlight indexing, and donate entities to"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "type": "text",
+          "text": "make them findable in searches."
         }
       ],
-      "identifier": "doc://com.apple.documentation/documentation/BundleResources/Information-Property-List/CFBundleIcons/CFBundlePrimaryIcon/NSAppIconActionTintColorName"
+      "type": "topic",
+      "kind": "article",
+      "role": "article",
+      "title": "Making app entities available in Spotlight",
+      "url": "https://developer.apple.com/documentation/appintents/making-app-entities-available-in-spotlight"
     },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentation": {
+    "doc://com.apple.AppIntents/documentation/AppIntents/visual-intelligence": {
       "abstract": [
         {
           "type": "text",
-          "text": "Describes the presentation of an App Shortcut  for the provided parameter."
+          "text": "Integrate your app with visual intelligence and include your content in its search results."
         }
       ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "AppShortcutParameterPresentation"
-        }
-      ],
-      "role": "symbol",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "AppShortcutParameterPresentation"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/appshortcutparameterpresentation",
-      "title": "AppShortcutParameterPresentation",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentation",
-      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/visual-intelligence",
+      "role": "collectionGroup",
+      "title": "Visual intelligence",
+      "url": "https://developer.apple.com/documentation/appintents/visual-intelligence",
+      "kind": "article",
       "type": "topic"
     },
-    "doc://com.apple.AppIntents/documentation/AppIntents/SiriTipUIView": {
-      "title": "SiriTipUIView",
-      "abstract": [
-        {
-          "text": "A view that displays the phrase a person uses to invoke an App Shortcut.",
-          "type": "text"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/siritipuiview",
-      "kind": "symbol",
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentationSummaryString": {
       "type": "topic",
       "role": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/SiriTipUIView",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "SiriTipUIView"
-        }
-      ],
-      "fragments": [
-        {
-          "text": "class",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "SiriTipUIView",
-          "kind": "identifier"
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/Creating-your-first-app-intent": {
-      "role": "article",
-      "type": "topic",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/Creating-your-first-app-intent",
-      "title": "Creating your first app intent",
-      "abstract": [
-        {
-          "text": "Create your first app intent that makes your app available in system experiences like Spotlight or the Shortcuts app.",
-          "type": "text"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/creating-your-first-app-intent",
-      "kind": "article"
-    },
-    "doc://com.apple.documentation/documentation/technologies": {
-      "identifier": "doc://com.apple.documentation/documentation/technologies",
-      "title": "Technologies",
-      "url": "https://developer.apple.com/documentation/technologies",
-      "type": "topic",
-      "role": "overview",
-      "kind": "technologies",
-      "abstract": [
-        {
-          "text": "",
-          "type": "text"
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutsProvider": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentationSummaryString",
       "kind": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutsProvider",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "protocol"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "AppShortcutsProvider",
-          "kind": "identifier"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/appshortcutsprovider",
-      "role": "symbol",
-      "title": "AppShortcutsProvider",
-      "type": "topic",
-      "abstract": [
-        {
-          "text": "A type alias for the type that provides an app’s preconfigured shortcuts.",
-          "type": "text"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "AppShortcutsProvider"
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutsBuilder": {
-      "fragments": [
-        {
-          "text": "enum",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "AppShortcutsBuilder",
-          "kind": "identifier"
-        }
-      ],
-      "type": "topic",
-      "role": "symbol",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A result builder that allows you to declaratively describe the App Shortcuts that your app provides."
-        }
-      ],
-      "kind": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutsBuilder",
-      "navigatorTitle": [
-        {
-          "text": "AppShortcutsBuilder",
-          "kind": "identifier"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/appshortcutsbuilder",
-      "title": "AppShortcutsBuilder"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/app-intents": {
-      "type": "topic",
-      "role": "collectionGroup",
-      "url": "https://developer.apple.com/documentation/appintents/app-intents",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Define the custom actions your app exposes to the system, and incorporate"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "support for existing SiriKit intents.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-intents",
-      "title": "App intents",
-      "kind": "article"
-    },
-    "https://developer.apple.com/videos/play/wwdc2022/10170": {
-      "url": "https://developer.apple.com/videos/play/wwdc2022/10170",
-      "title": "Session 10170: Implement App Shortcuts with App Intents",
-      "titleInlineContent": [
-        {
-          "text": "Session 10170: Implement App Shortcuts with App Intents",
-          "type": "text"
-        }
-      ],
-      "type": "link",
-      "identifier": "https://developer.apple.com/videos/play/wwdc2022/10170"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutPhrase": {
-      "title": "AppShortcutPhrase",
-      "abstract": [
-        {
-          "text": "A spoken phrase that causes the system to run the corresponding App Shortcut.",
-          "type": "text"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "AppShortcutPhrase"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/appshortcutphrase",
-      "role": "symbol",
-      "type": "topic",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutPhrase",
-      "kind": "symbol",
-      "fragments": [
-        {
-          "text": "struct",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "AppShortcutPhrase",
-          "kind": "identifier"
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutOptionsCollectionSpecificationBuilder": {
-      "title": "AppShortcutOptionsCollectionSpecificationBuilder",
+      "url": "https://developer.apple.com/documentation/appintents/appshortcutparameterpresentationsummarystring",
       "abstract": [],
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/appshortcutoptionscollectionspecificationbuilder",
-      "kind": "symbol",
-      "type": "topic",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "AppShortcutParameterPresentationSummaryString"
+        }
+      ],
       "navigatorTitle": [
         {
           "kind": "identifier",
-          "text": "AppShortcutOptionsCollectionSpecificationBuilder"
+          "text": "AppShortcutParameterPresentationSummaryString"
         }
       ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutOptionsCollectionSpecificationBuilder",
+      "title": "AppShortcutParameterPresentationSummaryString"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutsContent": {
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "AppShortcutsContent"
+        }
+      ],
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appshortcutscontent",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutsContent",
       "fragments": [
         {
-          "text": "enum",
+          "text": "protocol",
           "kind": "keyword"
         },
         {
@@ -1142,172 +725,154 @@
           "text": " "
         },
         {
-          "text": "AppShortcutOptionsCollectionSpecificationBuilder",
+          "text": "AppShortcutsContent",
           "kind": "identifier"
         }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutOptionsCollectionSpecification": {
-      "role": "symbol",
+      ],
       "abstract": [],
-      "type": "topic",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "protocol"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "AppShortcutOptionsCollectionSpecification"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "AppShortcutOptionsCollectionSpecification"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/appshortcutoptionscollectionspecification",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutOptionsCollectionSpecification",
       "kind": "symbol",
-      "title": "AppShortcutOptionsCollectionSpecification"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent/perform()": {
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Performs the intent after resolving the provided parameters."
-        }
-      ],
-      "title": "perform()",
-      "url": "https://developer.apple.com/documentation/appintents/appintent/perform()",
-      "required": true,
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent/perform()",
-      "type": "topic",
       "role": "symbol",
-      "fragments": [
-        {
-          "text": "func",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "perform",
-          "kind": "identifier"
-        },
-        {
-          "text": "() ",
-          "kind": "text"
-        },
-        {
-          "kind": "keyword",
-          "text": "async"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "throws",
-          "kind": "keyword"
-        },
-        {
-          "text": " -> ",
-          "kind": "text"
-        },
-        {
-          "text": "Self",
-          "kind": "typeIdentifier"
-        },
-        {
-          "text": ".",
-          "kind": "text"
-        },
-        {
-          "text": "PerformResult",
-          "preciseIdentifier": "s:10AppIntents0A6IntentP13PerformResultQa",
-          "kind": "typeIdentifier"
-        }
-      ],
-      "kind": "symbol",
-      "defaultImplementations": 10
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/ShortcutTileColor": {
-      "abstract": [
-        {
-          "text": "Describes the colors a shortcut tile in the Shortcuts app.",
-          "type": "text"
-        }
-      ],
-      "kind": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ShortcutTileColor",
-      "title": "ShortcutTileColor",
-      "navigatorTitle": [
-        {
-          "text": "ShortcutTileColor",
-          "kind": "identifier"
-        }
-      ],
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/appintents/shortcuttilecolor",
-      "role": "symbol",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "enum"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ShortcutTileColor"
-        }
-      ]
+      "title": "AppShortcutsContent"
     },
     "doc://com.apple.AppIntents/documentation/AppIntents": {
-      "url": "https://developer.apple.com/documentation/appintents",
-      "role": "collection",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents",
-      "type": "topic",
       "abstract": [
         {
           "type": "text",
           "text": "Make your app’s content and actions discoverable with system experiences like Spotlight, widgets, and the Shortcuts app."
         }
       ],
+      "title": "App Intents",
+      "url": "https://developer.apple.com/documentation/appintents",
       "kind": "symbol",
-      "title": "App Intents"
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents",
+      "role": "collection"
     },
-    "https://developer.apple.com/videos/play/wwdc2022/10169": {
-      "url": "https://developer.apple.com/videos/play/wwdc2022/10169",
-      "type": "link",
-      "titleInlineContent": [
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcut/init(intent:phrases:shortTitle:systemImageName:)-2hk1x": {
+      "abstract": [
         {
           "type": "text",
-          "text": "Session 10169: Design App Shortcuts"
+          "text": "Initializes an App Shortcut with phrases that run the app intent, a title, and an image."
         }
       ],
-      "identifier": "https://developer.apple.com/videos/play/wwdc2022/10169",
-      "title": "Session 10169: Design App Shortcuts"
+      "title": "init(intent:phrases:shortTitle:systemImageName:)",
+      "role": "symbol",
+      "deprecated": true,
+      "fragments": [
+        {
+          "text": "init",
+          "kind": "identifier"
+        },
+        {
+          "text": "<",
+          "kind": "text"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Intent"
+        },
+        {
+          "text": ">(",
+          "kind": "text"
+        },
+        {
+          "text": "intent",
+          "kind": "externalParam"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Intent"
+        },
+        {
+          "text": ", ",
+          "kind": "text"
+        },
+        {
+          "kind": "externalParam",
+          "text": "phrases"
+        },
+        {
+          "text": ": [",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A14ShortcutPhraseV",
+          "text": "AppShortcutPhrase"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Intent"
+        },
+        {
+          "text": ">], ",
+          "kind": "text"
+        },
+        {
+          "kind": "externalParam",
+          "text": "shortTitle"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10Foundation23LocalizedStringResourceV",
+          "kind": "typeIdentifier",
+          "text": "LocalizedStringResource"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "systemImageName"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "String",
+          "preciseIdentifier": "s:SS"
+        },
+        {
+          "text": "?)",
+          "kind": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcut/init(intent:phrases:shortTitle:systemImageName:)-2hk1x",
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appshortcut/init(intent:phrases:shorttitle:systemimagename:)-2hk1x",
+      "type": "topic"
     },
     "doc://com.apple.AppIntents/documentation/AppIntents/ShortcutsLink": {
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ShortcutsLink",
       "abstract": [
         {
           "type": "text",
           "text": "A button that brings users to the current app’s App Shortcuts page in the Shortcuts app."
         }
       ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ShortcutsLink",
       "type": "topic",
+      "title": "ShortcutsLink",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ShortcutsLink"
+        }
+      ],
+      "role": "symbol",
       "fragments": [
         {
           "kind": "keyword",
@@ -1322,149 +887,10 @@
           "text": "ShortcutsLink"
         }
       ],
-      "navigatorTitle": [
-        {
-          "text": "ShortcutsLink",
-          "kind": "identifier"
-        }
-      ],
-      "role": "symbol",
-      "title": "ShortcutsLink",
-      "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/shortcutslink"
+      "url": "https://developer.apple.com/documentation/appintents/shortcutslink",
+      "kind": "symbol"
     },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcut/init(intent:phrases:shortTitle:systemImageName:)-2hk1x": {
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Initializes an App Shortcut with phrases that run the app intent, a title, and an image."
-        }
-      ],
-      "title": "init(intent:phrases:shortTitle:systemImageName:)",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcut/init(intent:phrases:shortTitle:systemImageName:)-2hk1x",
-      "kind": "symbol",
-      "fragments": [
-        {
-          "text": "init",
-          "kind": "identifier"
-        },
-        {
-          "text": "<",
-          "kind": "text"
-        },
-        {
-          "text": "Intent",
-          "kind": "genericParameter"
-        },
-        {
-          "text": ">(",
-          "kind": "text"
-        },
-        {
-          "text": "intent",
-          "kind": "externalParam"
-        },
-        {
-          "text": ": ",
-          "kind": "text"
-        },
-        {
-          "text": "Intent",
-          "kind": "typeIdentifier"
-        },
-        {
-          "text": ", ",
-          "kind": "text"
-        },
-        {
-          "kind": "externalParam",
-          "text": "phrases"
-        },
-        {
-          "kind": "text",
-          "text": ": ["
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10AppIntents0A14ShortcutPhraseV",
-          "text": "AppShortcutPhrase"
-        },
-        {
-          "text": "<",
-          "kind": "text"
-        },
-        {
-          "text": "Intent",
-          "kind": "typeIdentifier"
-        },
-        {
-          "kind": "text",
-          "text": ">], "
-        },
-        {
-          "text": "shortTitle",
-          "kind": "externalParam"
-        },
-        {
-          "text": ": ",
-          "kind": "text"
-        },
-        {
-          "text": "LocalizedStringResource",
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation23LocalizedStringResourceV"
-        },
-        {
-          "text": "?, ",
-          "kind": "text"
-        },
-        {
-          "kind": "externalParam",
-          "text": "systemImageName"
-        },
-        {
-          "text": ": ",
-          "kind": "text"
-        },
-        {
-          "text": "String",
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:SS"
-        },
-        {
-          "kind": "text",
-          "text": "?)"
-        }
-      ],
-      "type": "topic",
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/appshortcut/init(intent:phrases:shorttitle:systemimagename:)-2hk1x",
-      "deprecated": true
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/intent-discovery": {
-      "kind": "article",
-      "abstract": [
-        {
-          "text": "Donate your app’s intents to the system to help it identify trends and predict",
-          "type": "text"
-        },
-        {
-          "type": "text",
-          "text": " "
-        },
-        {
-          "type": "text",
-          "text": "future behaviors."
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/intent-discovery",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/intent-discovery",
-      "role": "collectionGroup",
-      "title": "Intent discovery",
-      "type": "topic"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentationTitle": {
-      "role": "symbol",
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentationSummary": {
       "fragments": [
         {
           "text": "struct",
@@ -1475,28 +901,757 @@
           "text": " "
         },
         {
+          "text": "AppShortcutParameterPresentationSummary",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The summary of the presentation of an App Shortcut parameter."
+        }
+      ],
+      "role": "symbol",
+      "kind": "symbol",
+      "title": "AppShortcutParameterPresentationSummary",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appshortcutparameterpresentationsummary",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentationSummary",
+      "navigatorTitle": [
+        {
+          "text": "AppShortcutParameterPresentationSummary",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/ActionButton": {
+      "role": "collectionGroup",
+      "url": "https://developer.apple.com/documentation/appintents/actionbutton",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Enable people to run your App Shortcuts with the Action button on iPhone or to start your app’s workout or dive sessions using the Action button on Apple Watch."
+        }
+      ],
+      "kind": "article",
+      "title": "Action button on iPhone and Apple Watch",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ActionButton",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/SiriTipUIView": {
+      "title": "SiriTipUIView",
+      "kind": "symbol",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "class",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "SiriTipUIView",
+          "kind": "identifier"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/SiriTipUIView",
+      "abstract": [
+        {
+          "text": "A view that displays the phrase a person uses to invoke an App Shortcut.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/siritipuiview",
+      "navigatorTitle": [
+        {
+          "text": "SiriTipUIView",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/ShortcutTileColor": {
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "ShortcutTileColor",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/shortcuttilecolor",
+      "title": "ShortcutTileColor",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ShortcutTileColor",
+      "kind": "symbol",
+      "role": "symbol",
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ShortcutTileColor"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Describes the colors a shortcut tile in the Shortcuts app."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcut": {
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "AppShortcut"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A type that defines a preconfigured shortcut for a specific app intent."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcut",
+      "title": "AppShortcut",
+      "url": "https://developer.apple.com/documentation/appintents/appshortcut",
+      "type": "topic",
+      "role": "symbol",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "AppShortcut"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/NegativeAppShortcutPhrase": {
+      "abstract": [
+        {
+          "text": "An object that represents a negative phrase.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/negativeappshortcutphrase",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "NegativeAppShortcutPhrase"
+        }
+      ],
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/NegativeAppShortcutPhrase",
+      "navigatorTitle": [
+        {
+          "text": "NegativeAppShortcutPhrase",
+          "kind": "identifier"
+        }
+      ],
+      "title": "NegativeAppShortcutPhrase",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutOptionsCollectionSpecificationBuilder": {
+      "kind": "symbol",
+      "role": "symbol",
+      "type": "topic",
+      "title": "AppShortcutOptionsCollectionSpecificationBuilder",
+      "url": "https://developer.apple.com/documentation/appintents/appshortcutoptionscollectionspecificationbuilder",
+      "navigatorTitle": [
+        {
+          "text": "AppShortcutOptionsCollectionSpecificationBuilder",
+          "kind": "identifier"
+        }
+      ],
+      "fragments": [
+        {
+          "text": "enum",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppShortcutOptionsCollectionSpecificationBuilder",
+          "kind": "identifier"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutOptionsCollectionSpecificationBuilder",
+      "abstract": []
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentationTitle": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentationTitle",
+      "url": "https://developer.apple.com/documentation/appintents/appshortcutparameterpresentationtitle",
+      "role": "symbol",
+      "deprecated": true,
+      "type": "topic",
+      "title": "AppShortcutParameterPresentationTitle",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "AppShortcutParameterPresentationTitle"
+        }
+      ],
+      "navigatorTitle": [
+        {
           "text": "AppShortcutParameterPresentationTitle",
           "kind": "identifier"
         }
       ],
-      "deprecated": true,
-      "title": "AppShortcutParameterPresentationTitle",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutParameterPresentationTitle",
       "abstract": [
         {
           "type": "text",
           "text": "A struct that represents the title of the presentation of an App Shortcut."
         }
       ],
-      "url": "https://developer.apple.com/documentation/appintents/appshortcutparameterpresentationtitle",
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutsBuilder": {
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appshortcutsbuilder",
+      "fragments": [
+        {
+          "text": "enum",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AppShortcutsBuilder",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "A result builder that allows you to declaratively describe the App Shortcuts that your app provides.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutsBuilder",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "AppShortcutsBuilder"
+        }
+      ],
+      "type": "topic",
+      "title": "AppShortcutsBuilder",
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutOptionsCollectionProtocol": {
+      "abstract": [],
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "AppShortcutOptionsCollectionProtocol"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appshortcutoptionscollectionprotocol",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutOptionsCollectionProtocol",
+      "navigatorTitle": [
+        {
+          "text": "AppShortcutOptionsCollectionProtocol",
+          "kind": "identifier"
+        }
+      ],
+      "title": "AppShortcutOptionsCollectionProtocol",
+      "type": "topic"
+    },
+    "https://developer.apple.com/videos/play/wwdc2022/10170": {
+      "url": "https://developer.apple.com/videos/play/wwdc2022/10170",
+      "titleInlineContent": [
+        {
+          "type": "text",
+          "text": "Session 10170: Implement App Shortcuts with App Intents"
+        }
+      ],
+      "type": "link",
+      "identifier": "https://developer.apple.com/videos/play/wwdc2022/10170",
+      "title": "Session 10170: Implement App Shortcuts with App Intents"
+    },
+    "https://developer.apple.com/videos/play/wwdc2022/10169": {
+      "titleInlineContent": [
+        {
+          "type": "text",
+          "text": "Session 10169: Design App Shortcuts"
+        }
+      ],
+      "url": "https://developer.apple.com/videos/play/wwdc2022/10169",
+      "type": "link",
+      "identifier": "https://developer.apple.com/videos/play/wwdc2022/10169",
+      "title": "Session 10169: Design App Shortcuts"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutOptionsCollection": {
+      "title": "AppShortcutOptionsCollection",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Represents a collection of options for parameters of an App Shortcut."
+        }
+      ],
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "AppShortcutOptionsCollection"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appshortcutoptionscollection",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutOptionsCollection",
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "AppShortcutOptionsCollection",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/NegativeAppShortcutPhrases": {
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "NegativeAppShortcutPhrases",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "title": "NegativeAppShortcutPhrases",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/NegativeAppShortcutPhrases",
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "text": "NegativeAppShortcutPhrases",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/negativeappshortcutphrases",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "This is a set of negative phrases, which will all be added to the app-level negative"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "type": "text",
+          "text": "training set. All the training data specified here, will be used to completely bypass your app"
+        }
+      ],
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/ShortcutsLinkStyle": {
+      "kind": "symbol",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "ShortcutsLinkStyle",
+          "kind": "identifier"
+        }
+      ],
+      "title": "ShortcutsLinkStyle",
+      "url": "https://developer.apple.com/documentation/appintents/shortcutslinkstyle",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "The styles to apply to buttons you use to open your app’s page in the Shortcuts app.",
+          "type": "text"
+        }
+      ],
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ShortcutsLinkStyle",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ShortcutsLinkStyle"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent/perform()": {
+      "type": "topic",
+      "required": true,
+      "url": "https://developer.apple.com/documentation/appintents/appintent/perform()",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Performs the intent after resolving the provided parameters."
+        }
+      ],
+      "role": "symbol",
+      "kind": "symbol",
+      "title": "perform()",
+      "fragments": [
+        {
+          "text": "func",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "perform",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": "() "
+        },
+        {
+          "text": "async",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "throws"
+        },
+        {
+          "text": " -> ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "PerformResult",
+          "preciseIdentifier": "s:10AppIntents0A6IntentP13PerformResultQa"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent/perform()",
+      "defaultImplementations": 10
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutsProvider": {
+      "type": "topic",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppShortcutsProvider",
+          "kind": "identifier"
+        }
+      ],
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutsProvider",
       "kind": "symbol",
       "navigatorTitle": [
         {
           "kind": "identifier",
-          "text": "AppShortcutParameterPresentationTitle"
+          "text": "AppShortcutsProvider"
         }
       ],
+      "title": "AppShortcutsProvider",
+      "url": "https://developer.apple.com/documentation/appintents/appshortcutsprovider",
+      "abstract": [
+        {
+          "text": "A type alias for the type that provides an app’s preconfigured shortcuts.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/SiriTipViewStyle": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The styles to apply to the tip views you use to display spoken phrases."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/SiriTipViewStyle",
+      "role": "symbol",
+      "type": "topic",
+      "title": "SiriTipViewStyle",
+      "url": "https://developer.apple.com/documentation/appintents/siritipviewstyle",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "SiriTipViewStyle",
+          "kind": "identifier"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "SiriTipViewStyle",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutOptionsCollectionSpecification": {
+      "abstract": [],
+      "role": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AppShortcutOptionsCollectionSpecification",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appshortcutoptionscollectionspecification",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutOptionsCollectionSpecification",
+      "navigatorTitle": [
+        {
+          "text": "AppShortcutOptionsCollectionSpecification",
+          "kind": "identifier"
+        }
+      ],
+      "title": "AppShortcutOptionsCollectionSpecification",
       "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutPhrase": {
+      "kind": "symbol",
+      "title": "AppShortcutPhrase",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppShortcutPhrase",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppShortcutPhrase",
+          "kind": "identifier"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "AppShortcutPhrase"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appshortcutphrase",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "A spoken phrase that causes the system to run the corresponding App Shortcut.",
+          "type": "text"
+        }
+      ],
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/widgets-and-live-activities": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Use app intents make your widgets and Live Activities interactive, offer controls, and suggest widgets in Smart Stacks."
+        }
+      ],
+      "role": "collectionGroup",
+      "url": "https://developer.apple.com/documentation/appintents/widgets-and-live-activities",
+      "kind": "article",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/widgets-and-live-activities",
+      "type": "topic",
+      "title": "Widgets, Live Activities, and controls"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/adopting-app-intents-to-support-system-experiences": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Create app intents and entities to incorporate system experiences such as Spotlight, visual intelligence, and Shortcuts."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/adopting-app-intents-to-support-system-experiences",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/adopting-app-intents-to-support-system-experiences",
+      "role": "sampleCode",
+      "type": "topic",
+      "kind": "article",
+      "title": "Adopting App Intents to support system experiences"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/siri": {
+      "role": "collectionGroup",
+      "title": "Siri",
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/appintents/siri",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Let people complete tasks with voice commands, search, and other system experiences by integrating your app with Siri and Apple Intelligence."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/siri"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/SiriTipView": {
+      "title": "SiriTipView",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A SwiftUI view that displays the phrase someone uses to invoke an App Shortcut."
+        }
+      ],
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "SiriTipView",
+          "kind": "identifier"
+        }
+      ],
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "SiriTipView",
+          "kind": "identifier"
+        }
+      ],
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/siritipview",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/SiriTipView"
+    },
+    "doc://com.apple.documentation/documentation/BundleResources/Information-Property-List/CFBundleIcons/CFBundlePrimaryIcon/NSAppIconActionTintColorName": {
+      "url": "https://developer.apple.com/documentation/BundleResources/Information-Property-List/CFBundleIcons/CFBundlePrimaryIcon/NSAppIconActionTintColorName",
+      "identifier": "doc://com.apple.documentation/documentation/BundleResources/Information-Property-List/CFBundleIcons/CFBundlePrimaryIcon/NSAppIconActionTintColorName",
+      "kind": "symbol",
+      "type": "topic",
+      "role": "symbol",
+      "title": "NSAppIconActionTintColorName",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The tint color to apply to text and symbols in the App Shortcuts platter."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/ShortcutsUIButton": {
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/shortcutsuibutton",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "class",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "ShortcutsUIButton"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "A button that opens the current app’s page in the Shortcuts app.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ShortcutsUIButton",
+      "navigatorTitle": [
+        {
+          "text": "ShortcutsUIButton",
+          "kind": "identifier"
+        }
+      ],
+      "title": "ShortcutsUIButton",
+      "kind": "symbol"
     }
   },
   "legalNotices": {
