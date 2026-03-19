@@ -1,14 +1,32 @@
 {
-  "metadata": {
-    "role": "collectionGroup",
-    "roleHeading": "API Collection",
-    "modules": [
-      {
-        "name": "RealityKit"
-      }
-    ],
-    "title": "Events"
+  "sections": [],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.RealityKit/documentation/RealityKit"
+      ]
+    ]
   },
+  "kind": "article",
+  "abstract": [
+    {
+      "type": "text",
+      "text": "Respond to things happening in your RealityKit scene by subscribing to specific event types."
+    }
+  ],
+  "seeAlsoSections": [
+    {
+      "title": "Scene management and logic",
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/ecs-scenes",
+        "doc://com.apple.RealityKit/documentation/RealityKit/ecs-systems",
+        "doc://com.apple.RealityKit/documentation/RealityKit/ecs-entity-actions"
+      ],
+      "anchor": "Scene-management-and-logic",
+      "generated": true
+    }
+  ],
   "topicSections": [
     {
       "anchor": "Core-event-types",
@@ -20,115 +38,83 @@
       ]
     },
     {
+      "title": "Scene and entity lifecycle events",
       "identifiers": [
         "doc://com.apple.RealityKit/documentation/RealityKit/SceneEvents",
         "doc://com.apple.RealityKit/documentation/RealityKit/AnchorStateEvents",
         "doc://com.apple.RealityKit/documentation/RealityKit/ComponentEvents"
       ],
-      "title": "Scene and entity lifecycle events",
       "anchor": "Scene-and-entity-lifecycle-events"
     },
     {
+      "title": "Input and interaction events",
       "anchor": "Input-and-interaction-events",
       "identifiers": [
         "doc://com.apple.RealityKit/documentation/RealityKit/AccessibilityEvents",
         "doc://com.apple.RealityKit/documentation/RealityKit/ManipulationEvents"
-      ],
-      "title": "Input and interaction events"
+      ]
     },
     {
+      "title": "Physics and motion events",
+      "anchor": "Physics-and-motion-events",
       "identifiers": [
         "doc://com.apple.RealityKit/documentation/RealityKit/AnimationEvents",
         "doc://com.apple.RealityKit/documentation/RealityKit/CollisionEvents",
         "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsSimulationEvents"
-      ],
-      "anchor": "Physics-and-motion-events",
-      "title": "Physics and motion events"
+      ]
     },
     {
       "anchor": "Media-events",
+      "title": "Media events",
       "identifiers": [
         "doc://com.apple.RealityKit/documentation/RealityKit/AudioEvents",
         "doc://com.apple.RealityKit/documentation/RealityKit/VideoPlayerEvents",
         "doc://com.apple.RealityKit/documentation/RealityKit/ImagePresentationEvents"
-      ],
-      "title": "Media events"
+      ]
     },
     {
+      "anchor": "Network-synchronization-events",
+      "title": "Network synchronization events",
       "identifiers": [
         "doc://com.apple.RealityKit/documentation/RealityKit/SynchronizationEvents"
-      ],
-      "title": "Network synchronization events",
-      "anchor": "Network-synchronization-events"
+      ]
     }
   ],
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://com.apple.RealityKit/documentation/RealityKit/ecs-events"
-  },
-  "kind": "article",
   "schemaVersion": {
     "major": 0,
     "minor": 3,
     "patch": 0
   },
-  "sections": [],
-  "hierarchy": {
-    "paths": [
-      [
-        "doc://com.apple.documentation/documentation/technologies",
-        "doc://com.apple.RealityKit/documentation/RealityKit"
-      ]
-    ]
+  "identifier": {
+    "url": "doc://com.apple.RealityKit/documentation/RealityKit/ecs-events",
+    "interfaceLanguage": "swift"
   },
-  "abstract": [
+  "variants": [
     {
-      "text": "Respond to things happening in your RealityKit scene by subscribing to specific event types.",
-      "type": "text"
-    }
-  ],
-  "seeAlsoSections": [
-    {
-      "anchor": "Scene-management-and-logic",
-      "title": "Scene management and logic",
-      "generated": true,
-      "identifiers": [
-        "doc://com.apple.RealityKit/documentation/RealityKit/ecs-scenes",
-        "doc://com.apple.RealityKit/documentation/RealityKit/ecs-systems",
-        "doc://com.apple.RealityKit/documentation/RealityKit/ecs-entity-actions"
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ],
+      "paths": [
+        "/documentation/realitykit/ecs-events"
       ]
     }
   ],
   "primaryContentSections": [
     {
-      "kind": "content",
       "content": [
         {
+          "level": 2,
           "text": "Overview",
           "anchor": "Overview",
-          "level": 2,
           "type": "heading"
         },
         {
+          "type": "paragraph",
           "inlineContent": [
             {
               "text": "You can receive notifications to specific RealityKit events",
-              "type": "text"
-            },
-            {
-              "text": " ",
-              "type": "text"
-            },
-            {
-              "text": "— all of which conform to the Event protocol —",
-              "type": "text"
-            },
-            {
-              "text": " ",
-              "type": "text"
-            },
-            {
-              "text": "by subscribing to specific events.",
               "type": "text"
             },
             {
@@ -137,10 +123,25 @@
             },
             {
               "type": "text",
+              "text": "— all of which conform to the Event protocol —"
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "by subscribing to specific events."
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "type": "text",
               "text": "The kinds of events you can subscribe to include the following:"
             }
-          ],
-          "type": "paragraph"
+          ]
         },
         {
           "type": "unorderedList",
@@ -148,55 +149,54 @@
             {
               "content": [
                 {
-                  "inlineContent": [
-                    {
-                      "text": "Two entities colliding",
-                      "type": "text"
-                    }
-                  ],
-                  "type": "paragraph"
-                }
-              ]
-            },
-            {
-              "content": [
-                {
+                  "type": "paragraph",
                   "inlineContent": [
                     {
                       "type": "text",
-                      "text": "An entity receiving a new component"
+                      "text": "Two entities colliding"
                     }
-                  ],
-                  "type": "paragraph"
+                  ]
                 }
               ]
             },
             {
               "content": [
                 {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "text": "An entity receiving a new component",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "content": [
+                {
+                  "type": "paragraph",
                   "inlineContent": [
                     {
                       "type": "text",
                       "text": "Audio playback reaching the end of its content"
                     }
-                  ],
-                  "type": "paragraph"
+                  ]
                 }
               ]
             }
           ]
         },
         {
+          "type": "paragraph",
           "inlineContent": [
             {
-              "text": "For example, you can receive a notification:",
-              "type": "text"
+              "type": "text",
+              "text": "For example, you can receive a notification:"
             }
-          ],
-          "type": "paragraph"
+          ]
         },
         {
-          "type": "unorderedList",
           "items": [
             {
               "content": [
@@ -208,9 +208,9 @@
                       "type": "text"
                     },
                     {
-                      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionEvents/Began",
+                      "type": "reference",
                       "isActive": true,
-                      "type": "reference"
+                      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionEvents/Began"
                     },
                     {
                       "type": "text",
@@ -230,9 +230,9 @@
                       "text": "When the scene redraws by subscribing to the "
                     },
                     {
-                      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/SceneEvents/Update",
                       "type": "reference",
-                      "isActive": true
+                      "isActive": true,
+                      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/SceneEvents/Update"
                     },
                     {
                       "type": "text",
@@ -242,25 +242,94 @@
                 }
               ]
             }
-          ]
+          ],
+          "type": "unorderedList"
         }
-      ]
-    }
-  ],
-  "variants": [
-    {
-      "paths": [
-        "/documentation/realitykit/ecs-events"
       ],
-      "traits": [
-        {
-          "interfaceLanguage": "swift"
-        }
-      ]
+      "kind": "content"
     }
   ],
+  "metadata": {
+    "modules": [
+      {
+        "name": "RealityKit"
+      }
+    ],
+    "roleHeading": "API Collection",
+    "title": "Events",
+    "role": "collectionGroup"
+  },
   "references": {
+    "doc://com.apple.RealityKit/documentation/RealityKit/ImagePresentationEvents": {
+      "type": "topic",
+      "title": "ImagePresentationEvents",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ImagePresentationEvents",
+      "role": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Events associated with viewing mode transitions for image presentation components."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/imagepresentationevents",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ImagePresentationEvents"
+        }
+      ],
+      "fragments": [
+        {
+          "text": "enum",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "ImagePresentationEvents"
+        }
+      ],
+      "kind": "symbol"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/AnchorStateEvents": {
+      "title": "AnchorStateEvents",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "AnchorStateEvents"
+        }
+      ],
+      "kind": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/AnchorStateEvents",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "Events that trigger on an entity to indicate a change in anchor state.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/anchorstateevents",
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "AnchorStateEvents",
+          "kind": "identifier"
+        }
+      ]
+    },
     "doc://com.apple.RealityKit/documentation/RealityKit/CollisionEvents/Began": {
+      "url": "https://developer.apple.com/documentation/realitykit/collisionevents/began",
       "fragments": [
         {
           "text": "struct",
@@ -271,39 +340,395 @@
           "kind": "text"
         },
         {
-          "kind": "identifier",
-          "text": "Began"
+          "text": "Began",
+          "kind": "identifier"
         }
       ],
-      "url": "https://developer.apple.com/documentation/realitykit/collisionevents/began",
+      "abstract": [
+        {
+          "text": "An event raised when two objects collide.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionEvents/Began",
+      "kind": "symbol",
+      "type": "topic",
       "navigatorTitle": [
         {
           "kind": "identifier",
           "text": "Began"
         }
       ],
-      "title": "CollisionEvents.Began",
+      "role": "symbol",
+      "title": "CollisionEvents.Began"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/ComponentEvents": {
+      "role": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "ComponentEvents",
+          "kind": "identifier"
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ComponentEvents",
       "abstract": [
         {
           "type": "text",
-          "text": "An event raised when two objects collide."
+          "text": "Provides the events related to components."
+        }
+      ],
+      "title": "ComponentEvents",
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/componentevents",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ComponentEvents"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/ecs-entity-actions": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ecs-entity-actions",
+      "kind": "article",
+      "abstract": [
+        {
+          "text": "Create simple, reusable actions that can change your app state, RealityKit scene, or animate an entity.",
+          "type": "text"
+        }
+      ],
+      "role": "collectionGroup",
+      "title": "Entity actions",
+      "url": "https://developer.apple.com/documentation/realitykit/ecs-entity-actions",
+      "type": "topic"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/ecs-scenes": {
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ecs-scenes",
+      "url": "https://developer.apple.com/documentation/realitykit/ecs-scenes",
+      "abstract": [
+        {
+          "text": "The context that holds all RealityKit entities.",
+          "type": "text"
+        }
+      ],
+      "title": "Scenes",
+      "kind": "article",
+      "role": "collectionGroup"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/SynchronizationEvents": {
+      "role": "symbol",
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "text": "SynchronizationEvents",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Events associated with network synchronization of scene information."
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/SynchronizationEvents",
+      "url": "https://developer.apple.com/documentation/realitykit/synchronizationevents",
+      "fragments": [
+        {
+          "text": "enum",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "SynchronizationEvents"
         }
       ],
       "kind": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionEvents/Began",
+      "title": "SynchronizationEvents"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/SceneEvents": {
+      "url": "https://developer.apple.com/documentation/realitykit/sceneevents",
+      "role": "symbol",
       "type": "topic",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/SceneEvents",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "SceneEvents"
+        }
+      ],
+      "title": "SceneEvents",
+      "abstract": [
+        {
+          "text": "Events the scene invokes.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "SceneEvents"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit": {
+      "url": "https://developer.apple.com/documentation/realitykit",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Simulate and render 3D content for use in your augmented reality apps."
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit",
+      "kind": "symbol",
+      "type": "topic",
+      "title": "RealityKit",
+      "role": "collection"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/SceneEvents/Update": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/SceneEvents/Update",
+      "title": "SceneEvents.Update",
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Update"
+        }
+      ],
+      "kind": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "Update"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An event invoked once per frame interval that you can use to execute"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "custom logic for each frame.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/sceneevents/update",
+      "type": "topic"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/AnimationEvents": {
+      "url": "https://developer.apple.com/documentation/realitykit/animationevents",
+      "title": "AnimationEvents",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/AnimationEvents",
+      "type": "topic",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "AnimationEvents"
+        }
+      ],
+      "fragments": [
+        {
+          "text": "enum",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AnimationEvents",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Notable milestones that the framework signals during animation playback."
+        }
+      ],
       "role": "symbol"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/ecs-systems": {
+      "abstract": [
+        {
+          "text": "Apply behaviors and physical effects to the entities in a RealityKit scene.",
+          "type": "text"
+        }
+      ],
+      "role": "collectionGroup",
+      "url": "https://developer.apple.com/documentation/realitykit/ecs-systems",
+      "title": "Systems",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ecs-systems",
+      "type": "topic",
+      "kind": "article"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/EventSubscription": {
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "EventSubscription",
+          "kind": "identifier"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "EventSubscription"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "A subscription to an event.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/eventsubscription",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/EventSubscription",
+      "title": "EventSubscription"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/AccessibilityEvents": {
+      "url": "https://developer.apple.com/documentation/realitykit/accessibilityevents",
+      "role": "symbol",
+      "type": "topic",
+      "kind": "symbol",
+      "title": "AccessibilityEvents",
+      "abstract": [],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/AccessibilityEvents",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AccessibilityEvents",
+          "kind": "identifier"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "AccessibilityEvents",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/Event": {
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/event",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "Event",
+          "kind": "identifier"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Event"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A type that can be sent as an event."
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Event",
+      "role": "symbol",
+      "title": "Event",
+      "type": "topic"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/VideoPlayerEvents": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/VideoPlayerEvents",
+      "role": "symbol",
+      "title": "VideoPlayerEvents",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "text": "Events associated with video playback for VideoPlayerComponent.",
+          "type": "text"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "VideoPlayerEvents",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/videoplayerevents",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "VideoPlayerEvents"
+        }
+      ],
+      "type": "topic"
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsSimulationEvents": {
       "type": "topic",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Types of events that fire during physics simulations"
-        }
-      ],
-      "kind": "symbol",
-      "role": "symbol",
       "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/PhysicsSimulationEvents",
       "title": "PhysicsSimulationEvents",
       "fragments": [
@@ -326,15 +751,31 @@
           "kind": "identifier"
         }
       ],
-      "url": "https://developer.apple.com/documentation/realitykit/physicssimulationevents"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/ComponentEvents": {
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/physicssimulationevents",
       "abstract": [
         {
-          "text": "Provides the events related to components.",
-          "type": "text"
+          "type": "text",
+          "text": "Types of events that fire during physics simulations"
         }
       ],
+      "kind": "symbol"
+    },
+    "doc://com.apple.documentation/documentation/technologies": {
+      "kind": "technologies",
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/technologies",
+      "title": "Technologies",
+      "role": "overview",
+      "abstract": [
+        {
+          "text": "",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/CollisionEvents": {
       "fragments": [
         {
           "kind": "keyword",
@@ -345,48 +786,49 @@
           "kind": "text"
         },
         {
-          "text": "ComponentEvents",
-          "kind": "identifier"
+          "kind": "identifier",
+          "text": "CollisionEvents"
+        }
+      ],
+      "title": "CollisionEvents",
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "CollisionEvents"
+        }
+      ],
+      "kind": "symbol",
+      "abstract": [],
+      "url": "https://developer.apple.com/documentation/realitykit/collisionevents",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionEvents",
+      "role": "symbol"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/ManipulationEvents": {
+      "title": "ManipulationEvents",
+      "abstract": [
+        {
+          "text": "Events that occur while a person manipulates an entity.",
+          "type": "text"
         }
       ],
       "navigatorTitle": [
         {
-          "text": "ComponentEvents",
+          "text": "ManipulationEvents",
           "kind": "identifier"
         }
       ],
       "role": "symbol",
-      "title": "ComponentEvents",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ComponentEvents",
+      "url": "https://developer.apple.com/documentation/realitykit/manipulationevents",
       "kind": "symbol",
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/componentevents"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/ecs-systems": {
-      "kind": "article",
-      "abstract": [
-        {
-          "text": "Apply behaviors and physical effects to the entities in a RealityKit scene.",
-          "type": "text"
-        }
-      ],
-      "type": "topic",
-      "role": "collectionGroup",
-      "title": "Systems",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ecs-systems",
-      "url": "https://developer.apple.com/documentation/realitykit/ecs-systems"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/ManipulationEvents": {
-      "title": "ManipulationEvents",
-      "role": "symbol",
       "fragments": [
         {
           "text": "enum",
           "kind": "keyword"
         },
         {
-          "text": " ",
-          "kind": "text"
+          "kind": "text",
+          "text": " "
         },
         {
           "text": "ManipulationEvents",
@@ -394,517 +836,75 @@
         }
       ],
       "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ManipulationEvents",
-      "url": "https://developer.apple.com/documentation/realitykit/manipulationevents",
+      "type": "topic"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/EventSource": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/EventSource",
+      "kind": "symbol",
+      "title": "EventSource",
+      "type": "topic",
       "abstract": [
         {
           "type": "text",
-          "text": "Events that occur while a person manipulates an entity."
+          "text": "A type on which events can be published and subscribed."
         }
       ],
-      "type": "topic",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ManipulationEvents"
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/AccessibilityEvents": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/AccessibilityEvents",
-      "url": "https://developer.apple.com/documentation/realitykit/accessibilityevents",
-      "role": "symbol",
-      "abstract": [],
-      "title": "AccessibilityEvents",
       "fragments": [
         {
-          "kind": "keyword",
-          "text": "enum"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "AccessibilityEvents",
-          "kind": "identifier"
-        }
-      ],
-      "type": "topic",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "AccessibilityEvents"
-        }
-      ],
-      "kind": "symbol"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/Event": {
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "protocol"
+          "text": "protocol",
+          "kind": "keyword"
         },
         {
           "text": " ",
           "kind": "text"
         },
         {
-          "kind": "identifier",
-          "text": "Event"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/realitykit/event",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Event",
-      "type": "topic",
-      "abstract": [
-        {
-          "text": "A type that can be sent as an event.",
-          "type": "text"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "Event"
-        }
-      ],
-      "title": "Event",
-      "role": "symbol",
-      "kind": "symbol"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/AnimationEvents": {
-      "fragments": [
-        {
-          "text": "enum",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "AnimationEvents"
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/AnimationEvents",
-      "navigatorTitle": [
-        {
-          "text": "AnimationEvents",
+          "text": "EventSource",
           "kind": "identifier"
-        }
-      ],
-      "title": "AnimationEvents",
-      "role": "symbol",
-      "kind": "symbol",
-      "type": "topic",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Notable milestones that the framework signals during animation playback."
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/realitykit/animationevents"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/EventSource": {
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "EventSource"
         }
       ],
       "url": "https://developer.apple.com/documentation/realitykit/eventsource",
-      "abstract": [
-        {
-          "text": "A type on which events can be published and subscribed.",
-          "type": "text"
-        }
-      ],
-      "kind": "symbol",
-      "title": "EventSource",
       "role": "symbol",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "protocol"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "EventSource"
-        }
-      ],
-      "type": "topic",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/EventSource"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/ecs-entity-actions": {
-      "kind": "article",
-      "type": "topic",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ecs-entity-actions",
-      "title": "Entity actions",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Create simple, reusable actions that can change your app state, RealityKit scene, or animate an entity."
-        }
-      ],
-      "role": "collectionGroup",
-      "url": "https://developer.apple.com/documentation/realitykit/ecs-entity-actions"
-    },
-    "doc://com.apple.documentation/documentation/technologies": {
-      "role": "overview",
-      "identifier": "doc://com.apple.documentation/documentation/technologies",
-      "url": "https://developer.apple.com/documentation/technologies",
-      "abstract": [
-        {
-          "text": "",
-          "type": "text"
-        }
-      ],
-      "type": "topic",
-      "kind": "technologies",
-      "title": "Technologies"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/ImagePresentationEvents": {
-      "title": "ImagePresentationEvents",
-      "url": "https://developer.apple.com/documentation/realitykit/imagepresentationevents",
       "navigatorTitle": [
         {
-          "kind": "identifier",
-          "text": "ImagePresentationEvents"
-        }
-      ],
-      "type": "topic",
-      "role": "symbol",
-      "kind": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ImagePresentationEvents",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Events associated with viewing mode transitions for image presentation components."
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "enum"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "ImagePresentationEvents",
-          "kind": "identifier"
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/EventSubscription": {
-      "url": "https://developer.apple.com/documentation/realitykit/eventsubscription",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/EventSubscription",
-      "type": "topic",
-      "role": "symbol",
-      "kind": "symbol",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "EventSubscription"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "text": "EventSubscription",
-          "kind": "identifier"
-        }
-      ],
-      "title": "EventSubscription",
-      "abstract": [
-        {
-          "text": "A subscription to an event.",
-          "type": "text"
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/SynchronizationEvents": {
-      "title": "SynchronizationEvents",
-      "url": "https://developer.apple.com/documentation/realitykit/synchronizationevents",
-      "type": "topic",
-      "kind": "symbol",
-      "abstract": [
-        {
-          "text": "Events associated with network synchronization of scene information.",
-          "type": "text"
-        }
-      ],
-      "role": "symbol",
-      "fragments": [
-        {
-          "text": "enum",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "SynchronizationEvents"
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/SynchronizationEvents",
-      "navigatorTitle": [
-        {
-          "text": "SynchronizationEvents",
+          "text": "EventSource",
           "kind": "identifier"
         }
       ]
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/AudioEvents": {
-      "title": "AudioEvents",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "AudioEvents"
-        }
-      ],
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/realitykit/audioevents",
       "kind": "symbol",
+      "role": "symbol",
+      "type": "topic",
+      "title": "AudioEvents",
       "abstract": [
         {
           "type": "text",
           "text": "Events associated with audio playback."
         }
       ],
+      "url": "https://developer.apple.com/documentation/realitykit/audioevents",
       "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/AudioEvents",
-      "type": "topic",
-      "fragments": [
-        {
-          "text": "enum",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "AudioEvents",
-          "kind": "identifier"
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/AnchorStateEvents": {
-      "fragments": [
-        {
-          "text": "enum",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "AnchorStateEvents",
-          "kind": "identifier"
-        }
-      ],
-      "title": "AnchorStateEvents",
-      "navigatorTitle": [
-        {
-          "text": "AnchorStateEvents",
-          "kind": "identifier"
-        }
-      ],
-      "type": "topic",
-      "kind": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/AnchorStateEvents",
-      "url": "https://developer.apple.com/documentation/realitykit/anchorstateevents",
-      "abstract": [
-        {
-          "text": "Events that trigger on an entity to indicate a change in anchor state.",
-          "type": "text"
-        }
-      ],
-      "role": "symbol"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/SceneEvents": {
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "SceneEvents"
-        }
-      ],
-      "kind": "symbol",
-      "title": "SceneEvents",
-      "url": "https://developer.apple.com/documentation/realitykit/sceneevents",
-      "role": "symbol",
-      "type": "topic",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Events the scene invokes."
-        }
-      ],
-      "fragments": [
-        {
-          "text": "enum",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "SceneEvents"
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/SceneEvents"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/ecs-scenes": {
-      "role": "collectionGroup",
-      "kind": "article",
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/ecs-scenes",
-      "title": "Scenes",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ecs-scenes",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "The context that holds all RealityKit entities."
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/SceneEvents/Update": {
-      "type": "topic",
-      "kind": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/SceneEvents/Update",
       "fragments": [
         {
           "kind": "keyword",
-          "text": "struct"
+          "text": "enum"
         },
         {
           "text": " ",
           "kind": "text"
         },
         {
-          "text": "Update",
-          "kind": "identifier"
+          "kind": "identifier",
+          "text": "AudioEvents"
         }
       ],
-      "title": "SceneEvents.Update",
-      "role": "symbol",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An event invoked once per frame interval that you can use to execute"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "type": "text",
-          "text": "custom logic for each frame."
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/realitykit/sceneevents/update",
       "navigatorTitle": [
         {
           "kind": "identifier",
-          "text": "Update"
+          "text": "AudioEvents"
         }
       ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit": {
-      "title": "RealityKit",
-      "abstract": [
-        {
-          "text": "Simulate and render 3D content for use in your augmented reality apps.",
-          "type": "text"
-        }
-      ],
-      "kind": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit",
-      "url": "https://developer.apple.com/documentation/realitykit",
-      "role": "collection",
-      "type": "topic"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/VideoPlayerEvents": {
-      "fragments": [
-        {
-          "text": "enum",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "VideoPlayerEvents",
-          "kind": "identifier"
-        }
-      ],
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/videoplayerevents",
-      "role": "symbol",
-      "title": "VideoPlayerEvents",
-      "kind": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/VideoPlayerEvents",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Events associated with video playback for VideoPlayerComponent."
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "text": "VideoPlayerEvents",
-          "kind": "identifier"
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/CollisionEvents": {
-      "abstract": [],
-      "url": "https://developer.apple.com/documentation/realitykit/collisionevents",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "CollisionEvents"
-        }
-      ],
-      "fragments": [
-        {
-          "text": "enum",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "CollisionEvents",
-          "kind": "identifier"
-        }
-      ],
-      "title": "CollisionEvents",
-      "kind": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CollisionEvents",
-      "type": "topic",
-      "role": "symbol"
     }
   },
   "legalNotices": {
