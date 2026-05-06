@@ -1,4 +1,19 @@
 {
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "metadata": {
+    "roleHeading": "API Collection",
+    "role": "collectionGroup",
+    "modules": [
+      {
+        "name": "App Intents"
+      }
+    ],
+    "title": "Parameter resolution"
+  },
   "hierarchy": {
     "paths": [
       [
@@ -7,32 +22,45 @@
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://com.apple.AppIntents/documentation/AppIntents/parameter-resolution"
-  },
   "kind": "article",
+  "seeAlsoSections": [
+    {
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/Adding-parameters-to-an-app-intent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/resolvers",
+        "doc://com.apple.AppIntents/documentation/AppIntents/common-data-types",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-entities",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-enums",
+        "doc://com.apple.AppIntents/documentation/AppIntents/entity-queries",
+        "doc://com.apple.AppIntents/documentation/AppIntents/property-comparators"
+      ],
+      "anchor": "Parameters-and-data-types",
+      "generated": true,
+      "title": "Parameters and data types"
+    }
+  ],
   "topicSections": [
     {
-      "anchor": "Intent-parameters",
-      "title": "Intent parameters",
       "identifiers": [
         "doc://com.apple.AppIntents/documentation/AppIntents/IntentParameter",
         "doc://com.apple.AppIntents/documentation/AppIntents/IntentParameterDependency",
         "doc://com.apple.AppIntents/documentation/AppIntents/IntentParameterContext",
         "doc://com.apple.AppIntents/documentation/AppIntents/InputConnectionBehavior"
-      ]
+      ],
+      "title": "Intent parameters",
+      "anchor": "Intent-parameters"
     },
     {
+      "anchor": "Parameter-choices",
       "identifiers": [
         "doc://com.apple.AppIntents/documentation/AppIntents/DynamicOptionsProvider",
         "doc://com.apple.AppIntents/documentation/AppIntents/AppEnum",
         "doc://com.apple.AppIntents/documentation/AppIntents/IntentProjection"
       ],
-      "title": "Parameter choices",
-      "anchor": "Parameter-choices"
+      "title": "Parameter choices"
     },
     {
+      "anchor": "Shortcuts-support",
       "title": "Shortcuts support",
       "identifiers": [
         "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummary",
@@ -42,59 +70,24 @@
         "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummarySwitchCondition",
         "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummaryCaseCondition",
         "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummaryDefaultCaseCondition"
-      ],
-      "anchor": "Shortcuts-support"
-    }
-  ],
-  "variants": [
-    {
-      "traits": [
-        {
-          "interfaceLanguage": "swift"
-        }
-      ],
-      "paths": [
-        "/documentation/appintents/parameter-resolution"
-      ]
-    }
-  ],
-  "seeAlsoSections": [
-    {
-      "anchor": "Parameters-and-data-types",
-      "title": "Parameters and data types",
-      "generated": true,
-      "identifiers": [
-        "doc://com.apple.AppIntents/documentation/AppIntents/Adding-parameters-to-an-app-intent",
-        "doc://com.apple.AppIntents/documentation/AppIntents/resolvers",
-        "doc://com.apple.AppIntents/documentation/AppIntents/common-data-types",
-        "doc://com.apple.AppIntents/documentation/AppIntents/app-entities",
-        "doc://com.apple.AppIntents/documentation/AppIntents/app-enums",
-        "doc://com.apple.AppIntents/documentation/AppIntents/entity-queries",
-        "doc://com.apple.AppIntents/documentation/AppIntents/property-comparators"
       ]
     }
   ],
   "primaryContentSections": [
     {
+      "kind": "content",
       "content": [
         {
-          "level": 2,
           "text": "Overview",
           "anchor": "Overview",
-          "type": "heading"
+          "type": "heading",
+          "level": 2
         },
         {
+          "type": "paragraph",
           "inlineContent": [
             {
-              "type": "text",
-              "text": "Parameters represent input arguments to your app intents and offer"
-            },
-            {
-              "type": "text",
-              "text": " "
-            },
-            {
-              "text": "additional metadata to the system. When you define an app intent, add",
+              "text": "Parameters represent input arguments to your app intents and offer",
               "type": "text"
             },
             {
@@ -102,16 +95,24 @@
               "type": "text"
             },
             {
-              "text": "the ",
-              "type": "text"
-            },
-            {
-              "code": "@Parameter",
-              "type": "codeVoice"
+              "type": "text",
+              "text": "additional metadata to the system. When you define an app intent, add"
             },
             {
               "type": "text",
-              "text": " property wrapper to any properties you use as input."
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "the "
+            },
+            {
+              "type": "codeVoice",
+              "code": "@Parameter"
+            },
+            {
+              "text": " property wrapper to any properties you use as input.",
+              "type": "text"
             },
             {
               "text": " ",
@@ -122,12 +123,12 @@
               "text": "For example, an app intent that sends a message might include a parameter"
             },
             {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
-              "text": "for the recipient and message string. The system collects and resolves",
-              "type": "text"
+              "type": "text",
+              "text": "for the recipient and message string. The system collects and resolves"
             },
             {
               "type": "text",
@@ -137,11 +138,9 @@
               "type": "text",
               "text": "the relevant parameter information before it performs your app intent."
             }
-          ],
-          "type": "paragraph"
+          ]
         },
         {
-          "type": "paragraph",
           "inlineContent": [
             {
               "type": "text",
@@ -152,8 +151,8 @@
               "text": " "
             },
             {
-              "type": "text",
-              "text": "intent that enables someone to order soup from your app. Configure the"
+              "text": "intent that enables someone to order soup from your app. Configure the",
+              "type": "text"
             },
             {
               "type": "text",
@@ -164,14 +163,15 @@
               "type": "text"
             },
             {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
               "type": "text",
               "text": "system infer extra information about your parameter."
             }
-          ]
+          ],
+          "type": "paragraph"
         },
         {
           "code": [
@@ -188,81 +188,46 @@
           "type": "codeListing",
           "syntax": "swift"
         }
-      ],
-      "kind": "content"
+      ]
     }
   ],
-  "sections": [],
-  "metadata": {
-    "roleHeading": "API Collection",
-    "role": "collectionGroup",
-    "title": "Parameter resolution",
-    "modules": [
-      {
-        "name": "App Intents"
-      }
-    ]
-  },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
   "abstract": [
     {
-      "text": "Define the required parameters for your app intents and specify how to resolve",
-      "type": "text"
+      "type": "text",
+      "text": "Define the required parameters for your app intents and specify how to resolve"
     },
     {
-      "text": " ",
-      "type": "text"
+      "type": "text",
+      "text": " "
     },
     {
       "type": "text",
       "text": "those parameters at runtime."
     }
   ],
-  "references": {
-    "doc://com.apple.AppIntents/documentation/AppIntents/InputConnectionBehavior": {
-      "abstract": [
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://com.apple.AppIntents/documentation/AppIntents/parameter-resolution"
+  },
+  "variants": [
+    {
+      "traits": [
         {
-          "text": "Describes the input behaviors for connecting a parameter to the output of the previous App Intent.",
-          "type": "text"
+          "interfaceLanguage": "swift"
         }
       ],
-      "url": "https://developer.apple.com/documentation/appintents/inputconnectionbehavior",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/InputConnectionBehavior",
-      "type": "topic",
-      "kind": "symbol",
-      "title": "InputConnectionBehavior",
-      "role": "symbol",
-      "navigatorTitle": [
-        {
-          "text": "InputConnectionBehavior",
-          "kind": "identifier"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "enum"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "InputConnectionBehavior",
-          "kind": "identifier"
-        }
+      "paths": [
+        "/documentation/appintents/parameter-resolution"
       ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummarySwitchCondition": {
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummarySwitchCondition",
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/parametersummaryswitchcondition",
-      "title": "ParameterSummarySwitchCondition",
+    }
+  ],
+  "sections": [],
+  "references": {
+    "doc://com.apple.AppIntents/documentation/AppIntents/IntentParameterContext": {
+      "url": "https://developer.apple.com/documentation/appintents/intentparametercontext",
       "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntentParameterContext",
+      "role": "symbol",
       "fragments": [
         {
           "text": "struct",
@@ -273,122 +238,30 @@
           "kind": "text"
         },
         {
-          "kind": "identifier",
-          "text": "ParameterSummarySwitchCondition"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "text": "ParameterSummarySwitchCondition",
+          "text": "IntentParameterContext",
           "kind": "identifier"
         }
       ],
       "abstract": [
         {
-          "text": "A type that represents a switch statement in a parameter summary.",
+          "text": "A type that provides information about an associated parameter during value resolution.",
           "type": "text"
         }
       ],
-      "type": "topic"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/app-entities": {
       "type": "topic",
-      "url": "https://developer.apple.com/documentation/appintents/app-entities",
-      "title": "App entities",
-      "kind": "article",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-entities",
-      "abstract": [
-        {
-          "text": "Make core types or concepts discoverable to the system by declaring",
-          "type": "text"
-        },
-        {
-          "type": "text",
-          "text": " "
-        },
-        {
-          "text": "them as app entities.",
-          "type": "text"
-        }
-      ],
-      "role": "collectionGroup"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/DynamicOptionsProvider": {
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/DynamicOptionsProvider",
-      "title": "DynamicOptionsProvider",
-      "url": "https://developer.apple.com/documentation/appintents/dynamicoptionsprovider",
-      "type": "topic",
-      "kind": "symbol",
+      "title": "IntentParameterContext",
       "navigatorTitle": [
         {
           "kind": "identifier",
-          "text": "DynamicOptionsProvider"
-        }
-      ],
-      "role": "symbol",
-      "fragments": [
-        {
-          "text": "protocol",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "DynamicOptionsProvider",
-          "kind": "identifier"
-        }
-      ],
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An interface for providing a dynamic list of options for a parameter of your app intent."
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummaryString": {
-      "abstract": [
-        {
-          "text": "A human-readable string that interpolates parameter key paths to provide user-configurable placeholders in the Shortcuts app.",
-          "type": "text"
-        }
-      ],
-      "title": "ParameterSummaryString",
-      "url": "https://developer.apple.com/documentation/appintents/parametersummarystring",
-      "type": "topic",
-      "kind": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummaryString",
-      "role": "symbol",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "ParameterSummaryString",
-          "kind": "identifier"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "text": "ParameterSummaryString",
-          "kind": "identifier"
+          "text": "IntentParameterContext"
         }
       ]
     },
     "doc://com.apple.AppIntents/documentation/AppIntents/IntentParameterDependency": {
-      "title": "IntentParameterDependency",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntentParameterDependency",
-      "type": "topic",
       "fragments": [
         {
-          "kind": "keyword",
-          "text": "class"
+          "text": "class",
+          "kind": "keyword"
         },
         {
           "kind": "text",
@@ -399,243 +272,28 @@
           "text": "IntentParameterDependency"
         }
       ],
-      "abstract": [
-        {
-          "text": "A property wrapper that represents an app intent dependency you use to provide dynamic options.",
-          "type": "text"
-        }
-      ],
       "role": "symbol",
+      "kind": "symbol",
       "navigatorTitle": [
         {
-          "text": "IntentParameterDependency",
-          "kind": "identifier"
+          "kind": "identifier",
+          "text": "IntentParameterDependency"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A property wrapper that represents an app intent dependency you use to provide dynamic options."
         }
       ],
       "url": "https://developer.apple.com/documentation/appintents/intentparameterdependency",
-      "kind": "symbol"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/common-data-types": {
-      "url": "https://developer.apple.com/documentation/appintents/common-data-types",
       "type": "topic",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/common-data-types",
-      "role": "collectionGroup",
-      "title": "Common data types",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Specify common types that your app supports, including currencies,"
-        },
-        {
-          "type": "text",
-          "text": " "
-        },
-        {
-          "type": "text",
-          "text": "files, and contacts."
-        }
-      ],
-      "kind": "article"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummaryCaseCondition": {
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummaryCaseCondition",
-      "navigatorTitle": [
-        {
-          "text": "ParameterSummaryCaseCondition",
-          "kind": "identifier"
-        }
-      ],
-      "kind": "symbol",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A type that represents an individual case of a switch statement in a parameter summary."
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "ParameterSummaryCaseCondition",
-          "kind": "identifier"
-        }
-      ],
-      "title": "ParameterSummaryCaseCondition",
-      "url": "https://developer.apple.com/documentation/appintents/parametersummarycasecondition",
-      "role": "symbol",
-      "type": "topic"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummaryWhenCondition": {
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "ParameterSummaryWhenCondition",
-          "kind": "identifier"
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummaryWhenCondition",
-      "navigatorTitle": [
-        {
-          "text": "ParameterSummaryWhenCondition",
-          "kind": "identifier"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/parametersummarywhencondition",
-      "kind": "symbol",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A type that represents a conditional statement in a parameter summary."
-        }
-      ],
-      "title": "ParameterSummaryWhenCondition",
-      "role": "symbol",
-      "type": "topic"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummary": {
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummary",
-      "role": "symbol",
-      "title": "ParameterSummary",
-      "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/parametersummary",
-      "type": "topic",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "protocol"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "ParameterSummary",
-          "kind": "identifier"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ParameterSummary"
-        }
-      ],
-      "abstract": [
-        {
-          "text": "An interface for defining the visual representation of an app intent’s parameters.",
-          "type": "text"
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/IntentParameterSummary": {
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "IntentParameterSummary",
-          "kind": "identifier"
-        }
-      ],
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A type that describes the user interface configuration of an app intent’s parameters."
-        }
-      ],
-      "title": "IntentParameterSummary",
-      "url": "https://developer.apple.com/documentation/appintents/intentparametersummary",
-      "role": "symbol",
-      "kind": "symbol",
-      "type": "topic",
-      "navigatorTitle": [
-        {
-          "text": "IntentParameterSummary",
-          "kind": "identifier"
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntentParameterSummary"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/app-enums": {
-      "url": "https://developer.apple.com/documentation/appintents/app-enums",
-      "kind": "article",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-enums",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Types that represent an enumerable list of static parameter values."
-        }
-      ],
-      "title": "Static parameter types",
-      "role": "collectionGroup",
-      "type": "topic"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/IntentParameterContext": {
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntentParameterContext",
-      "type": "topic",
-      "abstract": [
-        {
-          "text": "A type that provides information about an associated parameter during value resolution.",
-          "type": "text"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/intentparametercontext",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "text": "IntentParameterContext",
-          "kind": "identifier"
-        }
-      ],
-      "title": "IntentParameterContext",
-      "role": "symbol",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "IntentParameterContext"
-        }
-      ]
-    },
-    "doc://com.apple.documentation/documentation/technologies": {
-      "title": "Technologies",
-      "kind": "technologies",
-      "identifier": "doc://com.apple.documentation/documentation/technologies",
-      "abstract": [
-        {
-          "type": "text",
-          "text": ""
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/technologies",
-      "role": "overview",
-      "type": "topic"
+      "title": "IntentParameterDependency",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntentParameterDependency"
     },
     "doc://com.apple.AppIntents/documentation/AppIntents/IntentParameter": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntentParameter",
+      "role": "symbol",
       "fragments": [
         {
           "text": "class",
@@ -650,10 +308,8 @@
           "text": "IntentParameter"
         }
       ],
-      "url": "https://developer.apple.com/documentation/appintents/intentparameter",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntentParameter",
-      "kind": "symbol",
       "type": "topic",
+      "title": "IntentParameter",
       "navigatorTitle": [
         {
           "text": "IntentParameter",
@@ -666,83 +322,286 @@
           "type": "text"
         }
       ],
-      "title": "IntentParameter",
-      "role": "symbol"
+      "url": "https://developer.apple.com/documentation/appintents/intentparameter",
+      "kind": "symbol"
     },
-    "doc://com.apple.AppIntents/documentation/AppIntents/property-comparators": {
+    "doc://com.apple.AppIntents/documentation/AppIntents/InputConnectionBehavior": {
       "type": "topic",
-      "url": "https://developer.apple.com/documentation/appintents/property-comparators",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/InputConnectionBehavior",
       "abstract": [
         {
-          "text": "Specify the type of comparison to perform during a property-matched query.",
-          "type": "text"
+          "type": "text",
+          "text": "Describes the input behaviors for connecting a parameter to the output of the previous App Intent."
         }
       ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/property-comparators",
-      "role": "collectionGroup",
-      "title": "Property comparators",
-      "kind": "article"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents": {
-      "title": "App Intents",
-      "role": "collection",
-      "url": "https://developer.apple.com/documentation/appintents",
       "navigatorTitle": [
         {
-          "kind": "text",
-          "text": "App Intents"
+          "kind": "identifier",
+          "text": "InputConnectionBehavior"
         }
       ],
+      "kind": "symbol",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "enum",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "InputConnectionBehavior"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/inputconnectionbehavior",
+      "title": "InputConnectionBehavior"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents": {
+      "url": "https://developer.apple.com/documentation/appintents",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents",
       "type": "topic",
+      "role": "collection",
       "abstract": [
         {
           "text": "Make your app’s content and actions discoverable with system experiences like Spotlight, widgets, and the Shortcuts app.",
           "type": "text"
         }
       ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents",
-      "kind": "symbol"
+      "navigatorTitle": [
+        {
+          "text": "App Intents",
+          "kind": "text"
+        }
+      ],
+      "kind": "symbol",
+      "title": "App Intents"
     },
-    "doc://com.apple.AppIntents/documentation/AppIntents/resolvers": {
-      "kind": "article",
-      "role": "collectionGroup",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/resolvers",
+    "doc://com.apple.AppIntents/documentation/AppIntents/IntentProjection": {
+      "title": "IntentProjection",
       "type": "topic",
-      "url": "https://developer.apple.com/documentation/appintents/resolvers",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntentProjection",
+      "url": "https://developer.apple.com/documentation/appintents/intentprojection",
       "abstract": [
         {
-          "type": "text",
-          "text": "Resolve the parameters of your app intents, and extend the standard resolution"
+          "text": "Projections for an app intent that returns non-optional values for parameters.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
         },
         {
           "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "IntentProjection"
+        }
+      ],
+      "role": "symbol",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "IntentProjection"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/entity-queries": {
+      "url": "https://developer.apple.com/documentation/appintents/entity-queries",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "Help the system find the entities your app defines and use",
           "type": "text"
         },
         {
           "type": "text",
-          "text": "types to include your app’s custom types."
-        }
-      ],
-      "title": "Resolvers"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppEnum": {
-      "abstract": [
+          "text": " "
+        },
         {
           "type": "text",
-          "text": "An interface to express that a custom type has a predefined, static set of valid values to display."
+          "text": "them to resolve parameters."
+        }
+      ],
+      "role": "collectionGroup",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/entity-queries",
+      "kind": "article",
+      "title": "Entity queries"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/IntentParameterSummary": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntentParameterSummary",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "IntentParameterSummary",
+          "kind": "identifier"
+        }
+      ],
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "A type that describes the user interface configuration of an app intent’s parameters.",
+          "type": "text"
         }
       ],
       "navigatorTitle": [
+        {
+          "text": "IntentParameterSummary",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/intentparametersummary",
+      "title": "IntentParameterSummary"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummaryWhenCondition": {
+      "navigatorTitle": [
+        {
+          "text": "ParameterSummaryWhenCondition",
+          "kind": "identifier"
+        }
+      ],
+      "title": "ParameterSummaryWhenCondition",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "ParameterSummaryWhenCondition",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A type that represents a conditional statement in a parameter summary."
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummaryWhenCondition",
+      "url": "https://developer.apple.com/documentation/appintents/parametersummarywhencondition",
+      "role": "symbol",
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/Adding-parameters-to-an-app-intent": {
+      "role": "article",
+      "type": "topic",
+      "title": "Adding parameters to an app intent",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/Adding-parameters-to-an-app-intent",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Enable people to configure app intents with their custom input values."
+        }
+      ],
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/appintents/adding-parameters-to-an-app-intent"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppEnum": {
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppEnum",
+      "navigatorTitle": [
+        {
+          "text": "AppEnum",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appenum",
+      "type": "topic",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
         {
           "kind": "identifier",
           "text": "AppEnum"
         }
       ],
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/appintents/appenum",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppEnum",
       "title": "AppEnum",
+      "abstract": [
+        {
+          "text": "An interface to express that a custom type has a predefined, static set of valid values to display.",
+          "type": "text"
+        }
+      ],
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-enums": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-enums",
+      "abstract": [
+        {
+          "text": "Types that represent an enumerable list of static parameter values.",
+          "type": "text"
+        }
+      ],
+      "kind": "article",
+      "type": "topic",
+      "title": "Static parameter types",
+      "role": "collectionGroup",
+      "url": "https://developer.apple.com/documentation/appintents/app-enums"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/DynamicOptionsProvider": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An interface for providing a dynamic list of options for a parameter of your app intent."
+        }
+      ],
+      "type": "topic",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/DynamicOptionsProvider",
+      "title": "DynamicOptionsProvider",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "DynamicOptionsProvider"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/dynamicoptionsprovider",
       "role": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "DynamicOptionsProvider"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummary": {
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/parametersummary",
       "fragments": [
         {
           "text": "protocol",
@@ -754,34 +613,78 @@
         },
         {
           "kind": "identifier",
-          "text": "AppEnum"
+          "text": "ParameterSummary"
+        }
+      ],
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An interface for defining the visual representation of an app intent’s parameters."
+        }
+      ],
+      "title": "ParameterSummary",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummary",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ParameterSummary"
         }
       ],
       "kind": "symbol"
     },
-    "doc://com.apple.AppIntents/documentation/AppIntents/entity-queries": {
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/entity-queries",
-      "url": "https://developer.apple.com/documentation/appintents/entity-queries",
-      "title": "Entity queries",
-      "role": "collectionGroup",
-      "kind": "article",
-      "abstract": [
+    "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummarySwitchCondition": {
+      "title": "ParameterSummarySwitchCondition",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummarySwitchCondition",
+      "fragments": [
         {
-          "text": "Help the system find the entities your app defines and use",
-          "type": "text"
+          "kind": "keyword",
+          "text": "struct"
         },
         {
           "text": " ",
-          "type": "text"
+          "kind": "text"
         },
         {
-          "type": "text",
-          "text": "them to resolve parameters."
+          "kind": "identifier",
+          "text": "ParameterSummarySwitchCondition"
         }
       ],
-      "type": "topic"
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "ParameterSummarySwitchCondition",
+          "kind": "identifier"
+        }
+      ],
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/parametersummaryswitchcondition",
+      "abstract": [
+        {
+          "text": "A type that represents a switch statement in a parameter summary.",
+          "type": "text"
+        }
+      ]
     },
     "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummaryDefaultCaseCondition": {
+      "navigatorTitle": [
+        {
+          "text": "ParameterSummaryDefaultCaseCondition",
+          "kind": "identifier"
+        }
+      ],
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/parametersummarydefaultcasecondition",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummaryDefaultCaseCondition",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A type that represents the default case of a switch statement in a parameter summary."
+        }
+      ],
+      "kind": "symbol",
       "fragments": [
         {
           "text": "struct",
@@ -792,40 +695,131 @@
           "text": " "
         },
         {
-          "text": "ParameterSummaryDefaultCaseCondition",
-          "kind": "identifier"
+          "kind": "identifier",
+          "text": "ParameterSummaryDefaultCaseCondition"
+        }
+      ],
+      "title": "ParameterSummaryDefaultCaseCondition"
+    },
+    "doc://com.apple.documentation/documentation/technologies": {
+      "title": "Technologies",
+      "abstract": [
+        {
+          "type": "text",
+          "text": ""
+        }
+      ],
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/technologies",
+      "role": "overview",
+      "kind": "technologies"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummaryString": {
+      "abstract": [
+        {
+          "text": "A human-readable string that interpolates parameter key paths to provide user-configurable placeholders in the Shortcuts app.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "ParameterSummaryString"
         }
       ],
       "type": "topic",
-      "abstract": [
-        {
-          "text": "A type that represents the default case of a switch statement in a parameter summary.",
-          "type": "text"
-        }
-      ],
+      "url": "https://developer.apple.com/documentation/appintents/parametersummarystring",
       "kind": "symbol",
       "navigatorTitle": [
         {
-          "text": "ParameterSummaryDefaultCaseCondition",
-          "kind": "identifier"
+          "kind": "identifier",
+          "text": "ParameterSummaryString"
         }
       ],
+      "title": "ParameterSummaryString",
       "role": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/parametersummarydefaultcasecondition",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummaryDefaultCaseCondition",
-      "title": "ParameterSummaryDefaultCaseCondition"
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummaryString"
     },
-    "doc://com.apple.AppIntents/documentation/AppIntents/IntentProjection": {
+    "doc://com.apple.AppIntents/documentation/AppIntents/property-comparators": {
       "abstract": [
         {
-          "text": "Projections for an app intent that returns non-optional values for parameters.",
+          "text": "Specify the type of comparison to perform during a property-matched query.",
           "type": "text"
         }
       ],
-      "url": "https://developer.apple.com/documentation/appintents/intentprojection",
+      "role": "collectionGroup",
+      "type": "topic",
+      "title": "Property comparators",
+      "kind": "article",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/property-comparators",
+      "url": "https://developer.apple.com/documentation/appintents/property-comparators"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/resolvers": {
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/resolvers",
+      "role": "collectionGroup",
+      "title": "Resolvers",
+      "kind": "article",
+      "abstract": [
+        {
+          "text": "Resolve the parameters of your app intents, and extend the standard resolution",
+          "type": "text"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "type": "text",
+          "text": "types to include your app’s custom types."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/resolvers"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-entities": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-entities",
+      "kind": "article",
+      "role": "collectionGroup",
+      "title": "App entities",
+      "abstract": [
+        {
+          "text": "Make core types or concepts discoverable to the system by declaring",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "them as app entities.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/app-entities",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummaryCaseCondition": {
+      "role": "symbol",
+      "type": "topic",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A type that represents an individual case of a switch statement in a parameter summary."
+        }
+      ],
       "fragments": [
         {
-          "text": "class",
+          "text": "struct",
           "kind": "keyword"
         },
         {
@@ -833,35 +827,41 @@
           "kind": "text"
         },
         {
-          "text": "IntentProjection",
-          "kind": "identifier"
+          "kind": "identifier",
+          "text": "ParameterSummaryCaseCondition"
         }
       ],
-      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ParameterSummaryCaseCondition",
+      "url": "https://developer.apple.com/documentation/appintents/parametersummarycasecondition",
       "navigatorTitle": [
         {
           "kind": "identifier",
-          "text": "IntentProjection"
+          "text": "ParameterSummaryCaseCondition"
         }
       ],
-      "role": "symbol",
-      "title": "IntentProjection",
-      "kind": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntentProjection"
+      "title": "ParameterSummaryCaseCondition"
     },
-    "doc://com.apple.AppIntents/documentation/AppIntents/Adding-parameters-to-an-app-intent": {
+    "doc://com.apple.AppIntents/documentation/AppIntents/common-data-types": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/common-data-types",
+      "type": "topic",
       "kind": "article",
-      "role": "article",
-      "title": "Adding parameters to an app intent",
+      "url": "https://developer.apple.com/documentation/appintents/common-data-types",
       "abstract": [
         {
           "type": "text",
-          "text": "Enable people to configure app intents with their custom input values."
+          "text": "Specify common types that your app supports, including currencies,"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "files, and contacts.",
+          "type": "text"
         }
       ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/Adding-parameters-to-an-app-intent",
-      "url": "https://developer.apple.com/documentation/appintents/adding-parameters-to-an-app-intent",
-      "type": "topic"
+      "title": "Common data types",
+      "role": "collectionGroup"
     }
   },
   "legalNotices": {

@@ -1,4 +1,10 @@
 {
+  "abstract": [
+    {
+      "type": "text",
+      "text": "Apply behaviors and physical effects to the entities in a RealityKit scene."
+    }
+  ],
   "primaryContentSections": [
     {
       "kind": "content",
@@ -20,8 +26,8 @@
               "type": "emphasis",
               "inlineContent": [
                 {
-                  "type": "text",
-                  "text": "systems"
+                  "text": "systems",
+                  "type": "text"
                 }
               ]
             },
@@ -30,8 +36,8 @@
               "text": "."
             },
             {
-              "text": " ",
-              "type": "text"
+              "type": "text",
+              "text": " "
             },
             {
               "type": "text",
@@ -39,17 +45,17 @@
             },
             {
               "type": "reference",
-              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/System",
-              "isActive": true
+              "isActive": true,
+              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/System"
             },
             {
               "text": " has an ",
               "type": "text"
             },
             {
+              "isActive": true,
               "type": "reference",
-              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/System/update(context:)",
-              "isActive": true
+              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/System/update(context:)"
             },
             {
               "type": "text",
@@ -64,16 +70,16 @@
               "text": "For example, a game might have a system that controls applying damage to entities from different sources."
             },
             {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
               "text": "The same system might make changes to the player’s character, non-player characters, and even inanimate objects that can be damaged or broken.",
               "type": "text"
             },
             {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
               "type": "text",
@@ -88,24 +94,24 @@
               "type": "text"
             },
             {
-              "text": " ",
-              "type": "text"
+              "type": "text",
+              "text": " "
             },
             {
-              "text": "A damage system, for example, might work with a damage component that stores health or hit points.",
-              "type": "text"
+              "type": "text",
+              "text": "A damage system, for example, might work with a damage component that stores health or hit points."
             },
             {
-              "text": " ",
-              "type": "text"
+              "type": "text",
+              "text": " "
             },
             {
               "type": "text",
               "text": "To make an entity damageable, all you have to do is add the damage component to it, which can be done at runtime."
             },
             {
-              "text": " ",
-              "type": "text"
+              "type": "text",
+              "text": " "
             },
             {
               "type": "text",
@@ -117,16 +123,16 @@
           "type": "paragraph",
           "inlineContent": [
             {
-              "text": "In traditional object-oriented design, the behavior of an object is usually implemented by writing methods on each object.",
-              "type": "text"
+              "type": "text",
+              "text": "In traditional object-oriented design, the behavior of an object is usually implemented by writing methods on each object."
             },
             {
-              "text": " ",
-              "type": "text"
+              "type": "text",
+              "text": " "
             },
             {
-              "text": "Using that approach, the code to apply damage to an entity would reside on the entity subclasses.",
-              "type": "text"
+              "type": "text",
+              "text": "Using that approach, the code to apply damage to an entity would reside on the entity subclasses."
             },
             {
               "type": "text",
@@ -139,6 +145,7 @@
           ]
         },
         {
+          "type": "paragraph",
           "inlineContent": [
             {
               "type": "text",
@@ -153,16 +160,15 @@
               "text": "other than "
             },
             {
+              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Entity",
               "type": "reference",
-              "isActive": true,
-              "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Entity"
+              "isActive": true
             },
             {
-              "type": "text",
-              "text": ", that logic has to be duplicated on all the objects and the duplicated code has to be kept in sync as it changes."
+              "text": ", that logic has to be duplicated on all the objects and the duplicated code has to be kept in sync as it changes.",
+              "type": "text"
             }
-          ],
-          "type": "paragraph"
+          ]
         },
         {
           "type": "paragraph",
@@ -172,8 +178,8 @@
               "text": "Second, having to call behavior methods individually on every relevant entity in the scene can negatively impact performance."
             },
             {
-              "text": " ",
-              "type": "text"
+              "type": "text",
+              "text": " "
             },
             {
               "text": "By placing logic that potentially effects multiple types of entities into a single ",
@@ -185,8 +191,8 @@
               "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/System"
             },
             {
-              "type": "text",
-              "text": ", we reduce the overhead required to implement the logic."
+              "text": ", we reduce the overhead required to implement the logic.",
+              "type": "text"
             },
             {
               "type": "text",
@@ -197,56 +203,16 @@
               "text": "It also allows us to do any per-frame calculations that are the same for all entities only once per frame, eliminating the need to do those calculations"
             },
             {
-              "text": " ",
-              "type": "text"
+              "type": "text",
+              "text": " "
             },
             {
-              "text": "for every entity in the scene that can be damaged.",
-              "type": "text"
+              "type": "text",
+              "text": "for every entity in the scene that can be damaged."
             }
           ]
         }
       ]
-    }
-  ],
-  "sections": [],
-  "hierarchy": {
-    "paths": [
-      [
-        "doc://com.apple.documentation/documentation/technologies",
-        "doc://com.apple.RealityKit/documentation/RealityKit"
-      ]
-    ]
-  },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "identifier": {
-    "url": "doc://com.apple.RealityKit/documentation/RealityKit/ecs-systems",
-    "interfaceLanguage": "swift"
-  },
-  "topicSections": [
-    {
-      "anchor": "System-configuration",
-      "title": "System configuration",
-      "identifiers": [
-        "doc://com.apple.RealityKit/documentation/RealityKit/implementing-systems-for-entities-in-a-scene",
-        "doc://com.apple.RealityKit/documentation/RealityKit/animated-rotation-with-a-system",
-        "doc://com.apple.RealityKit/documentation/RealityKit/System",
-        "doc://com.apple.RealityKit/documentation/RealityKit/SystemUpdateCondition",
-        "doc://com.apple.RealityKit/documentation/RealityKit/SceneUpdateContext"
-      ]
-    },
-    {
-      "identifiers": [
-        "doc://com.apple.RealityKit/documentation/RealityKit/EntityQuery",
-        "doc://com.apple.RealityKit/documentation/RealityKit/QueryPredicate",
-        "doc://com.apple.RealityKit/documentation/RealityKit/QueryResult"
-      ],
-      "anchor": "Entity-queries",
-      "title": "Entity queries"
     }
   ],
   "variants": [
@@ -261,143 +227,187 @@
       ]
     }
   ],
-  "metadata": {
-    "modules": [
-      {
-        "name": "RealityKit"
-      }
-    ],
-    "role": "collectionGroup",
-    "title": "Systems",
-    "roleHeading": "API Collection"
+  "identifier": {
+    "url": "doc://com.apple.RealityKit/documentation/RealityKit/ecs-systems",
+    "interfaceLanguage": "swift"
   },
   "kind": "article",
-  "abstract": [
-    {
-      "type": "text",
-      "text": "Apply behaviors and physical effects to the entities in a RealityKit scene."
-    }
-  ],
   "seeAlsoSections": [
     {
+      "anchor": "Scene-management-and-logic",
       "identifiers": [
         "doc://com.apple.RealityKit/documentation/RealityKit/ecs-scenes",
         "doc://com.apple.RealityKit/documentation/RealityKit/ecs-events",
         "doc://com.apple.RealityKit/documentation/RealityKit/ecs-entity-actions"
       ],
       "title": "Scene management and logic",
-      "generated": true,
-      "anchor": "Scene-management-and-logic"
+      "generated": true
     }
   ],
-  "references": {
-    "doc://com.apple.RealityKit/documentation/RealityKit/SystemUpdateCondition": {
-      "abstract": [
-        {
-          "text": "A condition which causes a system to update.",
-          "type": "text"
-        }
-      ],
-      "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/realitykit/systemupdatecondition",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "SystemUpdateCondition",
-          "kind": "identifier"
-        }
-      ],
-      "type": "topic",
-      "title": "SystemUpdateCondition",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/SystemUpdateCondition",
-      "role": "symbol",
-      "navigatorTitle": [
-        {
-          "text": "SystemUpdateCondition",
-          "kind": "identifier"
-        }
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.RealityKit/documentation/RealityKit"
       ]
+    ]
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "System-configuration",
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/implementing-systems-for-entities-in-a-scene",
+        "doc://com.apple.RealityKit/documentation/RealityKit/animated-rotation-with-a-system",
+        "doc://com.apple.RealityKit/documentation/RealityKit/System",
+        "doc://com.apple.RealityKit/documentation/RealityKit/SystemUpdateCondition",
+        "doc://com.apple.RealityKit/documentation/RealityKit/SceneUpdateContext"
+      ],
+      "title": "System configuration"
     },
-    "doc://com.apple.documentation/documentation/technologies": {
+    {
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/EntityQuery",
+        "doc://com.apple.RealityKit/documentation/RealityKit/QueryPredicate",
+        "doc://com.apple.RealityKit/documentation/RealityKit/QueryResult"
+      ],
+      "title": "Entity queries",
+      "anchor": "Entity-queries"
+    }
+  ],
+  "metadata": {
+    "roleHeading": "API Collection",
+    "role": "collectionGroup",
+    "modules": [
+      {
+        "name": "RealityKit"
+      }
+    ],
+    "title": "Systems"
+  },
+  "references": {
+    "doc://com.apple.RealityKit/documentation/RealityKit/animated-rotation-with-a-system": {
+      "title": "Animating entity rotation with a system",
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/realitykit/animated-rotation-with-a-system",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/animated-rotation-with-a-system",
+      "role": "sampleCode",
       "abstract": [
         {
-          "text": "",
-          "type": "text"
+          "type": "text",
+          "text": "Rotate an entity around an axis using a Component and a System."
         }
       ],
-      "identifier": "doc://com.apple.documentation/documentation/technologies",
-      "kind": "technologies",
-      "role": "overview",
-      "title": "Technologies",
-      "url": "https://developer.apple.com/documentation/technologies",
       "type": "topic"
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/ecs-scenes": {
-      "url": "https://developer.apple.com/documentation/realitykit/ecs-scenes",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ecs-scenes",
-      "type": "topic",
-      "role": "collectionGroup",
-      "title": "Scenes",
-      "abstract": [
+    "doc://com.apple.RealityKit/documentation/RealityKit/QueryResult": {
+      "title": "QueryResult",
+      "role": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/QueryResult",
+      "kind": "symbol",
+      "navigatorTitle": [
         {
-          "text": "The context that holds all RealityKit entities.",
-          "type": "text"
+          "text": "QueryResult",
+          "kind": "identifier"
         }
       ],
-      "kind": "article"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/EntityQuery": {
-      "title": "EntityQuery",
-      "role": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/EntityQuery",
-      "kind": "symbol",
       "fragments": [
         {
-          "kind": "keyword",
-          "text": "struct"
+          "text": "struct",
+          "kind": "keyword"
         },
         {
           "text": " ",
           "kind": "text"
         },
         {
-          "text": "EntityQuery",
+          "text": "QueryResult",
           "kind": "identifier"
         }
       ],
+      "abstract": [
+        {
+          "text": "An object that returns the results of an entity query.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/realitykit/queryresult"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit": {
+      "title": "RealityKit",
+      "abstract": [
+        {
+          "text": "Simulate and render 3D content for use in your augmented reality apps.",
+          "type": "text"
+        }
+      ],
+      "role": "collection",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/realitykit",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit",
+      "kind": "symbol"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/implementing-systems-for-entities-in-a-scene": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/implementing-systems-for-entities-in-a-scene",
+      "kind": "article",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Apply behaviors and physical effects to the objects and characters in a RealityKit"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "scene with the Entity Component System (ECS).",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/implementing-systems-for-entities-in-a-scene",
+      "role": "article",
+      "title": "Implementing systems for entities in a scene"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/ecs-scenes": {
+      "role": "collectionGroup",
+      "url": "https://developer.apple.com/documentation/realitykit/ecs-scenes",
+      "kind": "article",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ecs-scenes",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The context that holds all RealityKit entities."
+        }
+      ],
+      "title": "Scenes",
+      "type": "topic"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/SystemUpdateCondition": {
       "type": "topic",
       "navigatorTitle": [
         {
-          "text": "EntityQuery",
+          "text": "SystemUpdateCondition",
           "kind": "identifier"
         }
       ],
-      "url": "https://developer.apple.com/documentation/realitykit/entityquery",
+      "title": "SystemUpdateCondition",
       "abstract": [
         {
           "type": "text",
-          "text": "An object that retrieves entities from a scene."
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/SceneUpdateContext": {
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An object that contains information about the scene to update."
+          "text": "A condition which causes a system to update."
         }
       ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/SystemUpdateCondition",
       "kind": "symbol",
-      "type": "topic",
-      "title": "SceneUpdateContext",
       "role": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/systemupdatecondition",
       "fragments": [
         {
           "text": "struct",
@@ -409,108 +419,29 @@
         },
         {
           "kind": "identifier",
-          "text": "SceneUpdateContext"
+          "text": "SystemUpdateCondition"
         }
-      ],
-      "navigatorTitle": [
-        {
-          "text": "SceneUpdateContext",
-          "kind": "identifier"
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/SceneUpdateContext",
-      "url": "https://developer.apple.com/documentation/realitykit/sceneupdatecontext"
+      ]
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit": {
+    "doc://com.apple.RealityKit/documentation/RealityKit/System/update(context:)": {
       "abstract": [
         {
           "type": "text",
-          "text": "Simulate and render 3D content for use in your augmented reality apps."
+          "text": "Updates entities up to once every scene update."
         }
       ],
-      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/System/update(context:)",
+      "required": true,
       "kind": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit",
-      "role": "collection",
-      "title": "RealityKit",
-      "url": "https://developer.apple.com/documentation/realitykit"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/Entity": {
-      "navigatorTitle": [
-        {
-          "text": "Entity",
-          "kind": "identifier"
-        }
-      ],
-      "type": "topic",
-      "title": "Entity",
-      "url": "https://developer.apple.com/documentation/realitykit/entity",
       "role": "symbol",
       "fragments": [
         {
-          "kind": "keyword",
-          "text": "class"
+          "text": "func",
+          "kind": "keyword"
         },
         {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "Entity"
-        }
-      ],
-      "kind": "symbol",
-      "abstract": [
-        {
-          "text": "An element of a RealityKit scene to which you attach components that provide",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "appearance and behavior characteristics for the entity.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Entity"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/implementing-systems-for-entities-in-a-scene": {
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Apply behaviors and physical effects to the objects and characters in a RealityKit"
-        },
-        {
-          "type": "text",
+          "kind": "text",
           "text": " "
-        },
-        {
-          "type": "text",
-          "text": "scene with the Entity Component System (ECS)."
-        }
-      ],
-      "kind": "article",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/implementing-systems-for-entities-in-a-scene",
-      "role": "article",
-      "url": "https://developer.apple.com/documentation/realitykit/implementing-systems-for-entities-in-a-scene",
-      "title": "Implementing systems for entities in a scene",
-      "type": "topic"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/System/update(context:)": {
-      "defaultImplementations": 1,
-      "url": "https://developer.apple.com/documentation/realitykit/system/update(context:)",
-      "kind": "symbol",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "func"
-        },
-        {
-          "text": " ",
-          "kind": "text"
         },
         {
           "kind": "identifier",
@@ -525,160 +456,161 @@
           "kind": "externalParam"
         },
         {
-          "text": ": ",
-          "kind": "text"
+          "kind": "text",
+          "text": ": "
         },
         {
-          "preciseIdentifier": "s:17RealityFoundation18SceneUpdateContextV",
+          "text": "SceneUpdateContext",
           "kind": "typeIdentifier",
-          "text": "SceneUpdateContext"
+          "preciseIdentifier": "s:17RealityFoundation18SceneUpdateContextV"
         },
         {
           "text": ")",
           "kind": "text"
         }
       ],
+      "defaultImplementations": 1,
       "type": "topic",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/System/update(context:)",
-      "abstract": [
-        {
-          "text": "Updates entities up to once every scene update.",
-          "type": "text"
-        }
-      ],
-      "required": true,
-      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/system/update(context:)",
       "title": "update(context:)"
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/ecs-events": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ecs-events",
+      "type": "topic",
+      "title": "Events",
+      "kind": "article",
       "role": "collectionGroup",
-      "url": "https://developer.apple.com/documentation/realitykit/ecs-events",
-      "abstract": [
-        {
-          "text": "Respond to things happening in your RealityKit scene by subscribing to specific event types.",
-          "type": "text"
-        }
-      ],
-      "kind": "article",
-      "type": "topic",
-      "title": "Events"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/animated-rotation-with-a-system": {
-      "role": "sampleCode",
-      "url": "https://developer.apple.com/documentation/realitykit/animated-rotation-with-a-system",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ecs-events",
       "abstract": [
         {
           "type": "text",
-          "text": "Rotate an entity around an axis using a Component and a System."
+          "text": "Respond to things happening in your RealityKit scene by subscribing to specific event types."
         }
       ],
-      "type": "topic",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/animated-rotation-with-a-system",
-      "kind": "article",
-      "title": "Animating entity rotation with a system"
+      "url": "https://developer.apple.com/documentation/realitykit/ecs-events"
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/ecs-entity-actions": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ecs-entity-actions",
-      "url": "https://developer.apple.com/documentation/realitykit/ecs-entity-actions",
+    "doc://com.apple.documentation/documentation/technologies": {
+      "url": "https://developer.apple.com/documentation/technologies",
+      "role": "overview",
       "abstract": [
         {
-          "text": "Create simple, reusable actions that can change your app state, RealityKit scene, or animate an entity.",
+          "text": "",
           "type": "text"
         }
       ],
-      "kind": "article",
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
       "type": "topic",
-      "title": "Entity actions",
-      "role": "collectionGroup"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/System": {
-      "role": "symbol",
-      "title": "System",
-      "kind": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/System",
-      "navigatorTitle": [
-        {
-          "text": "System",
-          "kind": "identifier"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/realitykit/system",
-      "abstract": [
-        {
-          "text": "An object that affects multiple entities in every update of a RealityKit",
-          "type": "text"
-        },
-        {
-          "type": "text",
-          "text": " "
-        },
-        {
-          "type": "text",
-          "text": "scene."
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "protocol"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "System",
-          "kind": "identifier"
-        }
-      ],
-      "type": "topic"
+      "kind": "technologies",
+      "title": "Technologies"
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/QueryPredicate": {
       "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/QueryPredicate",
+      "type": "topic",
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "QueryPredicate",
+          "kind": "identifier"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
           "text": "struct"
         },
         {
-          "text": " ",
-          "kind": "text"
+          "kind": "text",
+          "text": " "
         },
-        {
-          "text": "QueryPredicate",
-          "kind": "identifier"
-        }
-      ],
-      "abstract": [
-        {
-          "text": "An object that defines the criteria for an entity query.",
-          "type": "text"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/realitykit/querypredicate",
-      "title": "QueryPredicate",
-      "type": "topic",
-      "role": "symbol",
-      "kind": "symbol",
-      "navigatorTitle": [
         {
           "kind": "identifier",
           "text": "QueryPredicate"
         }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/QueryResult": {
-      "title": "QueryResult",
-      "kind": "symbol",
-      "role": "symbol",
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/querypredicate",
       "abstract": [
         {
-          "text": "An object that returns the results of an entity query.",
+          "type": "text",
+          "text": "An object that defines the criteria for an entity query."
+        }
+      ],
+      "kind": "symbol",
+      "title": "QueryPredicate"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/System": {
+      "role": "symbol",
+      "kind": "symbol",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An object that affects multiple entities in every update of a RealityKit"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "scene.",
           "type": "text"
         }
       ],
-      "url": "https://developer.apple.com/documentation/realitykit/queryresult",
+      "url": "https://developer.apple.com/documentation/realitykit/system",
+      "title": "System",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/System",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "System"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "System",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/ecs-entity-actions": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Create simple, reusable actions that can change your app state, RealityKit scene, or animate an entity."
+        }
+      ],
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/realitykit/ecs-entity-actions",
+      "title": "Entity actions",
+      "role": "collectionGroup",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ecs-entity-actions",
+      "type": "topic"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/SceneUpdateContext": {
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "SceneUpdateContext"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An object that contains information about the scene to update."
+        }
+      ],
+      "kind": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/SceneUpdateContext",
+      "title": "SceneUpdateContext",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/realitykit/sceneupdatecontext",
+      "role": "symbol",
       "fragments": [
         {
           "text": "struct",
@@ -689,18 +621,86 @@
           "kind": "text"
         },
         {
-          "text": "QueryResult",
+          "text": "SceneUpdateContext",
           "kind": "identifier"
         }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/Entity": {
+      "url": "https://developer.apple.com/documentation/realitykit/entity",
+      "abstract": [
+        {
+          "text": "An element of a RealityKit scene to which you attach components that provide",
+          "type": "text"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "appearance and behavior characteristics for the entity.",
+          "type": "text"
+        }
       ],
+      "kind": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/Entity",
       "type": "topic",
+      "title": "Entity",
+      "fragments": [
+        {
+          "text": "class",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "Entity"
+        }
+      ],
+      "role": "symbol",
       "navigatorTitle": [
         {
-          "text": "QueryResult",
+          "text": "Entity",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/EntityQuery": {
+      "abstract": [
+        {
+          "text": "An object that retrieves entities from a scene.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/EntityQuery",
+      "navigatorTitle": [
+        {
+          "text": "EntityQuery",
           "kind": "identifier"
         }
       ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/QueryResult"
+      "url": "https://developer.apple.com/documentation/realitykit/entityquery",
+      "role": "symbol",
+      "kind": "symbol",
+      "title": "EntityQuery",
+      "type": "topic",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "EntityQuery",
+          "kind": "identifier"
+        }
+      ]
     }
   },
   "legalNotices": {
