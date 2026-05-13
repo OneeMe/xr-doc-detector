@@ -1,27 +1,53 @@
 {
-  "hierarchy": {
-    "paths": [
-      [
-        "doc://com.apple.documentation/documentation/technologies",
-        "doc://com.apple.AppIntents/documentation/AppIntents",
-        "doc://com.apple.AppIntents/documentation/AppIntents/siri"
+  "variants": [
+    {
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ],
+      "paths": [
+        "/documentation/appintents/making-onscreen-content-available-to-siri-and-apple-intelligence"
       ]
-    ]
+    }
+  ],
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://com.apple.AppIntents/documentation/AppIntents/Making-onscreen-content-available-to-siri-and-apple-intelligence"
   },
+  "abstract": [
+    {
+      "type": "text",
+      "text": "Enable Siri and Apple Intelligence to respond to a person’s questions and action requests for your app’s onscreen content."
+    }
+  ],
+  "sections": [],
   "schemaVersion": {
     "major": 0,
     "minor": 3,
     "patch": 0
   },
-  "sections": [],
+  "seeAlsoSections": [
+    {
+      "generated": true,
+      "title": "Adding Siri support",
+      "anchor": "Adding-Siri-support",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/making-your-app-s-functionality-available-to-siri",
+        "doc://com.apple.AppIntents/documentation/AppIntents/Integrating-actions-with-siri-and-apple-intelligence",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-intent-domains",
+        "doc://com.apple.AppIntents/documentation/AppIntents/intent-discovery"
+      ]
+    }
+  ],
   "primaryContentSections": [
     {
       "content": [
         {
-          "text": "Overview",
-          "anchor": "Overview",
+          "type": "heading",
           "level": 2,
-          "type": "heading"
+          "anchor": "Overview",
+          "text": "Overview"
         },
         {
           "type": "paragraph",
@@ -33,24 +59,24 @@
           ]
         },
         {
+          "type": "aside",
+          "style": "note",
+          "name": "Note",
           "content": [
             {
-              "type": "paragraph",
               "inlineContent": [
                 {
                   "text": "Siri’s personal context understanding, onscreen awareness, and in-app actions are in development and will be available with a future software update.",
                   "type": "text"
                 }
-              ]
+              ],
+              "type": "paragraph"
             }
-          ],
-          "style": "note",
-          "type": "aside",
-          "name": "Note"
+          ]
         },
         {
-          "text": "Create an app entity and associate it with the user activity object",
           "type": "heading",
+          "text": "Create an app entity and associate it with the user activity object",
           "anchor": "Create-an-app-entity-and-associate-it-with-the-user-activity-object",
           "level": 3
         },
@@ -58,13 +84,13 @@
           "type": "paragraph",
           "inlineContent": [
             {
-              "text": "To integrate your app’s onscreen content with current and upcoming personal intelligence features of Siri and Apple Intelligence, explicitly provide the onscreen content using the App Intents framework. Describe the content with an ",
-              "type": "text"
+              "type": "text",
+              "text": "To integrate your app’s onscreen content with current and upcoming personal intelligence features of Siri and Apple Intelligence, explicitly provide the onscreen content using the App Intents framework. Describe the content with an "
             },
             {
+              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppEntity",
               "isActive": true,
-              "type": "reference",
-              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppEntity"
+              "type": "reference"
             },
             {
               "type": "text",
@@ -81,8 +107,8 @@
                   "type": "paragraph",
                   "inlineContent": [
                     {
-                      "type": "text",
-                      "text": "Create an app entity identifier using "
+                      "text": "Create an app entity identifier using ",
+                      "type": "text"
                     },
                     {
                       "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/EntityIdentifier",
@@ -100,7 +126,6 @@
             {
               "content": [
                 {
-                  "type": "paragraph",
                   "inlineContent": [
                     {
                       "text": "Associate the identifier with the current ",
@@ -116,15 +141,16 @@
                       "text": " by setting the activity’s "
                     },
                     {
-                      "isActive": true,
                       "identifier": "doc://com.apple.documentation/documentation/Foundation/NSUserActivity/appEntityIdentifier",
-                      "type": "reference"
+                      "type": "reference",
+                      "isActive": true
                     },
                     {
-                      "type": "text",
-                      "text": " property."
+                      "text": " property.",
+                      "type": "text"
                     }
-                  ]
+                  ],
+                  "type": "paragraph"
                 }
               ]
             }
@@ -138,16 +164,16 @@
               "text": "To remove the association between the user activity and your app entity, set the user activity’s "
             },
             {
-              "code": "appEntityIdentifier",
-              "type": "codeVoice"
+              "type": "codeVoice",
+              "code": "appEntityIdentifier"
             },
             {
               "text": " property to ",
               "type": "text"
             },
             {
-              "type": "codeVoice",
-              "code": "nil"
+              "code": "nil",
+              "type": "codeVoice"
             },
             {
               "type": "text",
@@ -156,15 +182,16 @@
           ]
         },
         {
+          "type": "paragraph",
           "inlineContent": [
             {
-              "text": "The following code snippet from the ",
-              "type": "text"
+              "type": "text",
+              "text": "The following code snippet from the "
             },
             {
+              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/making-your-app-s-functionality-available-to-siri",
               "type": "reference",
-              "isActive": true,
-              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/making-your-app-s-functionality-available-to-siri"
+              "isActive": true
             },
             {
               "type": "text",
@@ -178,10 +205,10 @@
               "type": "text",
               "text": " app entity that represents a photo, and associating it with the user activity:"
             }
-          ],
-          "type": "paragraph"
+          ]
         },
         {
+          "type": "codeListing",
           "syntax": "swift",
           "code": [
             " MediaView(",
@@ -197,52 +224,50 @@
             "    activity.title = \"Viewing a photo\"",
             "    activity.appEntityIdentifier = EntityIdentifier(for: asset)",
             "}"
-          ],
-          "type": "codeListing"
+          ]
         },
         {
-          "text": "Make the app entity transferable",
           "level": 3,
-          "anchor": "Make-the-app-entity-transferable",
-          "type": "heading"
+          "type": "heading",
+          "text": "Make the app entity transferable",
+          "anchor": "Make-the-app-entity-transferable"
         },
         {
-          "type": "paragraph",
           "inlineContent": [
             {
-              "type": "text",
-              "text": "Associating an "
+              "text": "Associating an ",
+              "type": "text"
             },
             {
-              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppEntity",
+              "type": "reference",
               "isActive": true,
-              "type": "reference"
+              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppEntity"
             },
             {
               "type": "text",
               "text": " with the "
             },
             {
-              "identifier": "doc://com.apple.documentation/documentation/Foundation/NSUserActivity",
               "isActive": true,
-              "type": "reference"
+              "type": "reference",
+              "identifier": "doc://com.apple.documentation/documentation/Foundation/NSUserActivity"
+            },
+            {
+              "text": " provides Siri and Apple Intelligence with your app’s onscreen content to offer personalized intelligence assistance.",
+              "type": "text"
             },
             {
               "type": "text",
-              "text": " provides Siri and Apple Intelligence with your app’s onscreen content to offer personalized intelligence assistance."
+              "text": " "
             },
             {
-              "text": " ",
-              "type": "text"
-            },
-            {
-              "text": "To go one step further and enable Siri and Apple Intelligence to further process the provided onscreen content and respond to a person’s explicit request to send the content as an attachment to other services, including third parties:",
-              "type": "text"
+              "type": "text",
+              "text": "To go one step further and enable Siri and Apple Intelligence to further process the provided onscreen content and respond to a person’s explicit request to send the content as an attachment to other services, including third parties:"
             }
-          ]
+          ],
+          "type": "paragraph"
         },
         {
-          "type": "orderedList",
           "items": [
             {
               "content": [
@@ -254,13 +279,13 @@
                       "text": "Update your app entity to conform to the "
                     },
                     {
-                      "identifier": "doc://com.apple.documentation/documentation/CoreTransferable/Transferable",
                       "type": "reference",
+                      "identifier": "doc://com.apple.documentation/documentation/CoreTransferable/Transferable",
                       "isActive": true
                     },
                     {
-                      "type": "text",
-                      "text": " protocol."
+                      "text": " protocol.",
+                      "type": "text"
                     }
                   ]
                 }
@@ -269,51 +294,51 @@
             {
               "content": [
                 {
-                  "type": "paragraph",
                   "inlineContent": [
                     {
                       "type": "text",
                       "text": "In your "
                     },
                     {
-                      "type": "codeVoice",
-                      "code": "Transferable"
-                    },
-                    {
-                      "text": " implementation, provide image, PDF, rich text, or plain text representations. To increase compatibility with third-party services, provide several representations that best fit your content. For example, an email client might represent an email as rich text, plain text, and a PDF. For more on adopting ",
-                      "type": "text"
-                    },
-                    {
                       "code": "Transferable",
                       "type": "codeVoice"
                     },
                     {
-                      "text": ", refer to ",
-                      "type": "text"
+                      "type": "text",
+                      "text": " implementation, provide image, PDF, rich text, or plain text representations. To increase compatibility with third-party services, provide several representations that best fit your content. For example, an email client might represent an email as rich text, plain text, and a PDF. For more on adopting "
                     },
                     {
-                      "isActive": true,
+                      "type": "codeVoice",
+                      "code": "Transferable"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", refer to "
+                    },
+                    {
+                      "identifier": "http://developer.apple.com/documentation/coretransferable",
                       "type": "reference",
-                      "identifier": "http://developer.apple.com/documentation/coretransferable"
+                      "isActive": true
                     },
                     {
                       "type": "text",
                       "text": "."
                     }
-                  ]
+                  ],
+                  "type": "paragraph"
                 }
               ]
             }
-          ]
+          ],
+          "type": "orderedList"
         },
         {
-          "anchor": "Provide-additional-context-to-the-system-with-an-assistant-schema",
-          "type": "heading",
           "text": "Provide additional context to the system with an assistant schema",
+          "type": "heading",
+          "anchor": "Provide-additional-context-to-the-system-with-an-assistant-schema",
           "level": 3
         },
         {
-          "type": "paragraph",
           "inlineContent": [
             {
               "type": "text",
@@ -321,17 +346,18 @@
             },
             {
               "isActive": true,
-              "identifier": "doc://com.apple.documentation/documentation/Foundation/NSUserActivity",
-              "type": "reference"
+              "type": "reference",
+              "identifier": "doc://com.apple.documentation/documentation/Foundation/NSUserActivity"
             },
             {
               "text": " conforms to one of the assistant schemas in the list below.",
               "type": "text"
             }
-          ]
+          ],
+          "type": "paragraph"
         },
         {
-          "style": "note",
+          "name": "Note",
           "content": [
             {
               "inlineContent": [
@@ -344,18 +370,28 @@
             }
           ],
           "type": "aside",
-          "name": "Note"
+          "style": "note"
         },
         {
-          "header": "row",
           "rows": [
             [
               [
                 {
+                  "type": "paragraph",
                   "inlineContent": [
                     {
-                      "type": "text",
-                      "text": "Domain"
+                      "text": "Domain",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "text": "Schema",
+                      "type": "text"
                     }
                   ],
                   "type": "paragraph"
@@ -366,7 +402,7 @@
                   "type": "paragraph",
                   "inlineContent": [
                     {
-                      "text": "Schema",
+                      "text": "Swift macro",
                       "type": "text"
                     }
                   ]
@@ -378,18 +414,7 @@
                   "inlineContent": [
                     {
                       "type": "text",
-                      "text": "Swift macro"
-                    }
-                  ]
-                }
-              ],
-              [
-                {
-                  "type": "paragraph",
-                  "inlineContent": [
-                    {
-                      "text": "Example request",
-                      "type": "text"
+                      "text": "Example request"
                     }
                   ]
                 }
@@ -401,33 +426,33 @@
                   "type": "paragraph",
                   "inlineContent": [
                     {
-                      "type": "text",
-                      "text": "Browser"
+                      "text": "Browser",
+                      "type": "text"
                     }
                   ]
                 }
               ],
               [
                 {
+                  "type": "paragraph",
                   "inlineContent": [
                     {
-                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/BrowserEntity/tab",
                       "type": "reference",
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/BrowserEntity/tab",
                       "isActive": true
                     }
-                  ],
-                  "type": "paragraph"
+                  ]
                 }
               ],
               [
                 {
+                  "type": "paragraph",
                   "inlineContent": [
                     {
-                      "type": "codeVoice",
-                      "code": "@AppEntity(schema: .browser.tab)"
+                      "code": "@AppEntity(schema: .browser.tab)",
+                      "type": "codeVoice"
                     }
-                  ],
-                  "type": "paragraph"
+                  ]
                 }
               ],
               [
@@ -445,13 +470,13 @@
             [
               [
                 {
-                  "type": "paragraph",
                   "inlineContent": [
                     {
-                      "type": "text",
-                      "text": "Document reader"
+                      "text": "Document reader",
+                      "type": "text"
                     }
-                  ]
+                  ],
+                  "type": "paragraph"
                 }
               ],
               [
@@ -459,8 +484,8 @@
                   "type": "paragraph",
                   "inlineContent": [
                     {
-                      "type": "reference",
                       "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/ReaderEntity/document",
+                      "type": "reference",
                       "isActive": true
                     }
                   ]
@@ -470,8 +495,44 @@
                 {
                   "inlineContent": [
                     {
-                      "code": "@AppEntity(schema: .reader.document)",
-                      "type": "codeVoice"
+                      "type": "codeVoice",
+                      "code": "@AppEntity(schema: .reader.document)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "A person might ask Siri to explain the conclusion of a document."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "File management"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/FilesEntity/file",
+                      "isActive": true,
+                      "type": "reference"
                     }
                   ],
                   "type": "paragraph"
@@ -482,70 +543,34 @@
                   "type": "paragraph",
                   "inlineContent": [
                     {
-                      "type": "text",
-                      "text": "A person might ask Siri to explain the conclusion of a document."
+                      "type": "codeVoice",
+                      "code": "@AppEntity(schema: .files.file)"
                     }
                   ]
                 }
-              ]
-            ],
-            [
+              ],
               [
                 {
                   "inlineContent": [
                     {
-                      "text": "File management",
+                      "text": "A person might ask Siri to summarize file content.",
                       "type": "text"
                     }
                   ],
                   "type": "paragraph"
                 }
-              ],
-              [
-                {
-                  "inlineContent": [
-                    {
-                      "isActive": true,
-                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/FilesEntity/file",
-                      "type": "reference"
-                    }
-                  ],
-                  "type": "paragraph"
-                }
-              ],
-              [
-                {
-                  "inlineContent": [
-                    {
-                      "type": "codeVoice",
-                      "code": "@AppEntity(schema: .files.file)"
-                    }
-                  ],
-                  "type": "paragraph"
-                }
-              ],
-              [
-                {
-                  "inlineContent": [
-                    {
-                      "type": "text",
-                      "text": "A person might ask Siri to summarize file content."
-                    }
-                  ],
-                  "type": "paragraph"
-                }
               ]
             ],
             [
               [
                 {
+                  "type": "paragraph",
                   "inlineContent": [
                     {
                       "type": "text",
                       "text": "Mail"
                     }
-                  ],
-                  "type": "paragraph"
+                  ]
                 }
               ],
               [
@@ -554,8 +579,8 @@
                   "inlineContent": [
                     {
                       "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/MailEntity/message",
-                      "isActive": true,
-                      "type": "reference"
+                      "type": "reference",
+                      "isActive": true
                     }
                   ]
                 }
@@ -565,21 +590,21 @@
                   "type": "paragraph",
                   "inlineContent": [
                     {
-                      "type": "codeVoice",
-                      "code": "@AppEntity(schema: .mail.message) "
+                      "code": "@AppEntity(schema: .mail.message) ",
+                      "type": "codeVoice"
                     }
                   ]
                 }
               ],
               [
                 {
-                  "type": "paragraph",
                   "inlineContent": [
                     {
-                      "text": "A person might ask Siri to provide a summary.",
-                      "type": "text"
+                      "type": "text",
+                      "text": "A person might ask Siri to provide a summary."
                     }
-                  ]
+                  ],
+                  "type": "paragraph"
                 }
               ]
             ],
@@ -600,43 +625,19 @@
                   "type": "paragraph",
                   "inlineContent": [
                     {
-                      "isActive": true,
                       "type": "reference",
-                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/PhotosEntity/asset"
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/PhotosEntity/asset",
+                      "isActive": true
                     }
                   ]
                 }
               ],
               [
                 {
-                  "type": "paragraph",
                   "inlineContent": [
                     {
-                      "type": "codeVoice",
-                      "code": "@AppEntity(schema: .photos.asset)"
-                    }
-                  ]
-                }
-              ],
-              [
-                {
-                  "type": "paragraph",
-                  "inlineContent": [
-                    {
-                      "text": "A person might ask Siri about things to do with an object in a photo.",
-                      "type": "text"
-                    }
-                  ]
-                }
-              ]
-            ],
-            [
-              [
-                {
-                  "inlineContent": [
-                    {
-                      "text": "Presentations",
-                      "type": "text"
+                      "code": "@AppEntity(schema: .photos.asset)",
+                      "type": "codeVoice"
                     }
                   ],
                   "type": "paragraph"
@@ -644,32 +645,9 @@
               ],
               [
                 {
-                  "type": "paragraph",
                   "inlineContent": [
                     {
-                      "isActive": true,
-                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/PresentationEntity/document",
-                      "type": "reference"
-                    }
-                  ]
-                }
-              ],
-              [
-                {
-                  "type": "paragraph",
-                  "inlineContent": [
-                    {
-                      "code": "@AppEntity(schema: .presentation.document)",
-                      "type": "codeVoice"
-                    }
-                  ]
-                }
-              ],
-              [
-                {
-                  "inlineContent": [
-                    {
-                      "text": "A person might ask Siri to suggest a creative title for a presentation.",
+                      "text": "A person might ask Siri about things to do with an object in a photo.",
                       "type": "text"
                     }
                   ],
@@ -683,7 +661,7 @@
                   "inlineContent": [
                     {
                       "type": "text",
-                      "text": "Spreadsheets"
+                      "text": "Presentations"
                     }
                   ],
                   "type": "paragraph"
@@ -691,14 +669,61 @@
               ],
               [
                 {
+                  "inlineContent": [
+                    {
+                      "isActive": true,
+                      "type": "reference",
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/PresentationEntity/document"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "codeVoice",
+                      "code": "@AppEntity(schema: .presentation.document)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "A person might ask Siri to suggest a creative title for a presentation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ],
+            [
+              [
+                {
                   "type": "paragraph",
                   "inlineContent": [
                     {
-                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/SpreadsheetEntity/document",
-                      "type": "reference",
-                      "isActive": true
+                      "text": "Spreadsheets",
+                      "type": "text"
                     }
                   ]
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "reference",
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/SpreadsheetEntity/document",
+                      "isActive": true
+                    }
+                  ],
+                  "type": "paragraph"
                 }
               ],
               [
@@ -717,8 +742,8 @@
                   "type": "paragraph",
                   "inlineContent": [
                     {
-                      "text": "A person might ask Siri to give an overview of the spreadsheet’s data.",
-                      "type": "text"
+                      "type": "text",
+                      "text": "A person might ask Siri to give an overview of the spreadsheet’s data."
                     }
                   ]
                 }
@@ -741,22 +766,22 @@
                   "type": "paragraph",
                   "inlineContent": [
                     {
-                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/WordProcessorEntity/document",
+                      "isActive": true,
                       "type": "reference",
-                      "isActive": true
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/WordProcessorEntity/document"
                     }
                   ]
                 }
               ],
               [
                 {
+                  "type": "paragraph",
                   "inlineContent": [
                     {
                       "type": "codeVoice",
                       "code": "@AppEntity(schema: .wordProcessor.document)"
                     }
-                  ],
-                  "type": "paragraph"
+                  ]
                 }
               ],
               [
@@ -772,76 +797,57 @@
               ]
             ]
           ],
-          "type": "table"
+          "type": "table",
+          "header": "row"
         }
       ],
       "kind": "content"
     }
   ],
-  "variants": [
-    {
-      "paths": [
-        "/documentation/appintents/making-onscreen-content-available-to-siri-and-apple-intelligence"
-      ],
-      "traits": [
-        {
-          "interfaceLanguage": "swift"
-        }
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.AppIntents/documentation/AppIntents",
+        "doc://com.apple.AppIntents/documentation/AppIntents/siri"
       ]
-    }
-  ],
-  "abstract": [
-    {
-      "type": "text",
-      "text": "Enable Siri and Apple Intelligence to respond to a person’s questions and action requests for your app’s onscreen content."
-    }
-  ],
+    ]
+  },
+  "kind": "article",
   "topicSections": [
     {
-      "anchor": "System-protocols",
-      "title": "System protocols",
       "identifiers": [
         "doc://com.apple.AppIntents/documentation/AppIntents/AppEntityAnnotatable"
-      ]
+      ],
+      "title": "System protocols",
+      "anchor": "System-protocols"
     }
   ],
-  "kind": "article",
-  "identifier": {
-    "url": "doc://com.apple.AppIntents/documentation/AppIntents/Making-onscreen-content-available-to-siri-and-apple-intelligence",
-    "interfaceLanguage": "swift"
-  },
   "metadata": {
-    "images": [
-      {
-        "type": "card",
-        "identifier": "Making-on-screen-content-available-to-Siri-and-Apple-Intelligence-PageImage-card.png"
-      }
-    ],
-    "roleHeading": "API Collection",
     "platforms": [
       {
         "introducedAt": "18.2",
-        "name": "iOS",
-        "beta": false
+        "beta": false,
+        "name": "iOS"
       },
       {
-        "name": "iPadOS",
         "beta": false,
+        "name": "iPadOS",
         "introducedAt": "18.2"
       },
       {
-        "introducedAt": "18.2",
         "beta": false,
+        "introducedAt": "18.2",
         "name": "Mac Catalyst"
       },
       {
-        "beta": false,
+        "name": "macOS",
         "introducedAt": "15.2",
-        "name": "macOS"
+        "beta": false
       },
       {
-        "name": "tvOS",
         "introducedAt": "18.2",
+        "name": "tvOS",
         "beta": false
       },
       {
@@ -851,80 +857,38 @@
       },
       {
         "name": "watchOS",
-        "beta": false,
-        "introducedAt": "11.2"
+        "introducedAt": "11.2",
+        "beta": false
       },
       {
+        "name": "Xcode",
         "introducedAt": "16.2",
-        "beta": false,
-        "name": "Xcode"
+        "beta": false
       }
     ],
     "role": "collectionGroup",
-    "title": "Making onscreen content available to Siri and Apple Intelligence",
+    "roleHeading": "API Collection",
+    "images": [
+      {
+        "type": "card",
+        "identifier": "Making-on-screen-content-available-to-Siri-and-Apple-Intelligence-PageImage-card.png"
+      }
+    ],
     "modules": [
       {
         "name": "App Intents"
       }
-    ]
+    ],
+    "title": "Making onscreen content available to Siri and Apple Intelligence"
   },
-  "seeAlsoSections": [
-    {
-      "identifiers": [
-        "doc://com.apple.AppIntents/documentation/AppIntents/making-your-app-s-functionality-available-to-siri",
-        "doc://com.apple.AppIntents/documentation/AppIntents/Integrating-actions-with-siri-and-apple-intelligence",
-        "doc://com.apple.AppIntents/documentation/AppIntents/app-intent-domains",
-        "doc://com.apple.AppIntents/documentation/AppIntents/intent-discovery"
-      ],
-      "generated": true,
-      "title": "Adding Siri support",
-      "anchor": "Adding-Siri-support"
-    }
-  ],
   "references": {
-    "doc://com.apple.AppIntents/documentation/AppIntents/making-your-app-s-functionality-available-to-siri": {
-      "kind": "article",
-      "images": [
-        {
-          "type": "card",
-          "identifier": "Making-your-apps-functionality-available-to-SiriPageImage-card.png"
-        }
-      ],
-      "role": "sampleCode",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/making-your-app-s-functionality-available-to-siri",
-      "title": "Making your app’s functionality available to Siri",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Add app intent schemas to your app so Siri can complete requests, and integrate your app with Apple Intelligence, Spotlight, and other system experiences."
-        }
-      ],
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/appintents/making-your-app-s-functionality-available-to-siri"
-    },
-    "http://developer.apple.com/documentation/coretransferable": {
-      "titleInlineContent": [
-        {
-          "text": "CoreTransferable",
-          "type": "text"
-        }
-      ],
-      "url": "http://developer.apple.com/documentation/coretransferable",
-      "title": "CoreTransferable",
-      "identifier": "http://developer.apple.com/documentation/coretransferable",
-      "type": "link"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/PresentationEntity/document": {
-      "url": "https://developer.apple.com/documentation/appintents/assistantschemas/presentationentity/document",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "The app entity describes a presentation."
-        }
-      ],
-      "title": "document",
-      "role": "symbol",
+    "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/PhotosEntity/asset": {
+      "title": "asset",
+      "url": "https://developer.apple.com/documentation/appintents/assistantschemas/photosentity/asset",
       "kind": "symbol",
+      "abstract": [],
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/PhotosEntity/asset",
       "fragments": [
         {
           "kind": "keyword",
@@ -935,7 +899,7 @@
           "kind": "text"
         },
         {
-          "text": "document",
+          "text": "asset",
           "kind": "identifier"
         },
         {
@@ -947,127 +911,31 @@
           "kind": "keyword"
         },
         {
-          "text": " ",
-          "kind": "text"
+          "kind": "text",
+          "text": " "
         },
         {
+          "text": "AssistantSchemas",
           "preciseIdentifier": "s:10AppIntents16AssistantSchemasO",
-          "kind": "typeIdentifier",
-          "text": "AssistantSchemas"
+          "kind": "typeIdentifier"
         },
         {
           "kind": "text",
           "text": "."
         },
         {
+          "text": "Entity",
           "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10AppIntents16AssistantSchemasO6EntityP",
-          "text": "Entity"
+          "preciseIdentifier": "s:10AppIntents16AssistantSchemasO6EntityP"
         }
       ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/PresentationEntity/document",
-      "type": "topic"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppEntityAnnotatable": {
-      "fragments": [
-        {
-          "text": "protocol",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "AppEntityAnnotatable",
-          "kind": "identifier"
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppEntityAnnotatable",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "AppEntityAnnotatable"
-        }
-      ],
-      "type": "topic",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A protocol that framework types adopt to enable you to provide content to system experiences."
-        }
-      ],
-      "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/appentityannotatable",
-      "role": "symbol",
-      "title": "AppEntityAnnotatable"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppEntity": {
-      "abstract": [
-        {
-          "text": "An interface for exposing a custom type or app-specific concept to system experiences like Siri and the Shortcuts app.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "protocol"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "AppEntity"
-        }
-      ],
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "text": "AppEntity",
-          "kind": "identifier"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/appentity",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppEntity",
-      "type": "topic",
-      "role": "symbol",
-      "title": "AppEntity"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/intent-discovery": {
-      "role": "collectionGroup",
-      "abstract": [
-        {
-          "text": "Donate your app’s intents to the system to help it identify trends and predict",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "type": "text",
-          "text": "future behaviors."
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/intent-discovery",
-      "title": "Intent discovery",
-      "type": "topic",
-      "kind": "article",
-      "url": "https://developer.apple.com/documentation/appintents/intent-discovery"
+      "role": "symbol"
     },
     "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/FilesEntity/file": {
-      "role": "symbol",
-      "kind": "symbol",
-      "abstract": [
-        {
-          "text": "The app entity describes a file.",
-          "type": "text"
-        }
-      ],
+      "title": "file",
+      "type": "topic",
       "url": "https://developer.apple.com/documentation/appintents/assistantschemas/filesentity/file",
+      "role": "symbol",
       "fragments": [
         {
           "text": "var",
@@ -1090,43 +958,111 @@
           "text": "some"
         },
         {
-          "kind": "text",
-          "text": " "
+          "text": " ",
+          "kind": "text"
         },
         {
           "kind": "typeIdentifier",
-          "text": "AssistantSchemas",
-          "preciseIdentifier": "s:10AppIntents16AssistantSchemasO"
+          "preciseIdentifier": "s:10AppIntents16AssistantSchemasO",
+          "text": "AssistantSchemas"
         },
         {
-          "kind": "text",
-          "text": "."
+          "text": ".",
+          "kind": "text"
         },
         {
+          "kind": "typeIdentifier",
           "text": "Entity",
-          "preciseIdentifier": "s:10AppIntents16AssistantSchemasO6EntityP",
-          "kind": "typeIdentifier"
+          "preciseIdentifier": "s:10AppIntents16AssistantSchemasO6EntityP"
         }
       ],
-      "type": "topic",
       "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/FilesEntity/file",
-      "title": "file"
+      "kind": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The app entity describes a file."
+        }
+      ]
     },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/PhotosEntity/asset": {
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/PhotosEntity/asset",
-      "abstract": [],
-      "role": "symbol",
+    "doc://com.apple.AppIntents/documentation/AppIntents/EntityIdentifier": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/EntityIdentifier",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A type that uniquely identifies a specific instance of an app entity."
+        }
+      ],
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "EntityIdentifier",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/entityidentifier",
+      "title": "EntityIdentifier",
       "fragments": [
         {
-          "text": "var",
-          "kind": "keyword"
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "EntityIdentifier"
+        }
+      ],
+      "role": "symbol",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/making-your-app-s-functionality-available-to-siri": {
+      "url": "https://developer.apple.com/documentation/appintents/making-your-app-s-functionality-available-to-siri",
+      "type": "topic",
+      "title": "Making your app’s functionality available to Siri",
+      "abstract": [
+        {
+          "text": "Add app intent schemas to your app so Siri can complete requests, and integrate your app with Apple Intelligence, Spotlight, and other system experiences.",
+          "type": "text"
+        }
+      ],
+      "images": [
+        {
+          "type": "card",
+          "identifier": "Making-your-apps-functionality-available-to-SiriPageImage-card.png"
+        }
+      ],
+      "kind": "article",
+      "role": "sampleCode",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/making-your-app-s-functionality-available-to-siri"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/BrowserEntity/tab": {
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "The app entity describes a browser tab.",
+          "type": "text"
+        }
+      ],
+      "title": "tab",
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/assistantschemas/browserentity/tab",
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/BrowserEntity/tab",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
         },
         {
           "kind": "text",
           "text": " "
         },
         {
-          "text": "asset",
+          "text": "tab",
           "kind": "identifier"
         },
         {
@@ -1147,26 +1083,30 @@
           "text": "AssistantSchemas"
         },
         {
-          "kind": "text",
-          "text": "."
+          "text": ".",
+          "kind": "text"
         },
         {
-          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents16AssistantSchemasO6EntityP",
           "text": "Entity",
-          "preciseIdentifier": "s:10AppIntents16AssistantSchemasO6EntityP"
+          "kind": "typeIdentifier"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppEntity": {
+      "url": "https://developer.apple.com/documentation/appintents/appentity",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppEntity",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An interface for exposing a custom type or app-specific concept to system experiences like Siri and the Shortcuts app."
         }
       ],
-      "kind": "symbol",
-      "title": "asset",
-      "url": "https://developer.apple.com/documentation/appintents/assistantschemas/photosentity/asset",
-      "type": "topic"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/MailEntity/message": {
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/MailEntity/message",
+      "title": "AppEntity",
       "type": "topic",
       "fragments": [
         {
-          "text": "var",
+          "text": "protocol",
           "kind": "keyword"
         },
         {
@@ -1174,12 +1114,90 @@
           "text": " "
         },
         {
-          "text": "message",
+          "text": "AppEntity",
           "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "AppEntity"
+        }
+      ],
+      "role": "symbol"
+    },
+    "Making-on-screen-content-available-to-Siri-and-Apple-Intelligence-PageImage-card.png": {
+      "identifier": "Making-on-screen-content-available-to-Siri-and-Apple-Intelligence-PageImage-card.png",
+      "type": "image",
+      "alt": "A stylized iPhone device frame with Apple Intelligence and Siri artwork in the background.",
+      "variants": [
+        {
+          "traits": [
+            "2x",
+            "light"
+          ],
+          "url": "https://docs-assets.developer.apple.com/published/76b142f1270da8b71f89536595d2435c/Making-on-screen-content-available-to-Siri-and-Apple-Intelligence-PageImage-card%402x.png"
         },
         {
-          "text": ": ",
+          "url": "https://docs-assets.developer.apple.com/published/b41e58e257cfb1f41fb0063e96ba83b0/Making-on-screen-content-available-to-Siri-and-Apple-Intelligence-PageImage-card~dark%402x.png",
+          "traits": [
+            "2x",
+            "dark"
+          ]
+        }
+      ]
+    },
+    "Making-your-apps-functionality-available-to-SiriPageImage-card.png": {
+      "type": "image",
+      "identifier": "Making-your-apps-functionality-available-to-SiriPageImage-card.png",
+      "alt": "An illustration that shows the top half of iPhone with a snippet UI for an interaction with Siri.",
+      "variants": [
+        {
+          "url": "https://docs-assets.developer.apple.com/published/04ef48bdabc5605222da3a60dd707e72/Making-your-apps-functionality-available-to-SiriPageImage-card%402x.png",
+          "traits": [
+            "2x",
+            "light"
+          ]
+        },
+        {
+          "traits": [
+            "2x",
+            "dark"
+          ],
+          "url": "https://docs-assets.developer.apple.com/published/7c2f928d9cdb965442a73f7ac214baaa/Making-your-apps-functionality-available-to-SiriPageImage-card~dark%402x.png"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/WordProcessorEntity/document": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The app entity describes a text document."
+        }
+      ],
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/assistantschemas/wordprocessorentity/document",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/WordProcessorEntity/document",
+      "role": "symbol",
+      "type": "topic",
+      "title": "document",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
           "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "document"
+        },
+        {
+          "kind": "text",
+          "text": ": "
         },
         {
           "text": "some",
@@ -1190,9 +1208,9 @@
           "kind": "text"
         },
         {
-          "text": "AssistantSchemas",
+          "preciseIdentifier": "s:10AppIntents16AssistantSchemasO",
           "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10AppIntents16AssistantSchemasO"
+          "text": "AssistantSchemas"
         },
         {
           "text": ".",
@@ -1200,24 +1218,69 @@
         },
         {
           "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents16AssistantSchemasO6EntityP",
+          "text": "Entity"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/PresentationEntity/document": {
+      "abstract": [
+        {
+          "text": "The app entity describes a presentation.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/PresentationEntity/document",
+      "title": "document",
+      "type": "topic",
+      "kind": "symbol",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "document"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents16AssistantSchemasO",
+          "text": "AssistantSchemas",
+          "kind": "typeIdentifier"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
           "text": "Entity",
           "preciseIdentifier": "s:10AppIntents16AssistantSchemasO6EntityP"
         }
       ],
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/assistantschemas/mailentity/message",
-      "title": "message",
-      "kind": "symbol",
-      "abstract": [
-        {
-          "text": "The app entity describes an email message.",
-          "type": "text"
-        }
-      ]
+      "url": "https://developer.apple.com/documentation/appintents/assistantschemas/presentationentity/document"
     },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/WordProcessorEntity/document": {
+    "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/ReaderEntity/document": {
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/assistantschemas/readerentity/document",
       "type": "topic",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/WordProcessorEntity/document",
       "fragments": [
         {
           "kind": "keyword",
@@ -1236,53 +1299,7 @@
           "kind": "text"
         },
         {
-          "kind": "keyword",
-          "text": "some"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "preciseIdentifier": "s:10AppIntents16AssistantSchemasO",
-          "kind": "typeIdentifier",
-          "text": "AssistantSchemas"
-        },
-        {
-          "text": ".",
-          "kind": "text"
-        },
-        {
-          "text": "Entity",
-          "preciseIdentifier": "s:10AppIntents16AssistantSchemasO6EntityP",
-          "kind": "typeIdentifier"
-        }
-      ],
-      "title": "document",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "The app entity describes a text document."
-        }
-      ],
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/assistantschemas/wordprocessorentity/document",
-      "kind": "symbol"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/SpreadsheetEntity/document": {
-      "url": "https://developer.apple.com/documentation/appintents/assistantschemas/spreadsheetentity/document",
-      "role": "symbol",
-      "type": "topic",
-      "title": "document",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "The app entity describes a spreadsheet."
-        }
-      ],
-      "fragments": [
-        {
-          "text": "var",
+          "text": "some",
           "kind": "keyword"
         },
         {
@@ -1290,29 +1307,13 @@
           "kind": "text"
         },
         {
-          "text": "document",
-          "kind": "identifier"
-        },
-        {
-          "text": ": ",
-          "kind": "text"
-        },
-        {
-          "kind": "keyword",
-          "text": "some"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "preciseIdentifier": "s:10AppIntents16AssistantSchemasO",
           "text": "AssistantSchemas",
+          "preciseIdentifier": "s:10AppIntents16AssistantSchemasO",
           "kind": "typeIdentifier"
         },
         {
-          "kind": "text",
-          "text": "."
+          "text": ".",
+          "kind": "text"
         },
         {
           "kind": "typeIdentifier",
@@ -1320,223 +1321,141 @@
           "preciseIdentifier": "s:10AppIntents16AssistantSchemasO6EntityP"
         }
       ],
-      "kind": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/SpreadsheetEntity/document"
-    },
-    "doc://com.apple.documentation/documentation/Foundation/NSUserActivity": {
-      "identifier": "doc://com.apple.documentation/documentation/Foundation/NSUserActivity",
-      "fragments": [
-        {
-          "text": "class",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "NSUserActivity",
-          "kind": "identifier"
-        }
-      ],
-      "abstract": [
-        {
-          "text": "A representation of the state of your app at a moment in time.",
-          "type": "text"
-        }
-      ],
-      "title": "NSUserActivity",
-      "url": "https://developer.apple.com/documentation/Foundation/NSUserActivity",
-      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/ReaderEntity/document",
       "role": "symbol",
-      "type": "topic"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/siri": {
-      "type": "topic",
-      "role": "collectionGroup",
-      "title": "Siri",
-      "kind": "article",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/siri",
+      "title": "document",
       "abstract": [
         {
-          "text": "Let people complete tasks with voice commands, search, and other system experiences by integrating your app with Siri and Apple Intelligence.",
-          "type": "text"
+          "type": "text",
+          "text": "The app entity describes a document."
         }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/siri"
-    },
-    "app-intents-PageImage-card.png": {
-      "variants": [
-        {
-          "url": "https://docs-assets.developer.apple.com/published/f45fa3b20a1dca9bc37dc1052bdd8f0b/app-intents-PageImage-card%402x.png",
-          "traits": [
-            "2x",
-            "light"
-          ]
-        },
-        {
-          "traits": [
-            "2x",
-            "dark"
-          ],
-          "url": "https://docs-assets.developer.apple.com/published/8bc71c773b4be518f0665536bee92d34/app-intents-PageImage-card~dark%402x.png"
-        }
-      ],
-      "identifier": "app-intents-PageImage-card.png",
-      "type": "image",
-      "alt": "[A hero image of an App Intents framework icon.]"
-    },
-    "Making-your-apps-functionality-available-to-SiriPageImage-card.png": {
-      "identifier": "Making-your-apps-functionality-available-to-SiriPageImage-card.png",
-      "alt": "An illustration that shows the top half of iPhone with a snippet UI for an interaction with Siri.",
-      "variants": [
-        {
-          "url": "https://docs-assets.developer.apple.com/published/04ef48bdabc5605222da3a60dd707e72/Making-your-apps-functionality-available-to-SiriPageImage-card%402x.png",
-          "traits": [
-            "2x",
-            "light"
-          ]
-        },
-        {
-          "traits": [
-            "2x",
-            "dark"
-          ],
-          "url": "https://docs-assets.developer.apple.com/published/7c2f928d9cdb965442a73f7ac214baaa/Making-your-apps-functionality-available-to-SiriPageImage-card~dark%402x.png"
-        }
-      ],
-      "type": "image"
-    },
-    "Making-on-screen-content-available-to-Siri-and-Apple-Intelligence-PageImage-card.png": {
-      "alt": "A stylized iPhone device frame with Apple Intelligence and Siri artwork in the background.",
-      "type": "image",
-      "variants": [
-        {
-          "url": "https://docs-assets.developer.apple.com/published/76b142f1270da8b71f89536595d2435c/Making-on-screen-content-available-to-Siri-and-Apple-Intelligence-PageImage-card%402x.png",
-          "traits": [
-            "2x",
-            "light"
-          ]
-        },
-        {
-          "traits": [
-            "2x",
-            "dark"
-          ],
-          "url": "https://docs-assets.developer.apple.com/published/b41e58e257cfb1f41fb0063e96ba83b0/Making-on-screen-content-available-to-Siri-and-Apple-Intelligence-PageImage-card~dark%402x.png"
-        }
-      ],
-      "identifier": "Making-on-screen-content-available-to-Siri-and-Apple-Intelligence-PageImage-card.png"
+      ]
     },
     "doc://com.apple.documentation/documentation/technologies": {
-      "role": "overview",
-      "url": "https://developer.apple.com/documentation/technologies",
+      "type": "topic",
       "abstract": [
         {
           "type": "text",
           "text": ""
         }
       ],
+      "role": "overview",
       "kind": "technologies",
-      "title": "Technologies",
-      "type": "topic",
-      "identifier": "doc://com.apple.documentation/documentation/technologies"
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "url": "https://developer.apple.com/documentation/technologies",
+      "title": "Technologies"
     },
-    "doc://com.apple.AppIntents/documentation/AppIntents/Integrating-actions-with-siri-and-apple-intelligence": {
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/Integrating-actions-with-siri-and-apple-intelligence",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Create app intents, entities, and enumerations that conform to assistant schemas to tap into the enhanced action capabilities of Siri and Apple Intelligence."
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/integrating-actions-with-siri-and-apple-intelligence",
-      "type": "topic",
-      "kind": "article",
-      "images": [
-        {
-          "type": "card",
-          "identifier": "app-intents-PageImage-card.png"
-        }
-      ],
-      "title": "Integrating actions with Siri and Apple Intelligence",
-      "role": "article"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents": {
-      "url": "https://developer.apple.com/documentation/appintents",
-      "role": "collection",
-      "type": "topic",
-      "abstract": [
-        {
-          "text": "Make your app’s content and actions discoverable with system experiences like Spotlight, widgets, and the Shortcuts app.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents",
-      "title": "App Intents",
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppEntityAnnotatable": {
       "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appentityannotatable",
       "navigatorTitle": [
         {
-          "kind": "text",
-          "text": "App Intents"
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/app-intent-domains": {
-      "role": "collectionGroup",
-      "abstract": [
-        {
-          "text": "Make your app’s actions and content available to Siri and Apple Intelligence with assistant schemas.",
-          "type": "text"
+          "text": "AppEntityAnnotatable",
+          "kind": "identifier"
         }
       ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-intent-domains",
       "type": "topic",
-      "kind": "article",
-      "title": "App intent domains",
-      "url": "https://developer.apple.com/documentation/appintents/app-intent-domains"
-    },
-    "doc://com.apple.documentation/documentation/CoreTransferable/Transferable": {
+      "title": "AppEntityAnnotatable",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppEntityAnnotatable",
       "role": "symbol",
       "fragments": [
         {
-          "text": "protocol",
-          "kind": "keyword"
+          "kind": "keyword",
+          "text": "protocol"
         },
         {
-          "text": " ",
-          "kind": "text"
+          "kind": "text",
+          "text": " "
         },
         {
-          "kind": "identifier",
-          "text": "Transferable"
+          "text": "AppEntityAnnotatable",
+          "kind": "identifier"
         }
       ],
-      "title": "Transferable",
-      "type": "topic",
-      "identifier": "doc://com.apple.documentation/documentation/CoreTransferable/Transferable",
-      "url": "https://developer.apple.com/documentation/CoreTransferable/Transferable",
       "abstract": [
         {
-          "text": "A protocol that describes how a type interacts with transport APIs such as drag and drop or copy and paste.",
+          "text": "A protocol that framework types adopt to enable you to provide content to system experiences.",
           "type": "text"
         }
-      ],
-      "kind": "symbol"
+      ]
     },
-    "doc://com.apple.documentation/documentation/Foundation/NSUserActivity/appEntityIdentifier": {
+    "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/MailEntity/message": {
       "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/Foundation/NSUserActivity/appEntityIdentifier",
-      "title": "appEntityIdentifier",
-      "identifier": "doc://com.apple.documentation/documentation/Foundation/NSUserActivity/appEntityIdentifier",
       "abstract": [
         {
-          "text": "The identifier of an app entity that you associate with the user activity.",
+          "text": "The app entity describes an email message.",
           "type": "text"
         }
       ],
       "type": "topic",
       "role": "symbol",
+      "title": "message",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "message",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "AssistantSchemas",
+          "preciseIdentifier": "s:10AppIntents16AssistantSchemasO"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "text": "Entity",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents16AssistantSchemasO6EntityP"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/MailEntity/message",
+      "url": "https://developer.apple.com/documentation/appintents/assistantschemas/mailentity/message"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/siri": {
+      "title": "Siri",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/siri",
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/appintents/siri",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Let people complete tasks with voice commands, search, and other system experiences by integrating your app with Siri and Apple Intelligence."
+        }
+      ]
+    },
+    "doc://com.apple.documentation/documentation/Foundation/NSUserActivity/appEntityIdentifier": {
+      "type": "topic",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The identifier of an app entity that you associate with the user activity."
+        }
+      ],
       "fragments": [
         {
           "text": "var",
@@ -1547,12 +1466,12 @@
           "text": " "
         },
         {
-          "kind": "identifier",
-          "text": "appEntityIdentifier"
+          "text": "appEntityIdentifier",
+          "kind": "identifier"
         },
         {
-          "text": ": ",
-          "kind": "text"
+          "kind": "text",
+          "text": ": "
         },
         {
           "text": "EntityIdentifier",
@@ -1563,58 +1482,77 @@
           "text": "?",
           "kind": "text"
         }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/EntityIdentifier": {
+      ],
+      "title": "appEntityIdentifier",
+      "identifier": "doc://com.apple.documentation/documentation/Foundation/NSUserActivity/appEntityIdentifier",
       "role": "symbol",
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/appintents/entityidentifier",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/EntityIdentifier",
-      "navigatorTitle": [
+      "url": "https://developer.apple.com/documentation/Foundation/NSUserActivity/appEntityIdentifier"
+    },
+    "app-intents-PageImage-card.png": {
+      "variants": [
         {
-          "kind": "identifier",
-          "text": "EntityIdentifier"
-        }
-      ],
-      "title": "EntityIdentifier",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A type that uniquely identifies a specific instance of an app entity."
-        }
-      ],
-      "kind": "symbol",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
+          "traits": [
+            "2x",
+            "light"
+          ],
+          "url": "https://docs-assets.developer.apple.com/published/f45fa3b20a1dca9bc37dc1052bdd8f0b/app-intents-PageImage-card%402x.png"
         },
         {
-          "kind": "text",
+          "traits": [
+            "2x",
+            "dark"
+          ],
+          "url": "https://docs-assets.developer.apple.com/published/8bc71c773b4be518f0665536bee92d34/app-intents-PageImage-card~dark%402x.png"
+        }
+      ],
+      "alt": "[A hero image of an App Intents framework icon.]",
+      "type": "image",
+      "identifier": "app-intents-PageImage-card.png"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/intent-discovery": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/intent-discovery",
+      "abstract": [
+        {
+          "text": "Donate your app’s intents to the system to help it identify trends and predict",
+          "type": "text"
+        },
+        {
+          "type": "text",
           "text": " "
         },
         {
-          "kind": "identifier",
-          "text": "EntityIdentifier"
+          "type": "text",
+          "text": "future behaviors."
         }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/BrowserEntity/tab": {
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/intent-discovery",
+      "title": "Intent discovery",
+      "kind": "article",
       "type": "topic",
+      "role": "collectionGroup"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/SpreadsheetEntity/document": {
       "role": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/BrowserEntity/tab",
-      "url": "https://developer.apple.com/documentation/appintents/assistantschemas/browserentity/tab",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The app entity describes a spreadsheet."
+        }
+      ],
+      "title": "document",
+      "kind": "symbol",
       "fragments": [
         {
           "text": "var",
           "kind": "keyword"
         },
         {
-          "text": " ",
-          "kind": "text"
+          "kind": "text",
+          "text": " "
         },
         {
-          "text": "tab",
+          "text": "document",
           "kind": "identifier"
         },
         {
@@ -1630,67 +1568,8 @@
           "kind": "text"
         },
         {
-          "preciseIdentifier": "s:10AppIntents16AssistantSchemasO",
           "kind": "typeIdentifier",
-          "text": "AssistantSchemas"
-        },
-        {
-          "kind": "text",
-          "text": "."
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Entity",
-          "preciseIdentifier": "s:10AppIntents16AssistantSchemasO6EntityP"
-        }
-      ],
-      "abstract": [
-        {
-          "text": "The app entity describes a browser tab.",
-          "type": "text"
-        }
-      ],
-      "kind": "symbol",
-      "title": "tab"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/ReaderEntity/document": {
-      "url": "https://developer.apple.com/documentation/appintents/assistantschemas/readerentity/document",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "The app entity describes a document."
-        }
-      ],
-      "type": "topic",
-      "title": "document",
-      "fragments": [
-        {
-          "text": "var",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "document",
-          "kind": "identifier"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "keyword",
-          "text": "some"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
           "text": "AssistantSchemas",
-          "kind": "typeIdentifier",
           "preciseIdentifier": "s:10AppIntents16AssistantSchemasO"
         },
         {
@@ -1698,18 +1577,144 @@
           "kind": "text"
         },
         {
-          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents16AssistantSchemasO6EntityP",
           "text": "Entity",
-          "preciseIdentifier": "s:10AppIntents16AssistantSchemasO6EntityP"
+          "kind": "typeIdentifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/assistantschemas/spreadsheetentity/document",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/SpreadsheetEntity/document"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-intent-domains": {
+      "kind": "article",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your app’s actions and content available to Siri and Apple Intelligence with assistant schemas."
+        }
+      ],
+      "title": "App intent domains",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/app-intent-domains",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-intent-domains",
+      "role": "collectionGroup"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/Integrating-actions-with-siri-and-apple-intelligence": {
+      "kind": "article",
+      "images": [
+        {
+          "type": "card",
+          "identifier": "app-intents-PageImage-card.png"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/Integrating-actions-with-siri-and-apple-intelligence",
+      "role": "article",
+      "title": "Integrating actions with Siri and Apple Intelligence",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Create app intents, entities, and enumerations that conform to assistant schemas to tap into the enhanced action capabilities of Siri and Apple Intelligence."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/integrating-actions-with-siri-and-apple-intelligence",
+      "type": "topic"
+    },
+    "doc://com.apple.documentation/documentation/Foundation/NSUserActivity": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A representation of the state of your app at a moment in time."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/Foundation/NSUserActivity",
+      "identifier": "doc://com.apple.documentation/documentation/Foundation/NSUserActivity",
+      "kind": "symbol",
+      "title": "NSUserActivity",
+      "fragments": [
+        {
+          "text": "class",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "NSUserActivity"
         }
       ],
       "role": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AssistantSchemas/ReaderEntity/document",
-      "kind": "symbol"
+      "type": "topic"
+    },
+    "doc://com.apple.documentation/documentation/CoreTransferable/Transferable": {
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/CoreTransferable/Transferable",
+      "identifier": "doc://com.apple.documentation/documentation/CoreTransferable/Transferable",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "text": "A protocol that describes how a type interacts with transport APIs such as drag and drop or copy and paste.",
+          "type": "text"
+        }
+      ],
+      "role": "symbol",
+      "title": "Transferable",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "Transferable"
+        }
+      ]
+    },
+    "http://developer.apple.com/documentation/coretransferable": {
+      "type": "link",
+      "identifier": "http://developer.apple.com/documentation/coretransferable",
+      "titleInlineContent": [
+        {
+          "type": "text",
+          "text": "CoreTransferable"
+        }
+      ],
+      "title": "CoreTransferable",
+      "url": "http://developer.apple.com/documentation/coretransferable"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents": {
+      "title": "App Intents",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your app’s content and actions discoverable with system experiences like Spotlight, widgets, and the Shortcuts app."
+        }
+      ],
+      "kind": "symbol",
+      "role": "collection",
+      "url": "https://developer.apple.com/documentation/appintents",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents",
+      "navigatorTitle": [
+        {
+          "text": "App Intents",
+          "kind": "text"
+        }
+      ]
     }
   },
   "variantOverrides": [
     {
+      "traits": [
+        {
+          "interfaceLanguage": "occ"
+        }
+      ],
       "patch": [
         {
           "op": "replace",
@@ -1720,11 +1725,6 @@
             }
           ],
           "path": "/references/doc:~1~1com.apple.documentation~1documentation~1Foundation~1NSUserActivity/fragments"
-        }
-      ],
-      "traits": [
-        {
-          "interfaceLanguage": "occ"
         }
       ]
     }
