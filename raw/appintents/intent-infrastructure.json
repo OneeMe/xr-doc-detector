@@ -1,12 +1,81 @@
 {
+  "topicSections": [
+    {
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppDependencyManager",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppDependency",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppIntentsExtension",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppIntentsPackage"
+      ],
+      "anchor": "Code-reuse",
+      "title": "Code reuse"
+    },
+    {
+      "title": "Supplementary content",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/IntentSystemContext",
+        "doc://com.apple.AppIntents/documentation/AppIntents/IntentDeprecation"
+      ],
+      "anchor": "Supplementary-content"
+    }
+  ],
+  "metadata": {
+    "modules": [
+      {
+        "name": "App Intents"
+      }
+    ],
+    "title": "Intent infrastructure",
+    "roleHeading": "API Collection",
+    "role": "collectionGroup"
+  },
+  "abstract": [
+    {
+      "text": "Provide supplemental context for your intents, and create infrastructure to make app intents reusable across your apps.",
+      "type": "text"
+    }
+  ],
+  "seeAlsoSections": [
+    {
+      "anchor": "Actions",
+      "title": "Actions",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AcceleratingAppInteractionsWithAppIntents",
+        "doc://com.apple.AppIntents/documentation/AppIntents/Creating-your-first-app-intent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-intents",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-intent-domains"
+      ],
+      "generated": true
+    }
+  ],
+  "kind": "article",
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.AppIntents/documentation/AppIntents"
+      ]
+    ]
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "identifier": {
+    "url": "doc://com.apple.AppIntents/documentation/AppIntents/intent-infrastructure",
+    "interfaceLanguage": "swift"
+  },
   "primaryContentSections": [
     {
+      "kind": "content",
       "content": [
         {
-          "type": "heading",
+          "text": "Overview",
           "level": 2,
-          "anchor": "Overview",
-          "text": "Overview"
+          "type": "heading",
+          "anchor": "Overview"
         },
         {
           "type": "paragraph",
@@ -25,65 +94,47 @@
               "text": " and "
             },
             {
+              "type": "reference",
               "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppDependency",
-              "isActive": true,
-              "type": "reference"
+              "isActive": true
             },
             {
-              "type": "text",
-              "text": " to share dependencies across your intents, promote code reuse, and increase testability."
+              "text": " to share dependencies across your intents, promote code reuse, and increase testability.",
+              "type": "text"
             }
           ]
         },
         {
-          "type": "paragraph",
           "inlineContent": [
             {
-              "text": "To take code reuse one step further and reuse intents across a suite of apps, consider creating a library of app intents with ",
-              "type": "text"
+              "type": "text",
+              "text": "To take code reuse one step further and reuse intents across a suite of apps, consider creating a library of app intents with "
+            },
+            {
+              "type": "reference",
+              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppIntentsPackage",
+              "isActive": true
+            },
+            {
+              "type": "text",
+              "text": ". An advanced way to modularize code is creating an app intents extension with "
             },
             {
               "isActive": true,
               "type": "reference",
-              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppIntentsPackage"
-            },
-            {
-              "text": ". An advanced way to modularize code is creating an app intents extension with ",
-              "type": "text"
-            },
-            {
-              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppIntentsExtension",
-              "isActive": true,
-              "type": "reference"
+              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppIntentsExtension"
             },
             {
               "text": ". ",
               "type": "text"
             },
             {
-              "code": "AppIntentsExtension",
-              "type": "codeVoice"
+              "type": "codeVoice",
+              "code": "AppIntentsExtension"
             },
             {
-              "type": "text",
-              "text": " serves as the registration mechanism for your app intents, and allows the system to discover and perform intents without launching your app."
-            }
-          ]
-        },
-        {
-          "inlineContent": [
-            {
-              "type": "text",
-              "text": "In addition to providing API that helps you structure your app intent code base, the framework also provides you with information that allows you to adapt the behavior of your app intent for each invocation. For example, an intent might change its behavior depending on whether Siri, the Action button, widgets, or the Shortcuts app triggered the intent. To adapt your intent’s behavior, use "
-            },
-            {
-              "type": "reference",
-              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntentSystemContext",
-              "isActive": true
-            },
-            {
-              "type": "text",
-              "text": " to access information about the environment at runtime."
+              "text": " serves as the registration mechanism for your app intents, and allows the system to discover and perform intents without launching your app.",
+              "type": "text"
             }
           ],
           "type": "paragraph"
@@ -93,11 +144,29 @@
           "inlineContent": [
             {
               "type": "text",
-              "text": "For gracefully retiring older intents, "
+              "text": "In addition to providing API that helps you structure your app intent code base, the framework also provides you with information that allows you to adapt the behavior of your app intent for each invocation. For example, an intent might change its behavior depending on whether Siri, the Action button, widgets, or the Shortcuts app triggered the intent. To adapt your intent’s behavior, use "
             },
             {
-              "type": "reference",
               "isActive": true,
+              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntentSystemContext",
+              "type": "reference"
+            },
+            {
+              "type": "text",
+              "text": " to access information about the environment at runtime."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "text": "For gracefully retiring older intents, ",
+              "type": "text"
+            },
+            {
+              "isActive": true,
+              "type": "reference",
               "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntentDeprecation"
             },
             {
@@ -106,8 +175,7 @@
             }
           ]
         }
-      ],
-      "kind": "content"
+      ]
     }
   ],
   "variants": [
@@ -122,155 +190,24 @@
       ]
     }
   ],
-  "identifier": {
-    "url": "doc://com.apple.AppIntents/documentation/AppIntents/intent-infrastructure",
-    "interfaceLanguage": "swift"
-  },
-  "kind": "article",
-  "abstract": [
-    {
-      "type": "text",
-      "text": "Provide supplemental context for your intents, and create infrastructure to make app intents reusable across your apps."
-    }
-  ],
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "topicSections": [
-    {
-      "anchor": "Code-reuse",
-      "identifiers": [
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppDependencyManager",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppDependency",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppIntentsExtension",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppIntentsPackage"
-      ],
-      "title": "Code reuse"
-    },
-    {
-      "identifiers": [
-        "doc://com.apple.AppIntents/documentation/AppIntents/IntentSystemContext",
-        "doc://com.apple.AppIntents/documentation/AppIntents/IntentDeprecation"
-      ],
-      "anchor": "Supplementary-content",
-      "title": "Supplementary content"
-    }
-  ],
-  "seeAlsoSections": [
-    {
-      "title": "Actions",
-      "identifiers": [
-        "doc://com.apple.AppIntents/documentation/AppIntents/AcceleratingAppInteractionsWithAppIntents",
-        "doc://com.apple.AppIntents/documentation/AppIntents/Creating-your-first-app-intent",
-        "doc://com.apple.AppIntents/documentation/AppIntents/app-intents",
-        "doc://com.apple.AppIntents/documentation/AppIntents/app-intent-domains"
-      ],
-      "generated": true,
-      "anchor": "Actions"
-    }
-  ],
-  "hierarchy": {
-    "paths": [
-      [
-        "doc://com.apple.documentation/documentation/technologies",
-        "doc://com.apple.AppIntents/documentation/AppIntents"
-      ]
-    ]
-  },
-  "metadata": {
-    "title": "Intent infrastructure",
-    "roleHeading": "API Collection",
-    "role": "collectionGroup",
-    "modules": [
-      {
-        "name": "App Intents"
-      }
-    ]
-  },
   "references": {
-    "doc://com.apple.AppIntents/documentation/AppIntents/IntentSystemContext": {
-      "role": "symbol",
-      "title": "IntentSystemContext",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Information that the system makes available to an app intent while it performs its action."
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "IntentSystemContext"
-        }
-      ],
-      "kind": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntentSystemContext",
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/appintents/intentsystemcontext",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "IntentSystemContext",
-          "kind": "identifier"
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppDependency": {
-      "role": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppDependency",
-      "title": "AppDependency",
-      "url": "https://developer.apple.com/documentation/appintents/appdependency",
-      "abstract": [
-        {
-          "text": "A property wrapper that resolves a registered dependency at runtime.",
-          "type": "text"
-        }
-      ],
-      "kind": "symbol",
-      "fragments": [
-        {
-          "text": "class",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "AppDependency",
-          "kind": "identifier"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "AppDependency"
-        }
-      ],
-      "type": "topic"
-    },
     "doc://com.apple.AppIntents/documentation/AppIntents/AppIntentsExtension": {
-      "type": "topic",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppIntentsExtension",
-      "kind": "symbol",
-      "title": "AppIntentsExtension",
-      "url": "https://developer.apple.com/documentation/appintents/appintentsextension",
       "abstract": [
         {
           "type": "text",
           "text": "An interface for managing an extension’s configuration."
         }
       ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppIntentsExtension",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "AppIntentsExtension"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appintentsextension",
+      "kind": "symbol",
+      "type": "topic",
       "fragments": [
         {
           "text": "protocol",
@@ -286,60 +223,109 @@
         }
       ],
       "role": "symbol",
-      "navigatorTitle": [
-        {
-          "text": "AppIntentsExtension",
-          "kind": "identifier"
-        }
-      ]
+      "title": "AppIntentsExtension"
     },
-    "doc://com.apple.AppIntents/documentation/AppIntents": {
-      "title": "App Intents",
+    "doc://com.apple.AppIntents/documentation/AppIntents/Creating-your-first-app-intent": {
+      "kind": "article",
+      "type": "topic",
+      "role": "article",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/Creating-your-first-app-intent",
+      "title": "Creating your first app intent",
+      "url": "https://developer.apple.com/documentation/appintents/creating-your-first-app-intent",
       "abstract": [
         {
           "type": "text",
-          "text": "Make your app’s content and actions discoverable with system experiences like Spotlight, widgets, and the Shortcuts app."
+          "text": "Create your first app intent that makes your app available in system experiences like Spotlight or the Shortcuts app."
+        }
+      ]
+    },
+    "doc://com.apple.documentation/documentation/technologies": {
+      "title": "Technologies",
+      "url": "https://developer.apple.com/documentation/technologies",
+      "abstract": [
+        {
+          "type": "text",
+          "text": ""
+        }
+      ],
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "kind": "technologies",
+      "role": "overview",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AcceleratingAppInteractionsWithAppIntents": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AcceleratingAppInteractionsWithAppIntents",
+      "kind": "article",
+      "role": "sampleCode",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/acceleratingappinteractionswithappintents",
+      "title": "Accelerating app interactions with App Intents",
+      "abstract": [
+        {
+          "text": "Enable people to use your app’s features quickly through Siri, Spotlight, and Shortcuts.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppIntentsPackage": {
+      "url": "https://developer.apple.com/documentation/appintents/appintentspackage",
+      "navigatorTitle": [
+        {
+          "text": "AppIntentsPackage",
+          "kind": "identifier"
         }
       ],
       "kind": "symbol",
-      "role": "collection",
-      "url": "https://developer.apple.com/documentation/appintents",
-      "type": "topic",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents",
-      "navigatorTitle": [
+      "abstract": [
         {
-          "text": "App Intents",
+          "type": "text",
+          "text": "A type that describes app intent definitions that aren’t part of an app"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "type": "text",
+          "text": "bundle and their dependencies."
+        }
+      ],
+      "type": "topic",
+      "title": "AppIntentsPackage",
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppIntentsPackage",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
           "kind": "text"
+        },
+        {
+          "text": "AppIntentsPackage",
+          "kind": "identifier"
         }
       ]
     },
     "doc://com.apple.AppIntents/documentation/AppIntents/AppDependencyManager": {
+      "url": "https://developer.apple.com/documentation/appintents/appdependencymanager",
       "type": "topic",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "text": "AppDependencyManager",
-          "kind": "identifier"
-        }
-      ],
-      "title": "AppDependencyManager",
       "abstract": [
         {
           "text": "An object that manages the registration and initialization of an app intent’s",
           "type": "text"
         },
         {
-          "text": " ",
-          "type": "text"
+          "type": "text",
+          "text": " "
         },
         {
           "text": "dependencies.",
           "type": "text"
         }
       ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppDependencyManager",
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/appdependencymanager",
       "fragments": [
         {
           "text": "class",
@@ -353,127 +339,32 @@
           "kind": "identifier",
           "text": "AppDependencyManager"
         }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/app-intent-domains": {
-      "kind": "article",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Make your app’s actions and content available to Siri and Apple Intelligence with assistant schemas."
-        }
-      ],
-      "title": "App intent domains",
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/appintents/app-intent-domains",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-intent-domains",
-      "role": "collectionGroup"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AcceleratingAppInteractionsWithAppIntents": {
-      "title": "Accelerating app interactions with App Intents",
-      "url": "https://developer.apple.com/documentation/appintents/acceleratingappinteractionswithappintents",
-      "type": "topic",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AcceleratingAppInteractionsWithAppIntents",
-      "abstract": [
-        {
-          "text": "Enable people to use your app’s features quickly through Siri, Spotlight, and Shortcuts.",
-          "type": "text"
-        }
-      ],
-      "role": "sampleCode",
-      "kind": "article"
-    },
-    "doc://com.apple.documentation/documentation/technologies": {
-      "type": "topic",
-      "abstract": [
-        {
-          "type": "text",
-          "text": ""
-        }
-      ],
-      "role": "overview",
-      "kind": "technologies",
-      "identifier": "doc://com.apple.documentation/documentation/technologies",
-      "url": "https://developer.apple.com/documentation/technologies",
-      "title": "Technologies"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/app-intents": {
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-intents",
-      "title": "App intents",
-      "kind": "article",
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/appintents/app-intents",
-      "role": "collectionGroup",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Define the custom actions your app exposes to the system using specialized intents."
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/Creating-your-first-app-intent": {
-      "abstract": [
-        {
-          "text": "Create your first app intent that makes your app available in system experiences like Spotlight or the Shortcuts app.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/Creating-your-first-app-intent",
-      "role": "article",
-      "url": "https://developer.apple.com/documentation/appintents/creating-your-first-app-intent",
-      "type": "topic",
-      "kind": "article",
-      "title": "Creating your first app intent"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppIntentsPackage": {
-      "title": "AppIntentsPackage",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A type that describes app intent definitions that aren’t part of an app"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "type": "text",
-          "text": "bundle and their dependencies."
-        }
       ],
       "navigatorTitle": [
         {
-          "text": "AppIntentsPackage",
-          "kind": "identifier"
+          "kind": "identifier",
+          "text": "AppDependencyManager"
         }
       ],
-      "role": "symbol",
+      "title": "AppDependencyManager",
       "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/appintentspackage",
-      "fragments": [
-        {
-          "text": "protocol",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "AppIntentsPackage",
-          "kind": "identifier"
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppIntentsPackage",
-      "type": "topic"
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppDependencyManager",
+      "role": "symbol"
     },
-    "doc://com.apple.AppIntents/documentation/AppIntents/IntentDeprecation": {
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/appintents/intentdeprecation",
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppDependency": {
       "kind": "symbol",
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppDependency",
+      "navigatorTitle": [
+        {
+          "text": "AppDependency",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appdependency",
       "fragments": [
         {
-          "text": "struct",
+          "text": "class",
           "kind": "keyword"
         },
         {
@@ -482,19 +373,128 @@
         },
         {
           "kind": "identifier",
-          "text": "IntentDeprecation"
+          "text": "AppDependency"
         }
       ],
+      "title": "AppDependency",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A property wrapper that resolves a registered dependency at runtime."
+        }
+      ],
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/IntentSystemContext": {
       "role": "symbol",
-      "title": "IntentDeprecation",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntentDeprecation",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntentSystemContext",
+      "title": "IntentSystemContext",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "IntentSystemContext",
+          "kind": "identifier"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "IntentSystemContext",
+          "kind": "identifier"
+        }
+      ],
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Information that the system makes available to an app intent while it performs its action."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/intentsystemcontext"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents": {
+      "url": "https://developer.apple.com/documentation/appintents",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents",
+      "title": "App Intents",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your app’s content and actions discoverable with system experiences like Spotlight, widgets, and the Shortcuts app."
+        }
+      ],
+      "role": "collection",
+      "navigatorTitle": [
+        {
+          "kind": "text",
+          "text": "App Intents"
+        }
+      ],
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-intent-domains": {
+      "type": "topic",
+      "role": "collectionGroup",
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/appintents/app-intent-domains",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-intent-domains",
+      "title": "App intent domains",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your app’s actions and content available to Siri and Apple Intelligence with assistant schemas."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-intents": {
+      "title": "App intents",
+      "url": "https://developer.apple.com/documentation/appintents/app-intents",
+      "kind": "article",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Define the custom actions your app exposes to the system using specialized intents."
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-intents"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/IntentDeprecation": {
+      "url": "https://developer.apple.com/documentation/appintents/intentdeprecation",
       "navigatorTitle": [
         {
           "text": "IntentDeprecation",
           "kind": "identifier"
         }
       ],
-      "abstract": []
+      "abstract": [],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntentDeprecation",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "IntentDeprecation"
+        }
+      ],
+      "role": "symbol",
+      "type": "topic",
+      "title": "IntentDeprecation",
+      "kind": "symbol"
     }
   },
   "legalNotices": {
