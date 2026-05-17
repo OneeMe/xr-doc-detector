@@ -1,15 +1,530 @@
 {
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://com.apple.arkit/documentation/ARKit/configuration-objects"
+  },
+  "abstract": [
+    {
+      "text": "Configure your augmented reality session to detect and track specific types of content.",
+      "type": "text"
+    }
+  ],
+  "sections": [],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "primaryContentSections": [
+    {
+      "kind": "content",
+      "content": [
+        {
+          "type": "heading",
+          "text": "Overview",
+          "level": 2,
+          "anchor": "overview"
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "Configuration objects define how ARKit sets up and runs your augmented reality session. Although "
+            },
+            {
+              "isActive": true,
+              "identifier": "doc://com.apple.arkit/documentation/ARKit/ARWorldTrackingConfiguration",
+              "type": "reference"
+            },
+            {
+              "text": " provides the widest range of features in a rear-camera experience, each feature consumes device energy and compute cycles. So to maximize device uptime and performance, enable additional options sparingly.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "If another AR configuration fulfills your requirements with a more concise feature set, use that configuration instead. For example, use "
+            },
+            {
+              "type": "reference",
+              "identifier": "doc://com.apple.arkit/documentation/ARKit/ARBodyTrackingConfiguration",
+              "isActive": true
+            },
+            {
+              "text": " instead of a world-tracking configuration for 3D motion-capture if you don’t need user face-tracking, collaboration, or scene reconstruction.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "text": "Select frame features",
+          "anchor": "Select-frame-features",
+          "type": "heading",
+          "level": 3
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "Some configurations support subfeatures that relate to a session’s frame. Enable these features by setting the following flags in the configuration’s "
+            },
+            {
+              "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/frameSemantics-swift.property",
+              "type": "reference",
+              "isActive": true
+            },
+            {
+              "text": ":",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "items": [
+            {
+              "definition": {
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "inlineContent": [
+                      {
+                        "text": "Enables 2D human body tracking.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "term": {
+                "inlineContent": [
+                  {
+                    "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/FrameSemantics-swift.struct/bodyDetection",
+                    "isActive": true,
+                    "type": "reference"
+                  }
+                ]
+              }
+            },
+            {
+              "definition": {
+                "content": [
+                  {
+                    "inlineContent": [
+                      {
+                        "text": "Enables people occlusion.",
+                        "type": "text"
+                      }
+                    ],
+                    "type": "paragraph"
+                  }
+                ]
+              },
+              "term": {
+                "inlineContent": [
+                  {
+                    "type": "reference",
+                    "isActive": true,
+                    "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/FrameSemantics-swift.struct/personSegmentation"
+                  }
+                ]
+              }
+            },
+            {
+              "term": {
+                "inlineContent": [
+                  {
+                    "isActive": true,
+                    "type": "reference",
+                    "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/FrameSemantics-swift.struct/personSegmentationWithDepth"
+                  }
+                ]
+              },
+              "definition": {
+                "content": [
+                  {
+                    "inlineContent": [
+                      {
+                        "text": "Enables people occlusion based on whether the people in the camera feed are closer to the camera than the virtual content.",
+                        "type": "text"
+                      }
+                    ],
+                    "type": "paragraph"
+                  }
+                ]
+              }
+            }
+          ],
+          "type": "termList"
+        },
+        {
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "Use "
+            },
+            {
+              "type": "reference",
+              "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/supportsFrameSemantics(_:)",
+              "isActive": true
+            },
+            {
+              "text": " to verify whether the iOS device supports the ",
+              "type": "text"
+            },
+            {
+              "type": "reference",
+              "isActive": true,
+              "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/FrameSemantics-swift.struct"
+            },
+            {
+              "text": " you desire before setting ",
+              "type": "text"
+            },
+            {
+              "type": "reference",
+              "isActive": true,
+              "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/frameSemantics-swift.property"
+            },
+            {
+              "text": ".",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "content": [
+            {
+              "inlineContent": [
+                {
+                  "text": "",
+                  "type": "text"
+                },
+                {
+                  "text": " ",
+                  "type": "text"
+                },
+                {
+                  "type": "text",
+                  "text": "To maximize device responsiveness, refrain from turning on people occlusion for single-user experiences when you don’t expect people in the scene."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "name": "Important",
+          "type": "aside",
+          "style": "important"
+        },
+        {
+          "level": 3,
+          "anchor": "Switch-configurations-at-runtime",
+          "text": "Switch configurations at runtime",
+          "type": "heading"
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "text": "To toggle features like plane detection, frame semantics, and environment texturing, you switch your configuration at runtime by calling ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://com.apple.arkit/documentation/ARKit/ARSession/runWithConfiguration:",
+              "type": "reference",
+              "isActive": true
+            },
+            {
+              "type": "text",
+              "text": " on your existing session. Where possible, ARKit maintains all the information collected during the session under the prior configuration, such as information about the physical environment and anchors."
+            }
+          ]
+        },
+        {
+          "style": "tip",
+          "content": [
+            {
+              "type": "paragraph",
+              "inlineContent": [
+                {
+                  "text": "",
+                  "type": "text"
+                },
+                {
+                  "text": " ",
+                  "type": "text"
+                },
+                {
+                  "text": "You can gracefully downgrade the AR experience in the event of low-power or thermal events. For example, you could temporarily switch from a world-tracking configuration to a position-tracking configuration (",
+                  "type": "text"
+                },
+                {
+                  "type": "reference",
+                  "isActive": true,
+                  "identifier": "doc://com.apple.arkit/documentation/ARKit/ARPositionalTrackingConfiguration"
+                },
+                {
+                  "type": "text",
+                  "text": ") if your app can function at a basic level in that limited capacity until the device cools down."
+                }
+              ]
+            }
+          ],
+          "type": "aside",
+          "name": "Tip"
+        },
+        {
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "If your session switches between face- and world-tracking configurations, the session doesn’t maintain state."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "anchor": "Enable-high-quality-video-and-custom-capture-settings",
+          "text": "Enable high-quality video and custom capture settings",
+          "type": "heading",
+          "level": 3
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "text": "In iOS 16, you can enable a 4K and high dynamic range (HDR) video format. In addition, you can customize your session’s video settings through the underlying AV capture device.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "text": "To determine whether your session supports 4K, call ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/recommendedVideoFormatFor4KResolution",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "code": [
+            "guard let hiResFormat = ARWorldTrackingConfiguration.recommendedVideoFormatFor4KResolution else {",
+            "   print(\"4K video format not supported.\"); return }"
+          ],
+          "type": "codeListing",
+          "syntax": "swift"
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "Then, create a configuration with the format. You can also indicate the intent to enable HDR by setting "
+            },
+            {
+              "type": "reference",
+              "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/videoHDRAllowed",
+              "isActive": true
+            },
+            {
+              "type": "text",
+              "text": " to "
+            },
+            {
+              "type": "codeVoice",
+              "code": "true"
+            },
+            {
+              "text": ".",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "code": [
+            "var config = ARWorldTrackingConfiguration()",
+            "config.videoFormat = hiResFormat",
+            "config.videoHDRAllowed = true",
+            "session.run(config)"
+          ],
+          "syntax": "swift",
+          "type": "codeListing"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "If the device supports a configurable capture session, the ",
+              "type": "text"
+            },
+            {
+              "type": "reference",
+              "isActive": true,
+              "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/configurableCaptureDeviceForPrimaryCamera"
+            },
+            {
+              "text": " provides the underlying capture device that you can adjust as needed.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "codeListing",
+          "syntax": "swift",
+          "code": [
+            "if let device = ARWorldTrackingConfiguration.configurableCaptureDeviceForPrimaryCamera {",
+            "   do { try device.lockForConfiguration()",
+            "      // Configure capture settings here.",
+            "      device.unlockForConfiguration()",
+            "   } catch { /* Error handling. */ }",
+            "}"
+          ]
+        },
+        {
+          "level": 3,
+          "anchor": "Capture-high-resolution-still-frames",
+          "text": "Capture high-resolution still frames",
+          "type": "heading"
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "text": "In iOS 16, you can enable high-resolution frame capture by calling ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/recommendedVideoFormatForHighResolutionFrameCapturing",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "type": "text",
+              "text": " on your configuration. If the device supports high-resolution stills, the function returns a video format you can use to start a session:"
+            }
+          ]
+        },
+        {
+          "type": "codeListing",
+          "code": [
+            "guard let hiResFormat = type(of: config).recommendedVideoFormatForHighResolutionFrameCapturing else {",
+            "    fatalError(\"The device doesn't support high-resolution stills.\") }",
+            "config.videoFormat = hiResFormat",
+            "arSession.run(config)"
+          ],
+          "syntax": "swift"
+        },
+        {
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "During the session, capture a high-resolution still frame at any time by calling "
+            },
+            {
+              "type": "reference",
+              "identifier": "doc://com.apple.arkit/documentation/ARKit/ARSession/captureHighResolutionFrame(completion:)",
+              "isActive": true
+            },
+            {
+              "text": ":",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "codeListing",
+          "syntax": "swift",
+          "code": [
+            "arSession.captureHighResolutionFrame { (frame, error) in",
+            "    if let frame = frame {",
+            "        saveHiResFrame(frame)",
+            "    } else { /* Error handling. */ }"
+          ]
+        }
+      ]
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.arkit/documentation/ARKit",
+        "doc://com.apple.arkit/documentation/ARKit/arkit-in-ios"
+      ]
+    ]
+  },
+  "seeAlsoSections": [
+    {
+      "title": "Setup",
+      "anchor": "Setup",
+      "identifiers": [
+        "doc://com.apple.arkit/documentation/ARKit/choosing-which-camera-feed-to-augment",
+        "doc://com.apple.arkit/documentation/ARKit/managing-session-life-cycle-and-tracking-quality",
+        "doc://com.apple.arkit/documentation/ARKit/displaying-an-ar-experience-with-metal",
+        "doc://com.apple.arkit/documentation/ARKit/ARSession"
+      ],
+      "generated": true
+    }
+  ],
+  "metadata": {
+    "modules": [
+      {
+        "name": "ARKit"
+      }
+    ],
+    "title": "Configuration Objects",
+    "roleHeading": "API Collection",
+    "role": "collectionGroup"
+  },
+  "variants": [
+    {
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ],
+      "paths": [
+        "/documentation/arkit/configuration-objects"
+      ]
+    },
+    {
+      "traits": [
+        {
+          "interfaceLanguage": "occ"
+        }
+      ],
+      "paths": [
+        "/documentation/arkit/configuration-objects"
+      ]
+    }
+  ],
   "topicSections": [
     {
+      "anchor": "Common-Configuration-Details",
       "identifiers": [
         "doc://com.apple.arkit/documentation/ARKit/ARConfiguration"
       ],
-      "anchor": "Common-Configuration-Details",
       "title": "Common Configuration Details"
     },
     {
-      "anchor": "Spatial-Tracking",
       "title": "Spatial Tracking",
+      "anchor": "Spatial-Tracking",
       "identifiers": [
         "doc://com.apple.arkit/documentation/ARKit/understanding-world-tracking",
         "doc://com.apple.arkit/documentation/ARKit/ARWorldTrackingConfiguration",
@@ -27,738 +542,33 @@
       ]
     },
     {
-      "title": "Image Recognition",
       "anchor": "Image-Recognition",
       "identifiers": [
         "doc://com.apple.arkit/documentation/ARKit/ARImageTrackingConfiguration"
-      ]
+      ],
+      "title": "Image Recognition"
     },
     {
-      "title": "Object Detection",
       "identifiers": [
         "doc://com.apple.arkit/documentation/ARKit/ARObjectScanningConfiguration"
       ],
-      "anchor": "Object-Detection"
-    }
-  ],
-  "abstract": [
-    {
-      "type": "text",
-      "text": "Configure your augmented reality session to detect and track specific types of content."
-    }
-  ],
-  "seeAlsoSections": [
-    {
-      "identifiers": [
-        "doc://com.apple.arkit/documentation/ARKit/choosing-which-camera-feed-to-augment",
-        "doc://com.apple.arkit/documentation/ARKit/managing-session-life-cycle-and-tracking-quality",
-        "doc://com.apple.arkit/documentation/ARKit/displaying-an-ar-experience-with-metal",
-        "doc://com.apple.arkit/documentation/ARKit/ARSession"
-      ],
-      "generated": true,
-      "title": "Setup",
-      "anchor": "Setup"
-    }
-  ],
-  "variants": [
-    {
-      "paths": [
-        "/documentation/arkit/configuration-objects"
-      ],
-      "traits": [
-        {
-          "interfaceLanguage": "swift"
-        }
-      ]
-    },
-    {
-      "traits": [
-        {
-          "interfaceLanguage": "occ"
-        }
-      ],
-      "paths": [
-        "/documentation/arkit/configuration-objects"
-      ]
-    }
-  ],
-  "metadata": {
-    "role": "collectionGroup",
-    "roleHeading": "API Collection",
-    "title": "Configuration Objects",
-    "modules": [
-      {
-        "name": "ARKit"
-      }
-    ]
-  },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "primaryContentSections": [
-    {
-      "kind": "content",
-      "content": [
-        {
-          "level": 2,
-          "text": "Overview",
-          "anchor": "overview",
-          "type": "heading"
-        },
-        {
-          "type": "paragraph",
-          "inlineContent": [
-            {
-              "type": "text",
-              "text": "Configuration objects define how ARKit sets up and runs your augmented reality session. Although "
-            },
-            {
-              "type": "reference",
-              "identifier": "doc://com.apple.arkit/documentation/ARKit/ARWorldTrackingConfiguration",
-              "isActive": true
-            },
-            {
-              "text": " provides the widest range of features in a rear-camera experience, each feature consumes device energy and compute cycles. So to maximize device uptime and performance, enable additional options sparingly.",
-              "type": "text"
-            }
-          ]
-        },
-        {
-          "inlineContent": [
-            {
-              "type": "text",
-              "text": "If another AR configuration fulfills your requirements with a more concise feature set, use that configuration instead. For example, use "
-            },
-            {
-              "identifier": "doc://com.apple.arkit/documentation/ARKit/ARBodyTrackingConfiguration",
-              "isActive": true,
-              "type": "reference"
-            },
-            {
-              "type": "text",
-              "text": " instead of a world-tracking configuration for 3D motion-capture if you don’t need user face-tracking, collaboration, or scene reconstruction."
-            }
-          ],
-          "type": "paragraph"
-        },
-        {
-          "level": 3,
-          "type": "heading",
-          "text": "Select frame features",
-          "anchor": "Select-frame-features"
-        },
-        {
-          "type": "paragraph",
-          "inlineContent": [
-            {
-              "text": "Some configurations support subfeatures that relate to a session’s frame. Enable these features by setting the following flags in the configuration’s ",
-              "type": "text"
-            },
-            {
-              "type": "reference",
-              "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/frameSemantics-swift.property",
-              "isActive": true
-            },
-            {
-              "type": "text",
-              "text": ":"
-            }
-          ]
-        },
-        {
-          "items": [
-            {
-              "term": {
-                "inlineContent": [
-                  {
-                    "type": "reference",
-                    "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/FrameSemantics-swift.struct/bodyDetection",
-                    "isActive": true
-                  }
-                ]
-              },
-              "definition": {
-                "content": [
-                  {
-                    "type": "paragraph",
-                    "inlineContent": [
-                      {
-                        "type": "text",
-                        "text": "Enables 2D human body tracking."
-                      }
-                    ]
-                  }
-                ]
-              }
-            },
-            {
-              "definition": {
-                "content": [
-                  {
-                    "inlineContent": [
-                      {
-                        "type": "text",
-                        "text": "Enables people occlusion."
-                      }
-                    ],
-                    "type": "paragraph"
-                  }
-                ]
-              },
-              "term": {
-                "inlineContent": [
-                  {
-                    "type": "reference",
-                    "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/FrameSemantics-swift.struct/personSegmentation",
-                    "isActive": true
-                  }
-                ]
-              }
-            },
-            {
-              "term": {
-                "inlineContent": [
-                  {
-                    "type": "reference",
-                    "isActive": true,
-                    "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/FrameSemantics-swift.struct/personSegmentationWithDepth"
-                  }
-                ]
-              },
-              "definition": {
-                "content": [
-                  {
-                    "type": "paragraph",
-                    "inlineContent": [
-                      {
-                        "text": "Enables people occlusion based on whether the people in the camera feed are closer to the camera than the virtual content.",
-                        "type": "text"
-                      }
-                    ]
-                  }
-                ]
-              }
-            }
-          ],
-          "type": "termList"
-        },
-        {
-          "type": "paragraph",
-          "inlineContent": [
-            {
-              "type": "text",
-              "text": "Use "
-            },
-            {
-              "type": "reference",
-              "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/supportsFrameSemantics(_:)",
-              "isActive": true
-            },
-            {
-              "type": "text",
-              "text": " to verify whether the iOS device supports the "
-            },
-            {
-              "type": "reference",
-              "isActive": true,
-              "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/FrameSemantics-swift.struct"
-            },
-            {
-              "type": "text",
-              "text": " you desire before setting "
-            },
-            {
-              "type": "reference",
-              "isActive": true,
-              "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/frameSemantics-swift.property"
-            },
-            {
-              "text": ".",
-              "type": "text"
-            }
-          ]
-        },
-        {
-          "type": "aside",
-          "style": "important",
-          "name": "Important",
-          "content": [
-            {
-              "inlineContent": [
-                {
-                  "type": "text",
-                  "text": ""
-                },
-                {
-                  "type": "text",
-                  "text": " "
-                },
-                {
-                  "text": "To maximize device responsiveness, refrain from turning on people occlusion for single-user experiences when you don’t expect people in the scene.",
-                  "type": "text"
-                }
-              ],
-              "type": "paragraph"
-            }
-          ]
-        },
-        {
-          "type": "heading",
-          "level": 3,
-          "text": "Switch configurations at runtime",
-          "anchor": "Switch-configurations-at-runtime"
-        },
-        {
-          "inlineContent": [
-            {
-              "type": "text",
-              "text": "To toggle features like plane detection, frame semantics, and environment texturing, you switch your configuration at runtime by calling "
-            },
-            {
-              "type": "reference",
-              "isActive": true,
-              "identifier": "doc://com.apple.arkit/documentation/ARKit/ARSession/runWithConfiguration:"
-            },
-            {
-              "text": " on your existing session. Where possible, ARKit maintains all the information collected during the session under the prior configuration, such as information about the physical environment and anchors.",
-              "type": "text"
-            }
-          ],
-          "type": "paragraph"
-        },
-        {
-          "style": "tip",
-          "type": "aside",
-          "content": [
-            {
-              "type": "paragraph",
-              "inlineContent": [
-                {
-                  "type": "text",
-                  "text": ""
-                },
-                {
-                  "text": " ",
-                  "type": "text"
-                },
-                {
-                  "text": "You can gracefully downgrade the AR experience in the event of low-power or thermal events. For example, you could temporarily switch from a world-tracking configuration to a position-tracking configuration (",
-                  "type": "text"
-                },
-                {
-                  "isActive": true,
-                  "type": "reference",
-                  "identifier": "doc://com.apple.arkit/documentation/ARKit/ARPositionalTrackingConfiguration"
-                },
-                {
-                  "type": "text",
-                  "text": ") if your app can function at a basic level in that limited capacity until the device cools down."
-                }
-              ]
-            }
-          ],
-          "name": "Tip"
-        },
-        {
-          "type": "paragraph",
-          "inlineContent": [
-            {
-              "text": "If your session switches between face- and world-tracking configurations, the session doesn’t maintain state.",
-              "type": "text"
-            }
-          ]
-        },
-        {
-          "anchor": "Enable-high-quality-video-and-custom-capture-settings",
-          "text": "Enable high-quality video and custom capture settings",
-          "type": "heading",
-          "level": 3
-        },
-        {
-          "inlineContent": [
-            {
-              "type": "text",
-              "text": "In iOS 16, you can enable a 4K and high dynamic range (HDR) video format. In addition, you can customize your session’s video settings through the underlying AV capture device."
-            }
-          ],
-          "type": "paragraph"
-        },
-        {
-          "inlineContent": [
-            {
-              "type": "text",
-              "text": "To determine whether your session supports 4K, call "
-            },
-            {
-              "type": "reference",
-              "isActive": true,
-              "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/recommendedVideoFormatFor4KResolution"
-            },
-            {
-              "text": ".",
-              "type": "text"
-            }
-          ],
-          "type": "paragraph"
-        },
-        {
-          "syntax": "swift",
-          "code": [
-            "guard let hiResFormat = ARWorldTrackingConfiguration.recommendedVideoFormatFor4KResolution else {",
-            "   print(\"4K video format not supported.\"); return }"
-          ],
-          "type": "codeListing"
-        },
-        {
-          "inlineContent": [
-            {
-              "text": "Then, create a configuration with the format. You can also indicate the intent to enable HDR by setting ",
-              "type": "text"
-            },
-            {
-              "type": "reference",
-              "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/videoHDRAllowed",
-              "isActive": true
-            },
-            {
-              "text": " to ",
-              "type": "text"
-            },
-            {
-              "code": "true",
-              "type": "codeVoice"
-            },
-            {
-              "text": ".",
-              "type": "text"
-            }
-          ],
-          "type": "paragraph"
-        },
-        {
-          "syntax": "swift",
-          "code": [
-            "var config = ARWorldTrackingConfiguration()",
-            "config.videoFormat = hiResFormat",
-            "config.videoHDRAllowed = true",
-            "session.run(config)"
-          ],
-          "type": "codeListing"
-        },
-        {
-          "inlineContent": [
-            {
-              "text": "If the device supports a configurable capture session, the ",
-              "type": "text"
-            },
-            {
-              "isActive": true,
-              "type": "reference",
-              "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/configurableCaptureDeviceForPrimaryCamera"
-            },
-            {
-              "type": "text",
-              "text": " provides the underlying capture device that you can adjust as needed."
-            }
-          ],
-          "type": "paragraph"
-        },
-        {
-          "syntax": "swift",
-          "code": [
-            "if let device = ARWorldTrackingConfiguration.configurableCaptureDeviceForPrimaryCamera {",
-            "   do { try device.lockForConfiguration()",
-            "      // Configure capture settings here.",
-            "      device.unlockForConfiguration()",
-            "   } catch { /* Error handling. */ }",
-            "}"
-          ],
-          "type": "codeListing"
-        },
-        {
-          "type": "heading",
-          "text": "Capture high-resolution still frames",
-          "anchor": "Capture-high-resolution-still-frames",
-          "level": 3
-        },
-        {
-          "type": "paragraph",
-          "inlineContent": [
-            {
-              "text": "In iOS 16, you can enable high-resolution frame capture by calling ",
-              "type": "text"
-            },
-            {
-              "type": "reference",
-              "isActive": true,
-              "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/recommendedVideoFormatForHighResolutionFrameCapturing"
-            },
-            {
-              "text": " on your configuration. If the device supports high-resolution stills, the function returns a video format you can use to start a session:",
-              "type": "text"
-            }
-          ]
-        },
-        {
-          "code": [
-            "guard let hiResFormat = type(of: config).recommendedVideoFormatForHighResolutionFrameCapturing else {",
-            "    fatalError(\"The device doesn't support high-resolution stills.\") }",
-            "config.videoFormat = hiResFormat",
-            "arSession.run(config)"
-          ],
-          "syntax": "swift",
-          "type": "codeListing"
-        },
-        {
-          "inlineContent": [
-            {
-              "text": "During the session, capture a high-resolution still frame at any time by calling ",
-              "type": "text"
-            },
-            {
-              "isActive": true,
-              "type": "reference",
-              "identifier": "doc://com.apple.arkit/documentation/ARKit/ARSession/captureHighResolutionFrame(completion:)"
-            },
-            {
-              "type": "text",
-              "text": ":"
-            }
-          ],
-          "type": "paragraph"
-        },
-        {
-          "syntax": "swift",
-          "code": [
-            "arSession.captureHighResolutionFrame { (frame, error) in",
-            "    if let frame = frame {",
-            "        saveHiResFrame(frame)",
-            "    } else { /* Error handling. */ }"
-          ],
-          "type": "codeListing"
-        }
-      ]
+      "anchor": "Object-Detection",
+      "title": "Object Detection"
     }
   ],
   "kind": "article",
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://com.apple.arkit/documentation/ARKit/configuration-objects"
-  },
-  "sections": [],
-  "hierarchy": {
-    "paths": [
-      [
-        "doc://com.apple.documentation/documentation/technologies",
-        "doc://com.apple.arkit/documentation/ARKit",
-        "doc://com.apple.arkit/documentation/ARKit/arkit-in-ios"
-      ]
-    ]
-  },
   "references": {
-    "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/videoHDRAllowed": {
-      "url": "https://developer.apple.com/documentation/arkit/arconfiguration/videohdrallowed",
-      "kind": "symbol",
-      "type": "topic",
-      "title": "videoHDRAllowed",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "var"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "videoHDRAllowed"
-        },
-        {
-          "text": ": ",
-          "kind": "text"
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Bool",
-          "preciseIdentifier": "s:Sb"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "text": "videoHDRAllowed",
-          "kind": "identifier"
-        }
-      ],
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/videoHDRAllowed",
-      "role": "symbol",
-      "abstract": [
-        {
-          "text": "Enables high dynamic range (HDR) for the session’s camera feed.",
-          "type": "text"
-        }
-      ]
-    },
-    "doc://com.apple.arkit/documentation/ARKit": {
-      "url": "https://developer.apple.com/documentation/arkit",
-      "identifier": "doc://com.apple.arkit/documentation/ARKit",
-      "kind": "symbol",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Integrate hardware sensing features to produce augmented reality apps and games."
-        }
-      ],
-      "role": "collection",
-      "title": "ARKit",
-      "type": "topic"
-    },
-    "doc://com.apple.arkit/documentation/ARKit/ARFaceTrackingConfiguration": {
-      "url": "https://developer.apple.com/documentation/arkit/arfacetrackingconfiguration",
-      "title": "ARFaceTrackingConfiguration",
-      "kind": "symbol",
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARFaceTrackingConfiguration",
-      "fragments": [
-        {
-          "text": "class",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "ARFaceTrackingConfiguration"
-        }
-      ],
+    "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/FrameSemantics-swift.struct/bodyDetection": {
+      "title": "bodyDetection",
       "type": "topic",
       "navigatorTitle": [
         {
           "kind": "identifier",
-          "text": "ARFaceTrackingConfiguration"
+          "text": "ARFrameSemanticBodyDetection"
         }
       ],
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/FrameSemantics-swift.struct/bodyDetection",
       "role": "symbol",
-      "abstract": [
-        {
-          "text": "A configuration that tracks facial movement and expressions using the front camera.",
-          "type": "text"
-        }
-      ]
-    },
-    "doc://com.apple.arkit/documentation/ARKit/ARGeoTrackingConfiguration": {
-      "title": "ARGeoTrackingConfiguration",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ARGeoTrackingConfiguration"
-        }
-      ],
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/arkit/argeotrackingconfiguration",
-      "abstract": [
-        {
-          "text": "A configuration that tracks locations with GPS, map data, and a device’s compass.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "text": "class",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "ARGeoTrackingConfiguration",
-          "kind": "identifier"
-        }
-      ],
-      "kind": "symbol",
-      "role": "symbol",
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARGeoTrackingConfiguration"
-    },
-    "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/supportsFrameSemantics(_:)": {
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Checks whether a particular feature is supported."
-        }
-      ],
-      "role": "symbol",
-      "fragments": [
-        {
-          "text": "class",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "keyword",
-          "text": "func"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "supportsFrameSemantics"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "ARConfiguration",
-          "preciseIdentifier": "c:objc(cs)ARConfiguration"
-        },
-        {
-          "text": ".",
-          "kind": "text"
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "FrameSemantics",
-          "preciseIdentifier": "c:@E@ARFrameSemantics"
-        },
-        {
-          "kind": "text",
-          "text": ") -> "
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Bool",
-          "preciseIdentifier": "s:Sb"
-        }
-      ],
-      "title": "supportsFrameSemantics(_:)",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "text": "+ ",
-          "kind": "text"
-        },
-        {
-          "text": "supportsFrameSemantics:",
-          "kind": "identifier"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/arkit/arconfiguration/supportsframesemantics(_:)",
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/supportsFrameSemantics(_:)",
-      "type": "topic"
-    },
-    "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/FrameSemantics-swift.struct/personSegmentation": {
-      "url": "https://developer.apple.com/documentation/arkit/arconfiguration/framesemantics-swift.struct/personsegmentation",
-      "title": "personSegmentation",
       "fragments": [
         {
           "text": "static",
@@ -773,20 +583,20 @@
           "kind": "keyword"
         },
         {
-          "text": " ",
-          "kind": "text"
+          "kind": "text",
+          "text": " "
         },
         {
-          "text": "personSegmentation",
-          "kind": "identifier"
+          "kind": "identifier",
+          "text": "bodyDetection"
         },
         {
           "text": ": ",
           "kind": "text"
         },
         {
-          "kind": "typeIdentifier",
           "text": "ARConfiguration",
+          "kind": "typeIdentifier",
           "preciseIdentifier": "c:objc(cs)ARConfiguration"
         },
         {
@@ -794,92 +604,36 @@
           "kind": "text"
         },
         {
+          "text": "FrameSemantics",
           "preciseIdentifier": "c:@E@ARFrameSemantics",
-          "kind": "typeIdentifier",
-          "text": "FrameSemantics"
+          "kind": "typeIdentifier"
         }
       ],
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/FrameSemantics-swift.struct/personSegmentation",
-      "role": "symbol",
-      "abstract": [
-        {
-          "text": "An option that indicates that people occlude your app’s virtual content.",
-          "type": "text"
-        }
-      ],
-      "type": "topic",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "text": "ARFrameSemanticPersonSegmentation",
-          "kind": "identifier"
-        }
-      ]
-    },
-    "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/FrameSemantics-swift.struct": {
-      "navigatorTitle": [
-        {
-          "text": "FrameSemantics",
-          "kind": "identifier"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/arkit/arconfiguration/framesemantics-swift.struct",
-      "title": "ARConfiguration.FrameSemantics",
-      "role": "symbol",
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/FrameSemantics-swift.struct",
-      "type": "topic",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "FrameSemantics",
-          "kind": "identifier"
-        }
-      ],
+      "url": "https://developer.apple.com/documentation/arkit/arconfiguration/framesemantics-swift.struct/bodydetection",
       "kind": "symbol",
       "abstract": [
         {
-          "text": "Types of optional frame features you can enable in your app.",
+          "text": "An option that indicates that 2D body detection is enabled.",
           "type": "text"
         }
       ]
     },
-    "doc://com.apple.arkit/documentation/ARKit/arkit-in-ios": {
-      "kind": "article",
-      "title": "ARKit in iOS",
+    "doc://com.apple.documentation/documentation/technologies": {
       "abstract": [
         {
-          "text": "Integrate iOS device camera and motion features to produce augmented reality experiences in your app or game.",
-          "type": "text"
+          "type": "text",
+          "text": ""
         }
       ],
-      "url": "https://developer.apple.com/documentation/arkit/arkit-in-ios",
-      "role": "collectionGroup",
-      "type": "topic",
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/arkit-in-ios"
+      "title": "Technologies",
+      "role": "overview",
+      "url": "https://developer.apple.com/documentation/technologies",
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "kind": "technologies",
+      "type": "topic"
     },
-    "doc://com.apple.arkit/documentation/ARKit/choosing-which-camera-feed-to-augment": {
-      "url": "https://developer.apple.com/documentation/arkit/choosing-which-camera-feed-to-augment",
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/choosing-which-camera-feed-to-augment",
-      "type": "topic",
-      "abstract": [
-        {
-          "text": "Add visual effects to the user’s environment in an AR experience through the front or rear camera.",
-          "type": "text"
-        }
-      ],
-      "title": "Choosing Which Camera Feed to Augment",
-      "kind": "article",
-      "role": "article"
-    },
-    "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/recommendedVideoFormatFor4KResolution": {
-      "type": "topic",
+    "doc://com.apple.arkit/documentation/ARKit/ARSession": {
+      "title": "ARSession",
       "fragments": [
         {
           "text": "class",
@@ -890,225 +644,135 @@
           "text": " "
         },
         {
-          "kind": "keyword",
-          "text": "var"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
           "kind": "identifier",
-          "text": "recommendedVideoFormatFor4KResolution"
-        },
-        {
-          "text": ": ",
-          "kind": "text"
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "c:objc(cs)ARConfiguration",
-          "text": "ARConfiguration"
-        },
-        {
-          "kind": "text",
-          "text": "."
-        },
-        {
-          "text": "VideoFormat",
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "c:objc(cs)ARVideoFormat"
-        },
-        {
-          "kind": "text",
-          "text": "?"
+          "text": "ARSession"
         }
       ],
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/recommendedVideoFormatFor4KResolution",
-      "url": "https://developer.apple.com/documentation/arkit/arconfiguration/recommendedvideoformatfor4kresolution",
-      "role": "symbol",
-      "navigatorTitle": [
-        {
-          "text": "recommendedVideoFormatFor4KResolution",
-          "kind": "identifier"
-        }
-      ],
-      "kind": "symbol",
-      "title": "recommendedVideoFormatFor4KResolution",
-      "abstract": [
-        {
-          "text": "Provides a 4K video format if the device and configuration support it.",
-          "type": "text"
-        }
-      ]
-    },
-    "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/configurableCaptureDeviceForPrimaryCamera": {
-      "url": "https://developer.apple.com/documentation/arkit/arconfiguration/configurablecapturedeviceforprimarycamera",
-      "title": "configurableCaptureDeviceForPrimaryCamera",
-      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/arkit/arsession",
       "abstract": [
         {
           "type": "text",
-          "text": "An object that enables you to alter the appearance of a frame’s captured image."
+          "text": "The object that manages the major tasks associated with every AR experience, such as motion tracking, camera passthrough, and image analysis."
         }
       ],
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARSession",
       "kind": "symbol",
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/configurableCaptureDeviceForPrimaryCamera",
+      "role": "symbol",
       "type": "topic",
       "navigatorTitle": [
-        {
-          "text": "configurableCaptureDeviceForPrimaryCamera",
-          "kind": "identifier"
-        }
-      ],
-      "fragments": [
-        {
-          "text": "class",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "keyword",
-          "text": "var"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
         {
           "kind": "identifier",
-          "text": "configurableCaptureDeviceForPrimaryCamera"
-        },
-        {
-          "text": ": ",
-          "kind": "text"
-        },
-        {
-          "text": "AVCaptureDevice",
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "c:objc(cs)AVCaptureDevice"
-        },
-        {
-          "text": "?",
-          "kind": "text"
-        }
-      ]
-    },
-    "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/frameSemantics-swift.property": {
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/frameSemantics-swift.property",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "The set of active semantics on the frame."
-        }
-      ],
-      "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/arkit/arconfiguration/framesemantics-swift.property",
-      "title": "frameSemantics",
-      "type": "topic",
-      "role": "symbol",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "var"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "frameSemantics",
-          "kind": "identifier"
-        },
-        {
-          "text": ": ",
-          "kind": "text"
-        },
-        {
-          "text": "ARConfiguration",
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "c:objc(cs)ARConfiguration"
-        },
-        {
-          "text": ".",
-          "kind": "text"
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "FrameSemantics",
-          "preciseIdentifier": "c:@E@ARFrameSemantics"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "text": "frameSemantics",
-          "kind": "identifier"
+          "text": "ARSession"
         }
       ]
     },
     "doc://com.apple.arkit/documentation/ARKit/displaying-an-ar-experience-with-metal": {
+      "title": "Displaying an AR Experience with Metal",
       "abstract": [
         {
-          "text": "Control rendering of your app’s virtual content on top of a camera feed.",
-          "type": "text"
+          "type": "text",
+          "text": "Control rendering of your app’s virtual content on top of a camera feed."
         }
       ],
-      "kind": "article",
-      "type": "topic",
-      "title": "Displaying an AR Experience with Metal",
       "url": "https://developer.apple.com/documentation/arkit/displaying-an-ar-experience-with-metal",
       "identifier": "doc://com.apple.arkit/documentation/ARKit/displaying-an-ar-experience-with-metal",
+      "type": "topic",
+      "kind": "article",
       "role": "article"
     },
-    "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/recommendedVideoFormatForHighResolutionFrameCapturing": {
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/recommendedVideoFormatForHighResolutionFrameCapturing",
-      "abstract": [
-        {
-          "text": "Returns a video format that the framework recommends for high-resolution-still-image capture.",
-          "type": "text"
-        }
-      ],
-      "role": "symbol",
-      "navigatorTitle": [
-        {
-          "text": "recommendedVideoFormatForHighResolutionFrameCapturing",
-          "kind": "identifier"
-        }
-      ],
+    "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/configurableCaptureDeviceForPrimaryCamera": {
       "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/arkit/arconfiguration/recommendedvideoformatforhighresolutionframecapturing",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/configurableCaptureDeviceForPrimaryCamera",
+      "role": "symbol",
       "fragments": [
         {
-          "kind": "keyword",
-          "text": "class"
+          "text": "class",
+          "kind": "keyword"
         },
         {
-          "text": " ",
-          "kind": "text"
+          "kind": "text",
+          "text": " "
         },
         {
           "text": "var",
           "kind": "keyword"
         },
         {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "configurableCaptureDeviceForPrimaryCamera",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "preciseIdentifier": "c:objc(cs)AVCaptureDevice",
+          "text": "AVCaptureDevice",
+          "kind": "typeIdentifier"
+        },
+        {
+          "text": "?",
+          "kind": "text"
+        }
+      ],
+      "title": "configurableCaptureDeviceForPrimaryCamera",
+      "url": "https://developer.apple.com/documentation/arkit/arconfiguration/configurablecapturedeviceforprimarycamera",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An object that enables you to alter the appearance of a frame’s captured image."
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "configurableCaptureDeviceForPrimaryCamera",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/recommendedVideoFormatForHighResolutionFrameCapturing": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Returns a video format that the framework recommends for high-resolution-still-image capture."
+        }
+      ],
+      "kind": "symbol",
+      "title": "recommendedVideoFormatForHighResolutionFrameCapturing",
+      "fragments": [
+        {
+          "text": "class",
+          "kind": "keyword"
+        },
+        {
           "kind": "text",
           "text": " "
         },
         {
-          "kind": "identifier",
-          "text": "recommendedVideoFormatForHighResolutionFrameCapturing"
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "recommendedVideoFormatForHighResolutionFrameCapturing",
+          "kind": "identifier"
         },
         {
           "text": ": ",
           "kind": "text"
         },
         {
-          "preciseIdentifier": "c:objc(cs)ARConfiguration",
           "kind": "typeIdentifier",
-          "text": "ARConfiguration"
+          "text": "ARConfiguration",
+          "preciseIdentifier": "c:objc(cs)ARConfiguration"
         },
         {
           "text": ".",
@@ -1120,153 +784,51 @@
           "text": "VideoFormat"
         },
         {
-          "kind": "text",
-          "text": "?"
+          "text": "?",
+          "kind": "text"
         }
       ],
-      "title": "recommendedVideoFormatForHighResolutionFrameCapturing",
-      "type": "topic"
-    },
-    "doc://com.apple.arkit/documentation/ARKit/ARObjectScanningConfiguration": {
+      "type": "topic",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/recommendedVideoFormatForHighResolutionFrameCapturing",
+      "url": "https://developer.apple.com/documentation/arkit/arconfiguration/recommendedvideoformatforhighresolutionframecapturing",
       "navigatorTitle": [
         {
-          "kind": "identifier",
-          "text": "ARObjectScanningConfiguration"
+          "text": "recommendedVideoFormatForHighResolutionFrameCapturing",
+          "kind": "identifier"
         }
       ],
-      "title": "ARObjectScanningConfiguration",
-      "fragments": [
+      "role": "symbol"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/supportsFrameSemantics(_:)": {
+      "navigatorTitle": [
         {
-          "kind": "keyword",
-          "text": "class"
-        },
-        {
-          "text": " ",
+          "text": "+ ",
           "kind": "text"
         },
         {
           "kind": "identifier",
-          "text": "ARObjectScanningConfiguration"
+          "text": "supportsFrameSemantics:"
         }
       ],
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/arkit/arobjectscanningconfiguration",
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARObjectScanningConfiguration",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/supportsFrameSemantics(_:)",
       "abstract": [
         {
           "type": "text",
-          "text": "A configuration that recognizes objects and collects high-fidelity data about specific objects using the rear-facing camera."
+          "text": "Checks whether a particular feature is supported."
         }
       ],
+      "url": "https://developer.apple.com/documentation/arkit/arconfiguration/supportsframesemantics(_:)",
+      "title": "supportsFrameSemantics(_:)",
       "role": "symbol",
-      "kind": "symbol"
-    },
-    "doc://com.apple.arkit/documentation/ARKit/ARBodyTrackingConfiguration": {
       "fragments": [
         {
           "text": "class",
           "kind": "keyword"
         },
         {
-          "kind": "text",
-          "text": " "
+          "text": " ",
+          "kind": "text"
         },
-        {
-          "text": "ARBodyTrackingConfiguration",
-          "kind": "identifier"
-        }
-      ],
-      "kind": "symbol",
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARBodyTrackingConfiguration",
-      "title": "ARBodyTrackingConfiguration",
-      "url": "https://developer.apple.com/documentation/arkit/arbodytrackingconfiguration",
-      "navigatorTitle": [
-        {
-          "text": "ARBodyTrackingConfiguration",
-          "kind": "identifier"
-        }
-      ],
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A configuration that tracks human body poses, planar surfaces, and images using the rear-facing camera."
-        }
-      ],
-      "type": "topic",
-      "role": "symbol"
-    },
-    "doc://com.apple.arkit/documentation/ARKit/ARSession": {
-      "kind": "symbol",
-      "abstract": [
-        {
-          "text": "The object that manages the major tasks associated with every AR experience, such as motion tracking, camera passthrough, and image analysis.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "class"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "ARSession",
-          "kind": "identifier"
-        }
-      ],
-      "title": "ARSession",
-      "type": "topic",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ARSession"
-        }
-      ],
-      "role": "symbol",
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARSession",
-      "url": "https://developer.apple.com/documentation/arkit/arsession"
-    },
-    "doc://com.apple.arkit/documentation/ARKit/ARSession/runWithConfiguration:": {
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARSession/runWithConfiguration:",
-      "role": "symbol",
-      "fragments": [
-        {
-          "kind": "text",
-          "text": "- "
-        },
-        {
-          "kind": "identifier",
-          "text": "runWithConfiguration:"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/arkit/arsession/runwithconfiguration:",
-      "title": "runWithConfiguration:",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Starts AR processing for the session with the specified configuration."
-        }
-      ],
-      "type": "topic",
-      "kind": "symbol"
-    },
-    "doc://com.apple.arkit/documentation/ARKit/ARSession/captureHighResolutionFrame(completion:)": {
-      "type": "topic",
-      "title": "captureHighResolutionFrame(completion:)",
-      "kind": "symbol",
-      "abstract": [
-        {
-          "text": "Requests a frame outside of the normal frequency that contains a high-resolution captured image.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARSession/captureHighResolutionFrame(completion:)",
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/arkit/arsession/capturehighresolutionframe(completion:)",
-      "fragments": [
         {
           "text": "func",
           "kind": "keyword"
@@ -1276,232 +838,11 @@
           "kind": "text"
         },
         {
-          "kind": "identifier",
-          "text": "captureHighResolutionFrame"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "text": "completion",
-          "kind": "externalParam"
-        },
-        {
-          "text": ": (",
-          "kind": "text"
-        },
-        {
-          "text": "ARFrame",
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "c:objc(cs)ARFrame"
-        },
-        {
-          "text": "?, (any ",
-          "kind": "text"
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:s5ErrorP",
-          "text": "Error"
-        },
-        {
-          "text": ")?) -> ",
-          "kind": "text"
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Void",
-          "preciseIdentifier": "s:s4Voida"
-        },
-        {
-          "text": ")",
-          "kind": "text"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "text": "- ",
-          "kind": "text"
-        },
-        {
-          "text": "captureHighResolutionFrameWithCompletion:",
+          "text": "supportsFrameSemantics",
           "kind": "identifier"
-        }
-      ]
-    },
-    "doc://com.apple.arkit/documentation/ARKit/ARConfiguration": {
-      "abstract": [
-        {
-          "type": "text",
-          "text": "The base object that contains information about how to configure an augmented reality session."
-        }
-      ],
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration",
-      "role": "symbol",
-      "fragments": [
-        {
-          "text": "class",
-          "kind": "keyword"
         },
         {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "ARConfiguration"
-        }
-      ],
-      "type": "topic",
-      "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/arkit/arconfiguration",
-      "title": "ARConfiguration",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ARConfiguration"
-        }
-      ]
-    },
-    "doc://com.apple.arkit/documentation/ARKit/ARWorldTrackingConfiguration": {
-      "title": "ARWorldTrackingConfiguration",
-      "type": "topic",
-      "kind": "symbol",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A configuration that tracks the position of a device in relation to objects in the environment."
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "text": "ARWorldTrackingConfiguration",
-          "kind": "identifier"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/arkit/arworldtrackingconfiguration",
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARWorldTrackingConfiguration",
-      "fragments": [
-        {
-          "text": "class",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "ARWorldTrackingConfiguration"
-        }
-      ],
-      "role": "symbol"
-    },
-    "doc://com.apple.arkit/documentation/ARKit/AROrientationTrackingConfiguration": {
-      "title": "AROrientationTrackingConfiguration",
-      "role": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "AROrientationTrackingConfiguration"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/arkit/arorientationtrackingconfiguration",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "class"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "AROrientationTrackingConfiguration"
-        }
-      ],
-      "kind": "symbol",
-      "type": "topic",
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/AROrientationTrackingConfiguration",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A configuration that tracks only the device’s orientation using the rear-facing camera."
-        }
-      ]
-    },
-    "doc://com.apple.arkit/documentation/ARKit/ARImageTrackingConfiguration": {
-      "navigatorTitle": [
-        {
-          "text": "ARImageTrackingConfiguration",
-          "kind": "identifier"
-        }
-      ],
-      "kind": "symbol",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A configuration that tracks known images using the rear-facing camera."
-        }
-      ],
-      "role": "symbol",
-      "title": "ARImageTrackingConfiguration",
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARImageTrackingConfiguration",
-      "type": "topic",
-      "fragments": [
-        {
-          "text": "class",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ARImageTrackingConfiguration"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/arkit/arimagetrackingconfiguration"
-    },
-    "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/FrameSemantics-swift.struct/personSegmentationWithDepth": {
-      "title": "personSegmentationWithDepth",
-      "kind": "symbol",
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/FrameSemantics-swift.struct/personSegmentationWithDepth",
-      "role": "symbol",
-      "navigatorTitle": [
-        {
-          "text": "ARFrameSemanticPersonSegmentationWithDepth",
-          "kind": "identifier"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/arkit/arconfiguration/framesemantics-swift.struct/personsegmentationwithdepth",
-      "type": "topic",
-      "fragments": [
-        {
-          "text": "static",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "keyword",
-          "text": "var"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "personSegmentationWithDepth"
-        },
-        {
-          "text": ": ",
+          "text": "(",
           "kind": "text"
         },
         {
@@ -1517,42 +858,468 @@
           "preciseIdentifier": "c:@E@ARFrameSemantics",
           "text": "FrameSemantics",
           "kind": "typeIdentifier"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "preciseIdentifier": "s:Sb",
+          "text": "Bool",
+          "kind": "typeIdentifier"
         }
       ],
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An option that indicates that people occlude your app’s virtual content depending on depth."
-        }
-      ]
-    },
-    "doc://com.apple.documentation/documentation/technologies": {
-      "url": "https://developer.apple.com/documentation/technologies",
-      "kind": "technologies",
       "type": "topic",
-      "abstract": [
-        {
-          "type": "text",
-          "text": ""
-        }
-      ],
-      "identifier": "doc://com.apple.documentation/documentation/technologies",
-      "title": "Technologies",
-      "role": "overview"
+      "kind": "symbol"
     },
-    "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/FrameSemantics-swift.struct/bodyDetection": {
-      "type": "topic",
+    "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/FrameSemantics-swift.struct/personSegmentation": {
+      "title": "personSegmentation",
       "abstract": [
         {
-          "text": "An option that indicates that 2D body detection is enabled.",
+          "text": "An option that indicates that people occlude your app’s virtual content.",
           "type": "text"
         }
       ],
+      "type": "topic",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/FrameSemantics-swift.struct/personSegmentation",
+      "fragments": [
+        {
+          "text": "static",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "personSegmentation",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "ARConfiguration",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:objc(cs)ARConfiguration"
+        },
+        {
+          "text": ".",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "c:@E@ARFrameSemantics",
+          "text": "FrameSemantics",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "ARFrameSemanticPersonSegmentation",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/arkit/arconfiguration/framesemantics-swift.struct/personsegmentation",
+      "kind": "symbol",
+      "role": "symbol"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/FrameSemantics-swift.struct": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Types of optional frame features you can enable in your app."
+        }
+      ],
+      "role": "symbol",
+      "type": "topic",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "FrameSemantics"
+        }
+      ],
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/FrameSemantics-swift.struct",
+      "url": "https://developer.apple.com/documentation/arkit/arconfiguration/framesemantics-swift.struct",
+      "title": "ARConfiguration.FrameSemantics",
+      "navigatorTitle": [
+        {
+          "text": "FrameSemantics",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/ARImageTrackingConfiguration": {
+      "title": "ARImageTrackingConfiguration",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARImageTrackingConfiguration",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A configuration that tracks known images using the rear-facing camera."
+        }
+      ],
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/arkit/arimagetrackingconfiguration",
+      "fragments": [
+        {
+          "text": "class",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "ARImageTrackingConfiguration",
+          "kind": "identifier"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ARImageTrackingConfiguration"
+        }
+      ],
+      "kind": "symbol",
+      "role": "symbol"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/understanding-world-tracking": {
+      "kind": "article",
+      "role": "article",
+      "title": "Understanding World Tracking",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/understanding-world-tracking",
+      "url": "https://developer.apple.com/documentation/arkit/understanding-world-tracking",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Discover features and best practices for building rear-camera AR experiences."
+        }
+      ]
+    },
+    "doc://com.apple.arkit/documentation/ARKit/AROrientationTrackingConfiguration": {
       "role": "symbol",
       "fragments": [
         {
           "kind": "keyword",
-          "text": "static"
+          "text": "class"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AROrientationTrackingConfiguration",
+          "kind": "identifier"
+        }
+      ],
+      "title": "AROrientationTrackingConfiguration",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "text": "A configuration that tracks only the device’s orientation using the rear-facing camera.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/AROrientationTrackingConfiguration",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/arkit/arorientationtrackingconfiguration",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "AROrientationTrackingConfiguration"
+        }
+      ]
+    },
+    "doc://com.apple.arkit/documentation/ARKit/ARWorldTrackingConfiguration": {
+      "navigatorTitle": [
+        {
+          "text": "ARWorldTrackingConfiguration",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A configuration that tracks the position of a device in relation to objects in the environment."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/arkit/arworldtrackingconfiguration",
+      "fragments": [
+        {
+          "text": "class",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "ARWorldTrackingConfiguration",
+          "kind": "identifier"
+        }
+      ],
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARWorldTrackingConfiguration",
+      "title": "ARWorldTrackingConfiguration",
+      "role": "symbol",
+      "kind": "symbol",
+      "type": "topic"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/ARPositionalTrackingConfiguration": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A configuration that tracks only the device’s position in 3D space."
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "ARPositionalTrackingConfiguration",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARPositionalTrackingConfiguration",
+      "url": "https://developer.apple.com/documentation/arkit/arpositionaltrackingconfiguration",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "ARPositionalTrackingConfiguration",
+          "kind": "identifier"
+        }
+      ],
+      "type": "topic",
+      "title": "ARPositionalTrackingConfiguration",
+      "role": "symbol"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/choosing-which-camera-feed-to-augment": {
+      "kind": "article",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/choosing-which-camera-feed-to-augment",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Add visual effects to the user’s environment in an AR experience through the front or rear camera."
+        }
+      ],
+      "type": "topic",
+      "title": "Choosing Which Camera Feed to Augment",
+      "role": "article",
+      "url": "https://developer.apple.com/documentation/arkit/choosing-which-camera-feed-to-augment"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/ARSession/captureHighResolutionFrame(completion:)": {
+      "role": "symbol",
+      "abstract": [
+        {
+          "text": "Requests a frame outside of the normal frequency that contains a high-resolution captured image.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARSession/captureHighResolutionFrame(completion:)",
+      "fragments": [
+        {
+          "text": "func",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "captureHighResolutionFrame",
+          "kind": "identifier"
+        },
+        {
+          "text": "(",
+          "kind": "text"
+        },
+        {
+          "kind": "externalParam",
+          "text": "completion"
+        },
+        {
+          "text": ": (",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:objc(cs)ARFrame",
+          "text": "ARFrame"
+        },
+        {
+          "text": "?, (any ",
+          "kind": "text"
+        },
+        {
+          "text": "Error",
+          "preciseIdentifier": "s:s5ErrorP",
+          "kind": "typeIdentifier"
+        },
+        {
+          "text": ")?) -> ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:s4Voida",
+          "kind": "typeIdentifier",
+          "text": "Void"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "- ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "captureHighResolutionFrameWithCompletion:"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/arkit/arsession/capturehighresolutionframe(completion:)",
+      "type": "topic",
+      "kind": "symbol",
+      "title": "captureHighResolutionFrame(completion:)"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/arkit-in-ios": {
+      "title": "ARKit in iOS",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/arkit-in-ios",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Integrate iOS device camera and motion features to produce augmented reality experiences in your app or game."
+        }
+      ],
+      "kind": "article",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/arkit/arkit-in-ios",
+      "role": "collectionGroup"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/ARObjectScanningConfiguration": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A configuration that recognizes objects and collects high-fidelity data about specific objects using the rear-facing camera."
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ARObjectScanningConfiguration"
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARObjectScanningConfiguration",
+      "url": "https://developer.apple.com/documentation/arkit/arobjectscanningconfiguration",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "ARObjectScanningConfiguration",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "ARObjectScanningConfiguration",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/frameSemantics-swift.property": {
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/frameSemantics-swift.property",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "frameSemantics",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "preciseIdentifier": "c:objc(cs)ARConfiguration",
+          "text": "ARConfiguration",
+          "kind": "typeIdentifier"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@E@ARFrameSemantics",
+          "text": "FrameSemantics"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "frameSemantics"
+        }
+      ],
+      "title": "frameSemantics",
+      "type": "topic",
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/arkit/arconfiguration/framesemantics-swift.property",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The set of active semantics on the frame."
+        }
+      ],
+      "role": "symbol"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/recommendedVideoFormatFor4KResolution": {
+      "type": "topic",
+      "role": "symbol",
+      "abstract": [
+        {
+          "text": "Provides a 4K video format if the device and configuration support it.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "text": "class",
+          "kind": "keyword"
         },
         {
           "text": " ",
@@ -1567,49 +1334,256 @@
           "kind": "text"
         },
         {
-          "text": "bodyDetection",
+          "text": "recommendedVideoFormatFor4KResolution",
           "kind": "identifier"
         },
         {
-          "kind": "text",
-          "text": ": "
+          "text": ": ",
+          "kind": "text"
         },
         {
-          "kind": "typeIdentifier",
           "text": "ARConfiguration",
-          "preciseIdentifier": "c:objc(cs)ARConfiguration"
+          "preciseIdentifier": "c:objc(cs)ARConfiguration",
+          "kind": "typeIdentifier"
         },
         {
           "text": ".",
           "kind": "text"
         },
         {
-          "text": "FrameSemantics",
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "c:@E@ARFrameSemantics"
+          "text": "VideoFormat",
+          "preciseIdentifier": "c:objc(cs)ARVideoFormat",
+          "kind": "typeIdentifier"
+        },
+        {
+          "text": "?",
+          "kind": "text"
         }
       ],
-      "url": "https://developer.apple.com/documentation/arkit/arconfiguration/framesemantics-swift.struct/bodydetection",
-      "title": "bodyDetection",
-      "kind": "symbol",
       "navigatorTitle": [
         {
-          "text": "ARFrameSemanticBodyDetection",
+          "text": "recommendedVideoFormatFor4KResolution",
           "kind": "identifier"
         }
       ],
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/FrameSemantics-swift.struct/bodyDetection"
-    },
-    "doc://com.apple.arkit/documentation/ARKit/ARPositionalTrackingConfiguration": {
       "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/arkit/arconfiguration/recommendedvideoformatfor4kresolution",
+      "title": "recommendedVideoFormatFor4KResolution",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/recommendedVideoFormatFor4KResolution"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/videoHDRAllowed": {
+      "type": "topic",
+      "title": "videoHDRAllowed",
+      "abstract": [
+        {
+          "text": "Enables high dynamic range (HDR) for the session’s camera feed.",
+          "type": "text"
+        }
+      ],
+      "kind": "symbol",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/videoHDRAllowed",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "videoHDRAllowed",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:Sb",
+          "kind": "typeIdentifier",
+          "text": "Bool"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "videoHDRAllowed",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/arkit/arconfiguration/videohdrallowed"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/ARFaceTrackingConfiguration": {
+      "title": "ARFaceTrackingConfiguration",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ARFaceTrackingConfiguration"
+        }
+      ],
       "abstract": [
         {
           "type": "text",
-          "text": "A configuration that tracks only the device’s position in 3D space."
+          "text": "A configuration that tracks facial movement and expressions using the front camera."
         }
       ],
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARFaceTrackingConfiguration",
+      "url": "https://developer.apple.com/documentation/arkit/arfacetrackingconfiguration",
       "type": "topic",
-      "title": "ARPositionalTrackingConfiguration",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "class",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ARFaceTrackingConfiguration"
+        }
+      ]
+    },
+    "doc://com.apple.arkit/documentation/ARKit": {
+      "identifier": "doc://com.apple.arkit/documentation/ARKit",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "Integrate hardware sensing features to produce augmented reality apps and games.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/arkit",
+      "role": "collection",
+      "kind": "symbol",
+      "title": "ARKit"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/ARConfiguration": {
+      "url": "https://developer.apple.com/documentation/arkit/arconfiguration",
+      "type": "topic",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "text": "class",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ARConfiguration"
+        }
+      ],
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration",
+      "title": "ARConfiguration",
+      "abstract": [
+        {
+          "text": "The base object that contains information about how to configure an augmented reality session.",
+          "type": "text"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "ARConfiguration",
+          "kind": "identifier"
+        }
+      ],
+      "role": "symbol"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/managing-session-life-cycle-and-tracking-quality": {
+      "title": "Managing Session Life Cycle and Tracking Quality",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/managing-session-life-cycle-and-tracking-quality",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Keep the user informed on the current session state and recover from interruptions."
+        }
+      ],
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/arkit/managing-session-life-cycle-and-tracking-quality",
+      "role": "article",
+      "type": "topic"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/ARGeoTrackingConfiguration": {
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ARGeoTrackingConfiguration"
+        }
+      ],
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARGeoTrackingConfiguration",
+      "url": "https://developer.apple.com/documentation/arkit/argeotrackingconfiguration",
+      "type": "topic",
+      "kind": "symbol",
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "ARGeoTrackingConfiguration",
+          "kind": "identifier"
+        }
+      ],
+      "title": "ARGeoTrackingConfiguration",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A configuration that tracks locations with GPS, map data, and a device’s compass."
+        }
+      ]
+    },
+    "doc://com.apple.arkit/documentation/ARKit/ARSession/runWithConfiguration:": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Starts AR processing for the session with the specified configuration."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/arkit/arsession/runwithconfiguration:",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARSession/runWithConfiguration:",
+      "role": "symbol",
+      "title": "runWithConfiguration:",
+      "kind": "symbol",
+      "type": "topic",
+      "fragments": [
+        {
+          "kind": "text",
+          "text": "- "
+        },
+        {
+          "kind": "identifier",
+          "text": "runWithConfiguration:"
+        }
+      ]
+    },
+    "doc://com.apple.arkit/documentation/ARKit/ARBodyTrackingConfiguration": {
+      "url": "https://developer.apple.com/documentation/arkit/arbodytrackingconfiguration",
+      "abstract": [
+        {
+          "text": "A configuration that tracks human body poses, planar surfaces, and images using the rear-facing camera.",
+          "type": "text"
+        }
+      ],
+      "title": "ARBodyTrackingConfiguration",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ARBodyTrackingConfiguration"
+        }
+      ],
       "role": "symbol",
       "fragments": [
         {
@@ -1621,55 +1595,76 @@
           "kind": "text"
         },
         {
-          "kind": "identifier",
-          "text": "ARPositionalTrackingConfiguration"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "text": "ARPositionalTrackingConfiguration",
+          "text": "ARBodyTrackingConfiguration",
           "kind": "identifier"
         }
       ],
-      "url": "https://developer.apple.com/documentation/arkit/arpositionaltrackingconfiguration",
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARPositionalTrackingConfiguration"
-    },
-    "doc://com.apple.arkit/documentation/ARKit/managing-session-life-cycle-and-tracking-quality": {
-      "url": "https://developer.apple.com/documentation/arkit/managing-session-life-cycle-and-tracking-quality",
-      "title": "Managing Session Life Cycle and Tracking Quality",
-      "kind": "article",
-      "role": "article",
       "type": "topic",
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/managing-session-life-cycle-and-tracking-quality",
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARBodyTrackingConfiguration"
+    },
+    "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/FrameSemantics-swift.struct/personSegmentationWithDepth": {
+      "navigatorTitle": [
+        {
+          "text": "ARFrameSemanticPersonSegmentationWithDepth",
+          "kind": "identifier"
+        }
+      ],
+      "title": "personSegmentationWithDepth",
       "abstract": [
         {
           "type": "text",
-          "text": "Keep the user informed on the current session state and recover from interruptions."
-        }
-      ]
-    },
-    "doc://com.apple.arkit/documentation/ARKit/understanding-world-tracking": {
-      "identifier": "doc://com.apple.arkit/documentation/ARKit/understanding-world-tracking",
-      "abstract": [
-        {
-          "text": "Discover features and best practices for building rear-camera AR experiences.",
-          "type": "text"
+          "text": "An option that indicates that people occlude your app’s virtual content depending on depth."
         }
       ],
-      "kind": "article",
-      "role": "article",
-      "type": "topic",
-      "title": "Understanding World Tracking",
-      "url": "https://developer.apple.com/documentation/arkit/understanding-world-tracking"
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/arkit/arconfiguration/framesemantics-swift.struct/personsegmentationwithdepth",
+      "fragments": [
+        {
+          "text": "static",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "personSegmentationWithDepth",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:objc(cs)ARConfiguration",
+          "text": "ARConfiguration"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@E@ARFrameSemantics",
+          "text": "FrameSemantics"
+        }
+      ],
+      "identifier": "doc://com.apple.arkit/documentation/ARKit/ARConfiguration/FrameSemantics-swift.struct/personSegmentationWithDepth",
+      "role": "symbol",
+      "type": "topic"
     }
   },
   "variantOverrides": [
     {
-      "traits": [
-        {
-          "interfaceLanguage": "occ"
-        }
-      ],
       "patch": [
         {
           "path": "/identifier/interfaceLanguage",
@@ -1680,44 +1675,44 @@
           "path": "/topicSections",
           "value": [
             {
-              "title": "Common Configuration Details",
               "identifiers": [
                 "doc://com.apple.arkit/documentation/ARKit/ARConfiguration"
               ],
-              "anchor": "Common-Configuration-Details"
+              "anchor": "Common-Configuration-Details",
+              "title": "Common Configuration Details"
             },
             {
               "title": "Spatial Tracking",
+              "anchor": "Spatial-Tracking",
               "identifiers": [
                 "doc://com.apple.arkit/documentation/ARKit/understanding-world-tracking",
                 "doc://com.apple.arkit/documentation/ARKit/ARWorldTrackingConfiguration",
                 "doc://com.apple.arkit/documentation/ARKit/ARGeoTrackingConfiguration",
                 "doc://com.apple.arkit/documentation/ARKit/AROrientationTrackingConfiguration",
                 "doc://com.apple.arkit/documentation/ARKit/ARPositionalTrackingConfiguration"
-              ],
-              "anchor": "Spatial-Tracking"
+              ]
             },
             {
-              "title": "Body and Face Tracking",
-              "anchor": "Body-and-Face-Tracking",
               "identifiers": [
                 "doc://com.apple.arkit/documentation/ARKit/ARBodyTrackingConfiguration",
                 "doc://com.apple.arkit/documentation/ARKit/ARFaceTrackingConfiguration"
-              ]
+              ],
+              "anchor": "Body-and-Face-Tracking",
+              "title": "Body and Face Tracking"
             },
             {
-              "anchor": "Image-Recognition",
               "identifiers": [
                 "doc://com.apple.arkit/documentation/ARKit/ARImageTrackingConfiguration"
               ],
+              "anchor": "Image-Recognition",
               "title": "Image Recognition"
             },
             {
-              "anchor": "Object-Detection",
-              "title": "Object Detection",
               "identifiers": [
                 "doc://com.apple.arkit/documentation/ARKit/ARObjectScanningConfiguration"
-              ]
+              ],
+              "anchor": "Object-Detection",
+              "title": "Object Detection"
             }
           ],
           "op": "replace"
@@ -1725,7 +1720,7 @@
         {
           "value": [
             {
-              "anchor": "Setup",
+              "generated": true,
               "title": "Setup",
               "identifiers": [
                 "doc://com.apple.arkit/documentation/ARKit/choosing-which-camera-feed-to-augment",
@@ -1733,31 +1728,334 @@
                 "doc://com.apple.arkit/documentation/ARKit/displaying-an-ar-experience-with-metal",
                 "doc://com.apple.arkit/documentation/ARKit/ARSession"
               ],
-              "generated": true
+              "anchor": "Setup"
             }
           ],
           "path": "/seeAlsoSections",
           "op": "replace"
         },
         {
+          "value": "ARFrameSemanticBodyDetection",
           "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1videoHDRAllowed/title",
-          "value": "videoHDRAllowed"
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1FrameSemantics-swift.struct~1bodyDetection/title"
         },
         {
           "value": [
             {
               "kind": "identifier",
-              "text": "videoHDRAllowed"
+              "text": "ARFrameSemanticBodyDetection"
             }
           ],
-          "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1videoHDRAllowed/fragments"
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1FrameSemantics-swift.struct~1bodyDetection/fragments",
+          "op": "replace"
+        },
+        {
+          "value": "ARSession",
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARSession/title",
+          "op": "replace"
         },
         {
           "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARFaceTrackingConfiguration/title",
-          "value": "ARFaceTrackingConfiguration"
+          "value": [
+            {
+              "kind": "identifier",
+              "text": "ARSession"
+            }
+          ],
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARSession/fragments"
+        },
+        {
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARSession/navigatorTitle",
+          "value": [
+            {
+              "text": "ARSession",
+              "kind": "identifier"
+            }
+          ],
+          "op": "replace"
+        },
+        {
+          "value": "configurableCaptureDeviceForPrimaryCamera",
+          "op": "replace",
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1configurableCaptureDeviceForPrimaryCamera/title"
+        },
+        {
+          "value": [
+            {
+              "text": "configurableCaptureDeviceForPrimaryCamera",
+              "kind": "identifier"
+            }
+          ],
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1configurableCaptureDeviceForPrimaryCamera/fragments",
+          "op": "replace"
+        },
+        {
+          "value": "recommendedVideoFormatForHighResolutionFrameCapturing",
+          "op": "replace",
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1recommendedVideoFormatForHighResolutionFrameCapturing/title"
+        },
+        {
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1recommendedVideoFormatForHighResolutionFrameCapturing/fragments",
+          "value": [
+            {
+              "text": "recommendedVideoFormatForHighResolutionFrameCapturing",
+              "kind": "identifier"
+            }
+          ],
+          "op": "replace"
+        },
+        {
+          "value": "supportsFrameSemantics:",
+          "op": "replace",
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1supportsFrameSemantics(_:)/title"
+        },
+        {
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1supportsFrameSemantics(_:)/fragments",
+          "value": [
+            {
+              "kind": "text",
+              "text": "+ "
+            },
+            {
+              "text": "supportsFrameSemantics:",
+              "kind": "identifier"
+            }
+          ],
+          "op": "replace"
+        },
+        {
+          "op": "replace",
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1FrameSemantics-swift.struct~1personSegmentation/title",
+          "value": "ARFrameSemanticPersonSegmentation"
+        },
+        {
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1FrameSemantics-swift.struct~1personSegmentation/fragments",
+          "op": "replace",
+          "value": [
+            {
+              "kind": "identifier",
+              "text": "ARFrameSemanticPersonSegmentation"
+            }
+          ]
+        },
+        {
+          "value": "ARFrameSemantics",
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1FrameSemantics-swift.struct/title",
+          "op": "replace"
+        },
+        {
+          "op": "replace",
+          "value": [
+            {
+              "kind": "identifier",
+              "text": "ARFrameSemantics"
+            }
+          ],
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1FrameSemantics-swift.struct/fragments"
+        },
+        {
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1FrameSemantics-swift.struct/navigatorTitle",
+          "value": [
+            {
+              "text": "ARFrameSemantics",
+              "kind": "identifier"
+            }
+          ],
+          "op": "replace"
+        },
+        {
+          "op": "replace",
+          "value": "ARImageTrackingConfiguration",
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARImageTrackingConfiguration/title"
+        },
+        {
+          "op": "replace",
+          "value": [
+            {
+              "text": "ARImageTrackingConfiguration",
+              "kind": "identifier"
+            }
+          ],
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARImageTrackingConfiguration/fragments"
+        },
+        {
+          "value": [
+            {
+              "kind": "identifier",
+              "text": "ARImageTrackingConfiguration"
+            }
+          ],
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARImageTrackingConfiguration/navigatorTitle",
+          "op": "replace"
+        },
+        {
+          "value": "AROrientationTrackingConfiguration",
+          "op": "replace",
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1AROrientationTrackingConfiguration/title"
+        },
+        {
+          "value": [
+            {
+              "text": "AROrientationTrackingConfiguration",
+              "kind": "identifier"
+            }
+          ],
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1AROrientationTrackingConfiguration/fragments",
+          "op": "replace"
+        },
+        {
+          "value": [
+            {
+              "kind": "identifier",
+              "text": "AROrientationTrackingConfiguration"
+            }
+          ],
+          "op": "replace",
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1AROrientationTrackingConfiguration/navigatorTitle"
+        },
+        {
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARWorldTrackingConfiguration/title",
+          "value": "ARWorldTrackingConfiguration",
+          "op": "replace"
+        },
+        {
+          "value": [
+            {
+              "text": "ARWorldTrackingConfiguration",
+              "kind": "identifier"
+            }
+          ],
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARWorldTrackingConfiguration/fragments",
+          "op": "replace"
+        },
+        {
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARWorldTrackingConfiguration/navigatorTitle",
+          "op": "replace",
+          "value": [
+            {
+              "text": "ARWorldTrackingConfiguration",
+              "kind": "identifier"
+            }
+          ]
+        },
+        {
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARPositionalTrackingConfiguration/title",
+          "value": "ARPositionalTrackingConfiguration",
+          "op": "replace"
+        },
+        {
+          "value": [
+            {
+              "kind": "identifier",
+              "text": "ARPositionalTrackingConfiguration"
+            }
+          ],
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARPositionalTrackingConfiguration/fragments",
+          "op": "replace"
+        },
+        {
+          "value": [
+            {
+              "kind": "identifier",
+              "text": "ARPositionalTrackingConfiguration"
+            }
+          ],
+          "op": "replace",
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARPositionalTrackingConfiguration/navigatorTitle"
+        },
+        {
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARSession~1captureHighResolutionFrame(completion:)/title",
+          "op": "replace",
+          "value": "captureHighResolutionFrameWithCompletion:"
+        },
+        {
+          "value": [
+            {
+              "text": "- ",
+              "kind": "text"
+            },
+            {
+              "kind": "identifier",
+              "text": "captureHighResolutionFrameWithCompletion:"
+            }
+          ],
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARSession~1captureHighResolutionFrame(completion:)/fragments",
+          "op": "replace"
+        },
+        {
+          "value": "ARObjectScanningConfiguration",
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARObjectScanningConfiguration/title",
+          "op": "replace"
+        },
+        {
+          "value": [
+            {
+              "text": "ARObjectScanningConfiguration",
+              "kind": "identifier"
+            }
+          ],
+          "op": "replace",
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARObjectScanningConfiguration/fragments"
+        },
+        {
+          "op": "replace",
+          "value": [
+            {
+              "kind": "identifier",
+              "text": "ARObjectScanningConfiguration"
+            }
+          ],
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARObjectScanningConfiguration/navigatorTitle"
+        },
+        {
+          "value": "frameSemantics",
+          "op": "replace",
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1frameSemantics-swift.property/title"
+        },
+        {
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1frameSemantics-swift.property/fragments",
+          "op": "replace",
+          "value": [
+            {
+              "text": "frameSemantics",
+              "kind": "identifier"
+            }
+          ]
+        },
+        {
+          "op": "replace",
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1recommendedVideoFormatFor4KResolution/title",
+          "value": "recommendedVideoFormatFor4KResolution"
+        },
+        {
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1recommendedVideoFormatFor4KResolution/fragments",
+          "value": [
+            {
+              "text": "recommendedVideoFormatFor4KResolution",
+              "kind": "identifier"
+            }
+          ],
+          "op": "replace"
+        },
+        {
+          "value": "videoHDRAllowed",
+          "op": "replace",
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1videoHDRAllowed/title"
+        },
+        {
+          "value": [
+            {
+              "text": "videoHDRAllowed",
+              "kind": "identifier"
+            }
+          ],
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1videoHDRAllowed/fragments",
+          "op": "replace"
+        },
+        {
+          "op": "replace",
+          "value": "ARFaceTrackingConfiguration",
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARFaceTrackingConfiguration/title"
         },
         {
           "value": [
@@ -1772,190 +2070,81 @@
         {
           "value": [
             {
-              "text": "ARFaceTrackingConfiguration",
-              "kind": "identifier"
+              "kind": "identifier",
+              "text": "ARFaceTrackingConfiguration"
             }
           ],
           "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARFaceTrackingConfiguration/navigatorTitle",
           "op": "replace"
         },
         {
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARGeoTrackingConfiguration/title",
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration/title",
+          "value": "ARConfiguration",
+          "op": "replace"
+        },
+        {
           "op": "replace",
+          "value": [
+            {
+              "kind": "identifier",
+              "text": "ARConfiguration"
+            }
+          ],
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration/fragments"
+        },
+        {
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration/navigatorTitle",
+          "op": "replace",
+          "value": [
+            {
+              "text": "ARConfiguration",
+              "kind": "identifier"
+            }
+          ]
+        },
+        {
+          "op": "replace",
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARGeoTrackingConfiguration/title",
           "value": "ARGeoTrackingConfiguration"
         },
         {
-          "op": "replace",
           "value": [
             {
               "kind": "identifier",
               "text": "ARGeoTrackingConfiguration"
             }
           ],
+          "op": "replace",
           "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARGeoTrackingConfiguration/fragments"
         },
         {
+          "op": "replace",
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARGeoTrackingConfiguration/navigatorTitle",
           "value": [
             {
               "kind": "identifier",
               "text": "ARGeoTrackingConfiguration"
             }
-          ],
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARGeoTrackingConfiguration/navigatorTitle",
-          "op": "replace"
-        },
-        {
-          "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1supportsFrameSemantics(_:)/title",
-          "value": "supportsFrameSemantics:"
-        },
-        {
-          "value": [
-            {
-              "kind": "text",
-              "text": "+ "
-            },
-            {
-              "kind": "identifier",
-              "text": "supportsFrameSemantics:"
-            }
-          ],
-          "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1supportsFrameSemantics(_:)/fragments"
-        },
-        {
-          "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1FrameSemantics-swift.struct~1personSegmentation/title",
-          "value": "ARFrameSemanticPersonSegmentation"
-        },
-        {
-          "op": "replace",
-          "value": [
-            {
-              "text": "ARFrameSemanticPersonSegmentation",
-              "kind": "identifier"
-            }
-          ],
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1FrameSemantics-swift.struct~1personSegmentation/fragments"
-        },
-        {
-          "value": "ARFrameSemantics",
-          "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1FrameSemantics-swift.struct/title"
-        },
-        {
-          "value": [
-            {
-              "text": "ARFrameSemantics",
-              "kind": "identifier"
-            }
-          ],
-          "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1FrameSemantics-swift.struct/fragments"
-        },
-        {
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1FrameSemantics-swift.struct/navigatorTitle",
-          "op": "replace",
-          "value": [
-            {
-              "kind": "identifier",
-              "text": "ARFrameSemantics"
-            }
           ]
         },
         {
           "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1recommendedVideoFormatFor4KResolution/title",
-          "value": "recommendedVideoFormatFor4KResolution"
+          "value": "ARBodyTrackingConfiguration",
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARBodyTrackingConfiguration/title"
         },
         {
+          "op": "replace",
           "value": [
             {
               "kind": "identifier",
-              "text": "recommendedVideoFormatFor4KResolution"
+              "text": "ARBodyTrackingConfiguration"
             }
           ],
-          "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1recommendedVideoFormatFor4KResolution/fragments"
-        },
-        {
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1configurableCaptureDeviceForPrimaryCamera/title",
-          "value": "configurableCaptureDeviceForPrimaryCamera",
-          "op": "replace"
-        },
-        {
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1configurableCaptureDeviceForPrimaryCamera/fragments",
-          "value": [
-            {
-              "text": "configurableCaptureDeviceForPrimaryCamera",
-              "kind": "identifier"
-            }
-          ],
-          "op": "replace"
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARBodyTrackingConfiguration/fragments"
         },
         {
           "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1frameSemantics-swift.property/title",
-          "value": "frameSemantics"
-        },
-        {
-          "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1frameSemantics-swift.property/fragments",
-          "value": [
-            {
-              "text": "frameSemantics",
-              "kind": "identifier"
-            }
-          ]
-        },
-        {
-          "value": "recommendedVideoFormatForHighResolutionFrameCapturing",
-          "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1recommendedVideoFormatForHighResolutionFrameCapturing/title"
-        },
-        {
-          "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1recommendedVideoFormatForHighResolutionFrameCapturing/fragments",
-          "value": [
-            {
-              "text": "recommendedVideoFormatForHighResolutionFrameCapturing",
-              "kind": "identifier"
-            }
-          ]
-        },
-        {
-          "value": "ARObjectScanningConfiguration",
-          "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARObjectScanningConfiguration/title"
-        },
-        {
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARObjectScanningConfiguration/fragments",
-          "value": [
-            {
-              "kind": "identifier",
-              "text": "ARObjectScanningConfiguration"
-            }
-          ],
-          "op": "replace"
-        },
-        {
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARObjectScanningConfiguration/navigatorTitle",
-          "value": [
-            {
-              "text": "ARObjectScanningConfiguration",
-              "kind": "identifier"
-            }
-          ],
-          "op": "replace"
-        },
-        {
-          "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARBodyTrackingConfiguration/title",
-          "value": "ARBodyTrackingConfiguration"
-        },
-        {
-          "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARBodyTrackingConfiguration/fragments",
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARBodyTrackingConfiguration/navigatorTitle",
           "value": [
             {
               "text": "ARBodyTrackingConfiguration",
@@ -1964,213 +2153,24 @@
           ]
         },
         {
-          "value": [
-            {
-              "kind": "identifier",
-              "text": "ARBodyTrackingConfiguration"
-            }
-          ],
-          "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARBodyTrackingConfiguration/navigatorTitle"
-        },
-        {
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARSession/title",
-          "op": "replace",
-          "value": "ARSession"
-        },
-        {
-          "value": [
-            {
-              "text": "ARSession",
-              "kind": "identifier"
-            }
-          ],
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARSession/fragments",
-          "op": "replace"
-        },
-        {
-          "op": "replace",
-          "value": [
-            {
-              "text": "ARSession",
-              "kind": "identifier"
-            }
-          ],
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARSession/navigatorTitle"
-        },
-        {
-          "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARSession~1captureHighResolutionFrame(completion:)/title",
-          "value": "captureHighResolutionFrameWithCompletion:"
-        },
-        {
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARSession~1captureHighResolutionFrame(completion:)/fragments",
-          "op": "replace",
-          "value": [
-            {
-              "text": "- ",
-              "kind": "text"
-            },
-            {
-              "kind": "identifier",
-              "text": "captureHighResolutionFrameWithCompletion:"
-            }
-          ]
-        },
-        {
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration/title",
-          "op": "replace",
-          "value": "ARConfiguration"
-        },
-        {
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration/fragments",
-          "value": [
-            {
-              "kind": "identifier",
-              "text": "ARConfiguration"
-            }
-          ],
-          "op": "replace"
-        },
-        {
-          "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration/navigatorTitle",
-          "value": [
-            {
-              "kind": "identifier",
-              "text": "ARConfiguration"
-            }
-          ]
-        },
-        {
-          "op": "replace",
-          "value": "ARWorldTrackingConfiguration",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARWorldTrackingConfiguration/title"
-        },
-        {
-          "value": [
-            {
-              "kind": "identifier",
-              "text": "ARWorldTrackingConfiguration"
-            }
-          ],
-          "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARWorldTrackingConfiguration/fragments"
-        },
-        {
-          "value": [
-            {
-              "text": "ARWorldTrackingConfiguration",
-              "kind": "identifier"
-            }
-          ],
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARWorldTrackingConfiguration/navigatorTitle",
-          "op": "replace"
-        },
-        {
-          "op": "replace",
-          "value": "AROrientationTrackingConfiguration",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1AROrientationTrackingConfiguration/title"
-        },
-        {
-          "op": "replace",
-          "value": [
-            {
-              "text": "AROrientationTrackingConfiguration",
-              "kind": "identifier"
-            }
-          ],
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1AROrientationTrackingConfiguration/fragments"
-        },
-        {
-          "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1AROrientationTrackingConfiguration/navigatorTitle",
-          "value": [
-            {
-              "kind": "identifier",
-              "text": "AROrientationTrackingConfiguration"
-            }
-          ]
-        },
-        {
-          "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARImageTrackingConfiguration/title",
-          "value": "ARImageTrackingConfiguration"
-        },
-        {
-          "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARImageTrackingConfiguration/fragments",
-          "value": [
-            {
-              "text": "ARImageTrackingConfiguration",
-              "kind": "identifier"
-            }
-          ]
-        },
-        {
-          "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARImageTrackingConfiguration/navigatorTitle",
-          "value": [
-            {
-              "kind": "identifier",
-              "text": "ARImageTrackingConfiguration"
-            }
-          ]
-        },
-        {
-          "op": "replace",
+          "value": "ARFrameSemanticPersonSegmentationWithDepth",
           "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1FrameSemantics-swift.struct~1personSegmentationWithDepth/title",
-          "value": "ARFrameSemanticPersonSegmentationWithDepth"
+          "op": "replace"
         },
         {
-          "op": "replace",
           "value": [
             {
               "text": "ARFrameSemanticPersonSegmentationWithDepth",
               "kind": "identifier"
             }
           ],
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1FrameSemantics-swift.struct~1personSegmentationWithDepth/fragments"
-        },
+          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1FrameSemantics-swift.struct~1personSegmentationWithDepth/fragments",
+          "op": "replace"
+        }
+      ],
+      "traits": [
         {
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1FrameSemantics-swift.struct~1bodyDetection/title",
-          "op": "replace",
-          "value": "ARFrameSemanticBodyDetection"
-        },
-        {
-          "value": [
-            {
-              "kind": "identifier",
-              "text": "ARFrameSemanticBodyDetection"
-            }
-          ],
-          "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARConfiguration~1FrameSemantics-swift.struct~1bodyDetection/fragments"
-        },
-        {
-          "op": "replace",
-          "value": "ARPositionalTrackingConfiguration",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARPositionalTrackingConfiguration/title"
-        },
-        {
-          "value": [
-            {
-              "text": "ARPositionalTrackingConfiguration",
-              "kind": "identifier"
-            }
-          ],
-          "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARPositionalTrackingConfiguration/fragments"
-        },
-        {
-          "op": "replace",
-          "path": "/references/doc:~1~1com.apple.arkit~1documentation~1ARKit~1ARPositionalTrackingConfiguration/navigatorTitle",
-          "value": [
-            {
-              "text": "ARPositionalTrackingConfiguration",
-              "kind": "identifier"
-            }
-          ]
+          "interfaceLanguage": "occ"
         }
       ]
     }
