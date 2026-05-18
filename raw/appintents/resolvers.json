@@ -1,54 +1,39 @@
 {
-  "variants": [
-    {
-      "paths": [
-        "/documentation/appintents/resolvers"
-      ],
-      "traits": [
-        {
-          "interfaceLanguage": "swift"
-        }
-      ]
-    }
-  ],
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://com.apple.AppIntents/documentation/AppIntents/resolvers"
-  },
+  "sections": [],
   "topicSections": [
     {
+      "anchor": "Integer-resolution",
       "title": "Integer resolution",
       "identifiers": [
         "doc://com.apple.AppIntents/documentation/AppIntents/IntFromDoubleResolver",
         "doc://com.apple.AppIntents/documentation/AppIntents/IntFromStringResolver",
         "doc://com.apple.AppIntents/documentation/AppIntents/IntResolver"
-      ],
-      "anchor": "Integer-resolution"
+      ]
     },
     {
+      "anchor": "Floating-point-resolution",
+      "title": "Floating-point resolution",
       "identifiers": [
         "doc://com.apple.AppIntents/documentation/AppIntents/DoubleFromIntResolver",
         "doc://com.apple.AppIntents/documentation/AppIntents/DoubleFromStringResolver",
         "doc://com.apple.AppIntents/documentation/AppIntents/DoubleResolver"
-      ],
-      "anchor": "Floating-point-resolution",
-      "title": "Floating-point resolution"
+      ]
     },
     {
+      "title": "String resolution",
+      "anchor": "String-resolution",
       "identifiers": [
         "doc://com.apple.AppIntents/documentation/AppIntents/AttributedStringFromStringResolver",
         "doc://com.apple.AppIntents/documentation/AppIntents/StringFromDoubleResolver",
         "doc://com.apple.AppIntents/documentation/AppIntents/StringFromIntResolver"
-      ],
-      "anchor": "String-resolution",
-      "title": "String resolution"
+      ]
     },
     {
       "anchor": "Boolean-resolution",
+      "title": "Boolean resolution",
       "identifiers": [
         "doc://com.apple.AppIntents/documentation/AppIntents/BoolFromStringResolver"
-      ],
-      "title": "Boolean resolution"
+      ]
     },
     {
       "title": "URL resolution",
@@ -58,25 +43,53 @@
       ]
     },
     {
+      "title": "Custom resolution",
       "identifiers": [
         "doc://com.apple.AppIntents/documentation/AppIntents/Resolver"
       ],
-      "title": "Custom resolution",
       "anchor": "Custom-resolution"
     },
     {
+      "anchor": "Range-validation",
       "title": "Range validation",
       "identifiers": [
         "doc://com.apple.AppIntents/documentation/AppIntents/RangeCheckingResolver",
         "doc://com.apple.AppIntents/documentation/AppIntents/RangeComparableProperty"
-      ],
-      "anchor": "Range-validation"
+      ]
+    }
+  ],
+  "metadata": {
+    "roleHeading": "API Collection",
+    "role": "collectionGroup",
+    "title": "Resolvers",
+    "modules": [
+      {
+        "name": "App Intents"
+      }
+    ]
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "kind": "article",
+  "abstract": [
+    {
+      "type": "text",
+      "text": "Resolve the parameters of your app intents, and extend the standard resolution"
+    },
+    {
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "text": "types to include your app’s custom types.",
+      "type": "text"
     }
   ],
   "seeAlsoSections": [
     {
-      "title": "Parameters and data types",
-      "generated": true,
       "identifiers": [
         "doc://com.apple.AppIntents/documentation/AppIntents/Adding-parameters-to-an-app-intent",
         "doc://com.apple.AppIntents/documentation/AppIntents/parameter-resolution",
@@ -86,54 +99,42 @@
         "doc://com.apple.AppIntents/documentation/AppIntents/entity-queries",
         "doc://com.apple.AppIntents/documentation/AppIntents/property-comparators"
       ],
+      "title": "Parameters and data types",
+      "generated": true,
       "anchor": "Parameters-and-data-types"
     }
   ],
-  "metadata": {
-    "title": "Resolvers",
-    "modules": [
-      {
-        "name": "App Intents"
-      }
-    ],
-    "roleHeading": "API Collection",
-    "role": "collectionGroup"
-  },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
   "primaryContentSections": [
     {
       "content": [
         {
-          "level": 2,
           "type": "heading",
           "text": "Overview",
-          "anchor": "Overview"
+          "anchor": "Overview",
+          "level": 2
         },
         {
+          "type": "paragraph",
           "inlineContent": [
             {
-              "text": "System experiences like Siri and the Shortcuts app produce input that doesn’t",
-              "type": "text"
-            },
-            {
-              "text": " ",
-              "type": "text"
-            },
-            {
-              "text": "always match what your code requires. For example, natural spoken language",
-              "type": "text"
-            },
-            {
-              "text": " ",
-              "type": "text"
+              "type": "text",
+              "text": "System experiences like Siri and the Shortcuts app produce input that doesn’t"
             },
             {
               "type": "text",
-              "text": "commands from Siri are strings, but your app intent might require an integer or"
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "always match what your code requires. For example, natural spoken language"
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "text": "commands from Siri are strings, but your app intent might require an integer or",
+              "type": "text"
             },
             {
               "text": " ",
@@ -148,11 +149,10 @@
               "type": "text"
             },
             {
-              "type": "text",
-              "text": "another automatically."
+              "text": "another automatically.",
+              "type": "text"
             }
-          ],
-          "type": "paragraph"
+          ]
         },
         {
           "inlineContent": [
@@ -161,24 +161,24 @@
               "text": "The system provides resolvers to convert between integer,"
             },
             {
-              "type": "text",
-              "text": " "
-            },
-            {
-              "text": "floating-point, Boolean, string, and URL types. As needed, the system",
-              "type": "text"
-            },
-            {
               "text": " ",
               "type": "text"
             },
             {
-              "text": "can chain multiple resolvers together to translate between types for",
-              "type": "text"
+              "type": "text",
+              "text": "floating-point, Boolean, string, and URL types. As needed, the system"
             },
             {
               "type": "text",
               "text": " "
+            },
+            {
+              "type": "text",
+              "text": "can chain multiple resolvers together to translate between types for"
+            },
+            {
+              "text": " ",
+              "type": "text"
             },
             {
               "text": "which no single resolver exists. For example, it can translate an integer",
@@ -189,15 +189,7 @@
               "text": " "
             },
             {
-              "type": "text",
-              "text": "into a string and then translate the string into a Boolean value. If your"
-            },
-            {
-              "type": "text",
-              "text": " "
-            },
-            {
-              "text": "app defines custom types, create your own resolvers to translate those types",
+              "text": "into a string and then translate the string into a Boolean value. If your",
               "type": "text"
             },
             {
@@ -206,7 +198,15 @@
             },
             {
               "type": "text",
-              "text": "to more recognizable values."
+              "text": "app defines custom types, create your own resolvers to translate those types"
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "text": "to more recognizable values.",
+              "type": "text"
             }
           ],
           "type": "paragraph"
@@ -215,20 +215,20 @@
       "kind": "content"
     }
   ],
-  "sections": [],
-  "kind": "article",
-  "abstract": [
+  "identifier": {
+    "url": "doc://com.apple.AppIntents/documentation/AppIntents/resolvers",
+    "interfaceLanguage": "swift"
+  },
+  "variants": [
     {
-      "type": "text",
-      "text": "Resolve the parameters of your app intents, and extend the standard resolution"
-    },
-    {
-      "type": "text",
-      "text": " "
-    },
-    {
-      "text": "types to include your app’s custom types.",
-      "type": "text"
+      "paths": [
+        "/documentation/appintents/resolvers"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
     }
   ],
   "hierarchy": {
@@ -240,214 +240,11 @@
     ]
   },
   "references": {
-    "doc://com.apple.AppIntents/documentation/AppIntents/StringFromIntResolver": {
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "StringFromIntResolver",
-          "kind": "identifier"
-        }
-      ],
-      "type": "topic",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/StringFromIntResolver",
-      "role": "symbol",
-      "navigatorTitle": [
-        {
-          "text": "StringFromIntResolver",
-          "kind": "identifier"
-        }
-      ],
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A resolver that converts one or more integers into one or more strings."
-        }
-      ],
-      "title": "StringFromIntResolver",
-      "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/stringfromintresolver"
-    },
-    "doc://com.apple.documentation/documentation/technologies": {
-      "type": "topic",
-      "title": "Technologies",
-      "kind": "technologies",
-      "url": "https://developer.apple.com/documentation/technologies",
-      "role": "overview",
-      "abstract": [
-        {
-          "text": "",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://com.apple.documentation/documentation/technologies"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/RangeComparableProperty": {
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/RangeComparableProperty",
-      "kind": "symbol",
-      "fragments": [
-        {
-          "text": "protocol",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "RangeComparableProperty",
-          "kind": "identifier"
-        }
-      ],
-      "type": "topic",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "RangeComparableProperty"
-        }
-      ],
-      "title": "RangeComparableProperty",
-      "abstract": [],
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/rangecomparableproperty"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AttributedStringFromStringResolver": {
-      "fragments": [
-        {
-          "text": "struct",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "AttributedStringFromStringResolver",
-          "kind": "identifier"
-        }
-      ],
-      "kind": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AttributedStringFromStringResolver",
-      "url": "https://developer.apple.com/documentation/appintents/attributedstringfromstringresolver",
-      "abstract": [
-        {
-          "text": "A resolver that converts a string into an attributed string.",
-          "type": "text"
-        }
-      ],
-      "role": "symbol",
-      "title": "AttributedStringFromStringResolver",
-      "navigatorTitle": [
-        {
-          "text": "AttributedStringFromStringResolver",
-          "kind": "identifier"
-        }
-      ],
-      "type": "topic"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/Adding-parameters-to-an-app-intent": {
-      "kind": "article",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/Adding-parameters-to-an-app-intent",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Enable people to configure app intents with their custom input values."
-        }
-      ],
-      "role": "article",
-      "title": "Adding parameters to an app intent",
-      "url": "https://developer.apple.com/documentation/appintents/adding-parameters-to-an-app-intent",
-      "type": "topic"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/parameter-resolution": {
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Define the required parameters for your app intents and specify how to resolve"
-        },
-        {
-          "type": "text",
-          "text": " "
-        },
-        {
-          "type": "text",
-          "text": "those parameters at runtime."
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/parameter-resolution",
-      "title": "Parameter resolution",
-      "kind": "article",
-      "role": "collectionGroup",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/parameter-resolution",
-      "type": "topic"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/app-enums": {
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Types that represent an enumerable list of static parameter values."
-        }
-      ],
-      "role": "collectionGroup",
-      "title": "Static parameter types",
-      "url": "https://developer.apple.com/documentation/appintents/app-enums",
-      "kind": "article",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-enums",
-      "type": "topic"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/entity-queries": {
-      "abstract": [
-        {
-          "text": "Help the system find the entities your app defines and use",
-          "type": "text"
-        },
-        {
-          "type": "text",
-          "text": " "
-        },
-        {
-          "text": "them to resolve parameters.",
-          "type": "text"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/entity-queries",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "Entity queries",
-      "type": "topic",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/entity-queries"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents": {
-      "role": "collection",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents",
-      "type": "topic",
-      "abstract": [
-        {
-          "text": "Make your app’s content and actions discoverable with system experiences like Spotlight, widgets, and the Shortcuts app.",
-          "type": "text"
-        }
-      ],
-      "kind": "symbol",
-      "title": "App Intents",
-      "url": "https://developer.apple.com/documentation/appintents",
-      "navigatorTitle": [
-        {
-          "kind": "text",
-          "text": "App Intents"
-        }
-      ]
-    },
     "doc://com.apple.AppIntents/documentation/AppIntents/app-entities": {
-      "kind": "article",
-      "role": "collectionGroup",
+      "title": "App entities",
       "type": "topic",
-      "url": "https://developer.apple.com/documentation/appintents/app-entities",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-entities",
+      "kind": "article",
       "abstract": [
         {
           "text": "Make core types or concepts discoverable to the system by declaring",
@@ -458,167 +255,61 @@
           "text": " "
         },
         {
-          "type": "text",
-          "text": "them as app entities."
+          "text": "them as app entities.",
+          "type": "text"
         }
       ],
-      "title": "App entities",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-entities"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/property-comparators": {
-      "title": "Property comparators",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Specify the type of comparison to perform during a property-matched query."
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/property-comparators",
       "role": "collectionGroup",
-      "kind": "article",
-      "url": "https://developer.apple.com/documentation/appintents/property-comparators",
-      "type": "topic"
+      "url": "https://developer.apple.com/documentation/appintents/app-entities"
     },
-    "doc://com.apple.AppIntents/documentation/AppIntents/RangeCheckingResolver": {
+    "doc://com.apple.AppIntents/documentation/AppIntents/DoubleFromIntResolver": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/DoubleFromIntResolver",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/doublefromintresolver",
       "fragments": [
         {
-          "text": "protocol",
-          "kind": "keyword"
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "DoubleFromIntResolver"
+        }
+      ],
+      "kind": "symbol",
+      "title": "DoubleFromIntResolver",
+      "abstract": [],
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "DoubleFromIntResolver",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/IntFromDoubleResolver": {
+      "url": "https://developer.apple.com/documentation/appintents/intfromdoubleresolver",
+      "title": "IntFromDoubleResolver",
+      "type": "topic",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
         },
         {
           "kind": "text",
           "text": " "
         },
         {
-          "kind": "identifier",
-          "text": "RangeCheckingResolver"
-        }
-      ],
-      "type": "topic",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/RangeCheckingResolver",
-      "role": "symbol",
-      "navigatorTitle": [
-        {
-          "text": "RangeCheckingResolver",
+          "text": "IntFromDoubleResolver",
           "kind": "identifier"
         }
       ],
-      "abstract": [
-        {
-          "text": "An interface for validating that a value is within a parameter’s defined inclusive range.",
-          "type": "text"
-        }
-      ],
-      "title": "RangeCheckingResolver",
       "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/rangecheckingresolver"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/BoolFromStringResolver": {
-      "type": "topic",
-      "role": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/BoolFromStringResolver",
-      "abstract": [
-        {
-          "text": "A resolver that converts a string into a Boolean, optionally using a localized display name.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "BoolFromStringResolver",
-          "kind": "identifier"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/boolfromstringresolver",
-      "title": "BoolFromStringResolver",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "text": "BoolFromStringResolver",
-          "kind": "identifier"
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/IntResolver": {
-      "url": "https://developer.apple.com/documentation/appintents/intresolver",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntResolver",
-      "title": "IntResolver",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A resolver that validates an integer is within the parameter’s inclusive range."
-        }
-      ],
-      "kind": "symbol",
-      "role": "symbol",
-      "type": "topic",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "IntResolver"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "text": "IntResolver",
-          "kind": "identifier"
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/URLFromStringResolver": {
-      "url": "https://developer.apple.com/documentation/appintents/urlfromstringresolver",
-      "kind": "symbol",
-      "fragments": [
-        {
-          "text": "struct",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "URLFromStringResolver",
-          "kind": "identifier"
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/URLFromStringResolver",
-      "role": "symbol",
-      "type": "topic",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "URLFromStringResolver"
-        }
-      ],
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A resolver that converts a string into a URL."
-        }
-      ],
-      "title": "URLFromStringResolver"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/IntFromDoubleResolver": {
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntFromDoubleResolver",
-      "kind": "symbol",
-      "title": "IntFromDoubleResolver",
       "abstract": [
         {
           "text": "A resolver that converts a double into an integer using the specified rounding rule and validates the result is within the",
@@ -633,50 +324,18 @@
           "type": "text"
         }
       ],
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/intfromdoubleresolver",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "IntFromDoubleResolver"
-        }
-      ],
-      "type": "topic",
       "navigatorTitle": [
         {
           "kind": "identifier",
           "text": "IntFromDoubleResolver"
         }
-      ]
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntFromDoubleResolver",
+      "role": "symbol"
     },
     "doc://com.apple.AppIntents/documentation/AppIntents/IntFromStringResolver": {
-      "abstract": [
-        {
-          "text": "A resolver that converts a string into an integer in the specified base and validates the result is within the parameter’s",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "type": "text",
-          "text": "inclusive range."
-        }
-      ],
-      "kind": "symbol",
-      "type": "topic",
       "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntFromStringResolver",
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/intfromstringresolver",
+      "type": "topic",
       "navigatorTitle": [
         {
           "text": "IntFromStringResolver",
@@ -684,6 +343,68 @@
         }
       ],
       "title": "IntFromStringResolver",
+      "role": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A resolver that converts a string into an integer in the specified base and validates the result is within the parameter’s"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "inclusive range.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "IntFromStringResolver",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/intfromstringresolver",
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/Adding-parameters-to-an-app-intent": {
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/Adding-parameters-to-an-app-intent",
+      "title": "Adding parameters to an app intent",
+      "role": "article",
+      "url": "https://developer.apple.com/documentation/appintents/adding-parameters-to-an-app-intent",
+      "abstract": [
+        {
+          "text": "Enable people to configure app intents with their custom input values.",
+          "type": "text"
+        }
+      ],
+      "kind": "article"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/DoubleFromStringResolver": {
+      "abstract": [
+        {
+          "text": "A resolver that converts a string into a double and validates the result is within the parameter’s inclusive range.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "DoubleFromStringResolver"
+        }
+      ],
+      "title": "DoubleFromStringResolver",
+      "role": "symbol",
       "fragments": [
         {
           "kind": "keyword",
@@ -694,166 +415,135 @@
           "text": " "
         },
         {
-          "kind": "identifier",
-          "text": "IntFromStringResolver"
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/DoubleFromIntResolver": {
-      "abstract": [],
-      "type": "topic",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/DoubleFromIntResolver",
-      "role": "symbol",
-      "kind": "symbol",
-      "fragments": [
-        {
-          "text": "struct",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "DoubleFromIntResolver",
-          "kind": "identifier"
-        }
-      ],
-      "title": "DoubleFromIntResolver",
-      "navigatorTitle": [
-        {
-          "text": "DoubleFromIntResolver",
-          "kind": "identifier"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/doublefromintresolver"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/StringFromDoubleResolver": {
-      "type": "topic",
-      "kind": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/StringFromDoubleResolver",
-      "url": "https://developer.apple.com/documentation/appintents/stringfromdoubleresolver",
-      "title": "StringFromDoubleResolver",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A resolver that converts a double into a string."
-        }
-      ],
-      "role": "symbol",
-      "fragments": [
-        {
-          "text": "struct",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "StringFromDoubleResolver",
-          "kind": "identifier"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "StringFromDoubleResolver"
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/Resolver": {
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/resolver",
-      "type": "topic",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "protocol"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "Resolver",
-          "kind": "identifier"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "text": "Resolver",
-          "kind": "identifier"
-        }
-      ],
-      "title": "Resolver",
-      "abstract": [
-        {
-          "text": "An interface to convert a value from one type to a different type.",
-          "type": "text"
-        }
-      ],
-      "kind": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/Resolver"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/common-data-types": {
-      "type": "topic",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Specify common types that your app supports, including currencies,"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "files, and contacts.",
-          "type": "text"
-        }
-      ],
-      "kind": "article",
-      "role": "collectionGroup",
-      "url": "https://developer.apple.com/documentation/appintents/common-data-types",
-      "title": "Common data types",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/common-data-types"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/DoubleFromStringResolver": {
-      "navigatorTitle": [
-        {
           "text": "DoubleFromStringResolver",
           "kind": "identifier"
-        }
-      ],
-      "title": "DoubleFromStringResolver",
-      "kind": "symbol",
-      "fragments": [
-        {
-          "text": "struct",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "DoubleFromStringResolver",
-          "kind": "identifier"
-        }
-      ],
-      "role": "symbol",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A resolver that converts a string into a double and validates the result is within the parameter’s inclusive range."
         }
       ],
       "url": "https://developer.apple.com/documentation/appintents/doublefromstringresolver",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/DoubleFromStringResolver",
-      "type": "topic"
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/DoubleFromStringResolver"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/IntResolver": {
+      "url": "https://developer.apple.com/documentation/appintents/intresolver",
+      "title": "IntResolver",
+      "type": "topic",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "IntResolver",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "abstract": [
+        {
+          "text": "A resolver that validates an integer is within the parameter’s inclusive range.",
+          "type": "text"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "IntResolver",
+          "kind": "identifier"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntResolver",
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/BoolFromStringResolver": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/BoolFromStringResolver",
+      "type": "topic",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/boolfromstringresolver",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A resolver that converts a string into a Boolean, optionally using a localized display name."
+        }
+      ],
+      "title": "BoolFromStringResolver",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "BoolFromStringResolver",
+          "kind": "identifier"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "BoolFromStringResolver"
+        }
+      ],
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/entity-queries": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Help the system find the entities your app defines and use"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "type": "text",
+          "text": "them to resolve parameters."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/entity-queries",
+      "role": "collectionGroup",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/entity-queries",
+      "kind": "article",
+      "type": "topic",
+      "title": "Entity queries"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-enums": {
+      "title": "Static parameter types",
+      "kind": "article",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Types that represent an enumerable list of static parameter values."
+        }
+      ],
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/app-enums",
+      "role": "collectionGroup",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-enums"
     },
     "doc://com.apple.AppIntents/documentation/AppIntents/DoubleResolver": {
-      "url": "https://developer.apple.com/documentation/appintents/doubleresolver",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "DoubleResolver"
+        }
+      ],
+      "title": "DoubleResolver",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A resolver that validates a double is within the parameter’s inclusive range."
+        }
+      ],
+      "role": "symbol",
+      "type": "topic",
       "fragments": [
         {
           "text": "struct",
@@ -868,22 +558,332 @@
           "kind": "identifier"
         }
       ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "DoubleResolver"
-        }
-      ],
+      "url": "https://developer.apple.com/documentation/appintents/doubleresolver",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/DoubleResolver"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AttributedStringFromStringResolver": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AttributedStringFromStringResolver",
+      "url": "https://developer.apple.com/documentation/appintents/attributedstringfromstringresolver",
       "abstract": [
         {
-          "text": "A resolver that validates a double is within the parameter’s inclusive range.",
-          "type": "text"
+          "type": "text",
+          "text": "A resolver that converts a string into an attributed string."
         }
       ],
       "kind": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/DoubleResolver",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "AttributedStringFromStringResolver"
+        }
+      ],
+      "type": "topic",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "AttributedStringFromStringResolver"
+        }
+      ],
       "role": "symbol",
-      "title": "DoubleResolver",
+      "title": "AttributedStringFromStringResolver"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/parameter-resolution": {
+      "role": "collectionGroup",
+      "title": "Parameter resolution",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Define the required parameters for your app intents and specify how to resolve"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "type": "text",
+          "text": "those parameters at runtime."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/parameter-resolution",
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/appintents/parameter-resolution"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/RangeComparableProperty": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/RangeComparableProperty",
+      "role": "symbol",
+      "kind": "symbol",
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "RangeComparableProperty",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/rangecomparableproperty",
+      "type": "topic",
+      "title": "RangeComparableProperty",
+      "navigatorTitle": [
+        {
+          "text": "RangeComparableProperty",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/property-comparators": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/property-comparators",
+      "url": "https://developer.apple.com/documentation/appintents/property-comparators",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Specify the type of comparison to perform during a property-matched query."
+        }
+      ],
+      "role": "collectionGroup",
+      "type": "topic",
+      "kind": "article",
+      "title": "Property comparators"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/StringFromIntResolver": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A resolver that converts one or more integers into one or more strings."
+        }
+      ],
+      "title": "StringFromIntResolver",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "StringFromIntResolver"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/StringFromIntResolver",
+      "role": "symbol",
+      "type": "topic",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "StringFromIntResolver",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/stringfromintresolver",
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents": {
+      "url": "https://developer.apple.com/documentation/appintents",
+      "title": "App Intents",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your app’s content and actions discoverable with system experiences like Spotlight, widgets, and the Shortcuts app."
+        }
+      ],
+      "role": "collection",
+      "navigatorTitle": [
+        {
+          "text": "App Intents",
+          "kind": "text"
+        }
+      ],
+      "type": "topic",
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/Resolver": {
+      "role": "symbol",
+      "type": "topic",
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/resolver",
+      "abstract": [
+        {
+          "text": "An interface to convert a value from one type to a different type.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/Resolver",
+      "title": "Resolver",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "Resolver",
+          "kind": "identifier"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "Resolver",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/URLFromStringResolver": {
+      "url": "https://developer.apple.com/documentation/appintents/urlfromstringresolver",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/URLFromStringResolver",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "URLFromStringResolver",
+          "kind": "identifier"
+        }
+      ],
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A resolver that converts a string into a URL."
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "URLFromStringResolver",
+          "kind": "identifier"
+        }
+      ],
+      "role": "symbol",
+      "title": "URLFromStringResolver"
+    },
+    "doc://com.apple.documentation/documentation/technologies": {
+      "role": "overview",
+      "abstract": [
+        {
+          "text": "",
+          "type": "text"
+        }
+      ],
+      "kind": "technologies",
+      "title": "Technologies",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/technologies",
+      "identifier": "doc://com.apple.documentation/documentation/technologies"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/common-data-types": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Specify common types that your app supports, including currencies,"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "files, and contacts.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/common-data-types",
+      "role": "collectionGroup",
+      "url": "https://developer.apple.com/documentation/appintents/common-data-types",
+      "title": "Common data types",
+      "kind": "article"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/StringFromDoubleResolver": {
+      "url": "https://developer.apple.com/documentation/appintents/stringfromdoubleresolver",
+      "abstract": [
+        {
+          "text": "A resolver that converts a double into a string.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "StringFromDoubleResolver"
+        }
+      ],
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "StringFromDoubleResolver",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/StringFromDoubleResolver",
+      "title": "StringFromDoubleResolver"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/RangeCheckingResolver": {
+      "url": "https://developer.apple.com/documentation/appintents/rangecheckingresolver",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "RangeCheckingResolver"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/RangeCheckingResolver",
+      "title": "RangeCheckingResolver",
+      "kind": "symbol",
+      "role": "symbol",
+      "abstract": [
+        {
+          "text": "An interface for validating that a value is within a parameter’s defined inclusive range.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "RangeCheckingResolver"
+        }
+      ],
       "type": "topic"
     }
   },
