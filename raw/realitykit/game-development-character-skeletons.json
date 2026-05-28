@@ -1,4 +1,23 @@
 {
+  "variants": [
+    {
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ],
+      "paths": [
+        "/documentation/realitykit/game-development-character-skeletons"
+      ]
+    }
+  ],
+  "abstract": [
+    {
+      "text": "Direct the movements and animation of models.",
+      "type": "text"
+    }
+  ],
+  "kind": "article",
   "metadata": {
     "modules": [
       {
@@ -9,6 +28,63 @@
     "role": "collectionGroup",
     "title": "Character control, skeletons, and inverse kinematics"
   },
+  "sections": [],
+  "topicSections": [
+    {
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/CharacterControllerComponent",
+        "doc://com.apple.RealityKit/documentation/RealityKit/CharacterControllerComponent/Collision",
+        "doc://com.apple.RealityKit/documentation/RealityKit/CharacterControllerComponent/CollisionFlags",
+        "doc://com.apple.RealityKit/documentation/RealityKit/CharacterControllerStateComponent"
+      ],
+      "title": "Character control",
+      "anchor": "Character-control"
+    },
+    {
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/SkeletalPosesComponent",
+        "doc://com.apple.RealityKit/documentation/RealityKit/SkeletalPose",
+        "doc://com.apple.RealityKit/documentation/RealityKit/SkeletalPoseSet"
+      ],
+      "anchor": "Skeletons",
+      "title": "Skeletons"
+    },
+    {
+      "title": "Inverse kinematics components",
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent",
+        "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/Joint",
+        "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/JointCollection",
+        "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/Solver",
+        "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/SolverCollection",
+        "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/Constraint",
+        "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/ConstraintCollection",
+        "doc://com.apple.RealityKit/documentation/RealityKit/IKResource",
+        "doc://com.apple.RealityKit/documentation/RealityKit/IKSolverDefinition"
+      ],
+      "anchor": "Inverse-kinematics-components"
+    },
+    {
+      "title": "Inverse kinematics rigs",
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/IKRig",
+        "doc://com.apple.RealityKit/documentation/RealityKit/IKRig/Joint",
+        "doc://com.apple.RealityKit/documentation/RealityKit/IKRig/JointCollection",
+        "doc://com.apple.RealityKit/documentation/RealityKit/IKRig/Constraint",
+        "doc://com.apple.RealityKit/documentation/RealityKit/IKRig/ConstraintsCollection"
+      ],
+      "anchor": "Inverse-kinematics-rigs"
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://com.apple.RealityKit/documentation/RealityKit/game-development-character-skeletons"
+  },
   "hierarchy": {
     "paths": [
       [
@@ -17,40 +93,24 @@
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://com.apple.RealityKit/documentation/RealityKit/game-development-character-skeletons"
-  },
-  "abstract": [
-    {
-      "type": "text",
-      "text": "Direct the movements and animation of models."
-    }
-  ],
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
   "seeAlsoSections": [
     {
+      "generated": true,
+      "anchor": "Game-development",
+      "title": "Game development",
       "identifiers": [
         "doc://com.apple.RealityKit/documentation/RealityKit/game-development-sample-code",
         "doc://com.apple.RealityKit/documentation/RealityKit/game-development-entity-animations"
-      ],
-      "generated": true,
-      "anchor": "Game-development",
-      "title": "Game development"
+      ]
     }
   ],
-  "sections": [],
   "primaryContentSections": [
     {
       "content": [
         {
-          "level": 2,
           "anchor": "Overview",
           "text": "Overview",
+          "level": 2,
           "type": "heading"
         },
         {
@@ -60,16 +120,16 @@
               "type": "text"
             },
             {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": "The "
+              "text": "The ",
+              "type": "text"
             },
             {
-              "code": "CharacterControllerComponent",
-              "type": "codeVoice"
+              "type": "codeVoice",
+              "code": "CharacterControllerComponent"
             },
             {
               "type": "text",
@@ -80,8 +140,8 @@
               "text": " "
             },
             {
-              "text": "It handles basic movement, including navigating up and down stairs and slopes and jumping.",
-              "type": "text"
+              "type": "text",
+              "text": "It handles basic movement, including navigating up and down stairs and slopes and jumping."
             },
             {
               "type": "text",
@@ -95,118 +155,100 @@
           "type": "paragraph"
         },
         {
-          "type": "paragraph",
           "inlineContent": [
             {
-              "type": "text",
-              "text": "To further animate models in the scene, you may need to define a "
+              "text": "To further animate models in the scene, you may need to define a ",
+              "type": "text"
             },
             {
-              "isActive": true,
+              "type": "reference",
               "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/SkeletalPose",
-              "type": "reference"
+              "isActive": true
             },
             {
               "text": " or adopt a full",
               "type": "text"
             },
             {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": "inverse kinematics solution with "
+              "text": "inverse kinematics solution with ",
+              "type": "text"
             },
             {
-              "isActive": true,
               "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent",
-              "type": "reference"
+              "type": "reference",
+              "isActive": true
             },
             {
-              "type": "text",
-              "text": "."
+              "text": ".",
+              "type": "text"
             }
-          ]
+          ],
+          "type": "paragraph"
         }
       ],
       "kind": "content"
     }
   ],
-  "kind": "article",
-  "topicSections": [
-    {
-      "anchor": "Character-control",
-      "title": "Character control",
-      "identifiers": [
-        "doc://com.apple.RealityKit/documentation/RealityKit/CharacterControllerComponent",
-        "doc://com.apple.RealityKit/documentation/RealityKit/CharacterControllerComponent/Collision",
-        "doc://com.apple.RealityKit/documentation/RealityKit/CharacterControllerComponent/CollisionFlags",
-        "doc://com.apple.RealityKit/documentation/RealityKit/CharacterControllerStateComponent"
-      ]
-    },
-    {
-      "anchor": "Skeletons",
-      "identifiers": [
-        "doc://com.apple.RealityKit/documentation/RealityKit/SkeletalPosesComponent",
-        "doc://com.apple.RealityKit/documentation/RealityKit/SkeletalPose",
-        "doc://com.apple.RealityKit/documentation/RealityKit/SkeletalPoseSet"
-      ],
-      "title": "Skeletons"
-    },
-    {
-      "anchor": "Inverse-kinematics-components",
-      "identifiers": [
-        "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent",
-        "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/Joint",
-        "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/JointCollection",
-        "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/Solver",
-        "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/SolverCollection",
-        "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/Constraint",
-        "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/ConstraintCollection",
-        "doc://com.apple.RealityKit/documentation/RealityKit/IKResource",
-        "doc://com.apple.RealityKit/documentation/RealityKit/IKSolverDefinition"
-      ],
-      "title": "Inverse kinematics components"
-    },
-    {
-      "anchor": "Inverse-kinematics-rigs",
-      "identifiers": [
-        "doc://com.apple.RealityKit/documentation/RealityKit/IKRig",
-        "doc://com.apple.RealityKit/documentation/RealityKit/IKRig/Joint",
-        "doc://com.apple.RealityKit/documentation/RealityKit/IKRig/JointCollection",
-        "doc://com.apple.RealityKit/documentation/RealityKit/IKRig/Constraint",
-        "doc://com.apple.RealityKit/documentation/RealityKit/IKRig/ConstraintsCollection"
-      ],
-      "title": "Inverse kinematics rigs"
-    }
-  ],
-  "variants": [
-    {
-      "paths": [
-        "/documentation/realitykit/game-development-character-skeletons"
-      ],
-      "traits": [
-        {
-          "interfaceLanguage": "swift"
-        }
-      ]
-    }
-  ],
   "references": {
-    "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent": {
-      "kind": "symbol",
-      "title": "IKComponent",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent",
+    "doc://com.apple.documentation/documentation/technologies": {
+      "kind": "technologies",
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "role": "overview",
+      "abstract": [
+        {
+          "text": "",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/technologies",
+      "title": "Technologies",
+      "type": "topic"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/Solver": {
+      "navigatorTitle": [
+        {
+          "text": "Solver",
+          "kind": "identifier"
+        }
+      ],
+      "title": "IKComponent.Solver",
       "abstract": [
         {
           "type": "text",
-          "text": "A component that allows you to procedurally animate a skeletal model using a full body inverse kinematics solver."
+          "text": "The update stage object that lets you read and update the current settings of a single solver instance."
         }
       ],
+      "url": "https://developer.apple.com/documentation/realitykit/ikcomponent/solver",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/Solver",
+      "type": "topic",
+      "role": "symbol",
       "fragments": [
         {
-          "text": "struct",
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "Solver",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/IKResource": {
+      "url": "https://developer.apple.com/documentation/realitykit/ikresource",
+      "type": "topic",
+      "title": "IKResource",
+      "fragments": [
+        {
+          "text": "class",
           "kind": "keyword"
         },
         {
@@ -215,128 +257,39 @@
         },
         {
           "kind": "identifier",
-          "text": "IKComponent"
-        }
-      ],
-      "type": "topic",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "IKComponent"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/realitykit/ikcomponent",
-      "role": "symbol"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/IKResource": {
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "class"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
           "text": "IKResource"
         }
       ],
-      "title": "IKResource",
-      "url": "https://developer.apple.com/documentation/realitykit/ikresource",
-      "role": "symbol",
-      "type": "topic",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "IKResource"
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKResource",
       "kind": "symbol",
+      "role": "symbol",
       "abstract": [
         {
           "text": "A reference counted immutable resource which contains one or more inverse kinematics solver rigs.",
           "type": "text"
         }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/IKSolverDefinition": {
-      "title": "IKSolverDefinition",
-      "type": "topic",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "IKSolverDefinition",
-          "kind": "identifier"
-        }
       ],
-      "url": "https://developer.apple.com/documentation/realitykit/iksolverdefinition",
-      "role": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKSolverDefinition",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKResource",
       "navigatorTitle": [
         {
-          "text": "IKSolverDefinition",
-          "kind": "identifier"
-        }
-      ],
-      "kind": "symbol",
-      "abstract": [
-        {
-          "text": "A container describing a solver instance.",
-          "type": "text"
+          "kind": "identifier",
+          "text": "IKResource"
         }
       ]
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/SolverCollection": {
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/ikcomponent/solvercollection",
-      "role": "symbol",
       "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "SolverCollection"
-        }
-      ],
-      "kind": "symbol",
-      "title": "IKComponent.SolverCollection",
-      "abstract": [
-        {
-          "text": "Ordered dictionary like container with fixed size.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/SolverCollection",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
         {
           "text": "SolverCollection",
           "kind": "identifier"
         }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/IKRig/Joint": {
-      "url": "https://developer.apple.com/documentation/realitykit/ikrig/joint",
+      ],
+      "kind": "symbol",
       "role": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/ikcomponent/solvercollection",
       "fragments": [
         {
-          "kind": "keyword",
-          "text": "struct"
+          "text": "struct",
+          "kind": "keyword"
         },
         {
           "kind": "text",
@@ -344,7 +297,44 @@
         },
         {
           "kind": "identifier",
-          "text": "Joint"
+          "text": "SolverCollection"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/SolverCollection",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Ordered dictionary like container with fixed size."
+        }
+      ],
+      "title": "IKComponent.SolverCollection"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/IKRig/Joint": {
+      "role": "symbol",
+      "kind": "symbol",
+      "type": "topic",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "Joint",
+          "kind": "identifier"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKRig/Joint",
+      "title": "IKRig.Joint",
+      "url": "https://developer.apple.com/documentation/realitykit/ikrig/joint",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A definition of a rig joint and its IK solver settings."
         }
       ],
       "navigatorTitle": [
@@ -352,68 +342,25 @@
           "text": "Joint",
           "kind": "identifier"
         }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKRig/Joint",
-      "type": "topic",
-      "kind": "symbol",
-      "title": "IKRig.Joint",
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/JointCollection": {
+      "title": "IKComponent.JointCollection",
       "abstract": [
         {
           "type": "text",
-          "text": "A definition of a rig joint and its IK solver settings."
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/CharacterControllerComponent/CollisionFlags": {
-      "title": "CharacterControllerComponent.CollisionFlags",
-      "abstract": [
-        {
-          "text": "An option set that specifies which parts of the character capsule have collided with other objects.",
-          "type": "text"
+          "text": "Ordered dictionary like container with fixed size."
         }
       ],
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/ikcomponent/jointcollection",
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/JointCollection",
       "role": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CharacterControllerComponent/CollisionFlags",
       "navigatorTitle": [
         {
-          "kind": "identifier",
-          "text": "CollisionFlags"
-        }
-      ],
-      "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/realitykit/charactercontrollercomponent/collisionflags",
-      "type": "topic",
-      "fragments": [
-        {
-          "text": "struct",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "CollisionFlags",
+          "text": "JointCollection",
           "kind": "identifier"
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/CharacterControllerComponent/Collision": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CharacterControllerComponent/Collision",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "Collision"
-        }
-      ],
-      "kind": "symbol",
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/charactercontrollercomponent/collision",
-      "title": "CharacterControllerComponent.Collision",
-      "abstract": [
-        {
-          "text": "A container that holds collision state for the character controller.",
-          "type": "text"
         }
       ],
       "fragments": [
@@ -422,24 +369,28 @@
           "text": "struct"
         },
         {
-          "kind": "text",
-          "text": " "
+          "text": " ",
+          "kind": "text"
         },
         {
-          "kind": "identifier",
-          "text": "Collision"
+          "text": "JointCollection",
+          "kind": "identifier"
         }
-      ],
-      "role": "symbol"
+      ]
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/Constraint": {
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Constraint"
+        }
+      ],
       "role": "symbol",
-      "kind": "symbol",
       "title": "IKComponent.Constraint",
       "abstract": [
         {
-          "type": "text",
-          "text": "The update stage object that lets you read and update the current settings of a single constraint in an IK solver."
+          "text": "The update stage object that lets you read and update the current settings of a single constraint in an IK solver.",
+          "type": "text"
         }
       ],
       "fragments": [
@@ -456,86 +407,206 @@
           "kind": "identifier"
         }
       ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/Constraint",
+      "url": "https://developer.apple.com/documentation/realitykit/ikcomponent/constraint",
+      "type": "topic",
+      "kind": "symbol"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/IKSolverDefinition": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKSolverDefinition",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A container describing a solver instance."
+        }
+      ],
       "navigatorTitle": [
         {
-          "text": "Constraint",
+          "text": "IKSolverDefinition",
           "kind": "identifier"
         }
       ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/Constraint",
-      "url": "https://developer.apple.com/documentation/realitykit/ikcomponent/constraint",
-      "type": "topic"
-    },
-    "doc://com.apple.documentation/documentation/technologies": {
-      "url": "https://developer.apple.com/documentation/technologies",
-      "kind": "technologies",
-      "role": "overview",
-      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "url": "https://developer.apple.com/documentation/realitykit/iksolverdefinition",
       "type": "topic",
-      "title": "Technologies",
-      "abstract": [
+      "title": "IKSolverDefinition",
+      "role": "symbol",
+      "kind": "symbol",
+      "fragments": [
         {
-          "text": "",
-          "type": "text"
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "IKSolverDefinition",
+          "kind": "identifier"
         }
       ]
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/CharacterControllerComponent": {
+    "doc://com.apple.RealityKit/documentation/RealityKit/IKRig/JointCollection": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKRig/JointCollection",
+      "url": "https://developer.apple.com/documentation/realitykit/ikrig/jointcollection",
       "abstract": [
         {
-          "text": "A component that manages character movement.",
-          "type": "text"
+          "type": "text",
+          "text": "Ordered dictionary-like container with a fixed size."
         }
       ],
-      "kind": "symbol",
-      "title": "CharacterControllerComponent",
       "type": "topic",
-      "navigatorTitle": [
-        {
-          "text": "CharacterControllerComponent",
-          "kind": "identifier"
-        }
-      ],
       "role": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CharacterControllerComponent",
-      "url": "https://developer.apple.com/documentation/realitykit/charactercontrollercomponent",
       "fragments": [
         {
           "kind": "keyword",
           "text": "struct"
         },
         {
-          "kind": "text",
-          "text": " "
+          "text": " ",
+          "kind": "text"
         },
         {
-          "text": "CharacterControllerComponent",
+          "text": "JointCollection",
           "kind": "identifier"
         }
-      ]
+      ],
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "JointCollection"
+        }
+      ],
+      "kind": "symbol",
+      "title": "IKRig.JointCollection"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent": {
+      "title": "IKComponent",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "IKComponent"
+        }
+      ],
+      "role": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A component that allows you to procedurally animate a skeletal model using a full body inverse kinematics solver."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/ikcomponent",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "IKComponent",
+          "kind": "identifier"
+        }
+      ],
+      "type": "topic"
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/game-development-entity-animations": {
-      "url": "https://developer.apple.com/documentation/realitykit/game-development-entity-animations",
-      "role": "collectionGroup",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/game-development-entity-animations",
       "type": "topic",
-      "kind": "article",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/game-development-entity-animations",
+      "url": "https://developer.apple.com/documentation/realitykit/game-development-entity-animations",
+      "title": "Entity animations",
       "abstract": [
         {
           "text": "Dynamically move, rotate, and scale entities at runtime.",
           "type": "text"
         }
       ],
-      "title": "Entity animations"
+      "role": "collectionGroup",
+      "kind": "article"
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/IKRig/ConstraintsCollection": {
-      "title": "IKRig.ConstraintsCollection",
+    "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/Joint": {
       "navigatorTitle": [
         {
-          "text": "ConstraintsCollection",
+          "text": "Joint",
           "kind": "identifier"
         }
       ],
+      "url": "https://developer.apple.com/documentation/realitykit/ikcomponent/joint",
+      "type": "topic",
+      "role": "symbol",
+      "abstract": [
+        {
+          "text": "The update stage object that lets you read and update the current settings of a single joint in an IK solver.",
+          "type": "text"
+        }
+      ],
+      "kind": "symbol",
+      "title": "IKComponent.Joint",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "Joint"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/Joint"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/SkeletalPosesComponent": {
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "SkeletalPosesComponent",
+          "kind": "identifier"
+        }
+      ],
+      "type": "topic",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "SkeletalPosesComponent",
+          "kind": "identifier"
+        }
+      ],
+      "title": "SkeletalPosesComponent",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/SkeletalPosesComponent",
+      "url": "https://developer.apple.com/documentation/realitykit/skeletalposescomponent",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "text": "A component that exposes the collection of named animation skeletal poses.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/CharacterControllerComponent": {
+      "kind": "symbol",
+      "title": "CharacterControllerComponent",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A component that manages character movement."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/charactercontrollercomponent",
+      "type": "topic",
       "fragments": [
         {
           "text": "struct",
@@ -546,59 +617,42 @@
           "text": " "
         },
         {
-          "kind": "identifier",
-          "text": "ConstraintsCollection"
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKRig/ConstraintsCollection",
-      "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/realitykit/ikrig/constraintscollection",
-      "role": "symbol",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Ordered dictionary-like container."
-        }
-      ],
-      "type": "topic"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/IKRig": {
-      "url": "https://developer.apple.com/documentation/realitykit/ikrig",
-      "abstract": [
-        {
-          "text": "A full body inverse kinematics rig definition for a single skeleton.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKRig",
-      "navigatorTitle": [
-        {
-          "text": "IKRig",
+          "text": "CharacterControllerComponent",
           "kind": "identifier"
         }
       ],
-      "kind": "symbol",
-      "type": "topic",
-      "role": "symbol",
-      "title": "IKRig",
-      "fragments": [
+      "navigatorTitle": [
         {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "IKRig"
+          "text": "CharacterControllerComponent",
+          "kind": "identifier"
         }
-      ]
+      ],
+      "role": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CharacterControllerComponent"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/game-development-sample-code": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/game-development-sample-code",
+      "abstract": [
+        {
+          "text": "Explore a collection of projects relating to game development.",
+          "type": "text"
+        }
+      ],
+      "title": "Gaming sample code projects",
+      "type": "topic",
+      "role": "collectionGroup",
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/realitykit/game-development-sample-code"
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/CharacterControllerStateComponent": {
-      "title": "CharacterControllerStateComponent",
+      "abstract": [
+        {
+          "text": "A component that represents the state of a character controller.",
+          "type": "text"
+        }
+      ],
       "url": "https://developer.apple.com/documentation/realitykit/charactercontrollerstatecomponent",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CharacterControllerStateComponent",
       "kind": "symbol",
       "navigatorTitle": [
         {
@@ -606,11 +660,11 @@
           "kind": "identifier"
         }
       ],
-      "role": "symbol",
+      "title": "CharacterControllerStateComponent",
       "fragments": [
         {
-          "text": "struct",
-          "kind": "keyword"
+          "kind": "keyword",
+          "text": "struct"
         },
         {
           "text": " ",
@@ -621,19 +675,93 @@
           "text": "CharacterControllerStateComponent"
         }
       ],
+      "role": "symbol",
+      "type": "topic"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/ConstraintCollection": {
+      "url": "https://developer.apple.com/documentation/realitykit/ikcomponent/constraintcollection",
+      "kind": "symbol",
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/ConstraintCollection",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "ConstraintCollection"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "ConstraintCollection",
+          "kind": "identifier"
+        }
+      ],
+      "role": "symbol",
       "abstract": [
         {
-          "text": "A component that represents the state of a character controller.",
+          "text": "Ordered dictionary like container with fixed size.",
           "type": "text"
         }
       ],
+      "title": "IKComponent.ConstraintCollection"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/CharacterControllerComponent/Collision": {
       "type": "topic",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CharacterControllerStateComponent"
+      "url": "https://developer.apple.com/documentation/realitykit/charactercontrollercomponent/collision",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "Collision",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "A container that holds collision state for the character controller.",
+          "type": "text"
+        }
+      ],
+      "role": "symbol",
+      "title": "CharacterControllerComponent.Collision",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CharacterControllerComponent/Collision",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Collision"
+        }
+      ]
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/SkeletalPose": {
-      "kind": "symbol",
-      "role": "symbol",
       "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/SkeletalPose",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/skeletalpose",
+      "navigatorTitle": [
+        {
+          "text": "SkeletalPose",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A container that holds the position and orientation of each joint in a single animation skeleton."
+        }
+      ],
       "title": "SkeletalPose",
       "fragments": [
         {
@@ -641,132 +769,19 @@
           "text": "struct"
         },
         {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "SkeletalPose"
-        }
-      ],
-      "abstract": [
-        {
-          "text": "A container that holds the position and orientation of each joint in a single animation skeleton.",
-          "type": "text"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "SkeletalPose"
-        }
-      ],
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/skeletalpose"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/Joint": {
-      "title": "IKComponent.Joint",
-      "navigatorTitle": [
-        {
-          "text": "Joint",
-          "kind": "identifier"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/realitykit/ikcomponent/joint",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/Joint",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "class"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "Joint",
-          "kind": "identifier"
-        }
-      ],
-      "kind": "symbol",
-      "abstract": [
-        {
-          "text": "The update stage object that lets you read and update the current settings of a single joint in an IK solver.",
-          "type": "text"
-        }
-      ],
-      "role": "symbol",
-      "type": "topic"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/Solver": {
-      "title": "IKComponent.Solver",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "class"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "Solver"
-        }
-      ],
-      "kind": "symbol",
-      "role": "symbol",
-      "abstract": [
-        {
-          "text": "The update stage object that lets you read and update the current settings of a single solver instance.",
-          "type": "text"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "Solver"
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/Solver",
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/ikcomponent/solver"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/IKRig/Constraint": {
-      "kind": "symbol",
-      "title": "IKRig.Constraint",
-      "fragments": [
-        {
-          "text": "struct",
-          "kind": "keyword"
-        },
-        {
           "kind": "text",
           "text": " "
         },
         {
           "kind": "identifier",
-          "text": "Constraint"
+          "text": "SkeletalPose"
         }
       ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKRig/Constraint",
       "type": "topic",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A definition of a rig constraint."
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/realitykit/ikrig/constraint",
-      "role": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "Constraint"
-        }
-      ]
+      "kind": "symbol"
     },
     "doc://com.apple.RealityKit/documentation/RealityKit": {
+      "role": "collection",
       "abstract": [
         {
           "type": "text",
@@ -774,138 +789,21 @@
         }
       ],
       "title": "RealityKit",
-      "type": "topic",
       "url": "https://developer.apple.com/documentation/realitykit",
-      "kind": "symbol",
       "identifier": "doc://com.apple.RealityKit/documentation/RealityKit",
-      "role": "collection"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/ConstraintCollection": {
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ConstraintCollection"
-        }
-      ],
-      "role": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/ConstraintCollection",
-      "url": "https://developer.apple.com/documentation/realitykit/ikcomponent/constraintcollection",
-      "navigatorTitle": [
-        {
-          "text": "ConstraintCollection",
-          "kind": "identifier"
-        }
-      ],
       "kind": "symbol",
-      "abstract": [
-        {
-          "text": "Ordered dictionary like container with fixed size.",
-          "type": "text"
-        }
-      ],
-      "title": "IKComponent.ConstraintCollection",
       "type": "topic"
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/game-development-sample-code": {
+    "doc://com.apple.RealityKit/documentation/RealityKit/IKRig/ConstraintsCollection": {
+      "title": "IKRig.ConstraintsCollection",
+      "type": "topic",
       "abstract": [
         {
-          "type": "text",
-          "text": "Explore a collection of projects relating to game development."
-        }
-      ],
-      "kind": "article",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/game-development-sample-code",
-      "title": "Gaming sample code projects",
-      "role": "collectionGroup",
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/game-development-sample-code"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/SkeletalPosesComponent": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/SkeletalPosesComponent",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A component that exposes the collection of named animation skeletal poses."
-        }
-      ],
-      "title": "SkeletalPosesComponent",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "SkeletalPosesComponent"
-        }
-      ],
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/realitykit/skeletalposescomponent",
-      "type": "topic",
-      "fragments": [
-        {
-          "text": "struct",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "SkeletalPosesComponent"
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/IKRig/JointCollection": {
-      "navigatorTitle": [
-        {
-          "text": "JointCollection",
-          "kind": "identifier"
-        }
-      ],
-      "kind": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKRig/JointCollection",
-      "type": "topic",
-      "title": "IKRig.JointCollection",
-      "role": "symbol",
-      "abstract": [
-        {
-          "text": "Ordered dictionary-like container with a fixed size.",
+          "text": "Ordered dictionary-like container.",
           "type": "text"
         }
       ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "JointCollection",
-          "kind": "identifier"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/realitykit/ikrig/jointcollection"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/SkeletalPoseSet": {
-      "url": "https://developer.apple.com/documentation/realitykit/skeletalposeset",
-      "title": "SkeletalPoseSet",
       "role": "symbol",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A collection of named skeletal poses."
-        }
-      ],
       "fragments": [
         {
           "text": "struct",
@@ -915,28 +813,136 @@
           "text": " ",
           "kind": "text"
         },
+        {
+          "kind": "identifier",
+          "text": "ConstraintsCollection"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/ikrig/constraintscollection",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "ConstraintsCollection",
+          "kind": "identifier"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKRig/ConstraintsCollection"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/SkeletalPoseSet": {
+      "title": "SkeletalPoseSet",
+      "navigatorTitle": [
         {
           "text": "SkeletalPoseSet",
           "kind": "identifier"
         }
       ],
-      "type": "topic",
+      "kind": "symbol",
+      "role": "symbol",
       "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/SkeletalPoseSet",
-      "navigatorTitle": [
+      "abstract": [
+        {
+          "text": "A collection of named skeletal poses.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/skeletalposeset",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
         {
           "kind": "identifier",
           "text": "SkeletalPoseSet"
         }
       ],
-      "kind": "symbol"
+      "type": "topic"
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/JointCollection": {
-      "title": "IKComponent.JointCollection",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKComponent/JointCollection",
+    "doc://com.apple.RealityKit/documentation/RealityKit/IKRig": {
+      "kind": "symbol",
+      "title": "IKRig",
+      "url": "https://developer.apple.com/documentation/realitykit/ikrig",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKRig",
+      "abstract": [
+        {
+          "text": "A full body inverse kinematics rig definition for a single skeleton.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "IKRig",
+          "kind": "identifier"
+        }
+      ],
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "IKRig",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/IKRig/Constraint": {
+      "title": "IKRig.Constraint",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/IKRig/Constraint",
+      "type": "topic",
+      "role": "symbol",
       "fragments": [
         {
           "text": "struct",
           "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "Constraint",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "A definition of a rig constraint.",
+          "type": "text"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "Constraint",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/ikrig/constraint"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/CharacterControllerComponent/CollisionFlags": {
+      "title": "CharacterControllerComponent.CollisionFlags",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An option set that specifies which parts of the character capsule have collided with other objects."
+        }
+      ],
+      "type": "topic",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
         },
         {
           "kind": "text",
@@ -944,25 +950,19 @@
         },
         {
           "kind": "identifier",
-          "text": "JointCollection"
+          "text": "CollisionFlags"
         }
       ],
-      "type": "topic",
-      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/charactercontrollercomponent/collisionflags",
+      "role": "symbol",
       "navigatorTitle": [
         {
-          "kind": "identifier",
-          "text": "JointCollection"
+          "text": "CollisionFlags",
+          "kind": "identifier"
         }
       ],
-      "url": "https://developer.apple.com/documentation/realitykit/ikcomponent/jointcollection",
-      "abstract": [
-        {
-          "text": "Ordered dictionary like container with fixed size.",
-          "type": "text"
-        }
-      ],
-      "role": "symbol"
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CharacterControllerComponent/CollisionFlags",
+      "kind": "symbol"
     }
   },
   "legalNotices": {
