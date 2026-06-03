@@ -1,12 +1,124 @@
 {
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "kind": "article",
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://com.apple.AppIntents/documentation/AppIntents/app-intents"
+  },
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.AppIntents/documentation/AppIntents"
+      ]
+    ]
+  },
+  "metadata": {
+    "title": "App intents",
+    "roleHeading": "API Collection",
+    "role": "collectionGroup",
+    "modules": [
+      {
+        "name": "App Intents"
+      }
+    ]
+  },
+  "abstract": [
+    {
+      "text": "Define the custom actions your app exposes to the system using specialized intents.",
+      "type": "text"
+    }
+  ],
   "sections": [],
+  "seeAlsoSections": [
+    {
+      "title": "Actions",
+      "generated": true,
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AcceleratingAppInteractionsWithAppIntents",
+        "doc://com.apple.AppIntents/documentation/AppIntents/Creating-your-first-app-intent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-intent-domains",
+        "doc://com.apple.AppIntents/documentation/AppIntents/intent-infrastructure"
+      ],
+      "anchor": "Actions"
+    }
+  ],
+  "topicSections": [
+    {
+      "anchor": "General-actions",
+      "title": "General actions",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/IntentDescription"
+      ]
+    },
+    {
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/DeleteIntent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/DeprecatedAppIntent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/ForegroundContinuableIntent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/OpenIntent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/OpenURLIntent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/ProgressReportingIntent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/SetValueIntent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/ShowInAppSearchResultsIntent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/SnippetIntent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/SystemIntent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/TargetContentProvidingIntent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/UISceneAppIntent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/URLRepresentableIntent"
+      ],
+      "title": "Specialized actions",
+      "anchor": "Specialized-actions"
+    },
+    {
+      "title": "Media actions",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AudioPlaybackIntent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AudioRecordingIntent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AudioStartingIntent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/CameraCaptureIntent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/PlayVideoIntent"
+      ],
+      "anchor": "Media-actions"
+    },
+    {
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/PushToTalkTransmissionIntent"
+      ],
+      "anchor": "Communication-actions",
+      "title": "Communication actions"
+    },
+    {
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/ControlConfigurationIntent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/LiveActivityStartingIntent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/LiveActivityIntent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/WidgetConfigurationIntent"
+      ],
+      "title": "Controls, widgets, and Live Activities",
+      "anchor": "Controls-widgets-and-Live-Activities"
+    },
+    {
+      "title": "SiriKit intent migration",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/CustomIntentMigratedAppIntent"
+      ],
+      "anchor": "SiriKit-intent-migration"
+    }
+  ],
   "primaryContentSections": [
     {
+      "kind": "content",
       "content": [
         {
-          "type": "heading",
           "level": 2,
           "text": "Overview",
+          "type": "heading",
           "anchor": "Overview"
         },
         {
@@ -16,8 +128,8 @@
               "text": "Use app intents to express your app’s capabilities to the system. An app intent"
             },
             {
-              "text": " ",
-              "type": "text"
+              "type": "text",
+              "text": " "
             },
             {
               "type": "text",
@@ -28,16 +140,16 @@
               "text": " "
             },
             {
-              "type": "text",
-              "text": "require from the system. The system exposes your actions directly from the"
+              "text": "require from the system. The system exposes your actions directly from the",
+              "type": "text"
             },
             {
               "text": " ",
               "type": "text"
             },
             {
-              "text": "Shortcuts app and in system experiences like Siri.",
-              "type": "text"
+              "type": "text",
+              "text": "Shortcuts app and in system experiences like Siri."
             }
           ],
           "type": "paragraph"
@@ -49,13 +161,13 @@
               "text": "To define an action, create a type that adopts the "
             },
             {
-              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent",
               "type": "reference",
-              "isActive": true
+              "isActive": true,
+              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent"
             },
             {
-              "text": " protocol,",
-              "type": "text"
+              "type": "text",
+              "text": " protocol,"
             },
             {
               "text": " ",
@@ -66,28 +178,28 @@
               "text": "or a related protocol that provides the specific behavior you need. Annotate"
             },
             {
-              "text": " ",
-              "type": "text"
+              "type": "text",
+              "text": " "
             },
             {
-              "text": "any key properties with the ",
-              "type": "text"
+              "type": "text",
+              "text": "any key properties with the "
             },
             {
               "type": "codeVoice",
               "code": "@Parameter"
             },
             {
-              "type": "text",
-              "text": " property wrapper to let the system"
+              "text": " property wrapper to let the system",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
-              "type": "text",
-              "text": "know you need the associated information to perform the action."
+              "text": "know you need the associated information to perform the action.",
+              "type": "text"
             }
           ],
           "type": "paragraph"
@@ -108,9 +220,9 @@
               "text": " and "
             },
             {
+              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent/description",
               "isActive": true,
-              "type": "reference",
-              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent/description"
+              "type": "reference"
             },
             {
               "text": " to inform people about your intent’s functionality in the Shortcuts app. Supplement this information with ",
@@ -129,11 +241,10 @@
           "type": "paragraph"
         },
         {
-          "type": "paragraph",
           "inlineContent": [
             {
-              "text": "For more information about features App Intents enables, see ",
-              "type": "text"
+              "type": "text",
+              "text": "For more information about features App Intents enables, see "
             },
             {
               "isActive": true,
@@ -144,40 +255,12 @@
               "text": ".",
               "type": "text"
             }
-          ]
+          ],
+          "type": "paragraph"
         }
-      ],
-      "kind": "content"
+      ]
     }
   ],
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://com.apple.AppIntents/documentation/AppIntents/app-intents"
-  },
-  "seeAlsoSections": [
-    {
-      "title": "Actions",
-      "generated": true,
-      "identifiers": [
-        "doc://com.apple.AppIntents/documentation/AppIntents/AcceleratingAppInteractionsWithAppIntents",
-        "doc://com.apple.AppIntents/documentation/AppIntents/Creating-your-first-app-intent",
-        "doc://com.apple.AppIntents/documentation/AppIntents/app-intent-domains",
-        "doc://com.apple.AppIntents/documentation/AppIntents/intent-infrastructure"
-      ],
-      "anchor": "Actions"
-    }
-  ],
-  "abstract": [
-    {
-      "type": "text",
-      "text": "Define the custom actions your app exposes to the system using specialized intents."
-    }
-  ],
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
   "variants": [
     {
       "traits": [
@@ -190,93 +273,10 @@
       ]
     }
   ],
-  "kind": "article",
-  "metadata": {
-    "role": "collectionGroup",
-    "title": "App intents",
-    "roleHeading": "API Collection",
-    "modules": [
-      {
-        "name": "App Intents"
-      }
-    ]
-  },
-  "topicSections": [
-    {
-      "identifiers": [
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent",
-        "doc://com.apple.AppIntents/documentation/AppIntents/IntentDescription"
-      ],
-      "title": "General actions",
-      "anchor": "General-actions"
-    },
-    {
-      "title": "Specialized actions",
-      "anchor": "Specialized-actions",
-      "identifiers": [
-        "doc://com.apple.AppIntents/documentation/AppIntents/DeleteIntent",
-        "doc://com.apple.AppIntents/documentation/AppIntents/DeprecatedAppIntent",
-        "doc://com.apple.AppIntents/documentation/AppIntents/ForegroundContinuableIntent",
-        "doc://com.apple.AppIntents/documentation/AppIntents/OpenIntent",
-        "doc://com.apple.AppIntents/documentation/AppIntents/OpenURLIntent",
-        "doc://com.apple.AppIntents/documentation/AppIntents/ProgressReportingIntent",
-        "doc://com.apple.AppIntents/documentation/AppIntents/SetValueIntent",
-        "doc://com.apple.AppIntents/documentation/AppIntents/ShowInAppSearchResultsIntent",
-        "doc://com.apple.AppIntents/documentation/AppIntents/SnippetIntent",
-        "doc://com.apple.AppIntents/documentation/AppIntents/SystemIntent",
-        "doc://com.apple.AppIntents/documentation/AppIntents/TargetContentProvidingIntent",
-        "doc://com.apple.AppIntents/documentation/AppIntents/UISceneAppIntent",
-        "doc://com.apple.AppIntents/documentation/AppIntents/URLRepresentableIntent"
-      ]
-    },
-    {
-      "title": "Media actions",
-      "identifiers": [
-        "doc://com.apple.AppIntents/documentation/AppIntents/AudioPlaybackIntent",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AudioRecordingIntent",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AudioStartingIntent",
-        "doc://com.apple.AppIntents/documentation/AppIntents/CameraCaptureIntent",
-        "doc://com.apple.AppIntents/documentation/AppIntents/PlayVideoIntent"
-      ],
-      "anchor": "Media-actions"
-    },
-    {
-      "title": "Communication actions",
-      "identifiers": [
-        "doc://com.apple.AppIntents/documentation/AppIntents/PushToTalkTransmissionIntent"
-      ],
-      "anchor": "Communication-actions"
-    },
-    {
-      "title": "Controls, widgets, and Live Activities",
-      "anchor": "Controls-widgets-and-Live-Activities",
-      "identifiers": [
-        "doc://com.apple.AppIntents/documentation/AppIntents/ControlConfigurationIntent",
-        "doc://com.apple.AppIntents/documentation/AppIntents/LiveActivityStartingIntent",
-        "doc://com.apple.AppIntents/documentation/AppIntents/LiveActivityIntent",
-        "doc://com.apple.AppIntents/documentation/AppIntents/WidgetConfigurationIntent"
-      ]
-    },
-    {
-      "anchor": "SiriKit-intent-migration",
-      "title": "SiriKit intent migration",
-      "identifiers": [
-        "doc://com.apple.AppIntents/documentation/AppIntents/CustomIntentMigratedAppIntent"
-      ]
-    }
-  ],
-  "hierarchy": {
-    "paths": [
-      [
-        "doc://com.apple.documentation/documentation/technologies",
-        "doc://com.apple.AppIntents/documentation/AppIntents"
-      ]
-    ]
-  },
   "references": {
-    "doc://com.apple.AppIntents/documentation/AppIntents/CameraCaptureIntent": {
-      "url": "https://developer.apple.com/documentation/appintents/cameracaptureintent",
-      "type": "topic",
+    "doc://com.apple.AppIntents/documentation/AppIntents/ShowInAppSearchResultsIntent": {
+      "url": "https://developer.apple.com/documentation/appintents/showinappsearchresultsintent",
+      "role": "symbol",
       "fragments": [
         {
           "text": "protocol",
@@ -286,555 +286,40 @@
           "text": " ",
           "kind": "text"
         },
-        {
-          "text": "CameraCaptureIntent",
-          "kind": "identifier"
-        }
-      ],
-      "kind": "symbol",
-      "title": "CameraCaptureIntent",
-      "navigatorTitle": [
-        {
-          "text": "CameraCaptureIntent",
-          "kind": "identifier"
-        }
-      ],
-      "role": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/CameraCaptureIntent",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Designates intent that will launch an activity that uses device’s camera to capture photos or videos."
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "Marking your intent with this protocol makes it available as a possible action for Camera quick action.",
-          "type": "text"
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/ProgressReportingIntent": {
-      "navigatorTitle": [
         {
           "kind": "identifier",
-          "text": "ProgressReportingIntent"
+          "text": "ShowInAppSearchResultsIntent"
         }
       ],
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/progressreportingintent",
-      "title": "ProgressReportingIntent",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ProgressReportingIntent",
-      "type": "topic",
-      "kind": "symbol",
-      "fragments": [
+      "navigatorTitle": [
         {
-          "text": "protocol",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "ProgressReportingIntent",
+          "text": "ShowInAppSearchResultsIntent",
           "kind": "identifier"
         }
       ],
       "abstract": [
         {
-          "text": "An intent that reports progress to the system during its execution",
-          "type": "text"
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/Creating-your-first-app-intent": {
-      "abstract": [
-        {
-          "text": "Create your first app intent that makes your app available in system experiences like Spotlight or the Shortcuts app.",
+          "text": "An app intent that takes a person to search results for a specified search term.",
           "type": "text"
         }
       ],
-      "title": "Creating your first app intent",
-      "kind": "article",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/Creating-your-first-app-intent",
-      "url": "https://developer.apple.com/documentation/appintents/creating-your-first-app-intent",
-      "role": "article",
-      "type": "topic"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/Making-actions-and-content-discoverable-and-widely-available": {
-      "role": "article",
-      "title": "Making actions and content discoverable and widely available",
-      "url": "https://developer.apple.com/documentation/appintents/making-actions-and-content-discoverable-and-widely-available",
-      "kind": "article",
-      "abstract": [
-        {
-          "text": "Adopt App Intents to make your app discoverable with Spotlight, controls, widgets, and the Action button.",
-          "type": "text"
-        }
-      ],
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ShowInAppSearchResultsIntent",
       "type": "topic",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/Making-actions-and-content-discoverable-and-widely-available"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents": {
-      "role": "collection",
-      "title": "App Intents",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents",
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/appintents",
-      "abstract": [
-        {
-          "text": "Make your app’s content and actions discoverable with system experiences like Spotlight, widgets, and the Shortcuts app.",
-          "type": "text"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "text": "App Intents",
-          "kind": "text"
-        }
-      ],
-      "kind": "symbol"
+      "title": "ShowInAppSearchResultsIntent"
     },
     "doc://com.apple.AppIntents/documentation/AppIntents/IntentDescription": {
-      "url": "https://developer.apple.com/documentation/appintents/intentdescription",
-      "type": "topic",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntentDescription",
-      "title": "IntentDescription",
+      "kind": "symbol",
       "role": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "IntentDescription"
-        }
-      ],
+      "type": "topic",
       "abstract": [
         {
           "text": "The human-readable description and metadata for an app intent.",
           "type": "text"
         }
       ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "IntentDescription",
-          "kind": "identifier"
-        }
-      ],
-      "kind": "symbol"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AudioPlaybackIntent": {
-      "kind": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AudioPlaybackIntent",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "protocol"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "AudioPlaybackIntent",
-          "kind": "identifier"
-        }
-      ],
-      "title": "AudioPlaybackIntent",
-      "role": "symbol",
-      "navigatorTitle": [
-        {
-          "text": "AudioPlaybackIntent",
-          "kind": "identifier"
-        }
-      ],
-      "type": "topic",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An App Intent that plays, pauses, or otherwise modifies audio playback state when it executes."
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/audioplaybackintent"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/DeleteIntent": {
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "protocol"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "DeleteIntent",
-          "kind": "identifier"
-        }
-      ],
-      "abstract": [
-        {
-          "text": "Delete the associated entity(s).",
-          "type": "text"
-        }
-      ],
-      "title": "DeleteIntent",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/DeleteIntent",
-      "type": "topic",
-      "navigatorTitle": [
-        {
-          "text": "DeleteIntent",
-          "kind": "identifier"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/deleteintent",
-      "kind": "symbol",
-      "role": "symbol"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/intent-infrastructure": {
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/intent-infrastructure",
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/appintents/intent-infrastructure",
-      "kind": "article",
-      "title": "Intent infrastructure",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Provide supplemental context for your intents, and create infrastructure to make app intents reusable across your apps."
-        }
-      ],
-      "role": "collectionGroup"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent/description": {
-      "required": true,
-      "kind": "symbol",
-      "defaultImplementations": 1,
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent/description",
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/appintent/description",
-      "title": "description",
-      "type": "topic",
-      "fragments": [
-        {
-          "text": "static",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "keyword",
-          "text": "var"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "description",
-          "kind": "identifier"
-        },
-        {
-          "text": ": ",
-          "kind": "text"
-        },
-        {
-          "preciseIdentifier": "s:10AppIntents17IntentDescriptionV",
-          "text": "IntentDescription",
-          "kind": "typeIdentifier"
-        },
-        {
-          "kind": "text",
-          "text": "?"
-        }
-      ],
-      "abstract": [
-        {
-          "type": "text",
-          "text": "A description of the app intent that the system shows to people."
-        }
-      ]
-    },
-    "doc://com.apple.documentation/documentation/technologies": {
-      "url": "https://developer.apple.com/documentation/technologies",
-      "type": "topic",
-      "title": "Technologies",
-      "role": "overview",
-      "identifier": "doc://com.apple.documentation/documentation/technologies",
-      "abstract": [
-        {
-          "type": "text",
-          "text": ""
-        }
-      ],
-      "kind": "technologies"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/UISceneAppIntent": {
-      "kind": "symbol",
-      "title": "UISceneAppIntent",
-      "role": "symbol",
-      "navigatorTitle": [
-        {
-          "text": "UISceneAppIntent",
-          "kind": "identifier"
-        }
-      ],
-      "type": "topic",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/UISceneAppIntent",
-      "abstract": [],
-      "fragments": [
-        {
-          "text": "protocol",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "UISceneAppIntent"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/uisceneappintent"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent/title": {
-      "url": "https://developer.apple.com/documentation/appintents/appintent/title",
-      "required": true,
-      "type": "topic",
-      "kind": "symbol",
-      "abstract": [
-        {
-          "text": "A short, localized, human-readable string that describes the app intent",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "type": "text",
-          "text": "using a verb and a noun in title case."
-        }
-      ],
-      "title": "title",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "static"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "keyword",
-          "text": "var"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "title",
-          "kind": "identifier"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation23LocalizedStringResourceV",
-          "text": "LocalizedStringResource"
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent/title",
-      "role": "symbol",
-      "defaultImplementations": 1
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/PlayVideoIntent": {
-      "navigatorTitle": [
-        {
-          "text": "PlayVideoIntent",
-          "kind": "identifier"
-        }
-      ],
-      "fragments": [
-        {
-          "text": "protocol",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "PlayVideoIntent",
-          "kind": "identifier"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/playvideointent",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/PlayVideoIntent",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An intent that looks for videos based on a search term, then plays the content."
-        }
-      ],
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "PlayVideoIntent",
-      "type": "topic"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/app-intent-domains": {
-      "url": "https://developer.apple.com/documentation/appintents/app-intent-domains",
-      "title": "App intent domains",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Make your app’s actions and content available to Siri and Apple Intelligence with assistant schemas."
-        }
-      ],
-      "kind": "article",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-intent-domains",
-      "type": "topic",
-      "role": "collectionGroup"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/SnippetIntent": {
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/SnippetIntent",
-      "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/snippetintent",
-      "role": "symbol",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "protocol"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "SnippetIntent"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "text": "SnippetIntent",
-          "kind": "identifier"
-        }
-      ],
-      "title": "SnippetIntent",
-      "abstract": [
-        {
-          "text": "An app intent that presents an interactive snippet onscreen.",
-          "type": "text"
-        }
-      ],
-      "type": "topic"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/URLRepresentableIntent": {
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/urlrepresentableintent",
-      "title": "URLRepresentableIntent",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An app intent with a URL representation."
-        }
-      ],
-      "kind": "symbol",
-      "type": "topic",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/URLRepresentableIntent",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "protocol"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "URLRepresentableIntent",
-          "kind": "identifier"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "text": "URLRepresentableIntent",
-          "kind": "identifier"
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AcceleratingAppInteractionsWithAppIntents": {
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Enable people to use your app’s features quickly through Siri, Spotlight, and Shortcuts."
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AcceleratingAppInteractionsWithAppIntents",
-      "type": "topic",
-      "role": "sampleCode",
-      "kind": "article",
-      "url": "https://developer.apple.com/documentation/appintents/acceleratingappinteractionswithappintents",
-      "title": "Accelerating app interactions with App Intents"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/ControlConfigurationIntent": {
-      "type": "topic",
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/controlconfigurationintent",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ControlConfigurationIntent"
-        }
-      ],
-      "fragments": [
-        {
-          "text": "protocol",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "ControlConfigurationIntent",
-          "kind": "identifier"
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ControlConfigurationIntent",
-      "title": "ControlConfigurationIntent",
-      "abstract": [
-        {
-          "text": "An interface for configuring a Control Center module.",
-          "type": "text"
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/OpenURLIntent": {
-      "navigatorTitle": [
-        {
-          "text": "OpenURLIntent",
-          "kind": "identifier"
-        }
-      ],
-      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/intentdescription",
+      "title": "IntentDescription",
       "fragments": [
         {
           "text": "struct",
@@ -845,414 +330,146 @@
           "kind": "text"
         },
         {
+          "kind": "identifier",
+          "text": "IntentDescription"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "IntentDescription",
+          "kind": "identifier"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntentDescription"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/URLRepresentableIntent": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/URLRepresentableIntent",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "URLRepresentableIntent"
+        }
+      ],
+      "title": "URLRepresentableIntent",
+      "url": "https://developer.apple.com/documentation/appintents/urlrepresentableintent",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An app intent with a URL representation."
+        }
+      ],
+      "kind": "symbol",
+      "role": "symbol",
+      "type": "topic",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "URLRepresentableIntent",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/OpenURLIntent": {
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "OpenURLIntent"
+        }
+      ],
+      "kind": "symbol",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/openurlintent",
+      "abstract": [
+        {
+          "text": "An intent that opens a universal link.",
+          "type": "text"
+        }
+      ],
+      "title": "OpenURLIntent",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/OpenURLIntent",
+      "navigatorTitle": [
+        {
           "text": "OpenURLIntent",
           "kind": "identifier"
         }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/OpenURLIntent",
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/openurlintent",
-      "title": "OpenURLIntent",
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/intent-infrastructure": {
+      "title": "Intent infrastructure",
+      "role": "collectionGroup",
       "abstract": [
         {
-          "type": "text",
-          "text": "An intent that opens a universal link."
+          "text": "Provide supplemental context for your intents, and create infrastructure to make app intents reusable across your apps.",
+          "type": "text"
         }
       ],
+      "kind": "article",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/intent-infrastructure",
+      "url": "https://developer.apple.com/documentation/appintents/intent-infrastructure",
       "type": "topic"
     },
-    "doc://com.apple.AppIntents/documentation/AppIntents/DeprecatedAppIntent": {
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/DeprecatedAppIntent",
-      "title": "DeprecatedAppIntent",
-      "url": "https://developer.apple.com/documentation/appintents/deprecatedappintent",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An app intent that marks an action as deprecated and informs people which action to use instead."
-        }
-      ],
-      "fragments": [
-        {
-          "text": "protocol",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "DeprecatedAppIntent",
-          "kind": "identifier"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "text": "DeprecatedAppIntent",
-          "kind": "identifier"
-        }
-      ],
-      "type": "topic",
-      "kind": "symbol",
-      "role": "symbol"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/ShowInAppSearchResultsIntent": {
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "text": "ShowInAppSearchResultsIntent",
-          "kind": "identifier"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "protocol"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "ShowInAppSearchResultsIntent",
-          "kind": "identifier"
-        }
-      ],
-      "type": "topic",
-      "title": "ShowInAppSearchResultsIntent",
-      "url": "https://developer.apple.com/documentation/appintents/showinappsearchresultsintent",
-      "abstract": [
-        {
-          "text": "An app intent that takes a person to search results for a specified search term.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ShowInAppSearchResultsIntent",
-      "role": "symbol"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/WidgetConfigurationIntent": {
-      "url": "https://developer.apple.com/documentation/appintents/widgetconfigurationintent",
-      "navigatorTitle": [
-        {
-          "text": "WidgetConfigurationIntent",
-          "kind": "identifier"
-        }
-      ],
-      "title": "WidgetConfigurationIntent",
-      "type": "topic",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An interface for configuring a WidgetKit widget."
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/WidgetConfigurationIntent",
-      "kind": "symbol",
-      "role": "symbol",
-      "fragments": [
-        {
-          "text": "protocol",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "WidgetConfigurationIntent",
-          "kind": "identifier"
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent": {
-      "navigatorTitle": [
-        {
-          "text": "AppIntent",
-          "kind": "identifier"
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "protocol"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "AppIntent",
-          "kind": "identifier"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/appintent",
-      "kind": "symbol",
-      "title": "AppIntent",
-      "type": "topic",
-      "abstract": [
-        {
-          "text": "An interface for providing an app-specific capability that people invoke",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "from system experiences like Siri and the Shortcuts app.",
-          "type": "text"
-        }
-      ],
-      "role": "symbol"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/OpenIntent": {
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/OpenIntent",
-      "role": "symbol",
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/appintents/openintent",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "OpenIntent"
-        }
-      ],
-      "abstract": [
-        {
-          "text": "Open the associated item.",
-          "type": "text"
-        }
-      ],
-      "title": "OpenIntent",
-      "fragments": [
-        {
-          "text": "protocol",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "OpenIntent",
-          "kind": "identifier"
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/ForegroundContinuableIntent": {
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ForegroundContinuableIntent"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/foregroundcontinuableintent",
-      "role": "symbol",
-      "kind": "symbol",
-      "type": "topic",
-      "title": "ForegroundContinuableIntent",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ForegroundContinuableIntent",
-      "abstract": [
-        {
-          "text": "A protocol you use for app intents which begin their work with the app in the background but",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "type": "text",
-          "text": "may request to continue in the foreground."
-        }
-      ],
-      "fragments": [
-        {
-          "text": "protocol",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "ForegroundContinuableIntent",
-          "kind": "identifier"
-        }
-      ],
-      "deprecated": true
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/LiveActivityStartingIntent": {
-      "kind": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/LiveActivityStartingIntent",
-      "fragments": [
-        {
-          "text": "protocol",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "LiveActivityStartingIntent"
-        }
-      ],
-      "title": "LiveActivityStartingIntent",
-      "role": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "LiveActivityStartingIntent"
-        }
-      ],
-      "type": "topic",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An intent that starts, pauses, or otherwise modifies a Live Activity."
-        }
-      ],
-      "deprecated": true,
-      "url": "https://developer.apple.com/documentation/appintents/liveactivitystartingintent"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/PushToTalkTransmissionIntent": {
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "protocol"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "PushToTalkTransmissionIntent",
-          "kind": "identifier"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/pushtotalktransmissionintent",
-      "navigatorTitle": [
-        {
-          "text": "PushToTalkTransmissionIntent",
-          "kind": "identifier"
-        }
-      ],
-      "role": "symbol",
-      "kind": "symbol",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An intent that begins or ends an audio transmission with the Push to Talk framework."
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/PushToTalkTransmissionIntent",
-      "type": "topic",
-      "title": "PushToTalkTransmissionIntent"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/SetValueIntent": {
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "protocol"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "SetValueIntent",
-          "kind": "identifier"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/setvalueintent",
-      "kind": "symbol",
-      "role": "symbol",
-      "abstract": [
-        {
-          "text": "An intent that contains a value which can be set.",
-          "type": "text"
-        }
-      ],
-      "type": "topic",
-      "title": "SetValueIntent",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/SetValueIntent",
-      "navigatorTitle": [
-        {
-          "text": "SetValueIntent",
-          "kind": "identifier"
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/LiveActivityIntent": {
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "LiveActivityIntent"
-        }
-      ],
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An intent that starts, pauses, or otherwise modifies a Live Activity when it runs."
-        }
-      ],
-      "role": "symbol",
-      "fragments": [
-        {
-          "text": "protocol",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "LiveActivityIntent"
-        }
-      ],
-      "title": "LiveActivityIntent",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/LiveActivityIntent",
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/appintents/liveactivityintent"
-    },
     "doc://com.apple.AppIntents/documentation/AppIntents/TargetContentProvidingIntent": {
-      "role": "symbol",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "TargetContentProvidingIntent",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [],
       "url": "https://developer.apple.com/documentation/appintents/targetcontentprovidingintent",
       "title": "TargetContentProvidingIntent",
-      "kind": "symbol",
-      "abstract": [],
-      "type": "topic",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/TargetContentProvidingIntent",
-      "fragments": [
-        {
-          "text": "protocol",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "TargetContentProvidingIntent"
-        }
-      ],
       "navigatorTitle": [
         {
-          "kind": "identifier",
-          "text": "TargetContentProvidingIntent"
+          "text": "TargetContentProvidingIntent",
+          "kind": "identifier"
         }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/CustomIntentMigratedAppIntent": {
-      "url": "https://developer.apple.com/documentation/appintents/customintentmigratedappintent",
+      ],
+      "type": "topic",
       "kind": "symbol",
       "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/TargetContentProvidingIntent"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/Making-actions-and-content-discoverable-and-widely-available": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/Making-actions-and-content-discoverable-and-widely-available",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Adopt App Intents to make your app discoverable with Spotlight, controls, widgets, and the Action button."
+        }
+      ],
+      "role": "article",
+      "title": "Making actions and content discoverable and widely available",
+      "url": "https://developer.apple.com/documentation/appintents/making-actions-and-content-discoverable-and-widely-available",
       "type": "topic",
+      "kind": "article"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/CustomIntentMigratedAppIntent": {
+      "type": "topic",
+      "role": "symbol",
       "abstract": [
         {
           "type": "text",
@@ -1267,13 +484,15 @@
           "text": "shortcuts and donations to continue working."
         }
       ],
+      "kind": "symbol",
       "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/CustomIntentMigratedAppIntent",
       "navigatorTitle": [
         {
-          "text": "CustomIntentMigratedAppIntent",
-          "kind": "identifier"
+          "kind": "identifier",
+          "text": "CustomIntentMigratedAppIntent"
         }
       ],
+      "title": "CustomIntentMigratedAppIntent",
       "fragments": [
         {
           "text": "protocol",
@@ -1288,62 +507,304 @@
           "kind": "identifier"
         }
       ],
-      "title": "CustomIntentMigratedAppIntent"
+      "url": "https://developer.apple.com/documentation/appintents/customintentmigratedappintent"
     },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AudioStartingIntent": {
-      "abstract": [
-        {
-          "text": "An App Intent that plays, pauses, or otherwise modifies audio playback state when it executes.",
-          "type": "text"
-        }
-      ],
+    "doc://com.apple.AppIntents/documentation/AppIntents/SnippetIntent": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/SnippetIntent",
       "fragments": [
         {
-          "text": "protocol",
-          "kind": "keyword"
+          "kind": "keyword",
+          "text": "protocol"
         },
         {
           "text": " ",
           "kind": "text"
         },
         {
-          "text": "AudioStartingIntent",
-          "kind": "identifier"
+          "kind": "identifier",
+          "text": "SnippetIntent"
         }
       ],
-      "url": "https://developer.apple.com/documentation/appintents/audiostartingintent",
-      "navigatorTitle": [
-        {
-          "text": "AudioStartingIntent",
-          "kind": "identifier"
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AudioStartingIntent",
-      "title": "AudioStartingIntent",
+      "title": "SnippetIntent",
       "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/snippetintent",
       "type": "topic",
-      "role": "symbol",
-      "deprecated": true
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AudioRecordingIntent": {
-      "type": "topic",
-      "title": "AudioRecordingIntent",
       "navigatorTitle": [
         {
           "kind": "identifier",
-          "text": "AudioRecordingIntent"
+          "text": "SnippetIntent"
         }
       ],
+      "role": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An app intent that presents an interactive snippet onscreen."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AudioRecordingIntent": {
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AudioRecordingIntent",
+          "kind": "identifier"
+        }
+      ],
+      "title": "AudioRecordingIntent",
       "abstract": [
         {
           "text": "An app intent that starts, stops or otherwise modifies audio recording state.",
           "type": "text"
         }
       ],
+      "type": "topic",
       "url": "https://developer.apple.com/documentation/appintents/audiorecordingintent",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AudioRecordingIntent",
+      "navigatorTitle": [
+        {
+          "text": "AudioRecordingIntent",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/SetValueIntent": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/SetValueIntent",
+      "type": "topic",
+      "kind": "symbol",
+      "title": "SetValueIntent",
+      "url": "https://developer.apple.com/documentation/appintents/setvalueintent",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "SetValueIntent",
+          "kind": "identifier"
+        }
+      ],
+      "role": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent that contains a value which can be set."
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "SetValueIntent",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/DeprecatedAppIntent": {
+      "kind": "symbol",
+      "title": "DeprecatedAppIntent",
+      "type": "topic",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "DeprecatedAppIntent"
+        }
+      ],
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/DeprecatedAppIntent",
+      "url": "https://developer.apple.com/documentation/appintents/deprecatedappintent",
+      "navigatorTitle": [
+        {
+          "text": "DeprecatedAppIntent",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An app intent that marks an action as deprecated and informs people which action to use instead."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/OpenIntent": {
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "OpenIntent"
+        }
+      ],
+      "kind": "symbol",
+      "title": "OpenIntent",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Open the associated item."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/openintent",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "OpenIntent"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/OpenIntent"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/ForegroundContinuableIntent": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ForegroundContinuableIntent",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "ForegroundContinuableIntent"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/foregroundcontinuableintent",
+      "kind": "symbol",
+      "title": "ForegroundContinuableIntent",
+      "role": "symbol",
+      "abstract": [
+        {
+          "text": "A protocol you use for app intents which begin their work with the app in the background but",
+          "type": "text"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "may request to continue in the foreground.",
+          "type": "text"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ForegroundContinuableIntent"
+        }
+      ],
+      "type": "topic",
+      "deprecated": true
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-intent-domains": {
+      "type": "topic",
+      "title": "App intent domains",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "text": "Make your app’s actions and content available to Siri and Apple Intelligence with assistant schemas.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-intent-domains",
+      "url": "https://developer.apple.com/documentation/appintents/app-intent-domains",
+      "kind": "article"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents": {
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents",
+      "url": "https://developer.apple.com/documentation/appintents",
+      "role": "collection",
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "text": "App Intents",
+          "kind": "text"
+        }
+      ],
+      "title": "App Intents",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your app’s content and actions discoverable with system experiences like Spotlight, widgets, and the Shortcuts app."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/SystemIntent": {
+      "url": "https://developer.apple.com/documentation/appintents/systemintent",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/SystemIntent",
       "kind": "symbol",
       "role": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AudioRecordingIntent",
+      "type": "topic",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "SystemIntent"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Designates intent types provided by App Intents."
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "SystemIntent",
+          "kind": "identifier"
+        }
+      ],
+      "title": "SystemIntent"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/Creating-your-first-app-intent": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/Creating-your-first-app-intent",
+      "title": "Creating your first app intent",
+      "type": "topic",
+      "role": "article",
+      "abstract": [
+        {
+          "text": "Create your first app intent that makes your app available in system experiences like Spotlight or the Shortcuts app.",
+          "type": "text"
+        }
+      ],
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/appintents/creating-your-first-app-intent"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/PlayVideoIntent": {
       "fragments": [
         {
           "text": "protocol",
@@ -1355,17 +816,352 @@
         },
         {
           "kind": "identifier",
-          "text": "AudioRecordingIntent"
+          "text": "PlayVideoIntent"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/PlayVideoIntent",
+      "url": "https://developer.apple.com/documentation/appintents/playvideointent",
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "PlayVideoIntent"
+        }
+      ],
+      "title": "PlayVideoIntent",
+      "kind": "symbol",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "An intent that looks for videos based on a search term, then plays the content.",
+          "type": "text"
         }
       ]
     },
-    "doc://com.apple.AppIntents/documentation/AppIntents/SystemIntent": {
-      "kind": "symbol",
-      "type": "topic",
-      "role": "symbol",
+    "doc://com.apple.AppIntents/documentation/AppIntents/AudioStartingIntent": {
+      "url": "https://developer.apple.com/documentation/appintents/audiostartingintent",
       "abstract": [
         {
-          "text": "Designates intent types provided by App Intents.",
+          "text": "An App Intent that plays, pauses, or otherwise modifies audio playback state when it executes.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "title": "AudioStartingIntent",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AudioStartingIntent",
+          "kind": "identifier"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "AudioStartingIntent",
+          "kind": "identifier"
+        }
+      ],
+      "deprecated": true,
+      "role": "symbol",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AudioStartingIntent"
+    },
+    "doc://com.apple.documentation/documentation/technologies": {
+      "kind": "technologies",
+      "type": "topic",
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "url": "https://developer.apple.com/documentation/technologies",
+      "title": "Technologies",
+      "role": "overview",
+      "abstract": [
+        {
+          "text": "",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent": {
+      "url": "https://developer.apple.com/documentation/appintents/appintent",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "text": "An interface for providing an app-specific capability that people invoke",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "type": "text",
+          "text": "from system experiences like Siri and the Shortcuts app."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent",
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "AppIntent"
+        }
+      ],
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "AppIntent"
+        }
+      ],
+      "title": "AppIntent"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent/title": {
+      "defaultImplementations": 1,
+      "fragments": [
+        {
+          "text": "static",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "title"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "LocalizedStringResource",
+          "preciseIdentifier": "s:10Foundation23LocalizedStringResourceV",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A short, localized, human-readable string that describes the app intent"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "type": "text",
+          "text": "using a verb and a noun in title case."
+        }
+      ],
+      "required": true,
+      "title": "title",
+      "url": "https://developer.apple.com/documentation/appintents/appintent/title",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent/title",
+      "kind": "symbol",
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/CameraCaptureIntent": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Designates intent that will launch an activity that uses device’s camera to capture photos or videos."
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "type": "text",
+          "text": "Marking your intent with this protocol makes it available as a possible action for Camera quick action."
+        }
+      ],
+      "title": "CameraCaptureIntent",
+      "role": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "CameraCaptureIntent",
+          "kind": "identifier"
+        }
+      ],
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/cameracaptureintent",
+      "navigatorTitle": [
+        {
+          "text": "CameraCaptureIntent",
+          "kind": "identifier"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/CameraCaptureIntent",
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent/description": {
+      "title": "description",
+      "defaultImplementations": 1,
+      "url": "https://developer.apple.com/documentation/appintents/appintent/description",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A description of the app intent that the system shows to people."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent/description",
+      "required": true,
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "static",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "description"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "IntentDescription",
+          "preciseIdentifier": "s:10AppIntents17IntentDescriptionV",
+          "kind": "typeIdentifier"
+        },
+        {
+          "kind": "text",
+          "text": "?"
+        }
+      ],
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/WidgetConfigurationIntent": {
+      "title": "WidgetConfigurationIntent",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "WidgetConfigurationIntent"
+        }
+      ],
+      "type": "topic",
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "WidgetConfigurationIntent",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/widgetconfigurationintent",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/WidgetConfigurationIntent",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An interface for configuring a WidgetKit widget."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/LiveActivityStartingIntent": {
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "LiveActivityStartingIntent"
+        }
+      ],
+      "deprecated": true,
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent that starts, pauses, or otherwise modifies a Live Activity."
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "LiveActivityStartingIntent"
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/LiveActivityStartingIntent",
+      "url": "https://developer.apple.com/documentation/appintents/liveactivitystartingintent",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "LiveActivityStartingIntent"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/DeleteIntent": {
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/deleteintent",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/DeleteIntent",
+      "kind": "symbol",
+      "title": "DeleteIntent",
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "DeleteIntent"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "Delete the associated entity(s).",
           "type": "text"
         }
       ],
@@ -1379,19 +1175,223 @@
           "kind": "text"
         },
         {
-          "kind": "identifier",
-          "text": "SystemIntent"
+          "text": "DeleteIntent",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/ProgressReportingIntent": {
+      "abstract": [
+        {
+          "text": "An intent that reports progress to the system during its execution",
+          "type": "text"
         }
       ],
-      "title": "SystemIntent",
-      "url": "https://developer.apple.com/documentation/appintents/systemintent",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ProgressReportingIntent",
+      "kind": "symbol",
       "navigatorTitle": [
         {
-          "text": "SystemIntent",
+          "text": "ProgressReportingIntent",
           "kind": "identifier"
         }
       ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/SystemIntent"
+      "type": "topic",
+      "title": "ProgressReportingIntent",
+      "role": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ProgressReportingIntent"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/progressreportingintent"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/ControlConfigurationIntent": {
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ControlConfigurationIntent"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ControlConfigurationIntent"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ControlConfigurationIntent",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/controlconfigurationintent",
+      "title": "ControlConfigurationIntent",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "text": "An interface for configuring a Control Center module.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AcceleratingAppInteractionsWithAppIntents": {
+      "role": "sampleCode",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Enable people to use your app’s features quickly through Siri, Spotlight, and Shortcuts."
+        }
+      ],
+      "title": "Accelerating app interactions with App Intents",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AcceleratingAppInteractionsWithAppIntents",
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/appintents/acceleratingappinteractionswithappintents"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/PushToTalkTransmissionIntent": {
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "PushToTalkTransmissionIntent",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/pushtotalktransmissionintent",
+      "navigatorTitle": [
+        {
+          "text": "PushToTalkTransmissionIntent",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "title": "PushToTalkTransmissionIntent",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent that begins or ends an audio transmission with the Push to Talk framework."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/PushToTalkTransmissionIntent",
+      "type": "topic",
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/LiveActivityIntent": {
+      "title": "LiveActivityIntent",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/LiveActivityIntent",
+      "url": "https://developer.apple.com/documentation/appintents/liveactivityintent",
+      "abstract": [
+        {
+          "text": "An intent that starts, pauses, or otherwise modifies a Live Activity when it runs.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "role": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "LiveActivityIntent",
+          "kind": "identifier"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "LiveActivityIntent"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AudioPlaybackIntent": {
+      "abstract": [
+        {
+          "text": "An App Intent that plays, pauses, or otherwise modifies audio playback state when it executes.",
+          "type": "text"
+        }
+      ],
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/audioplaybackintent",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AudioPlaybackIntent",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AudioPlaybackIntent",
+          "kind": "identifier"
+        }
+      ],
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "AudioPlaybackIntent",
+          "kind": "identifier"
+        }
+      ],
+      "title": "AudioPlaybackIntent"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/UISceneAppIntent": {
+      "role": "symbol",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/UISceneAppIntent",
+      "title": "UISceneAppIntent",
+      "navigatorTitle": [
+        {
+          "text": "UISceneAppIntent",
+          "kind": "identifier"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "UISceneAppIntent"
+        }
+      ],
+      "abstract": [],
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/uisceneappintent"
     }
   },
   "legalNotices": {
