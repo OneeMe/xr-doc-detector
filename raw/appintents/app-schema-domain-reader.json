@@ -1,0 +1,1028 @@
+{
+  "primaryContentSections": [
+    {
+      "kind": "content",
+      "content": [
+        {
+          "text": "Overview",
+          "type": "heading",
+          "anchor": "overview",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "text": "The ",
+              "type": "text"
+            },
+            {
+              "code": ".reader",
+              "type": "codeVoice"
+            },
+            {
+              "text": " domain defines app schemas that provide a",
+              "type": "text"
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "structured representation for common document reading actions and content."
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "Apply schemas in the "
+            },
+            {
+              "code": ".reader",
+              "type": "codeVoice"
+            },
+            {
+              "type": "text",
+              "text": " domain to make your document reader’s functionality available as actions in the Shortcuts app."
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "type": "text",
+              "text": "Schemas in this domain don’t make your conforming types discoverable by Apple Intelligence and Siri."
+            }
+          ]
+        },
+        {
+          "type": "aside",
+          "style": "tip",
+          "content": [
+            {
+              "inlineContent": [
+                {
+                  "type": "text",
+                  "text": "Xcode generates a template implementation when you type "
+                },
+                {
+                  "code": "reader_",
+                  "type": "codeVoice"
+                },
+                {
+                  "text": " and select a schema from the suggestions list.",
+                  "type": "text"
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "name": "Tip"
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "For more information about app schemas, see "
+            },
+            {
+              "isActive": true,
+              "type": "reference",
+              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/appintents/app-schema-domain-reader"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "title": "Reader",
+    "role": "collectionGroup",
+    "roleHeading": "API Collection",
+    "modules": [
+      {
+        "name": "App Intents"
+      }
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-reader"
+  },
+  "seeAlsoSections": [
+    {
+      "anchor": "Shortcuts-specific-domains",
+      "title": "Shortcuts-specific domains",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-books",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-browser",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-journaling",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-presentation",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-spreadsheet",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-whiteboard",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-word-processor"
+      ],
+      "generated": true
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.AppIntents/documentation/AppIntents",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains"
+      ],
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.AppIntents/documentation/AppIntents",
+        "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains"
+      ]
+    ]
+  },
+  "sections": [],
+  "kind": "article",
+  "abstract": [
+    {
+      "type": "text",
+      "text": "Make your document reader’s actions available in the Shortcuts app by adopting schemas for document viewing and manipulation."
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "topicSections": [
+    {
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/deletePages",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/enhanceDocuments",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/insertPages",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/openDocument",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/openPage",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/resizeDocuments",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/rotateDocuments",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/rotatePages",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/searchDocuments",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent"
+      ],
+      "title": "Actions",
+      "anchor": "Actions"
+    },
+    {
+      "anchor": "Content-and-parameter-types",
+      "title": "Content and parameter types",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderEntity/document",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderEntity/page",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderEntity"
+      ]
+    },
+    {
+      "anchor": "Types-for-static-parameters",
+      "title": "Types for static parameters",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderEnum/documentKind",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderEnum"
+      ]
+    }
+  ],
+  "references": {
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/rotateDocuments": {
+      "type": "topic",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "rotateDocuments",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "AppSchemaIntent",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that rotates the documents in the specified direction."
+        }
+      ],
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/readerintent/rotatedocuments",
+      "title": "rotateDocuments",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/rotateDocuments"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/openPage": {
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/openPage",
+      "role": "symbol",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "An intent schema that opens the app to the specified document page.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "openPage"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AppSchemaIntent",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "title": "openPage",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/readerintent/openpage"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-presentation": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-presentation",
+      "kind": "article",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-presentation",
+      "title": "Presentation",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your presentation app’s actions available in the Shortcuts app by adopting schemas for common presentation actions."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/searchDocuments": {
+      "kind": "symbol",
+      "title": "searchDocuments",
+      "role": "symbol",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/readerintent/searchdocuments",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/searchDocuments",
+      "abstract": [
+        {
+          "text": "An intent schema that searches for text in the documents.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "searchDocuments",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "AppSchemaIntent",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/resizeDocuments": {
+      "abstract": [
+        {
+          "text": "An intent schema that resizes the documents to a particular width and height.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/readerintent/resizedocuments",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "resizeDocuments"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaIntent",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/resizeDocuments",
+      "type": "topic",
+      "title": "resizeDocuments",
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-whiteboard": {
+      "title": "Whiteboard",
+      "kind": "article",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-whiteboard",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-whiteboard",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your whiteboard app’s actions available in the Shortcuts app by adopting schemas for common whiteboard actions."
+        }
+      ],
+      "role": "collectionGroup"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-journaling": {
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-journaling",
+      "type": "topic",
+      "title": "Journaling",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your journaling app’s actions available in the Shortcuts app by adopting schemas for journal-entry management."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-journaling",
+      "role": "collectionGroup",
+      "kind": "article"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/insertPages": {
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/readerintent/insertpages",
+      "title": "insertPages",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that inserts pages from the specified files."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/insertPages",
+      "role": "symbol",
+      "type": "topic",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "insertPages"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-spreadsheet": {
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-spreadsheet",
+      "kind": "article",
+      "title": "Spreadsheet",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "Make your spreadsheet app’s actions available in the Shortcuts app by adopting schemas for spreadsheet management.",
+          "type": "text"
+        }
+      ],
+      "role": "collectionGroup",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-spreadsheet"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent",
+      "title": "AppSchema.ReaderIntent",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/readerintent",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "ReaderIntent"
+        }
+      ],
+      "kind": "symbol",
+      "abstract": [
+        {
+          "text": "Identifies intent schemas in the reader domain.",
+          "type": "text"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ReaderIntent"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/rotatePages": {
+      "title": "rotatePages",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/readerintent/rotatepages",
+      "role": "symbol",
+      "type": "topic",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "rotatePages",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that rotates the pages in the specified direction."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/rotatePages"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-books": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-books",
+      "kind": "article",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-books",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "text": "Make your ebook reader’s actions available in the Shortcuts app by adopting schemas for common reading actions.",
+          "type": "text"
+        }
+      ],
+      "title": "Books"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-word-processor": {
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-word-processor",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your word processor’s actions available in the Shortcuts app by adopting schemas for document editing."
+        }
+      ],
+      "role": "collectionGroup",
+      "kind": "article",
+      "title": "Word processor",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-word-processor"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai": {
+      "title": "Apple Intelligence and Siri AI",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "text": "Integrate your app with Apple Intelligence and bring it to Siri AI.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai",
+      "url": "https://developer.apple.com/documentation/appintents/apple-intelligence-and-siri-ai",
+      "kind": "article",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderEntity/document": {
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "document",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AppSchemaEntity",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP"
+        }
+      ],
+      "title": "document",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/readerentity/document",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for a document."
+        }
+      ],
+      "type": "topic",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderEntity/document",
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-browser": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your web browser’s actions available in the Shortcuts app by adopting schemas for common browsing actions."
+        }
+      ],
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-browser",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-browser",
+      "title": "Browser",
+      "role": "collectionGroup",
+      "kind": "article"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains": {
+      "title": "App schema domains",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domains",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Declare support for well-known actions and content by applying system-defined schemas to"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "your app intents, app entities, and app enumerations.",
+          "type": "text"
+        }
+      ],
+      "kind": "article",
+      "role": "collectionGroup",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/enhanceDocuments": {
+      "kind": "symbol",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "enhanceDocuments",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that enhances the documents."
+        }
+      ],
+      "type": "topic",
+      "title": "enhanceDocuments",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/readerintent/enhancedocuments",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/enhanceDocuments"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderEnum/documentKind": {
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/readerenum/documentkind",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An enum schema for a document kind parameter."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderEnum/documentKind",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "documentKind",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "AppSchemaEnum",
+          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP"
+        }
+      ],
+      "title": "documentKind",
+      "role": "symbol"
+    },
+    "doc://com.apple.documentation/documentation/technologies": {
+      "title": "Technologies",
+      "role": "overview",
+      "abstract": [
+        {
+          "type": "text",
+          "text": ""
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "kind": "technologies",
+      "url": "https://developer.apple.com/documentation/technologies"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents": {
+      "type": "topic",
+      "kind": "symbol",
+      "role": "collection",
+      "url": "https://developer.apple.com/documentation/appintents",
+      "navigatorTitle": [
+        {
+          "kind": "text",
+          "text": "App Intents"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents",
+      "title": "App Intents",
+      "abstract": [
+        {
+          "text": "Make content and actions discoverable by Apple Intelligence and support system experiences like Siri, Spotlight, Shortcuts, and widgets.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/openDocument": {
+      "url": "https://developer.apple.com/documentation/appintents/appschema/readerintent/opendocument",
+      "title": "openDocument",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/openDocument",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that opens the specified files in the reader."
+        }
+      ],
+      "type": "topic",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "openDocument"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "kind": "typeIdentifier",
+          "text": "AppSchemaIntent"
+        }
+      ],
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderEntity/page": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderEntity/page",
+      "type": "topic",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "text": "An entity schema for a page.",
+          "type": "text"
+        }
+      ],
+      "title": "page",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "page",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "text": "AppSchemaEntity",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/readerentity/page"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderEntity": {
+      "url": "https://developer.apple.com/documentation/appintents/appschema/readerentity",
+      "type": "topic",
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderEntity",
+      "title": "AppSchema.ReaderEntity",
+      "abstract": [
+        {
+          "text": "Identifies entity schemas in the reader domain.",
+          "type": "text"
+        }
+      ],
+      "kind": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "ReaderEntity"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ReaderEntity"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/deletePages": {
+      "title": "deletePages",
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderIntent/deletePages",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "deletePages"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/readerintent/deletepages",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "An intent schema that deletes the specified pages.",
+          "type": "text"
+        }
+      ],
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderEnum": {
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "ReaderEnum",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/readerenum",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ReaderEnum"
+        }
+      ],
+      "kind": "symbol",
+      "abstract": [
+        {
+          "text": "Identifies enum schemas in the reader domain.",
+          "type": "text"
+        }
+      ],
+      "title": "AppSchema.ReaderEnum",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/ReaderEnum"
+    }
+  },
+  "legalNotices": {
+    "copyright": "Copyright &copy; 2026 Apple Inc. All rights reserved.",
+    "termsOfUse": "https://www.apple.com/legal/internet-services/terms/site.html",
+    "privacyPolicy": "https://www.apple.com/privacy/privacy-policy"
+  }
+}

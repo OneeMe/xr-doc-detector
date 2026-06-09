@@ -1,0 +1,982 @@
+{
+  "abstract": [
+    {
+      "type": "text",
+      "text": "Make your whiteboard app’s actions available in the Shortcuts app by adopting schemas for common whiteboard actions."
+    }
+  ],
+  "seeAlsoSections": [
+    {
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-books",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-browser",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-journaling",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-presentation",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-reader",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-spreadsheet",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-word-processor"
+      ],
+      "generated": true,
+      "anchor": "Shortcuts-specific-domains",
+      "title": "Shortcuts-specific domains"
+    }
+  ],
+  "primaryContentSections": [
+    {
+      "kind": "content",
+      "content": [
+        {
+          "anchor": "overview",
+          "level": 2,
+          "text": "Overview",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "The "
+            },
+            {
+              "type": "codeVoice",
+              "code": ".whiteboard"
+            },
+            {
+              "type": "text",
+              "text": " domain defines app schemas that provide a"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "structured representation for common whiteboard actions and content.",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "type": "text",
+              "text": "Apply schemas in the "
+            },
+            {
+              "type": "codeVoice",
+              "code": ".whiteboard"
+            },
+            {
+              "text": " domain to make your app’s whiteboard functionality available as actions in the Shortcuts app.",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "type": "text",
+              "text": "Schemas in this domain don’t make your conforming types discoverable by Apple Intelligence and Siri."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "name": "Tip",
+          "content": [
+            {
+              "type": "paragraph",
+              "inlineContent": [
+                {
+                  "type": "text",
+                  "text": "Xcode generates a template implementation when you type "
+                },
+                {
+                  "code": "whiteboard_",
+                  "type": "codeVoice"
+                },
+                {
+                  "text": " and select a schema from the suggestions list.",
+                  "type": "text"
+                }
+              ]
+            }
+          ],
+          "type": "aside",
+          "style": "tip"
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "For more information about app schemas, see "
+            },
+            {
+              "isActive": true,
+              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains",
+              "type": "reference"
+            },
+            {
+              "text": ".",
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "variants": [
+    {
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ],
+      "paths": [
+        "/documentation/appintents/app-schema-domain-whiteboard"
+      ]
+    }
+  ],
+  "kind": "article",
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.AppIntents/documentation/AppIntents",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains"
+      ],
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.AppIntents/documentation/AppIntents",
+        "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains"
+      ]
+    ]
+  },
+  "metadata": {
+    "roleHeading": "API Collection",
+    "role": "collectionGroup",
+    "modules": [
+      {
+        "name": "App Intents"
+      }
+    ],
+    "title": "Whiteboard"
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "title": "Actions",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardIntent/createBoard",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardIntent/createItem",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardIntent/deleteBoard",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardIntent/deleteItem",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardIntent/openBoard",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardIntent/updateBoard",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardIntent/updateItem",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardIntent"
+      ],
+      "anchor": "Actions"
+    },
+    {
+      "anchor": "Content-and-parameter-types",
+      "title": "Content and parameter types",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardEntity/board",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardEntity/item",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardEntity"
+      ]
+    },
+    {
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardEnum/color",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardEnum/itemType",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardEnum"
+      ],
+      "anchor": "Types-for-static-parameters",
+      "title": "Types for static parameters"
+    }
+  ],
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-whiteboard"
+  },
+  "references": {
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-browser": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your web browser’s actions available in the Shortcuts app by adopting schemas for common browsing actions."
+        }
+      ],
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-browser",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-browser",
+      "title": "Browser",
+      "role": "collectionGroup",
+      "kind": "article"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-journaling": {
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-journaling",
+      "type": "topic",
+      "title": "Journaling",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your journaling app’s actions available in the Shortcuts app by adopting schemas for journal-entry management."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-journaling",
+      "role": "collectionGroup",
+      "kind": "article"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardEntity": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardEntity",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Identifies entity schemas in the whiteboard domain."
+        }
+      ],
+      "title": "AppSchema.WhiteboardEntity",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "WhiteboardEntity"
+        }
+      ],
+      "type": "topic",
+      "kind": "symbol",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/whiteboardentity",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "WhiteboardEntity"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardEntity/board": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardEntity/board",
+      "role": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "board",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "text": "AppSchemaEntity"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for a board."
+        }
+      ],
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/whiteboardentity/board",
+      "kind": "symbol",
+      "title": "board"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardIntent/deleteBoard": {
+      "kind": "symbol",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/whiteboardintent/deleteboard",
+      "role": "symbol",
+      "abstract": [
+        {
+          "text": "An intent schema that deletes one or more boards.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "deleteBoard"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "AppSchemaIntent",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "title": "deleteBoard",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardIntent/deleteBoard"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai": {
+      "title": "Apple Intelligence and Siri AI",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "text": "Integrate your app with Apple Intelligence and bring it to Siri AI.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai",
+      "url": "https://developer.apple.com/documentation/appintents/apple-intelligence-and-siri-ai",
+      "kind": "article",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents": {
+      "type": "topic",
+      "kind": "symbol",
+      "role": "collection",
+      "url": "https://developer.apple.com/documentation/appintents",
+      "navigatorTitle": [
+        {
+          "kind": "text",
+          "text": "App Intents"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents",
+      "title": "App Intents",
+      "abstract": [
+        {
+          "text": "Make content and actions discoverable by Apple Intelligence and support system experiences like Siri, Spotlight, Shortcuts, and widgets.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-books": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-books",
+      "kind": "article",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-books",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "text": "Make your ebook reader’s actions available in the Shortcuts app by adopting schemas for common reading actions.",
+          "type": "text"
+        }
+      ],
+      "title": "Books"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-word-processor": {
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-word-processor",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your word processor’s actions available in the Shortcuts app by adopting schemas for document editing."
+        }
+      ],
+      "role": "collectionGroup",
+      "kind": "article",
+      "title": "Word processor",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-word-processor"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains": {
+      "title": "App schema domains",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domains",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Declare support for well-known actions and content by applying system-defined schemas to"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "your app intents, app entities, and app enumerations.",
+          "type": "text"
+        }
+      ],
+      "kind": "article",
+      "role": "collectionGroup",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardEnum": {
+      "url": "https://developer.apple.com/documentation/appintents/appschema/whiteboardenum",
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardEnum",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "WhiteboardEnum"
+        }
+      ],
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "WhiteboardEnum"
+        }
+      ],
+      "type": "topic",
+      "title": "AppSchema.WhiteboardEnum",
+      "abstract": [
+        {
+          "text": "Identifies enum schemas in the whiteboard domain.",
+          "type": "text"
+        }
+      ],
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardIntent/openBoard": {
+      "url": "https://developer.apple.com/documentation/appintents/appschema/whiteboardintent/openboard",
+      "title": "openBoard",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardIntent/openBoard",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "text": "An intent schema that opens an existing board.",
+          "type": "text"
+        }
+      ],
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "openBoard"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardIntent/deleteItem": {
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardIntent/deleteItem",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "text": "An intent schema that deletes the selected canvas items.",
+          "type": "text"
+        }
+      ],
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/whiteboardintent/deleteitem",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "deleteItem",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "title": "deleteItem"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-reader": {
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-reader",
+      "abstract": [
+        {
+          "text": "Make your document reader’s actions available in the Shortcuts app by adopting schemas for document viewing and manipulation.",
+          "type": "text"
+        }
+      ],
+      "kind": "article",
+      "role": "collectionGroup",
+      "title": "Reader",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-reader"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardIntent/createItem": {
+      "title": "createItem",
+      "role": "symbol",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "createItem",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "text": "AppSchemaIntent"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that adds an item to a board."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/whiteboardintent/createitem",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardIntent/createItem"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardIntent/updateBoard": {
+      "title": "updateBoard",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "updateBoard"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "kind": "typeIdentifier",
+          "text": "AppSchemaIntent"
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardIntent/updateBoard",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/whiteboardintent/updateboard",
+      "abstract": [
+        {
+          "text": "An intent schema that renames a board.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.documentation/documentation/technologies": {
+      "title": "Technologies",
+      "role": "overview",
+      "abstract": [
+        {
+          "type": "text",
+          "text": ""
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "kind": "technologies",
+      "url": "https://developer.apple.com/documentation/technologies"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-presentation": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-presentation",
+      "kind": "article",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-presentation",
+      "title": "Presentation",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your presentation app’s actions available in the Shortcuts app by adopting schemas for common presentation actions."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-spreadsheet": {
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-spreadsheet",
+      "kind": "article",
+      "title": "Spreadsheet",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "Make your spreadsheet app’s actions available in the Shortcuts app by adopting schemas for spreadsheet management.",
+          "type": "text"
+        }
+      ],
+      "role": "collectionGroup",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-spreadsheet"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardEnum/itemType": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An enum schema for an item type parameter."
+        }
+      ],
+      "type": "topic",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "itemType",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP",
+          "text": "AppSchemaEnum"
+        }
+      ],
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/whiteboardenum/itemtype",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardEnum/itemType",
+      "title": "itemType"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardIntent/createBoard": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardIntent/createBoard",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/whiteboardintent/createboard",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "createBoard",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "An intent schema that creates a new board.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "title": "createBoard",
+      "kind": "symbol",
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardIntent": {
+      "navigatorTitle": [
+        {
+          "text": "WhiteboardIntent",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "title": "AppSchema.WhiteboardIntent",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "WhiteboardIntent",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "Identifies intent schemas in the whiteboard domain.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardIntent",
+      "type": "topic",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/whiteboardintent"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardEntity/item": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardEntity/item",
+      "kind": "symbol",
+      "title": "item",
+      "abstract": [
+        {
+          "text": "An entity schema for an item.",
+          "type": "text"
+        }
+      ],
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "item",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "text": "AppSchemaEntity",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/whiteboardentity/item",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardEnum/color": {
+      "title": "color",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An enum schema for a color parameter."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/whiteboardenum/color",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardEnum/color",
+      "kind": "symbol",
+      "type": "topic",
+      "role": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "color"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP",
+          "text": "AppSchemaEnum"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardIntent/updateItem": {
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "An intent schema that updates a board item.",
+          "type": "text"
+        }
+      ],
+      "role": "symbol",
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/whiteboardintent/updateitem",
+      "title": "updateItem",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "updateItem",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/WhiteboardIntent/updateItem"
+    }
+  },
+  "legalNotices": {
+    "copyright": "Copyright &copy; 2026 Apple Inc. All rights reserved.",
+    "termsOfUse": "https://www.apple.com/legal/internet-services/terms/site.html",
+    "privacyPolicy": "https://www.apple.com/privacy/privacy-policy"
+  }
+}

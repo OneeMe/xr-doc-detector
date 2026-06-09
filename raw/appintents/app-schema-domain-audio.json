@@ -1,0 +1,2290 @@
+{
+  "sections": [],
+  "topicSections": [
+    {
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/integrating-your-music-app-with-apple-intelligence"
+      ],
+      "anchor": "Essentials",
+      "title": "Essentials"
+    },
+    {
+      "title": "Actions",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/addToLibrary",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/addToPlaylist",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/createStation",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/playAudio",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/recognizeAudio",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/updateAudioAffinity",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/warmupAudioQueue",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent"
+      ],
+      "anchor": "Actions"
+    },
+    {
+      "title": "Content and parameter types",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/album",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/algorithmicRadioStation",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/ambientSound",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/artist",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/audiobook",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/classicalMusicRecording",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/liveRadioStation",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/newsBrief",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/newsProvider",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/playlist",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/podcastCollection",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/podcastEpisode",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/podcastShow",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/radioShow",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/radioShowEpisode",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/song",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/songCollection",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/warmupAudioQueueResult",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity"
+      ],
+      "anchor": "Content-and-parameter-types"
+    },
+    {
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEnum/activity",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEnum/affinityState",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEnum/appViewIdentifier",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEnum/invocationSource",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEnum/playbackAttributes",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEnum/queueInsertionLocation",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEnum"
+      ],
+      "anchor": "Types-for-static-parameters",
+      "title": "Types for static parameters"
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "seeAlsoSections": [
+    {
+      "anchor": "Primary-domains",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-calendar",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-camera",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-clock",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-files",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-mail",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-maps",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-messages",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-notes",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-phone",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-photos",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-reminders",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-system-and-in-app-search"
+      ],
+      "title": "Primary domains",
+      "generated": true
+    }
+  ],
+  "identifier": {
+    "url": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-audio",
+    "interfaceLanguage": "swift"
+  },
+  "abstract": [
+    {
+      "text": "Make your audio app’s actions available to Apple Intelligence and Siri by adopting schemas for common audio playback actions.",
+      "type": "text"
+    }
+  ],
+  "kind": "article",
+  "variants": [
+    {
+      "paths": [
+        "/documentation/appintents/app-schema-domain-audio"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "role": "collectionGroup",
+    "modules": [
+      {
+        "name": "App Intents"
+      }
+    ],
+    "title": "Audio",
+    "roleHeading": "API Collection"
+  },
+  "primaryContentSections": [
+    {
+      "kind": "content",
+      "content": [
+        {
+          "type": "heading",
+          "level": 2,
+          "anchor": "overview",
+          "text": "Overview"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "The ",
+              "type": "text"
+            },
+            {
+              "type": "codeVoice",
+              "code": ".audio"
+            },
+            {
+              "text": " domain defines app schemas that provide a",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "structured representation for common audio playback actions and content.",
+              "type": "text"
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "Apply schemas in the "
+            },
+            {
+              "code": ".audio",
+              "type": "codeVoice"
+            },
+            {
+              "text": " domain to make your app’s audio functionality available to Apple Intelligence and Siri.",
+              "type": "text"
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "text": "The ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://com.apple.documentation/documentation/MediaIntents",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "type": "text",
+              "text": " framework provides the types that describe a person’s audio search and playback request."
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "type": "text",
+              "text": "Your app implements an "
+            },
+            {
+              "type": "reference",
+              "isActive": true,
+              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntentValueQuery"
+            },
+            {
+              "type": "text",
+              "text": " to receive these types, find matching audio content, and return app entities."
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "Each schema defines the requirements for intents, parameters, and results so people get a consistent experience across audio apps.",
+              "type": "text"
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "text": "For example, a person can play a song on different apps that support the",
+              "type": "text"
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/playAudio",
+              "type": "reference",
+              "isActive": true
+            },
+            {
+              "text": " schema with the same phrases.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "text": "The following table maps example phrases that apply to each schema:",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "header": "row",
+          "rows": [
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "Audio intent schemas"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "Example phrases"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/playAudio",
+                      "isActive": true,
+                      "type": "reference"
+                    }
+                  ]
+                }
+              ],
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "“Play music.” or “Play hip-hop in the living room.”"
+                    }
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "isActive": true,
+                      "type": "reference",
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/addToLibrary"
+                    }
+                  ]
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "“Follow this podcast.” or “Add this song to my library.”"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "isActive": true,
+                      "type": "reference",
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/addToPlaylist"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "text": "“Add this song to my running playlist.”",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "isActive": true,
+                      "type": "reference",
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/createStation"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "“Create a station based on this song.” or “Play more music like this.”"
+                    }
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "type": "reference",
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/recognizeAudio",
+                      "isActive": true
+                    }
+                  ]
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "text": "“What song is this?” or “Shazam.”",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/updateAudioAffinity",
+                      "isActive": true,
+                      "type": "reference"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "text": "“I like this song.” or “I don’t like this song.”",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "type": "aside",
+          "content": [
+            {
+              "type": "paragraph",
+              "inlineContent": [
+                {
+                  "text": "Xcode generates a template implementation when you type ",
+                  "type": "text"
+                },
+                {
+                  "type": "codeVoice",
+                  "code": "audio_"
+                },
+                {
+                  "text": " and select a schema from the suggestions list.",
+                  "type": "text"
+                }
+              ]
+            }
+          ],
+          "name": "Tip",
+          "style": "tip"
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "For more information about making your app’s actions available to Apple Intelligence and Siri, see "
+            },
+            {
+              "isActive": true,
+              "type": "reference",
+              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.AppIntents/documentation/AppIntents",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains"
+      ],
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.AppIntents/documentation/AppIntents",
+        "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains"
+      ]
+    ]
+  },
+  "references": {
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/updateAudioAffinity": {
+      "title": "updateAudioAffinity",
+      "role": "symbol",
+      "type": "topic",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "updateAudioAffinity",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "AppSchemaIntent",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that sets the like state of an audio item to liked, unliked, or unset."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/updateAudioAffinity",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audiointent/updateaudioaffinity",
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Identifies intent schemas in the audio domain."
+        }
+      ],
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AudioIntent",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audiointent",
+      "title": "AppSchema.AudioIntent",
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "text": "AudioIntent",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/audiobook": {
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "audiobook"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "kind": "typeIdentifier",
+          "text": "AppSchemaEntity"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/audiobook",
+      "type": "topic",
+      "kind": "symbol",
+      "title": "audiobook",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioentity/audiobook",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for an audiobook."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEnum/invocationSource": {
+      "type": "topic",
+      "role": "symbol",
+      "kind": "symbol",
+      "title": "invocationSource",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "invocationSource"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaEnum",
+          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioenum/invocationsource",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An enum schema for an invocation source parameter."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEnum/invocationSource"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/artist": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/artist",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "artist"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "text": "AppSchemaEntity"
+        }
+      ],
+      "title": "artist",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioentity/artist",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for an artist."
+        }
+      ],
+      "kind": "symbol",
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai": {
+      "title": "Apple Intelligence and Siri AI",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "text": "Integrate your app with Apple Intelligence and bring it to Siri AI.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai",
+      "url": "https://developer.apple.com/documentation/appintents/apple-intelligence-and-siri-ai",
+      "kind": "article",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-notes": {
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-notes",
+      "abstract": [
+        {
+          "text": "Make your note-taking app’s actions available to Apple Intelligence and Siri by adopting schemas for common note actions.",
+          "type": "text"
+        }
+      ],
+      "kind": "article",
+      "title": "Notes",
+      "role": "collectionGroup",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-notes",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/podcastCollection": {
+      "kind": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "podcastCollection",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "text": "AppSchemaEntity",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "title": "podcastCollection",
+      "role": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for a podcast collection."
+        }
+      ],
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioentity/podcastcollection",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/podcastCollection"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/classicalMusicRecording": {
+      "role": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for a classical music recording."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/classicalMusicRecording",
+      "kind": "symbol",
+      "title": "classicalMusicRecording",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioentity/classicalmusicrecording",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "classicalMusicRecording",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "AppSchemaEntity",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/radioShow": {
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioentity/radioshow",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/radioShow",
+      "title": "radioShow",
+      "role": "symbol",
+      "abstract": [
+        {
+          "text": "An entity schema for a radio show.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "radioShow",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "kind": "typeIdentifier",
+          "text": "AppSchemaEntity"
+        }
+      ],
+      "kind": "symbol",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/warmupAudioQueueResult": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/warmupAudioQueueResult",
+      "type": "topic",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "warmupAudioQueueResult",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AppSchemaEntity",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioentity/warmupaudioqueueresult",
+      "role": "symbol",
+      "title": "warmupAudioQueueResult",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for a warmup audio queue result."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/recognizeAudio": {
+      "title": "recognizeAudio",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "recognizeAudio",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "kind": "typeIdentifier",
+          "text": "AppSchemaIntent"
+        }
+      ],
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audiointent/recognizeaudio",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that finds out what audio is playing nearby."
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/recognizeAudio"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/addToPlaylist": {
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "addToPlaylist",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "kind": "symbol",
+      "title": "addToPlaylist",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/addToPlaylist",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that adds an audio item to a playlist."
+        }
+      ],
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audiointent/addtoplaylist",
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/IntentValueQuery": {
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "IntentValueQuery",
+          "kind": "identifier"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "IntentValueQuery",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "title": "IntentValueQuery",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntentValueQuery",
+      "abstract": [
+        {
+          "text": "A query that provides entity values to the system; for example, for visual intelligence search.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/intentvaluequery",
+      "type": "topic",
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/newsBrief": {
+      "title": "newsBrief",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for  news brief."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioentity/newsbrief",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/newsBrief",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "newsBrief",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "AppSchemaEntity",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP"
+        }
+      ],
+      "role": "symbol",
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-mail": {
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-mail",
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-mail",
+      "role": "collectionGroup",
+      "title": "Mail",
+      "abstract": [
+        {
+          "text": "Make your email app’s actions available to Apple Intelligence and Siri by adopting schemas for common email actions.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/addToLibrary": {
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "addToLibrary",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "kind": "typeIdentifier",
+          "text": "AppSchemaIntent"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that adds an audio item to the person’s library."
+        }
+      ],
+      "kind": "symbol",
+      "title": "addToLibrary",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/addToLibrary",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audiointent/addtolibrary",
+      "type": "topic",
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-calendar": {
+      "abstract": [
+        {
+          "text": "Make your calendar app’s actions available to Apple Intelligence and Siri by adopting schemas for common calendar actions.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-calendar",
+      "kind": "article",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-calendar",
+      "role": "collectionGroup",
+      "title": "Calendar"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEnum/playbackAttributes": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEnum/playbackAttributes",
+      "type": "topic",
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioenum/playbackattributes",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "playbackAttributes"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AppSchemaEnum",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP"
+        }
+      ],
+      "title": "playbackAttributes",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An enum schema for a playback attributes parameter."
+        }
+      ],
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/integrating-your-music-app-with-apple-intelligence": {
+      "abstract": [
+        {
+          "text": "Adopt the audio and clock schemas so people can play music and set alarms with Siri.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/integrating-your-music-app-with-apple-intelligence",
+      "kind": "article",
+      "title": "Integrating your music app with Apple Intelligence",
+      "type": "topic",
+      "role": "sampleCode",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/integrating-your-music-app-with-apple-intelligence"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEnum/activity": {
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEnum/activity",
+      "title": "activity",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "activity",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AppSchemaEnum",
+          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An enum schema for an activity parameter."
+        }
+      ],
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioenum/activity"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/radioShowEpisode": {
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioentity/radioshowepisode",
+      "title": "radioShowEpisode",
+      "type": "topic",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "radioShowEpisode",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AppSchemaEntity",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "role": "symbol",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/radioShowEpisode",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for a radio show episode."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-system-and-in-app-search": {
+      "kind": "article",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your app’s actions available to Apple Intelligence and Siri by adopting schemas for in-app search and content access."
+        }
+      ],
+      "type": "topic",
+      "title": "System and in-app search",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-system-and-in-app-search",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-system-and-in-app-search"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-camera": {
+      "kind": "article",
+      "abstract": [
+        {
+          "text": "Make your camera app’s actions available to Apple Intelligence and Siri by adopting schemas for common camera actions.",
+          "type": "text"
+        }
+      ],
+      "title": "Camera",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-camera",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-camera",
+      "role": "collectionGroup"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-maps": {
+      "role": "collectionGroup",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-maps",
+      "kind": "article",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-maps",
+      "title": "Maps",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "Make your navigation app’s actions available to Apple Intelligence and Siri by adopting schemas for common navigation actions.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-reminders": {
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-reminders",
+      "role": "collectionGroup",
+      "type": "topic",
+      "title": "Reminders",
+      "kind": "article",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-reminders",
+      "abstract": [
+        {
+          "text": "Make your reminder app’s actions available to Apple Intelligence and Siri by adopting schemas for common reminder actions.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.documentation/documentation/technologies": {
+      "title": "Technologies",
+      "role": "overview",
+      "abstract": [
+        {
+          "type": "text",
+          "text": ""
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "kind": "technologies",
+      "url": "https://developer.apple.com/documentation/technologies"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-files": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-files",
+      "title": "Files",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your file-management app’s actions available to Apple Intelligence and Siri by adopting schemas for common file actions."
+        }
+      ],
+      "role": "collectionGroup",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-files",
+      "kind": "article"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/ambientSound": {
+      "role": "symbol",
+      "type": "topic",
+      "title": "ambientSound",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioentity/ambientsound",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for an ambient sound."
+        }
+      ],
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/ambientSound",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "ambientSound",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "text": "AppSchemaEntity",
+          "kind": "typeIdentifier"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/liveRadioStation": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/liveRadioStation",
+      "role": "symbol",
+      "type": "topic",
+      "title": "liveRadioStation",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioentity/liveradiostation",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "liveRadioStation"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "text": "AppSchemaEntity",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for a live radio station."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/createStation": {
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audiointent/createstation",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "createStation",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/createStation",
+      "title": "createStation",
+      "abstract": [
+        {
+          "text": "An intent schema that starts a station based on the now-playing item.",
+          "type": "text"
+        }
+      ],
+      "kind": "symbol",
+      "role": "symbol"
+    },
+    "doc://com.apple.documentation/documentation/MediaIntents": {
+      "url": "https://developer.apple.com/documentation/MediaIntents",
+      "identifier": "doc://com.apple.documentation/documentation/MediaIntents",
+      "kind": "symbol",
+      "title": "Media Intents",
+      "role": "collection",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Enable people to use Siri to find and play media from your app."
+        }
+      ],
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEnum/affinityState": {
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "affinityState",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP",
+          "text": "AppSchemaEnum",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioenum/affinitystate",
+      "abstract": [
+        {
+          "text": "An enum schema for an affinity state parameter.",
+          "type": "text"
+        }
+      ],
+      "role": "symbol",
+      "title": "affinityState",
+      "kind": "symbol",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEnum/affinityState"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/newsProvider": {
+      "title": "newsProvider",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "newsProvider",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaEntity",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioentity/newsprovider",
+      "type": "topic",
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/newsProvider",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for  news provider."
+        }
+      ],
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/podcastShow": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for a podcast show."
+        }
+      ],
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/podcastShow",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioentity/podcastshow",
+      "type": "topic",
+      "title": "podcastShow",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "podcastShow",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "kind": "typeIdentifier",
+          "text": "AppSchemaEntity"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/songCollection": {
+      "title": "songCollection",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "songCollection"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "text": "AppSchemaEntity"
+        }
+      ],
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for a song collection."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioentity/songcollection",
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/songCollection"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEnum/queueInsertionLocation": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEnum/queueInsertionLocation",
+      "title": "queueInsertionLocation",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioenum/queueinsertionlocation",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "queueInsertionLocation"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaEnum",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP"
+        }
+      ],
+      "kind": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An enum schema for a queue insertion location parameter."
+        }
+      ],
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/song": {
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/song",
+      "role": "symbol",
+      "title": "song",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for a song."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioentity/song",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "song",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaEntity",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP"
+        }
+      ],
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-photos": {
+      "title": "Photos",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-photos",
+      "kind": "article",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-photos",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your photo and video app’s actions available to Apple Intelligence and Siri by adopting schemas for common photo and video actions."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains": {
+      "title": "App schema domains",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domains",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Declare support for well-known actions and content by applying system-defined schemas to"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "your app intents, app entities, and app enumerations.",
+          "type": "text"
+        }
+      ],
+      "kind": "article",
+      "role": "collectionGroup",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/podcastEpisode": {
+      "title": "podcastEpisode",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/podcastEpisode",
+      "role": "symbol",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "podcastEpisode",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaEntity",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "An entity schema for a podcast episode.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioentity/podcastepisode"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity",
+      "role": "symbol",
+      "type": "topic",
+      "title": "AppSchema.AudioEntity",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioentity",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Identifies entity schemas in the audio domain."
+        }
+      ],
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "AudioEntity"
+        }
+      ],
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "AudioEntity",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/album": {
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioentity/album",
+      "kind": "symbol",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/album",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "album"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "text": "AppSchemaEntity"
+        }
+      ],
+      "title": "album",
+      "role": "symbol",
+      "abstract": [
+        {
+          "text": "An entity schema for an album.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents": {
+      "type": "topic",
+      "kind": "symbol",
+      "role": "collection",
+      "url": "https://developer.apple.com/documentation/appintents",
+      "navigatorTitle": [
+        {
+          "kind": "text",
+          "text": "App Intents"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents",
+      "title": "App Intents",
+      "abstract": [
+        {
+          "text": "Make content and actions discoverable by Apple Intelligence and support system experiences like Siri, Spotlight, Shortcuts, and widgets.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-messages": {
+      "title": "Messages",
+      "role": "collectionGroup",
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-messages",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your messaging app’s actions available to Apple Intelligence and Siri by adopting schemas for common messaging actions."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-messages"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/playlist": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/playlist",
+      "role": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "playlist",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AppSchemaEntity",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "type": "topic",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for a playlist."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioentity/playlist",
+      "title": "playlist"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEnum": {
+      "abstract": [
+        {
+          "text": "Identifies enum schemas in the audio domain.",
+          "type": "text"
+        }
+      ],
+      "kind": "symbol",
+      "title": "AppSchema.AudioEnum",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "AudioEnum"
+        }
+      ],
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEnum",
+      "navigatorTitle": [
+        {
+          "text": "AudioEnum",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioenum",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-clock": {
+      "title": "Clock",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-clock",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your clock app’s actions available to Apple Intelligence and Siri by adopting schemas for common alarm and timer actions."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-clock",
+      "role": "collectionGroup",
+      "kind": "article"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/algorithmicRadioStation": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEntity/algorithmicRadioStation",
+      "type": "topic",
+      "title": "algorithmicRadioStation",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for an algorithmic radio station."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioentity/algorithmicradiostation",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "algorithmicRadioStation",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "text": "AppSchemaEntity"
+        }
+      ],
+      "role": "symbol",
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-phone": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-phone",
+      "type": "topic",
+      "title": "Phone",
+      "role": "collectionGroup",
+      "kind": "article",
+      "abstract": [
+        {
+          "text": "Make your phone app’s actions available to Apple Intelligence and Siri by adopting schemas for calling actions.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-phone"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEnum/appViewIdentifier": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioEnum/appViewIdentifier",
+      "title": "appViewIdentifier",
+      "kind": "symbol",
+      "role": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "appViewIdentifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaEnum",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audioenum/appviewidentifier",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An enum schema for an app view identifier parameter."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/warmupAudioQueue": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/warmupAudioQueue",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audiointent/warmupaudioqueue",
+      "role": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that warms up an audio item by setting the queue without starting playback."
+        }
+      ],
+      "title": "warmupAudioQueue",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "warmupAudioQueue",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/playAudio": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/AudioIntent/playAudio",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/audiointent/playaudio",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "playAudio"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "text": "AppSchemaIntent"
+        }
+      ],
+      "title": "playAudio",
+      "kind": "symbol",
+      "role": "symbol",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "An intent schema that plays an audio item.",
+          "type": "text"
+        }
+      ]
+    }
+  },
+  "legalNotices": {
+    "copyright": "Copyright &copy; 2026 Apple Inc. All rights reserved.",
+    "termsOfUse": "https://www.apple.com/legal/internet-services/terms/site.html",
+    "privacyPolicy": "https://www.apple.com/privacy/privacy-policy"
+  }
+}

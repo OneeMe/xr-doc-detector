@@ -1,0 +1,896 @@
+{
+  "abstract": [
+    {
+      "type": "text",
+      "text": "Light scenes realistically by precomputing illumination so surfaces pick up bounced color and ambient detail without recalculating it every frame."
+    }
+  ],
+  "topicSections": [
+    {
+      "title": "Lighting models",
+      "anchor": "Lighting-models",
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/LightingModel",
+        "doc://com.apple.RealityKit/documentation/RealityKit/LitLightingModel",
+        "doc://com.apple.RealityKit/documentation/RealityKit/UnlitLightingModel",
+        "doc://com.apple.RealityKit/documentation/RealityKit/HairLightingModel"
+      ]
+    },
+    {
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/LightmapResource",
+        "doc://com.apple.RealityKit/documentation/RealityKit/LightmapComponent",
+        "doc://com.apple.RealityKit/documentation/RealityKit/DiffuseProbeResource",
+        "doc://com.apple.RealityKit/documentation/RealityKit/DiffuseLightProbeGroupComponent",
+        "doc://com.apple.RealityKit/documentation/RealityKit/DiffuseLightProbeReceiverComponent"
+      ],
+      "title": "Lightmaps and light probes",
+      "anchor": "Lightmaps-and-light-probes"
+    },
+    {
+      "anchor": "Environment-texture-generation",
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/ImageBasedLightTextureGenerator",
+        "doc://com.apple.RealityKit/documentation/RealityKit/SkyboxGenerator",
+        "doc://com.apple.RealityKit/documentation/RealityKit/TextureSamplingQuality"
+      ],
+      "title": "Environment texture generation"
+    }
+  ],
+  "variants": [
+    {
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ],
+      "paths": [
+        "/documentation/realitykit/scene-content-global-illumination"
+      ]
+    }
+  ],
+  "kind": "article",
+  "metadata": {
+    "title": "Global illumination and baked lighting",
+    "roleHeading": "API Collection",
+    "role": "collectionGroup",
+    "modules": [
+      {
+        "name": "RealityKit"
+      }
+    ]
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "primaryContentSections": [
+    {
+      "kind": "content",
+      "content": [
+        {
+          "text": "Overview",
+          "anchor": "Overview",
+          "type": "heading",
+          "level": 2
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "This collection gathers the tools for adding precomputed and environment-based lighting to your scenes. Use it to choose how surfaces respond to light, to bake static illumination and capture indirect light that nearby objects can sample, and to generate the surrounding imagery that lights a scene and fills its background. Reach for these features when you want richer, more believable lighting than real-time computation alone provides, while keeping rendering efficient. They suit scenes with mostly fixed lighting, where investing in precomputation pays off in visual quality and performance.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ]
+    }
+  ],
+  "seeAlsoSections": [
+    {
+      "anchor": "Scene-content",
+      "title": "Scene content",
+      "generated": true,
+      "identifiers": [
+        "doc://com.apple.documentation/documentation/visionOS/World",
+        "doc://com.apple.documentation/documentation/visionOS/enabling-video-reflections-in-an-immersive-environment",
+        "doc://com.apple.RealityKit/documentation/RealityKit/creating-a-spatial-drawing-app-with-realitykit",
+        "doc://com.apple.RealityKit/documentation/RealityKit/generating-interactive-geometry-with-realitykit",
+        "doc://com.apple.RealityKit/documentation/RealityKit/combining-2d-and-3d-views-in-an-immersive-app",
+        "doc://com.apple.RealityKit/documentation/RealityKit/transforming-realitykit-entities-with-gestures",
+        "doc://com.apple.RealityKit/documentation/RealityKit/responding-to-gestures-on-an-entity",
+        "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-models-and-meshes",
+        "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-materials-and-shaders",
+        "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-anchors",
+        "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-lights-and-cameras",
+        "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-content-synchronization",
+        "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-audio",
+        "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-videos",
+        "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-images"
+      ]
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.RealityKit/documentation/RealityKit"
+      ]
+    ]
+  },
+  "identifier": {
+    "url": "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-global-illumination",
+    "interfaceLanguage": "swift"
+  },
+  "sections": [],
+  "references": {
+    "doc://com.apple.RealityKit/documentation/RealityKit/responding-to-gestures-on-an-entity": {
+      "kind": "article",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/responding-to-gestures-on-an-entity",
+      "type": "topic",
+      "title": "Responding to gestures on an entity",
+      "url": "https://developer.apple.com/documentation/realitykit/responding-to-gestures-on-an-entity",
+      "role": "sampleCode",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Respond to gestures performed on RealityKit entities using input target and collision components."
+        }
+      ]
+    },
+    "doc://com.apple.documentation/documentation/technologies": {
+      "title": "Technologies",
+      "abstract": [
+        {
+          "text": "",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "kind": "technologies",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/technologies",
+      "role": "overview"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/generating-interactive-geometry-with-realitykit": {
+      "abstract": [
+        {
+          "text": "Create an interactive mesh with low-level mesh and low-level texture.",
+          "type": "text"
+        }
+      ],
+      "role": "sampleCode",
+      "type": "topic",
+      "title": "Generating interactive geometry with RealityKit",
+      "kind": "article",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/generating-interactive-geometry-with-realitykit",
+      "url": "https://developer.apple.com/documentation/realitykit/generating-interactive-geometry-with-realitykit"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-audio": {
+      "url": "https://developer.apple.com/documentation/realitykit/scene-content-audio",
+      "role": "collectionGroup",
+      "kind": "article",
+      "abstract": [
+        {
+          "text": "Create personalized and realistic spatial audio experiences.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-audio",
+      "title": "Audio"
+    },
+    "doc://com.apple.documentation/documentation/visionOS/World": {
+      "url": "https://developer.apple.com/documentation/visionOS/World",
+      "kind": "article",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Use windows, volumes, and immersive spaces to teach people about the Earth."
+        }
+      ],
+      "images": [
+        {
+          "type": "card",
+          "identifier": "Hello-World-intro.png"
+        }
+      ],
+      "title": "Hello World",
+      "identifier": "doc://com.apple.documentation/documentation/visionOS/World",
+      "type": "topic",
+      "role": "sampleCode"
+    },
+    "Hello-World-intro.png": {
+      "alt": "",
+      "identifier": "Hello-World-intro.png",
+      "variants": [
+        {
+          "url": "https://docs-assets.developer.apple.com/published/770e1d0451ba3b86de3b05eb0ce728b7/Hello-World-intro%402x.png",
+          "traits": [
+            "2x",
+            "light"
+          ]
+        }
+      ],
+      "type": "image"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-images": {
+      "url": "https://developer.apple.com/documentation/realitykit/scene-content-images",
+      "type": "topic",
+      "kind": "article",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Present images and spatial scenes in your RealityKit experiences."
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-images",
+      "role": "collectionGroup",
+      "title": "Images"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/LightmapComponent": {
+      "kind": "symbol",
+      "title": "LightmapComponent",
+      "abstract": [],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/LightmapComponent",
+      "type": "topic",
+      "role": "symbol",
+      "beta": true,
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "LightmapComponent"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "LightmapComponent"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/lightmapcomponent"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/combining-2d-and-3d-views-in-an-immersive-app": {
+      "title": "Combining 2D and 3D views in an immersive app",
+      "kind": "article",
+      "abstract": [
+        {
+          "text": "Use attachments to place 2D content relative to 3D content in your visionOS app.",
+          "type": "text"
+        }
+      ],
+      "role": "sampleCode",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/combining-2d-and-3d-views-in-an-immersive-app",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/realitykit/combining-2d-and-3d-views-in-an-immersive-app"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/LightingModel": {
+      "title": "LightingModel",
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/LightingModel",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "LightingModel"
+        }
+      ],
+      "kind": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "LightingModel"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/lightingmodel",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The lighting model used by a "
+        },
+        {
+          "isActive": true,
+          "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ShaderGraphMaterial/Program-swift.struct",
+          "type": "reference"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "role": "symbol"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/TextureSamplingQuality": {
+      "url": "https://developer.apple.com/documentation/realitykit/texturesamplingquality",
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/TextureSamplingQuality",
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "TextureSamplingQuality",
+          "kind": "identifier"
+        }
+      ],
+      "title": "TextureSamplingQuality",
+      "kind": "symbol",
+      "beta": true,
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "TextureSamplingQuality",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": []
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/DiffuseProbeResource": {
+      "url": "https://developer.apple.com/documentation/realitykit/diffuseproberesource",
+      "abstract": [
+        {
+          "text": "A resource containing baked diffuse lighting data organized as a tetrahedral probe mesh.",
+          "type": "text"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "DiffuseProbeResource",
+          "kind": "identifier"
+        }
+      ],
+      "beta": true,
+      "title": "DiffuseProbeResource",
+      "type": "topic",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/DiffuseProbeResource",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "class",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "DiffuseProbeResource",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit": {
+      "url": "https://developer.apple.com/documentation/realitykit",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Simulate and render 3D content for use in your augmented reality apps."
+        }
+      ],
+      "type": "topic",
+      "role": "collection",
+      "title": "RealityKit",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-videos": {
+      "kind": "article",
+      "title": "Videos",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-videos",
+      "role": "collectionGroup",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "Present videos in your RealityKit experiences.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/scene-content-videos"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/UnlitLightingModel": {
+      "title": "UnlitLightingModel",
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/UnlitLightingModel",
+      "role": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Configuration for an unlit lighting model, which renders without any light interaction."
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "UnlitLightingModel"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "UnlitLightingModel",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/unlitlightingmodel"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-models-and-meshes": {
+      "role": "collectionGroup",
+      "kind": "article",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Display virtual objects in your scene with mesh-based models."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/scene-content-models-and-meshes",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-models-and-meshes",
+      "title": "Models and meshes",
+      "type": "topic"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/ShaderGraphMaterial/Program-swift.struct": {
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "Program",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ShaderGraphMaterial/Program-swift.struct",
+      "title": "ShaderGraphMaterial.Program",
+      "abstract": [],
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Program"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/shadergraphmaterial/program-swift.struct"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/ImageBasedLightTextureGenerator": {
+      "beta": true,
+      "navigatorTitle": [
+        {
+          "text": "ImageBasedLightTextureGenerator",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/imagebasedlighttexturegenerator",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An object for generating based light textures."
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "type": "text",
+          "text": "Computes an image based light’s diffuse and specular textures from a skybox texture."
+        }
+      ],
+      "fragments": [
+        {
+          "text": "class",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "ImageBasedLightTextureGenerator",
+          "kind": "identifier"
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ImageBasedLightTextureGenerator",
+      "role": "symbol",
+      "kind": "symbol",
+      "title": "ImageBasedLightTextureGenerator"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/DiffuseLightProbeReceiverComponent": {
+      "title": "DiffuseLightProbeReceiverComponent",
+      "abstract": [
+        {
+          "text": "A component that receives diffuse lighting from a referenced probe group.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "DiffuseLightProbeReceiverComponent",
+          "kind": "identifier"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "DiffuseLightProbeReceiverComponent",
+          "kind": "identifier"
+        }
+      ],
+      "beta": true,
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/diffuselightprobereceivercomponent",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/DiffuseLightProbeReceiverComponent",
+      "type": "topic"
+    },
+    "doc://com.apple.documentation/documentation/visionOS/enabling-video-reflections-in-an-immersive-environment": {
+      "abstract": [
+        {
+          "text": "Create a more immersive experience by adding video reflections in a custom environment.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "role": "sampleCode",
+      "images": [
+        {
+          "identifier": "lightspill-PageImage-card.png",
+          "type": "card"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/visionOS/enabling-video-reflections-in-an-immersive-environment",
+      "title": "Enabling video reflections in an immersive environment",
+      "kind": "article",
+      "identifier": "doc://com.apple.documentation/documentation/visionOS/enabling-video-reflections-in-an-immersive-environment"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-anchors": {
+      "url": "https://developer.apple.com/documentation/realitykit/scene-content-anchors",
+      "role": "collectionGroup",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-anchors",
+      "abstract": [
+        {
+          "text": "Lock virtual content to the real world.",
+          "type": "text"
+        }
+      ],
+      "title": "Anchors",
+      "type": "topic",
+      "kind": "article"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-materials-and-shaders": {
+      "kind": "article",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-materials-and-shaders",
+      "url": "https://developer.apple.com/documentation/realitykit/scene-content-materials-and-shaders",
+      "role": "collectionGroup",
+      "title": "Materials, textures, and shaders",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Apply textures to the surface of your scene’s 3D objects to give each object a unique appearance."
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/LightmapResource": {
+      "fragments": [
+        {
+          "text": "class",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "LightmapResource"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "LightmapResource"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/LightmapResource",
+      "url": "https://developer.apple.com/documentation/realitykit/lightmapresource",
+      "title": "LightmapResource",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A resource containing references to lightmap texture atlases"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "and descriptions of how parts of the atlases map to meshes in",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "type": "text",
+          "text": "the scene."
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "At a high level, this resource comprises two parts:",
+          "type": "text"
+        }
+      ],
+      "role": "symbol",
+      "type": "topic",
+      "beta": true
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/creating-a-spatial-drawing-app-with-realitykit": {
+      "url": "https://developer.apple.com/documentation/realitykit/creating-a-spatial-drawing-app-with-realitykit",
+      "role": "sampleCode",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/creating-a-spatial-drawing-app-with-realitykit",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Use low-level mesh and texture APIs to achieve fast updates to a person’s brush"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "type": "text",
+          "text": "strokes by integrating RealityKit with ARKit and SwiftUI."
+        }
+      ],
+      "kind": "article",
+      "title": "Creating a spatial drawing app with RealityKit",
+      "type": "topic"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/SkyboxGenerator": {
+      "url": "https://developer.apple.com/documentation/realitykit/skyboxgenerator",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/SkyboxGenerator",
+      "role": "symbol",
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "text": "SkyboxGenerator",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An object for generating skybox textures."
+        }
+      ],
+      "beta": true,
+      "kind": "symbol",
+      "title": "SkyboxGenerator",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "SkyboxGenerator"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/DiffuseLightProbeGroupComponent": {
+      "role": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "DiffuseLightProbeGroupComponent",
+          "kind": "identifier"
+        }
+      ],
+      "title": "DiffuseLightProbeGroupComponent",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "text": "A component that stores diffuse probe data for a spatial region.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/DiffuseLightProbeGroupComponent",
+      "beta": true,
+      "url": "https://developer.apple.com/documentation/realitykit/diffuselightprobegroupcomponent",
+      "navigatorTitle": [
+        {
+          "text": "DiffuseLightProbeGroupComponent",
+          "kind": "identifier"
+        }
+      ],
+      "type": "topic"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/HairLightingModel": {
+      "title": "HairLightingModel",
+      "url": "https://developer.apple.com/documentation/realitykit/hairlightingmodel",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "HairLightingModel"
+        }
+      ],
+      "kind": "symbol",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Configuration for RealityKit’s hair lighting model."
+        }
+      ],
+      "role": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/HairLightingModel",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "HairLightingModel",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-content-synchronization": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-content-synchronization",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/realitykit/scene-content-content-synchronization",
+      "title": "Content synchronization",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "text": "Synchronize the contents of entities locally or across the network.",
+          "type": "text"
+        }
+      ],
+      "kind": "article"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-lights-and-cameras": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-lights-and-cameras",
+      "role": "collectionGroup",
+      "title": "Lights and cameras",
+      "kind": "article",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Control the lighting and point of view for a scene."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/scene-content-lights-and-cameras"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/LitLightingModel": {
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "text": "LitLightingModel",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "Configuration for RealityKit’s physically based lighting model.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/LitLightingModel",
+      "role": "symbol",
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/litlightingmodel",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "LitLightingModel",
+          "kind": "identifier"
+        }
+      ],
+      "title": "LitLightingModel"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/transforming-realitykit-entities-with-gestures": {
+      "url": "https://developer.apple.com/documentation/realitykit/transforming-realitykit-entities-with-gestures",
+      "kind": "article",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/transforming-realitykit-entities-with-gestures",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Build a RealityKit component to support standard visionOS gestures on any entity."
+        }
+      ],
+      "role": "sampleCode",
+      "title": "Transforming RealityKit entities using gestures",
+      "type": "topic"
+    },
+    "lightspill-PageImage-card.png": {
+      "alt": "A screenshot that shows the app's video player in the Studio environment in visionOS. The screenshot shows the contents of the video player reflecting onto the surrounding environment.",
+      "type": "image",
+      "identifier": "lightspill-PageImage-card.png",
+      "variants": [
+        {
+          "url": "https://docs-assets.developer.apple.com/published/87e397de07459c756d21eb0c441569f7/lightspill-PageImage-card%402x.png",
+          "traits": [
+            "2x",
+            "light"
+          ]
+        }
+      ]
+    }
+  },
+  "legalNotices": {
+    "copyright": "Copyright &copy; 2026 Apple Inc. All rights reserved.",
+    "termsOfUse": "https://www.apple.com/legal/internet-services/terms/site.html",
+    "privacyPolicy": "https://www.apple.com/privacy/privacy-policy"
+  }
+}

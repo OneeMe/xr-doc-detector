@@ -1,0 +1,1364 @@
+{
+  "variants": [
+    {
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ],
+      "paths": [
+        "/documentation/realitykit/scene-content-mesh-deformation"
+      ]
+    }
+  ],
+  "abstract": [
+    {
+      "type": "text",
+      "text": "Reshape and animate the geometry of 3D models at runtime, applying skinning, blend shapes, and subdivision so surfaces bend, flex, and deform as a scene plays."
+    }
+  ],
+  "seeAlsoSections": [
+    {
+      "generated": true,
+      "title": "Scene content",
+      "identifiers": [
+        "doc://com.apple.documentation/documentation/visionOS/World",
+        "doc://com.apple.documentation/documentation/visionOS/enabling-video-reflections-in-an-immersive-environment",
+        "doc://com.apple.RealityKit/documentation/RealityKit/creating-a-spatial-drawing-app-with-realitykit",
+        "doc://com.apple.RealityKit/documentation/RealityKit/generating-interactive-geometry-with-realitykit",
+        "doc://com.apple.RealityKit/documentation/RealityKit/combining-2d-and-3d-views-in-an-immersive-app",
+        "doc://com.apple.RealityKit/documentation/RealityKit/transforming-realitykit-entities-with-gestures",
+        "doc://com.apple.RealityKit/documentation/RealityKit/responding-to-gestures-on-an-entity",
+        "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-models-and-meshes",
+        "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-materials-and-shaders",
+        "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-anchors",
+        "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-lights-and-cameras",
+        "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-content-synchronization",
+        "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-audio",
+        "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-videos",
+        "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-images"
+      ],
+      "anchor": "Scene-content"
+    }
+  ],
+  "topicSections": [
+    {
+      "title": "Deformers",
+      "anchor": "Deformers",
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformerComponent",
+        "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformer",
+        "doc://com.apple.RealityKit/documentation/RealityKit/SkinningDeformer",
+        "doc://com.apple.RealityKit/documentation/RealityKit/BlendShapeDeformer",
+        "doc://com.apple.RealityKit/documentation/RealityKit/OpenSubdivisionDeformer",
+        "doc://com.apple.RealityKit/documentation/RealityKit/RenormalizationDeformer",
+        "doc://com.apple.RealityKit/documentation/RealityKit/CalculateBoundingBoxDeformer"
+      ]
+    },
+    {
+      "title": "Parameters and options",
+      "anchor": "Parameters-and-options",
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformerOptions",
+        "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformerVertexOptions",
+        "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformerExecutionMode",
+        "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformParameter",
+        "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformationStack",
+        "doc://com.apple.RealityKit/documentation/RealityKit/MeshScope",
+        "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformParameterCPU",
+        "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformParameterGPU",
+        "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformParametersCPU",
+        "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformParametersGPU",
+        "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformCPUBufferInput",
+        "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformGPUBufferInput",
+        "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformCPUBufferOutput",
+        "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformGPUBufferOutput"
+      ]
+    },
+    {
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/LowLevelDeformation",
+        "doc://com.apple.RealityKit/documentation/RealityKit/LowLevelDeformationContext",
+        "doc://com.apple.RealityKit/documentation/RealityKit/CanaryDescription"
+      ],
+      "anchor": "Low-level-deformation",
+      "title": "Low-level deformation"
+    }
+  ],
+  "primaryContentSections": [
+    {
+      "kind": "content",
+      "content": [
+        {
+          "text": "Overview",
+          "anchor": "Overview",
+          "type": "heading",
+          "level": 2
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "This collection covers the building blocks for modifying the vertices of a model after it loads, letting you drive lifelike motion such as characters bending, faces emoting, or surfaces smoothing in real time. It includes a configurable pipeline of stages that transform geometry, options for choosing where and how that work runs on the processor or graphics hardware, and lower-level entry points for fine-grained control over the transformation. Reach for these tools when prebaked animation is not enough and you need to compute or adjust a model’s shape dynamically. They give you control over performance trade-offs and the order in which transformations apply.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ]
+    }
+  ],
+  "kind": "article",
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-mesh-deformation"
+  },
+  "metadata": {
+    "title": "Mesh deformation",
+    "modules": [
+      {
+        "name": "RealityKit"
+      }
+    ],
+    "roleHeading": "API Collection",
+    "role": "collectionGroup"
+  },
+  "sections": [],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.RealityKit/documentation/RealityKit"
+      ]
+    ]
+  },
+  "references": {
+    "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformCPUBufferInput": {
+      "url": "https://developer.apple.com/documentation/realitykit/meshdeformcpubufferinput",
+      "type": "topic",
+      "beta": true,
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "MeshDeformCPUBufferInput"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "The underlying type of deformer input data buffers for the CPU functions.",
+          "type": "text"
+        }
+      ],
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "typealias",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "MeshDeformCPUBufferInput"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformCPUBufferInput",
+      "title": "MeshDeformCPUBufferInput",
+      "kind": "symbol"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/CalculateBoundingBoxDeformer": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CalculateBoundingBoxDeformer",
+      "type": "topic",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "CalculateBoundingBoxDeformer"
+        }
+      ],
+      "kind": "symbol",
+      "title": "CalculateBoundingBoxDeformer",
+      "abstract": [
+        {
+          "text": "Calculates a bounding box based on the current state of the deformed positions.",
+          "type": "text"
+        }
+      ],
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "CalculateBoundingBoxDeformer"
+        }
+      ],
+      "beta": true,
+      "url": "https://developer.apple.com/documentation/realitykit/calculateboundingboxdeformer"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/generating-interactive-geometry-with-realitykit": {
+      "abstract": [
+        {
+          "text": "Create an interactive mesh with low-level mesh and low-level texture.",
+          "type": "text"
+        }
+      ],
+      "role": "sampleCode",
+      "type": "topic",
+      "title": "Generating interactive geometry with RealityKit",
+      "kind": "article",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/generating-interactive-geometry-with-realitykit",
+      "url": "https://developer.apple.com/documentation/realitykit/generating-interactive-geometry-with-realitykit"
+    },
+    "Hello-World-intro.png": {
+      "variants": [
+        {
+          "url": "https://docs-assets.developer.apple.com/published/770e1d0451ba3b86de3b05eb0ce728b7/Hello-World-intro%402x.png",
+          "traits": [
+            "2x",
+            "light"
+          ]
+        }
+      ],
+      "type": "image",
+      "identifier": "Hello-World-intro.png",
+      "alt": ""
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformerExecutionMode": {
+      "beta": true,
+      "navigatorTitle": [
+        {
+          "text": "MeshDeformerExecutionMode",
+          "kind": "identifier"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformerExecutionMode",
+      "role": "symbol",
+      "title": "MeshDeformerExecutionMode",
+      "url": "https://developer.apple.com/documentation/realitykit/meshdeformerexecutionmode",
+      "abstract": [
+        {
+          "text": "Specifies which ",
+          "type": "text"
+        },
+        {
+          "type": "codeVoice",
+          "code": "MesDeformer.deform"
+        },
+        {
+          "type": "text",
+          "text": " function will be called when used with custom deformers."
+        }
+      ],
+      "type": "topic",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "text": "enum",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "MeshDeformerExecutionMode"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformGPUBufferOutput": {
+      "navigatorTitle": [
+        {
+          "text": "MeshDeformGPUBufferOutput",
+          "kind": "identifier"
+        }
+      ],
+      "type": "topic",
+      "kind": "symbol",
+      "beta": true,
+      "role": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The underlying type of deformer input data buffers for the GPU functions."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/meshdeformgpubufferoutput",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "typealias"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "MeshDeformGPUBufferOutput",
+          "kind": "identifier"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformGPUBufferOutput",
+      "title": "MeshDeformGPUBufferOutput"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformParameterCPU": {
+      "navigatorTitle": [
+        {
+          "text": "MeshDeformParameterCPU",
+          "kind": "identifier"
+        }
+      ],
+      "type": "topic",
+      "kind": "symbol",
+      "beta": true,
+      "role": "symbol",
+      "abstract": [
+        {
+          "text": "convenience alias",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/meshdeformparametercpu",
+      "fragments": [
+        {
+          "text": "typealias",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "MeshDeformParameterCPU"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformParameterCPU",
+      "title": "MeshDeformParameterCPU"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-anchors": {
+      "url": "https://developer.apple.com/documentation/realitykit/scene-content-anchors",
+      "role": "collectionGroup",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-anchors",
+      "abstract": [
+        {
+          "text": "Lock virtual content to the real world.",
+          "type": "text"
+        }
+      ],
+      "title": "Anchors",
+      "type": "topic",
+      "kind": "article"
+    },
+    "doc://com.apple.documentation/documentation/technologies": {
+      "title": "Technologies",
+      "abstract": [
+        {
+          "text": "",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "kind": "technologies",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/technologies",
+      "role": "overview"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit": {
+      "url": "https://developer.apple.com/documentation/realitykit",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Simulate and render 3D content for use in your augmented reality apps."
+        }
+      ],
+      "type": "topic",
+      "role": "collection",
+      "title": "RealityKit",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-content-synchronization": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-content-synchronization",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/realitykit/scene-content-content-synchronization",
+      "title": "Content synchronization",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "text": "Synchronize the contents of entities locally or across the network.",
+          "type": "text"
+        }
+      ],
+      "kind": "article"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-audio": {
+      "url": "https://developer.apple.com/documentation/realitykit/scene-content-audio",
+      "role": "collectionGroup",
+      "kind": "article",
+      "abstract": [
+        {
+          "text": "Create personalized and realistic spatial audio experiences.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-audio",
+      "title": "Audio"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/MeshScope": {
+      "navigatorTitle": [
+        {
+          "text": "MeshScope",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "beta": true,
+      "role": "symbol",
+      "title": "MeshScope",
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/MeshScope",
+      "url": "https://developer.apple.com/documentation/realitykit/meshscope",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The elements of a mesh resource that a deformation stack applies to."
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "MeshScope",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/transforming-realitykit-entities-with-gestures": {
+      "url": "https://developer.apple.com/documentation/realitykit/transforming-realitykit-entities-with-gestures",
+      "kind": "article",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/transforming-realitykit-entities-with-gestures",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Build a RealityKit component to support standard visionOS gestures on any entity."
+        }
+      ],
+      "role": "sampleCode",
+      "title": "Transforming RealityKit entities using gestures",
+      "type": "topic"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformParameter": {
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "MeshDeformParameter"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "Base class for GPU and CPU custom deform function input",
+          "type": "text"
+        }
+      ],
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "MeshDeformParameter"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformParameter",
+      "url": "https://developer.apple.com/documentation/realitykit/meshdeformparameter",
+      "type": "topic",
+      "beta": true,
+      "kind": "symbol",
+      "title": "MeshDeformParameter"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/combining-2d-and-3d-views-in-an-immersive-app": {
+      "title": "Combining 2D and 3D views in an immersive app",
+      "kind": "article",
+      "abstract": [
+        {
+          "text": "Use attachments to place 2D content relative to 3D content in your visionOS app.",
+          "type": "text"
+        }
+      ],
+      "role": "sampleCode",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/combining-2d-and-3d-views-in-an-immersive-app",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/realitykit/combining-2d-and-3d-views-in-an-immersive-app"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-lights-and-cameras": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-lights-and-cameras",
+      "role": "collectionGroup",
+      "title": "Lights and cameras",
+      "kind": "article",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Control the lighting and point of view for a scene."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/scene-content-lights-and-cameras"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformParametersCPU": {
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "typealias"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "MeshDeformParametersCPU"
+        }
+      ],
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "convenience alias",
+          "type": "text"
+        }
+      ],
+      "beta": true,
+      "role": "symbol",
+      "kind": "symbol",
+      "title": "MeshDeformParametersCPU",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformParametersCPU",
+      "navigatorTitle": [
+        {
+          "text": "MeshDeformParametersCPU",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/meshdeformparameterscpu"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/BlendShapeDeformer": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/BlendShapeDeformer",
+      "title": "BlendShapeDeformer",
+      "role": "symbol",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/realitykit/blendshapedeformer",
+      "abstract": [
+        {
+          "text": "A blend-shape deformation that interpolates between N meshes according to a weighted sum.",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "type": "text",
+          "text": "Consumes information from the "
+        },
+        {
+          "type": "codeVoice",
+          "code": "BlendShapeWeightsComponent"
+        }
+      ],
+      "beta": true,
+      "navigatorTitle": [
+        {
+          "text": "BlendShapeDeformer",
+          "kind": "identifier"
+        }
+      ],
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "BlendShapeDeformer"
+        }
+      ],
+      "kind": "symbol"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-models-and-meshes": {
+      "role": "collectionGroup",
+      "kind": "article",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Display virtual objects in your scene with mesh-based models."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/scene-content-models-and-meshes",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-models-and-meshes",
+      "title": "Models and meshes",
+      "type": "topic"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformParametersGPU": {
+      "navigatorTitle": [
+        {
+          "text": "MeshDeformParametersGPU",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/meshdeformparametersgpu",
+      "role": "symbol",
+      "beta": true,
+      "type": "topic",
+      "fragments": [
+        {
+          "text": "typealias",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "MeshDeformParametersGPU",
+          "kind": "identifier"
+        }
+      ],
+      "title": "MeshDeformParametersGPU",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformParametersGPU",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "convenience alias"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/responding-to-gestures-on-an-entity": {
+      "kind": "article",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/responding-to-gestures-on-an-entity",
+      "type": "topic",
+      "title": "Responding to gestures on an entity",
+      "url": "https://developer.apple.com/documentation/realitykit/responding-to-gestures-on-an-entity",
+      "role": "sampleCode",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Respond to gestures performed on RealityKit entities using input target and collision components."
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/RenormalizationDeformer": {
+      "url": "https://developer.apple.com/documentation/realitykit/renormalizationdeformer",
+      "title": "RenormalizationDeformer",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Recalculates tangent frame based on current state of positions"
+        }
+      ],
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "RenormalizationDeformer",
+          "kind": "identifier"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "RenormalizationDeformer"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/RenormalizationDeformer",
+      "type": "topic",
+      "kind": "symbol",
+      "role": "symbol",
+      "beta": true
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-materials-and-shaders": {
+      "kind": "article",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-materials-and-shaders",
+      "url": "https://developer.apple.com/documentation/realitykit/scene-content-materials-and-shaders",
+      "role": "collectionGroup",
+      "title": "Materials, textures, and shaders",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Apply textures to the surface of your scene’s 3D objects to give each object a unique appearance."
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-images": {
+      "url": "https://developer.apple.com/documentation/realitykit/scene-content-images",
+      "type": "topic",
+      "kind": "article",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Present images and spatial scenes in your RealityKit experiences."
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-images",
+      "role": "collectionGroup",
+      "title": "Images"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformerComponent": {
+      "navigatorTitle": [
+        {
+          "text": "MeshDeformerComponent",
+          "kind": "identifier"
+        }
+      ],
+      "role": "symbol",
+      "beta": true,
+      "url": "https://developer.apple.com/documentation/realitykit/meshdeformercomponent",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The component that applies mesh deformations to an "
+        },
+        {
+          "code": "Entity",
+          "type": "codeVoice"
+        },
+        {
+          "type": "text",
+          "text": "."
+        }
+      ],
+      "title": "MeshDeformerComponent",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformerComponent",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "MeshDeformerComponent"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformationStack": {
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "MeshDeformationStack"
+        }
+      ],
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "MeshDeformationStack",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/meshdeformationstack",
+      "beta": true,
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformationStack",
+      "role": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A set of "
+        },
+        {
+          "type": "codeVoice",
+          "code": "MeshDeformer"
+        },
+        {
+          "type": "text",
+          "text": "s to apply in order to a mesh, or a proper subset of the mesh specified by "
+        },
+        {
+          "code": "Target",
+          "type": "codeVoice"
+        },
+        {
+          "text": "s.",
+          "type": "text"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "If at any point, a deformer in the stack updates, all deformers later in the stack will also update.",
+          "type": "text"
+        }
+      ],
+      "title": "MeshDeformationStack"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformerOptions": {
+      "navigatorTitle": [
+        {
+          "text": "MeshDeformerOptions",
+          "kind": "identifier"
+        }
+      ],
+      "beta": true,
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "MeshDeformerOptions",
+          "kind": "identifier"
+        }
+      ],
+      "title": "MeshDeformerOptions",
+      "role": "symbol",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformerOptions",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "text": "Specifies constant options for ",
+          "type": "text"
+        },
+        {
+          "code": "MeshDeformer",
+          "type": "codeVoice"
+        }
+      ],
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/realitykit/meshdeformeroptions"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/OpenSubdivisionDeformer": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "OpenSubdiv surface deformation"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/OpenSubdivisionDeformer",
+      "role": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "OpenSubdivisionDeformer",
+          "kind": "identifier"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "OpenSubdivisionDeformer",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/opensubdivisiondeformer",
+      "beta": true,
+      "type": "topic",
+      "title": "OpenSubdivisionDeformer"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/LowLevelDeformation": {
+      "navigatorTitle": [
+        {
+          "text": "LowLevelDeformation",
+          "kind": "identifier"
+        }
+      ],
+      "role": "symbol",
+      "beta": true,
+      "kind": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An object that encodes blend-shape, skinning, and renormalization passes into a Metal compute"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "command encoder.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/lowleveldeformation",
+      "title": "LowLevelDeformation",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/LowLevelDeformation",
+      "fragments": [
+        {
+          "text": "class",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "LowLevelDeformation"
+        }
+      ],
+      "type": "topic"
+    },
+    "lightspill-PageImage-card.png": {
+      "identifier": "lightspill-PageImage-card.png",
+      "type": "image",
+      "alt": "A screenshot that shows the app's video player in the Studio environment in visionOS. The screenshot shows the contents of the video player reflecting onto the surrounding environment.",
+      "variants": [
+        {
+          "traits": [
+            "2x",
+            "light"
+          ],
+          "url": "https://docs-assets.developer.apple.com/published/87e397de07459c756d21eb0c441569f7/lightspill-PageImage-card%402x.png"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/LowLevelDeformationContext": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/LowLevelDeformationContext",
+      "fragments": [
+        {
+          "text": "class",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "LowLevelDeformationContext",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/lowleveldeformationcontext",
+      "title": "LowLevelDeformationContext",
+      "abstract": [
+        {
+          "text": "An object that manages shared resources for ",
+          "type": "text"
+        },
+        {
+          "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/LowLevelDeformation",
+          "isActive": true,
+          "type": "reference"
+        },
+        {
+          "text": " instances.",
+          "type": "text"
+        }
+      ],
+      "kind": "symbol",
+      "beta": true,
+      "navigatorTitle": [
+        {
+          "text": "LowLevelDeformationContext",
+          "kind": "identifier"
+        }
+      ],
+      "type": "topic",
+      "role": "symbol"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/CanaryDescription": {
+      "title": "CanaryDescription",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/CanaryDescription",
+      "type": "topic",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/realitykit/canarydescription",
+      "navigatorTitle": [
+        {
+          "text": "CanaryDescription",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [],
+      "kind": "symbol",
+      "beta": true,
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "CanaryDescription",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformParameterGPU": {
+      "url": "https://developer.apple.com/documentation/realitykit/meshdeformparametergpu",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformParameterGPU",
+      "navigatorTitle": [
+        {
+          "text": "MeshDeformParameterGPU",
+          "kind": "identifier"
+        }
+      ],
+      "type": "topic",
+      "title": "MeshDeformParameterGPU",
+      "beta": true,
+      "fragments": [
+        {
+          "text": "typealias",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "MeshDeformParameterGPU",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "role": "symbol",
+      "abstract": [
+        {
+          "text": "convenience alias",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/SkinningDeformer": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "A deformation that binds a 3D mesh to an underlying skeleton."
+        }
+      ],
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "SkinningDeformer"
+        }
+      ],
+      "kind": "symbol",
+      "beta": true,
+      "title": "SkinningDeformer",
+      "url": "https://developer.apple.com/documentation/realitykit/skinningdeformer",
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/SkinningDeformer",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "SkinningDeformer",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.documentation/documentation/visionOS/World": {
+      "url": "https://developer.apple.com/documentation/visionOS/World",
+      "kind": "article",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Use windows, volumes, and immersive spaces to teach people about the Earth."
+        }
+      ],
+      "images": [
+        {
+          "type": "card",
+          "identifier": "Hello-World-intro.png"
+        }
+      ],
+      "title": "Hello World",
+      "identifier": "doc://com.apple.documentation/documentation/visionOS/World",
+      "type": "topic",
+      "role": "sampleCode"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-videos": {
+      "kind": "article",
+      "title": "Videos",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/scene-content-videos",
+      "role": "collectionGroup",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "Present videos in your RealityKit experiences.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/scene-content-videos"
+    },
+    "doc://com.apple.documentation/documentation/visionOS/enabling-video-reflections-in-an-immersive-environment": {
+      "abstract": [
+        {
+          "text": "Create a more immersive experience by adding video reflections in a custom environment.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "role": "sampleCode",
+      "images": [
+        {
+          "identifier": "lightspill-PageImage-card.png",
+          "type": "card"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/visionOS/enabling-video-reflections-in-an-immersive-environment",
+      "title": "Enabling video reflections in an immersive environment",
+      "kind": "article",
+      "identifier": "doc://com.apple.documentation/documentation/visionOS/enabling-video-reflections-in-an-immersive-environment"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformer": {
+      "title": "MeshDeformer",
+      "navigatorTitle": [
+        {
+          "text": "MeshDeformer",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An interface for all deformation types in a deformation definition, both built-in and custom."
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "type": "text",
+          "text": "The users overrides all functions to implement a custom "
+        },
+        {
+          "code": "MeshDeformer",
+          "type": "codeVoice"
+        },
+        {
+          "text": ", and can in general ignore",
+          "type": "text"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "all but the constructors for built-in deformers.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "MeshDeformer"
+        }
+      ],
+      "kind": "symbol",
+      "beta": true,
+      "url": "https://developer.apple.com/documentation/realitykit/meshdeformer",
+      "role": "symbol",
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformer"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformGPUBufferInput": {
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "MeshDeformGPUBufferInput"
+        }
+      ],
+      "beta": true,
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformGPUBufferInput",
+      "type": "topic",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "typealias"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "MeshDeformGPUBufferInput"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/meshdeformgpubufferinput",
+      "role": "symbol",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "text": "The underlying type of deformer input data buffers for the GPU functions.",
+          "type": "text"
+        }
+      ],
+      "title": "MeshDeformGPUBufferInput"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformCPUBufferOutput": {
+      "url": "https://developer.apple.com/documentation/realitykit/meshdeformcpubufferoutput",
+      "role": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "The underlying type of deformer output data buffers for the CPU functions."
+        }
+      ],
+      "beta": true,
+      "title": "MeshDeformCPUBufferOutput",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "typealias"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "MeshDeformCPUBufferOutput",
+          "kind": "identifier"
+        }
+      ],
+      "type": "topic",
+      "navigatorTitle": [
+        {
+          "text": "MeshDeformCPUBufferOutput",
+          "kind": "identifier"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformCPUBufferOutput",
+      "kind": "symbol"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformerVertexOptions": {
+      "navigatorTitle": [
+        {
+          "text": "MeshDeformerVertexOptions",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "title": "MeshDeformerVertexOptions",
+      "beta": true,
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/MeshDeformerVertexOptions",
+      "abstract": [
+        {
+          "text": "MeshDeformerVertexOptions allows developers to specify which vertex types in the mesh to allocate in the input and output buffers for mesh deformations.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/realitykit/meshdeformervertexoptions",
+      "role": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "MeshDeformerVertexOptions"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/creating-a-spatial-drawing-app-with-realitykit": {
+      "url": "https://developer.apple.com/documentation/realitykit/creating-a-spatial-drawing-app-with-realitykit",
+      "role": "sampleCode",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/creating-a-spatial-drawing-app-with-realitykit",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Use low-level mesh and texture APIs to achieve fast updates to a person’s brush"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "type": "text",
+          "text": "strokes by integrating RealityKit with ARKit and SwiftUI."
+        }
+      ],
+      "kind": "article",
+      "title": "Creating a spatial drawing app with RealityKit",
+      "type": "topic"
+    }
+  },
+  "legalNotices": {
+    "copyright": "Copyright &copy; 2026 Apple Inc. All rights reserved.",
+    "termsOfUse": "https://www.apple.com/legal/internet-services/terms/site.html",
+    "privacyPolicy": "https://www.apple.com/privacy/privacy-policy"
+  }
+}

@@ -1,0 +1,1496 @@
+{
+  "identifier": {
+    "url": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-books",
+    "interfaceLanguage": "swift"
+  },
+  "metadata": {
+    "title": "Books",
+    "role": "collectionGroup",
+    "modules": [
+      {
+        "name": "App Intents"
+      }
+    ],
+    "roleHeading": "API Collection"
+  },
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.AppIntents/documentation/AppIntents",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains"
+      ],
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.AppIntents/documentation/AppIntents",
+        "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains"
+      ]
+    ]
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "abstract": [
+    {
+      "type": "text",
+      "text": "Make your ebook reader’s actions available in the Shortcuts app by adopting schemas for common reading actions."
+    }
+  ],
+  "topicSections": [
+    {
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/navigatePage",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/openBook",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/updateCharacterSpacing",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/updateFontSize",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/updateLineSpacing",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/updateSettings",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/updateWordSpacing",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent"
+      ],
+      "anchor": "Actions",
+      "title": "Actions"
+    },
+    {
+      "anchor": "Content-and-parameter-types",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEntity/audiobook",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEntity/book",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEntity/settings",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEntity"
+      ],
+      "title": "Content and parameter types"
+    },
+    {
+      "anchor": "Types-for-static-parameters",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/contentType",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/font",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/fontSize",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/navigationDirection",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/pageNavigationSetting",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/relativeCharacterSpacingChange",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/relativeFontChange",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/relativeLineSpacingChange",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/relativeWordSpacingChange",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/theme",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum"
+      ],
+      "title": "Types for static parameters"
+    },
+    {
+      "title": "Deprecated schemas",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/playAudiobook",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/search"
+      ],
+      "anchor": "Deprecated-schemas"
+    }
+  ],
+  "primaryContentSections": [
+    {
+      "kind": "content",
+      "content": [
+        {
+          "text": "Overview",
+          "anchor": "overview",
+          "type": "heading",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "text": "The ",
+              "type": "text"
+            },
+            {
+              "type": "codeVoice",
+              "code": ".books"
+            },
+            {
+              "type": "text",
+              "text": " domain defines app schemas that provide a"
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "structured representation for common reading actions and content."
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "Apply schemas in the "
+            },
+            {
+              "code": ".books",
+              "type": "codeVoice"
+            },
+            {
+              "text": " domain to make your ebook reader’s functionality available as actions in the Shortcuts app.",
+              "type": "text"
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "Schemas in this domain don’t make your conforming types discoverable by Apple Intelligence and Siri."
+            }
+          ]
+        },
+        {
+          "content": [
+            {
+              "type": "paragraph",
+              "inlineContent": [
+                {
+                  "text": "Xcode generates a template implementation when you type ",
+                  "type": "text"
+                },
+                {
+                  "code": "books_",
+                  "type": "codeVoice"
+                },
+                {
+                  "type": "text",
+                  "text": " and select a schema from the suggestions list."
+                }
+              ]
+            }
+          ],
+          "type": "aside",
+          "name": "Tip",
+          "style": "tip"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "For more information about app schemas, see ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains",
+              "type": "reference",
+              "isActive": true
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/appintents/app-schema-domain-books"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ],
+  "seeAlsoSections": [
+    {
+      "generated": true,
+      "anchor": "Shortcuts-specific-domains",
+      "title": "Shortcuts-specific domains",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-browser",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-journaling",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-presentation",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-reader",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-spreadsheet",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-whiteboard",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-word-processor"
+      ]
+    }
+  ],
+  "kind": "article",
+  "sections": [],
+  "references": {
+    "doc://com.apple.documentation/documentation/technologies": {
+      "title": "Technologies",
+      "role": "overview",
+      "abstract": [
+        {
+          "type": "text",
+          "text": ""
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "kind": "technologies",
+      "url": "https://developer.apple.com/documentation/technologies"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents": {
+      "type": "topic",
+      "kind": "symbol",
+      "role": "collection",
+      "url": "https://developer.apple.com/documentation/appintents",
+      "navigatorTitle": [
+        {
+          "kind": "text",
+          "text": "App Intents"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents",
+      "title": "App Intents",
+      "abstract": [
+        {
+          "text": "Make content and actions discoverable by Apple Intelligence and support system experiences like Siri, Spotlight, Shortcuts, and widgets.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/navigatePage": {
+      "title": "navigatePage",
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/booksintent/navigatepage",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/navigatePage",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "navigatePage"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "AppSchemaIntent",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that navigates to the next or previous page."
+        }
+      ],
+      "type": "topic",
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/contentType": {
+      "url": "https://developer.apple.com/documentation/appintents/appschema/booksenum/contenttype",
+      "role": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "contentType"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP",
+          "kind": "typeIdentifier",
+          "text": "AppSchemaEnum"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "An enum schema for a content type parameter.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/contentType",
+      "kind": "symbol",
+      "type": "topic",
+      "title": "contentType"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/updateLineSpacing": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/updateLineSpacing",
+      "kind": "symbol",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/booksintent/updatelinespacing",
+      "title": "updateLineSpacing",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "updateLineSpacing"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaIntent",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "An intent schema that updates the line spacing for a book.",
+          "type": "text"
+        }
+      ],
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/updateCharacterSpacing": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/updateCharacterSpacing",
+      "title": "updateCharacterSpacing",
+      "role": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "updateCharacterSpacing",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "text": "AppSchemaIntent"
+        }
+      ],
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/booksintent/updatecharacterspacing",
+      "abstract": [
+        {
+          "text": "An intent schema that updates the character spacing for a book.",
+          "type": "text"
+        }
+      ],
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains": {
+      "title": "App schema domains",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domains",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Declare support for well-known actions and content by applying system-defined schemas to"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "your app intents, app entities, and app enumerations.",
+          "type": "text"
+        }
+      ],
+      "kind": "article",
+      "role": "collectionGroup",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEntity/settings": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEntity/settings",
+      "title": "settings",
+      "abstract": [
+        {
+          "text": "An entity schema for  settings.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "settings",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "AppSchemaEntity",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/booksentity/settings",
+      "type": "topic",
+      "kind": "symbol",
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEntity": {
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "BooksEntity"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/booksentity",
+      "kind": "symbol",
+      "title": "AppSchema.BooksEntity",
+      "type": "topic",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "BooksEntity",
+          "kind": "identifier"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEntity",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Identifies entity schemas in the books domain."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEntity/book": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEntity/book",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for a book."
+        }
+      ],
+      "type": "topic",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "book",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "text": "AppSchemaEntity",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/booksentity/book",
+      "title": "book",
+      "role": "symbol",
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/theme": {
+      "kind": "symbol",
+      "abstract": [
+        {
+          "text": "An enum schema for a theme parameter.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "theme",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaEnum",
+          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/booksenum/theme",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/theme",
+      "role": "symbol",
+      "title": "theme"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/relativeLineSpacingChange": {
+      "type": "topic",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/booksenum/relativelinespacingchange",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "relativeLineSpacingChange",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP",
+          "text": "AppSchemaEnum",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "title": "relativeLineSpacingChange",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An enum schema for a relative line spacing change parameter."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/relativeLineSpacingChange"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/relativeFontChange": {
+      "type": "topic",
+      "title": "relativeFontChange",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An enum schema for a relative font change parameter."
+        }
+      ],
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "relativeFontChange",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP",
+          "kind": "typeIdentifier",
+          "text": "AppSchemaEnum"
+        }
+      ],
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/booksenum/relativefontchange",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/relativeFontChange"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-reader": {
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-reader",
+      "abstract": [
+        {
+          "text": "Make your document reader’s actions available in the Shortcuts app by adopting schemas for document viewing and manipulation.",
+          "type": "text"
+        }
+      ],
+      "kind": "article",
+      "role": "collectionGroup",
+      "title": "Reader",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-reader"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-presentation": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-presentation",
+      "kind": "article",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-presentation",
+      "title": "Presentation",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your presentation app’s actions available in the Shortcuts app by adopting schemas for common presentation actions."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Identifies intent schemas in the books domain."
+        }
+      ],
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent",
+      "title": "AppSchema.BooksIntent",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/booksintent",
+      "navigatorTitle": [
+        {
+          "text": "BooksIntent",
+          "kind": "identifier"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "BooksIntent"
+        }
+      ],
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/font": {
+      "abstract": [
+        {
+          "text": "An enum schema for a font parameter.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "title": "font",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "font",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP",
+          "text": "AppSchemaEnum"
+        }
+      ],
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/booksenum/font",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/font"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/openBook": {
+      "title": "openBook",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/booksintent/openbook",
+      "type": "topic",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "openBook"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "AppSchemaIntent",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/openBook",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "text": "An intent schema that opens the specified book.",
+          "type": "text"
+        }
+      ],
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEntity/audiobook": {
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEntity/audiobook",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/booksentity/audiobook",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for an audiobook."
+        }
+      ],
+      "title": "audiobook",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "audiobook",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AppSchemaEntity",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-spreadsheet": {
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-spreadsheet",
+      "kind": "article",
+      "title": "Spreadsheet",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "Make your spreadsheet app’s actions available in the Shortcuts app by adopting schemas for spreadsheet management.",
+          "type": "text"
+        }
+      ],
+      "role": "collectionGroup",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-spreadsheet"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/pageNavigationSetting": {
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/pageNavigationSetting",
+      "role": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An enum schema for a page navigation setting parameter."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/booksenum/pagenavigationsetting",
+      "title": "pageNavigationSetting",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "pageNavigationSetting",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaEnum",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP"
+        }
+      ],
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-browser": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your web browser’s actions available in the Shortcuts app by adopting schemas for common browsing actions."
+        }
+      ],
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-browser",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-browser",
+      "title": "Browser",
+      "role": "collectionGroup",
+      "kind": "article"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-journaling": {
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-journaling",
+      "type": "topic",
+      "title": "Journaling",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your journaling app’s actions available in the Shortcuts app by adopting schemas for journal-entry management."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-journaling",
+      "role": "collectionGroup",
+      "kind": "article"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/fontSize": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An enum schema for a font size parameter."
+        }
+      ],
+      "role": "symbol",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/fontSize",
+      "title": "fontSize",
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/booksenum/fontsize",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "fontSize"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP",
+          "text": "AppSchemaEnum",
+          "kind": "typeIdentifier"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-word-processor": {
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-word-processor",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your word processor’s actions available in the Shortcuts app by adopting schemas for document editing."
+        }
+      ],
+      "role": "collectionGroup",
+      "kind": "article",
+      "title": "Word processor",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-word-processor"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/updateWordSpacing": {
+      "type": "topic",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "updateWordSpacing",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "title": "updateWordSpacing",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/updateWordSpacing",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/booksintent/updatewordspacing",
+      "kind": "symbol",
+      "role": "symbol",
+      "abstract": [
+        {
+          "text": "An intent schema that updates the word spacing for a book.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-whiteboard": {
+      "title": "Whiteboard",
+      "kind": "article",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-whiteboard",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-whiteboard",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your whiteboard app’s actions available in the Shortcuts app by adopting schemas for common whiteboard actions."
+        }
+      ],
+      "role": "collectionGroup"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/search": {
+      "title": "search",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/booksintent/search",
+      "deprecated": true,
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that opens the app and searches for the given term."
+        }
+      ],
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "search"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "text": "AppSchemaIntent"
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/search",
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/relativeCharacterSpacingChange": {
+      "type": "topic",
+      "role": "symbol",
+      "title": "relativeCharacterSpacingChange",
+      "abstract": [
+        {
+          "text": "An enum schema for a relative character spacing change parameter.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "relativeCharacterSpacingChange",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "AppSchemaEnum",
+          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/booksenum/relativecharacterspacingchange",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/relativeCharacterSpacingChange",
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum",
+      "abstract": [
+        {
+          "text": "Identifies enum schemas in the books domain.",
+          "type": "text"
+        }
+      ],
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "BooksEnum",
+          "kind": "identifier"
+        }
+      ],
+      "type": "topic",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "BooksEnum",
+          "kind": "identifier"
+        }
+      ],
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/booksenum",
+      "title": "AppSchema.BooksEnum"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/updateSettings": {
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/updateSettings",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/booksintent/updatesettings",
+      "title": "updateSettings",
+      "abstract": [
+        {
+          "text": "An intent schema that updates the settings for a book.",
+          "type": "text"
+        }
+      ],
+      "kind": "symbol",
+      "type": "topic",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "updateSettings"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/playAudiobook": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that plays an audiobook."
+        }
+      ],
+      "kind": "symbol",
+      "deprecated": true,
+      "url": "https://developer.apple.com/documentation/appintents/appschema/booksintent/playaudiobook",
+      "type": "topic",
+      "role": "symbol",
+      "title": "playAudiobook",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/playAudiobook",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "playAudiobook"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "text": "AppSchemaIntent"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/navigationDirection": {
+      "kind": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An enum schema for a navigation direction parameter."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/booksenum/navigationdirection",
+      "title": "navigationDirection",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/navigationDirection",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "navigationDirection",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP",
+          "text": "AppSchemaEnum",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai": {
+      "title": "Apple Intelligence and Siri AI",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "text": "Integrate your app with Apple Intelligence and bring it to Siri AI.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai",
+      "url": "https://developer.apple.com/documentation/appintents/apple-intelligence-and-siri-ai",
+      "kind": "article",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/relativeWordSpacingChange": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksEnum/relativeWordSpacingChange",
+      "role": "symbol",
+      "title": "relativeWordSpacingChange",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/booksenum/relativewordspacingchange",
+      "type": "topic",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "relativeWordSpacingChange",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP",
+          "text": "AppSchemaEnum",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An enum schema for a relative word spacing change parameter."
+        }
+      ],
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/updateFontSize": {
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/booksintent/updatefontsize",
+      "title": "updateFontSize",
+      "role": "symbol",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/BooksIntent/updateFontSize",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "updateFontSize"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "AppSchemaIntent",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "An intent schema that updates the font size for a book.",
+          "type": "text"
+        }
+      ]
+    }
+  },
+  "legalNotices": {
+    "copyright": "Copyright &copy; 2026 Apple Inc. All rights reserved.",
+    "termsOfUse": "https://www.apple.com/legal/internet-services/terms/site.html",
+    "privacyPolicy": "https://www.apple.com/privacy/privacy-policy"
+  }
+}

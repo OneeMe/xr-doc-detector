@@ -1,0 +1,2775 @@
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.AppIntents/documentation/AppIntents",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains"
+      ],
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.AppIntents/documentation/AppIntents",
+        "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains"
+      ]
+    ]
+  },
+  "sections": [],
+  "kind": "article",
+  "abstract": [
+    {
+      "text": "Make your photo and video app’s actions available to Apple Intelligence and Siri by adopting schemas for common photo and video actions.",
+      "type": "text"
+    }
+  ],
+  "seeAlsoSections": [
+    {
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-audio",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-calendar",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-camera",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-clock",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-files",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-mail",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-maps",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-messages",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-notes",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-phone",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-reminders",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-system-and-in-app-search"
+      ],
+      "generated": true,
+      "anchor": "Primary-domains",
+      "title": "Primary domains"
+    }
+  ],
+  "identifier": {
+    "url": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-photos",
+    "interfaceLanguage": "swift"
+  },
+  "primaryContentSections": [
+    {
+      "kind": "content",
+      "content": [
+        {
+          "level": 2,
+          "anchor": "overview",
+          "type": "heading",
+          "text": "Overview"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "The ",
+              "type": "text"
+            },
+            {
+              "code": ".photos",
+              "type": "codeVoice"
+            },
+            {
+              "type": "text",
+              "text": " domain defines app schemas that provide a"
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "structured representation for common photo and video actions and content."
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "Apply schemas in the ",
+              "type": "text"
+            },
+            {
+              "code": ".photos",
+              "type": "codeVoice"
+            },
+            {
+              "type": "text",
+              "text": " domain to make your app’s photo and video functionality available to Apple Intelligence and Siri."
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "type": "text",
+              "text": "Each schema defines the requirements for intents, parameters, and results so people get a consistent experience across photo and video apps."
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "type": "text",
+              "text": "For example, a person can edit a photo on different apps that support the"
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "isActive": true,
+              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/editAsset",
+              "type": "reference"
+            },
+            {
+              "type": "text",
+              "text": " schema with the same phrases."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Most schemas in this domain operate on assets that are already in your app’s library.",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "type": "text",
+              "text": "The exception is "
+            },
+            {
+              "type": "reference",
+              "isActive": true,
+              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/createAssets"
+            },
+            {
+              "text": ", which adds new assets from an external source.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "The following table maps example phrases that apply to each schema:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "header": "row",
+          "type": "table",
+          "rows": [
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "Photos intent schemas"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "Example phrases"
+                    }
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "reference",
+                      "isActive": true,
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/addAssetsToAlbum"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "text": "“Add DSC_001.JPEG to the 2024 album.”",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "type": "reference",
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/cleanupPhoto",
+                      "isActive": true
+                    }
+                  ]
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "text": "“Clean up.” or “Remove the clutter.”",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "isActive": true,
+                      "type": "reference",
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/createAlbum"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "“Create a new album named pics.”"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "reference",
+                      "isActive": true,
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/createAssets"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "text": "“Save these to my photos.”",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "reference",
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/crop",
+                      "isActive": true
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "text": "“Crop this photo.” or “Trim a bit off the borders.”",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "isActive": true,
+                      "type": "reference",
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/deleteAlbum"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "“Trash this album.” or “Get rid of vacation 2024.”"
+                    }
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/deleteAssets",
+                      "type": "reference",
+                      "isActive": true
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "“Delete this photo.” or “Get rid of the three most recent photos.”"
+                    }
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "isActive": true,
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/duplicateAssets",
+                      "type": "reference"
+                    }
+                  ]
+                }
+              ],
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "text": "“Duplicate DSC_001.JPEG.” or “Make a copy of DSC_0123.JPEG.”",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "reference",
+                      "isActive": true,
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/editAsset"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "“Edit this photo.”"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "isActive": true,
+                      "type": "reference",
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/openAlbum"
+                    }
+                  ]
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "text": "“Open the 2024 album.” or “Show me 2024.”",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "reference",
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/openAsset",
+                      "isActive": true
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "text": "“Open DSC_0123.JPEG.” or “Play IMG_4567.MOV.”",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "reference",
+                      "isActive": true,
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/postToSharedAlbum"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "text": "“Share DSC_001.JPEG to the baby shared album.”",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/removeAssetsFromAlbum",
+                      "isActive": true,
+                      "type": "reference"
+                    }
+                  ]
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "text": "“Remove this photo from my shared album.”",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "type": "reference",
+                      "isActive": true,
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/setFilter"
+                    }
+                  ]
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "“Apply the dramatic effect.” or “Remove the filter.”"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "isActive": true,
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/setRotation",
+                      "type": "reference"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "“Rotate this photo clockwise.” or “Rotate this photo left.”"
+                    }
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "type": "reference",
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/setWarmth",
+                      "isActive": true
+                    }
+                  ]
+                }
+              ],
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "text": "“Apply a warmth value of negative fifty.”",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "reference",
+                      "isActive": true,
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/straighten"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "“Straighten this photo.” or “Make this photo straight.”"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/toggleSuggestedEdits",
+                      "isActive": true,
+                      "type": "reference"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "“Enhance this photo.” or “Make this photo better.”"
+                    }
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/updateAlbum",
+                      "type": "reference",
+                      "isActive": true
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "text": "“Rename vacation 2024 to trip.”",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/updateAsset",
+                      "type": "reference",
+                      "isActive": true
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "“Favorite this photo.” or “Hide this photo.”"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "type": "aside",
+          "name": "Tip",
+          "content": [
+            {
+              "inlineContent": [
+                {
+                  "type": "text",
+                  "text": "Xcode generates a template implementation when you type "
+                },
+                {
+                  "type": "codeVoice",
+                  "code": "photos_"
+                },
+                {
+                  "type": "text",
+                  "text": " and select a schema from the suggestions list."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "style": "tip"
+        },
+        {
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "For more information about making your app’s actions available to Apple Intelligence and Siri, see "
+            },
+            {
+              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": ".",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "roleHeading": "API Collection",
+    "title": "Photos",
+    "role": "collectionGroup",
+    "modules": [
+      {
+        "name": "App Intents"
+      }
+    ]
+  },
+  "variants": [
+    {
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ],
+      "paths": [
+        "/documentation/appintents/app-schema-domain-photos"
+      ]
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "topicSections": [
+    {
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/integrating-your-photo-app-with-apple-intelligence"
+      ],
+      "title": "Essentials",
+      "anchor": "Essentials"
+    },
+    {
+      "title": "Actions",
+      "anchor": "Actions",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/addAssetsToAlbum",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/cleanupPhoto",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/copyEdits",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/createAlbum",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/createAssets",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/crop",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/deleteAlbum",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/deleteAssets",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/duplicateAssets",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/editAsset",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/openAlbum",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/openAsset",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/pasteEdits",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/postToSharedAlbum",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/removeAssetsFromAlbum",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/setDepth",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/setExposure",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/setFilter",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/setRotation",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/setSaturation",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/setWarmth",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/straighten",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/toggleDepth",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/toggleSuggestedEdits",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/updateAlbum",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/updateAsset",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/updateRecognizedPerson",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent"
+      ]
+    },
+    {
+      "title": "Content and parameter types",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEntity/album",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEntity/asset",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEntity/recognizedPerson",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEntity"
+      ],
+      "anchor": "Content-and-parameter-types"
+    },
+    {
+      "anchor": "Types-for-static-parameters",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEnum/albumType",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEnum/assetType",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEnum/filterType",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEnum/rotationDirection",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEnum"
+      ],
+      "title": "Types for static parameters"
+    },
+    {
+      "anchor": "Deprecated-schemas",
+      "title": "Deprecated schemas",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/search"
+      ]
+    }
+  ],
+  "references": {
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/updateAlbum": {
+      "title": "updateAlbum",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that renames the provided album."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/updatealbum",
+      "kind": "symbol",
+      "type": "topic",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "updateAlbum"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "kind": "typeIdentifier",
+          "text": "AppSchemaIntent"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/updateAlbum",
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-files": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-files",
+      "title": "Files",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your file-management app’s actions available to Apple Intelligence and Siri by adopting schemas for common file actions."
+        }
+      ],
+      "role": "collectionGroup",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-files",
+      "kind": "article"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/removeAssetsFromAlbum": {
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that removes the provided photos from the provided album."
+        }
+      ],
+      "kind": "symbol",
+      "title": "removeAssetsFromAlbum",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "removeAssetsFromAlbum",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "AppSchemaIntent",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/removeassetsfromalbum",
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/removeAssetsFromAlbum"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/updateAsset": {
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/updateasset",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/updateAsset",
+      "kind": "symbol",
+      "type": "topic",
+      "title": "updateAsset",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that updates an existing photo’s properties."
+        }
+      ],
+      "role": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "updateAsset"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "text": "AppSchemaIntent"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/openAlbum": {
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/openAlbum",
+      "abstract": [
+        {
+          "text": "An intent schema that opens the provided album.",
+          "type": "text"
+        }
+      ],
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/openalbum",
+      "role": "symbol",
+      "title": "openAlbum",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "openAlbum"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "AppSchemaIntent",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-mail": {
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-mail",
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-mail",
+      "role": "collectionGroup",
+      "title": "Mail",
+      "abstract": [
+        {
+          "text": "Make your email app’s actions available to Apple Intelligence and Siri by adopting schemas for common email actions.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-audio": {
+      "role": "collectionGroup",
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-audio",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-audio",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your audio app’s actions available to Apple Intelligence and Siri by adopting schemas for common audio playback actions."
+        }
+      ],
+      "title": "Audio",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-system-and-in-app-search": {
+      "kind": "article",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your app’s actions available to Apple Intelligence and Siri by adopting schemas for in-app search and content access."
+        }
+      ],
+      "type": "topic",
+      "title": "System and in-app search",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-system-and-in-app-search",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-system-and-in-app-search"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/integrating-your-photo-app-with-apple-intelligence": {
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Adopt photo schemas so people can edit and manage photos with Siri."
+        }
+      ],
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/appintents/integrating-your-photo-app-with-apple-intelligence",
+      "role": "sampleCode",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/integrating-your-photo-app-with-apple-intelligence",
+      "title": "Integrating your photo app with Apple Intelligence"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/setSaturation": {
+      "type": "topic",
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/setsaturation",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/setSaturation",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "setSaturation",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "role": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that configures the saturation for a photo."
+        }
+      ],
+      "title": "setSaturation"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEnum/assetType": {
+      "title": "assetType",
+      "type": "topic",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosenum/assettype",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "assetType"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "AppSchemaEnum",
+          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEnum/assetType",
+      "abstract": [
+        {
+          "text": "An enum schema for an asset type parameter.",
+          "type": "text"
+        }
+      ],
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai": {
+      "title": "Apple Intelligence and Siri AI",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "text": "Integrate your app with Apple Intelligence and bring it to Siri AI.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai",
+      "url": "https://developer.apple.com/documentation/appintents/apple-intelligence-and-siri-ai",
+      "kind": "article",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/setExposure": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/setExposure",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/setexposure",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "setExposure",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "kind": "typeIdentifier",
+          "text": "AppSchemaIntent"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "An intent schema that configures the exposure for a photo.",
+          "type": "text"
+        }
+      ],
+      "kind": "symbol",
+      "title": "setExposure",
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/toggleSuggestedEdits": {
+      "role": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that enhances a photo."
+        }
+      ],
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/togglesuggestededits",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/toggleSuggestedEdits",
+      "type": "topic",
+      "title": "toggleSuggestedEdits",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "toggleSuggestedEdits"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "AppSchemaIntent",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/search": {
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/search",
+      "abstract": [
+        {
+          "text": "An intent schema that navigates to search results.",
+          "type": "text"
+        }
+      ],
+      "role": "symbol",
+      "deprecated": true,
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "search"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaIntent",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/search",
+      "type": "topic",
+      "title": "search",
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/setFilter": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/setFilter",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "setFilter"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "text": "AppSchemaIntent"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/setfilter",
+      "kind": "symbol",
+      "type": "topic",
+      "title": "setFilter",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that applies a filter to a photo."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEnum": {
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "PhotosEnum"
+        }
+      ],
+      "type": "topic",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "PhotosEnum"
+        }
+      ],
+      "kind": "symbol",
+      "role": "symbol",
+      "abstract": [
+        {
+          "text": "Identifies enum schemas in the photos domain.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEnum",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosenum",
+      "title": "AppSchema.PhotosEnum"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEntity/album": {
+      "type": "topic",
+      "title": "album",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEntity/album",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for an album."
+        }
+      ],
+      "role": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "album",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaEntity",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosentity/album"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/toggleDepth": {
+      "kind": "symbol",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/toggledepth",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "toggleDepth"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "AppSchemaIntent",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/toggleDepth",
+      "abstract": [
+        {
+          "text": "An intent schema that toggles depth effect for a photo.",
+          "type": "text"
+        }
+      ],
+      "title": "toggleDepth",
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains": {
+      "title": "App schema domains",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domains",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Declare support for well-known actions and content by applying system-defined schemas to"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "your app intents, app entities, and app enumerations.",
+          "type": "text"
+        }
+      ],
+      "kind": "article",
+      "role": "collectionGroup",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEnum/rotationDirection": {
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "rotationDirection",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaEnum",
+          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosenum/rotationdirection",
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEnum/rotationDirection",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "An enum schema for a rotation direction parameter.",
+          "type": "text"
+        }
+      ],
+      "kind": "symbol",
+      "title": "rotationDirection"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/deleteAlbum": {
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "deleteAlbum"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/deleteAlbum",
+      "role": "symbol",
+      "kind": "symbol",
+      "title": "deleteAlbum",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/deletealbum",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that deletes the provided albums."
+        }
+      ],
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEnum/albumType": {
+      "kind": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An enum schema for an album type parameter."
+        }
+      ],
+      "role": "symbol",
+      "title": "albumType",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEnum/albumType",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosenum/albumtype",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "albumType"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AppSchemaEnum",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/updateRecognizedPerson": {
+      "title": "updateRecognizedPerson",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "updateRecognizedPerson",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/updateRecognizedPerson",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/updaterecognizedperson",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that updates the provided person with new properties."
+        }
+      ],
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/crop": {
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/crop",
+      "title": "crop",
+      "abstract": [
+        {
+          "text": "An intent schema that crops a photo.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "crop"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "AppSchemaIntent",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "type": "topic",
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/crop"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/pasteEdits": {
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/pasteedits",
+      "title": "pasteEdits",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "pasteEdits",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/pasteEdits",
+      "abstract": [
+        {
+          "text": "An intent schema that pastes edits to the provided photo.",
+          "type": "text"
+        }
+      ],
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/postToSharedAlbum": {
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/posttosharedalbum",
+      "role": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "postToSharedAlbum"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/postToSharedAlbum",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that posts the provided photos or files and optional comment to the provided shared album."
+        }
+      ],
+      "title": "postToSharedAlbum",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/addAssetsToAlbum": {
+      "abstract": [
+        {
+          "text": "An intent schema that adds the provided photos to the provided album.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/addAssetsToAlbum",
+      "title": "addAssetsToAlbum",
+      "type": "topic",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "addAssetsToAlbum",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/addassetstoalbum",
+      "kind": "symbol",
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-reminders": {
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-reminders",
+      "role": "collectionGroup",
+      "type": "topic",
+      "title": "Reminders",
+      "kind": "article",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-reminders",
+      "abstract": [
+        {
+          "text": "Make your reminder app’s actions available to Apple Intelligence and Siri by adopting schemas for common reminder actions.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.documentation/documentation/technologies": {
+      "title": "Technologies",
+      "role": "overview",
+      "abstract": [
+        {
+          "type": "text",
+          "text": ""
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "kind": "technologies",
+      "url": "https://developer.apple.com/documentation/technologies"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/copyEdits": {
+      "title": "copyEdits",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "copyEdits"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "AppSchemaIntent",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/copyedits",
+      "abstract": [
+        {
+          "text": "An intent schema that copies edits from the provided photo.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/copyEdits",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent": {
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent",
+      "title": "AppSchema.PhotosIntent",
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "PhotosIntent"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "Identifies intent schemas in the photos domain.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "PhotosIntent"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEntity": {
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "PhotosEntity"
+        }
+      ],
+      "navigatorTitle": [
+        {
+          "text": "PhotosEntity",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosentity",
+      "abstract": [
+        {
+          "text": "Identifies entity schemas in the photos domain.",
+          "type": "text"
+        }
+      ],
+      "title": "AppSchema.PhotosEntity",
+      "kind": "symbol",
+      "role": "symbol",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEntity"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-notes": {
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-notes",
+      "abstract": [
+        {
+          "text": "Make your note-taking app’s actions available to Apple Intelligence and Siri by adopting schemas for common note actions.",
+          "type": "text"
+        }
+      ],
+      "kind": "article",
+      "title": "Notes",
+      "role": "collectionGroup",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-notes",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-messages": {
+      "title": "Messages",
+      "role": "collectionGroup",
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-messages",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your messaging app’s actions available to Apple Intelligence and Siri by adopting schemas for common messaging actions."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-messages"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/openAsset": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that opens the app to a photo."
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/openAsset",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/openasset",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "openAsset",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaIntent",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "title": "openAsset",
+      "role": "symbol",
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/createAlbum": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that creates an album."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/createalbum",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/createAlbum",
+      "type": "topic",
+      "title": "createAlbum",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "createAlbum"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "text": "AppSchemaIntent"
+        }
+      ],
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEntity/recognizedPerson": {
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosentity/recognizedperson",
+      "abstract": [
+        {
+          "text": "An entity schema for a recognized person.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "title": "recognizedPerson",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEntity/recognizedPerson",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "recognizedPerson",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "text": "AppSchemaEntity",
+          "kind": "typeIdentifier"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/setWarmth": {
+      "type": "topic",
+      "kind": "symbol",
+      "title": "setWarmth",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "setWarmth",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that configures the warmth for a photo."
+        }
+      ],
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/setwarmth",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/setWarmth"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/setDepth": {
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/setdepth",
+      "title": "setDepth",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "setDepth",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "AppSchemaIntent",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/setDepth",
+      "kind": "symbol",
+      "role": "symbol",
+      "abstract": [
+        {
+          "text": "An intent schema that sets the depth value of a photo.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-phone": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-phone",
+      "type": "topic",
+      "title": "Phone",
+      "role": "collectionGroup",
+      "kind": "article",
+      "abstract": [
+        {
+          "text": "Make your phone app’s actions available to Apple Intelligence and Siri by adopting schemas for calling actions.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-phone"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/cleanupPhoto": {
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/cleanupPhoto",
+      "abstract": [
+        {
+          "text": "An intent schema that removes distracting objects in a photo.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "cleanupPhoto"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "kind": "typeIdentifier",
+          "text": "AppSchemaIntent"
+        }
+      ],
+      "title": "cleanupPhoto",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/cleanupphoto",
+      "type": "topic",
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/setRotation": {
+      "title": "setRotation",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "setRotation",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "text": "AppSchemaIntent"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/setrotation",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that rotates a photo."
+        }
+      ],
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/setRotation",
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEnum/filterType": {
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEnum/filterType",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "filterType",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP",
+          "text": "AppSchemaEnum",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "role": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An enum schema for a filter type parameter."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosenum/filtertype",
+      "title": "filterType",
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-calendar": {
+      "abstract": [
+        {
+          "text": "Make your calendar app’s actions available to Apple Intelligence and Siri by adopting schemas for common calendar actions.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-calendar",
+      "kind": "article",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-calendar",
+      "role": "collectionGroup",
+      "title": "Calendar"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents": {
+      "type": "topic",
+      "kind": "symbol",
+      "role": "collection",
+      "url": "https://developer.apple.com/documentation/appintents",
+      "navigatorTitle": [
+        {
+          "kind": "text",
+          "text": "App Intents"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents",
+      "title": "App Intents",
+      "abstract": [
+        {
+          "text": "Make content and actions discoverable by Apple Intelligence and support system experiences like Siri, Spotlight, Shortcuts, and widgets.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-clock": {
+      "title": "Clock",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-clock",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your clock app’s actions available to Apple Intelligence and Siri by adopting schemas for common alarm and timer actions."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-clock",
+      "role": "collectionGroup",
+      "kind": "article"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/createAssets": {
+      "kind": "symbol",
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/createAssets",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/createassets",
+      "title": "createAssets",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "createAssets"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "An intent schema that creates photos from the provided files.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-maps": {
+      "role": "collectionGroup",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-maps",
+      "kind": "article",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-maps",
+      "title": "Maps",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "Make your navigation app’s actions available to Apple Intelligence and Siri by adopting schemas for common navigation actions.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/editAsset": {
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "editAsset"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaIntent",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/editasset",
+      "type": "topic",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "editAsset",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/editAsset",
+      "abstract": [
+        {
+          "text": "An intent schema that opens a photo for editing.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/deleteAssets": {
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/deleteassets",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/deleteAssets",
+      "role": "symbol",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "text": "An intent schema that deletes the provided photos.",
+          "type": "text"
+        }
+      ],
+      "title": "deleteAssets",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "deleteAssets",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/straighten": {
+      "kind": "symbol",
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/straighten",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "An intent schema that straightens a photo.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "straighten"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/straighten",
+      "title": "straighten"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-camera": {
+      "kind": "article",
+      "abstract": [
+        {
+          "text": "Make your camera app’s actions available to Apple Intelligence and Siri by adopting schemas for common camera actions.",
+          "type": "text"
+        }
+      ],
+      "title": "Camera",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-camera",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-camera",
+      "role": "collectionGroup"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEntity/asset": {
+      "type": "topic",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "asset",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "kind": "typeIdentifier",
+          "text": "AppSchemaEntity"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for an asset."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosEntity/asset",
+      "kind": "symbol",
+      "title": "asset",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosentity/asset",
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/duplicateAssets": {
+      "title": "duplicateAssets",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "duplicateAssets"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "text": "AppSchemaIntent"
+        }
+      ],
+      "abstract": [
+        {
+          "text": "An intent schema that duplicates the selected photos.",
+          "type": "text"
+        }
+      ],
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/PhotosIntent/duplicateAssets",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/photosintent/duplicateassets",
+      "role": "symbol"
+    }
+  },
+  "legalNotices": {
+    "copyright": "Copyright &copy; 2026 Apple Inc. All rights reserved.",
+    "termsOfUse": "https://www.apple.com/legal/internet-services/terms/site.html",
+    "privacyPolicy": "https://www.apple.com/privacy/privacy-policy"
+  }
+}

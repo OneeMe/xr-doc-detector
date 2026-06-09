@@ -1,0 +1,1669 @@
+{
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "identifier": {
+    "url": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-mail",
+    "interfaceLanguage": "swift"
+  },
+  "kind": "article",
+  "abstract": [
+    {
+      "text": "Make your email app’s actions available to Apple Intelligence and Siri by adopting schemas for common email actions.",
+      "type": "text"
+    }
+  ],
+  "topicSections": [
+    {
+      "anchor": "Actions",
+      "title": "Actions",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/archiveMail",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/createDraft",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/deleteDraft",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/deleteMail",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/forwardMail",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/openDraft",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/openMessage",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/replyMail",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/saveDraft",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/sendDraft",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/updateDraft",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/updateMail",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent"
+      ]
+    },
+    {
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailEntity/account",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailEntity/draft",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailEntity/mailbox",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailEntity/message",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailEntity/thread",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailEntity"
+      ],
+      "title": "Content and parameter types",
+      "anchor": "Content-and-parameter-types"
+    }
+  ],
+  "seeAlsoSections": [
+    {
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-audio",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-calendar",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-camera",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-clock",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-files",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-maps",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-messages",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-notes",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-phone",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-photos",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-reminders",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-system-and-in-app-search"
+      ],
+      "anchor": "Primary-domains",
+      "title": "Primary domains",
+      "generated": true
+    }
+  ],
+  "sections": [],
+  "metadata": {
+    "title": "Mail",
+    "modules": [
+      {
+        "name": "App Intents"
+      }
+    ],
+    "roleHeading": "API Collection",
+    "role": "collectionGroup"
+  },
+  "primaryContentSections": [
+    {
+      "kind": "content",
+      "content": [
+        {
+          "level": 2,
+          "text": "Overview",
+          "anchor": "overview",
+          "type": "heading"
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "The "
+            },
+            {
+              "type": "codeVoice",
+              "code": ".mail"
+            },
+            {
+              "text": " domain defines app schemas that provide a",
+              "type": "text"
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "text": "structured representation for common email actions and content.",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "type": "text",
+              "text": "Apply schemas in the "
+            },
+            {
+              "code": ".mail",
+              "type": "codeVoice"
+            },
+            {
+              "type": "text",
+              "text": " domain to make your app’s email functionality available to Apple Intelligence and Siri."
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "Each schema defines the requirements for intents, parameters, and results so people get a consistent experience across email apps."
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "type": "text",
+              "text": "For example, a person can compose an email on different apps that support the"
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "reference",
+              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/createDraft",
+              "isActive": true
+            },
+            {
+              "text": " schema with the same phrases.",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "The following table maps example phrases that apply to each schema."
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "type": "text",
+              "text": "Your app needs to support all of these schemas when it supports any one of them."
+            }
+          ]
+        },
+        {
+          "header": "row",
+          "type": "table",
+          "rows": [
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "Mail intent schemas"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "Example phrases"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "reference",
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/createDraft",
+                      "isActive": true
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "text": "“Compose a mail.” or “Write an email to example@example.com about photos from team dinner.”",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/updateDraft",
+                      "isActive": true,
+                      "type": "reference"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "“Add example@example.com to recipients.” or “Set subject to coffee session.”"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/saveDraft",
+                      "type": "reference",
+                      "isActive": true
+                    }
+                  ]
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "“Draft this email for later.” or “Save it.”"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "type": "reference",
+                      "isActive": true,
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/openDraft"
+                    }
+                  ]
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "“Open the draft email to John and James.”"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "isActive": true,
+                      "type": "reference",
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/deleteDraft"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "“Delete this draft.” or “Trash my most recent draft.”"
+                    }
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/sendDraft",
+                      "isActive": true,
+                      "type": "reference"
+                    }
+                  ]
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "“Send this email.” or “Send this email tomorrow at 9 PM.”"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/openMessage",
+                      "isActive": true,
+                      "type": "reference"
+                    }
+                  ]
+                }
+              ],
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "“Open the email about team offsite instructions.”"
+                    }
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "isActive": true,
+                      "type": "reference",
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/replyMail"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "text": "“Reply to an email.” or “Reply to mail thread with my manager.”",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/forwardMail",
+                      "type": "reference",
+                      "isActive": true
+                    }
+                  ]
+                }
+              ],
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "“Forward an email.” or “Forward the email about the baseball schedule to John Appleseed.”"
+                    }
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/updateMail",
+                      "type": "reference",
+                      "isActive": true
+                    }
+                  ]
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "text": "“Mark this email as read.” or “Flag this email.”",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "reference",
+                      "isActive": true,
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/archiveMail"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "“Archive book club emails.” or “Archive emails from Nancy.”"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
+                      "type": "reference",
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/deleteMail",
+                      "isActive": true
+                    }
+                  ]
+                }
+              ],
+              [
+                {
+                  "inlineContent": [
+                    {
+                      "type": "text",
+                      "text": "“Delete emails from Julian.” or “Trash all mail messages from Example Store.”"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "At build time, Xcode validates whether your app implements all the schemas in the group."
+            }
+          ]
+        },
+        {
+          "style": "tip",
+          "type": "aside",
+          "content": [
+            {
+              "type": "paragraph",
+              "inlineContent": [
+                {
+                  "text": "Xcode generates a template implementation when you type ",
+                  "type": "text"
+                },
+                {
+                  "type": "codeVoice",
+                  "code": "mail_"
+                },
+                {
+                  "text": " and select a schema from the suggestions list.",
+                  "type": "text"
+                }
+              ]
+            }
+          ],
+          "name": "Tip"
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "type": "text",
+              "text": "For more information about making your app’s actions available to Apple Intelligence and Siri, see "
+            },
+            {
+              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai",
+              "type": "reference",
+              "isActive": true
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.AppIntents/documentation/AppIntents",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains"
+      ],
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.AppIntents/documentation/AppIntents",
+        "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains"
+      ]
+    ]
+  },
+  "variants": [
+    {
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ],
+      "paths": [
+        "/documentation/appintents/app-schema-domain-mail"
+      ]
+    }
+  ],
+  "references": {
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/sendDraft": {
+      "type": "topic",
+      "title": "sendDraft",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/sendDraft",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/mailintent/senddraft",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "sendDraft",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "AppSchemaIntent",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that sends an email draft or schedules it to be sent later."
+        }
+      ],
+      "role": "symbol",
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-files": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-files",
+      "title": "Files",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your file-management app’s actions available to Apple Intelligence and Siri by adopting schemas for common file actions."
+        }
+      ],
+      "role": "collectionGroup",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-files",
+      "kind": "article"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-calendar": {
+      "abstract": [
+        {
+          "text": "Make your calendar app’s actions available to Apple Intelligence and Siri by adopting schemas for common calendar actions.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-calendar",
+      "kind": "article",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-calendar",
+      "role": "collectionGroup",
+      "title": "Calendar"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-reminders": {
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-reminders",
+      "role": "collectionGroup",
+      "type": "topic",
+      "title": "Reminders",
+      "kind": "article",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-reminders",
+      "abstract": [
+        {
+          "text": "Make your reminder app’s actions available to Apple Intelligence and Siri by adopting schemas for common reminder actions.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/deleteDraft": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/deleteDraft",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/mailintent/deletedraft",
+      "title": "deleteDraft",
+      "type": "topic",
+      "kind": "symbol",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "deleteDraft",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "text": "AppSchemaIntent"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that deletes one or more email drafts."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailEntity/mailbox": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailEntity/mailbox",
+      "type": "topic",
+      "title": "mailbox",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/mailentity/mailbox",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "mailbox"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "text": "AppSchemaEntity",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for a mailbox."
+        }
+      ],
+      "kind": "symbol",
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-audio": {
+      "role": "collectionGroup",
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-audio",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-audio",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your audio app’s actions available to Apple Intelligence and Siri by adopting schemas for common audio playback actions."
+        }
+      ],
+      "title": "Audio",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailEntity/account": {
+      "title": "account",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for an account."
+        }
+      ],
+      "kind": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "account",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "text": "AppSchemaEntity",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailEntity/account",
+      "type": "topic",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/mailentity/account"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-phone": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-phone",
+      "type": "topic",
+      "title": "Phone",
+      "role": "collectionGroup",
+      "kind": "article",
+      "abstract": [
+        {
+          "text": "Make your phone app’s actions available to Apple Intelligence and Siri by adopting schemas for calling actions.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-phone"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/forwardMail": {
+      "title": "forwardMail",
+      "kind": "symbol",
+      "role": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that opens an email composer to forward an email."
+        }
+      ],
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/mailintent/forwardmail",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "forwardMail",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/forwardMail"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-messages": {
+      "title": "Messages",
+      "role": "collectionGroup",
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-messages",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your messaging app’s actions available to Apple Intelligence and Siri by adopting schemas for common messaging actions."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-messages"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/saveDraft": {
+      "type": "topic",
+      "title": "saveDraft",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that saves an email draft."
+        }
+      ],
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "saveDraft"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/mailintent/savedraft",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/saveDraft"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/archiveMail": {
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "archiveMail",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaIntent",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "role": "symbol",
+      "title": "archiveMail",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/mailintent/archivemail",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "text": "An intent schema that archives one or more email messages.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/archiveMail",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/openDraft": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that opens an email draft."
+        }
+      ],
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "openDraft"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "kind": "typeIdentifier",
+          "text": "AppSchemaIntent"
+        }
+      ],
+      "kind": "symbol",
+      "title": "openDraft",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/openDraft",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/mailintent/opendraft"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/deleteMail": {
+      "kind": "symbol",
+      "title": "deleteMail",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "deleteMail"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/mailintent/deletemail",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that deletes one or more email messages."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/deleteMail"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailEntity/message": {
+      "type": "topic",
+      "kind": "symbol",
+      "role": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "message"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "kind": "typeIdentifier",
+          "text": "AppSchemaEntity"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/mailentity/message",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for a message."
+        }
+      ],
+      "title": "message",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailEntity/message"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-photos": {
+      "title": "Photos",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-photos",
+      "kind": "article",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-photos",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your photo and video app’s actions available to Apple Intelligence and Siri by adopting schemas for common photo and video actions."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailEntity/draft": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for a draft."
+        }
+      ],
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailEntity/draft",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/mailentity/draft",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "draft",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "kind": "typeIdentifier",
+          "text": "AppSchemaEntity"
+        }
+      ],
+      "title": "draft",
+      "type": "topic"
+    },
+    "doc://com.apple.documentation/documentation/technologies": {
+      "title": "Technologies",
+      "role": "overview",
+      "abstract": [
+        {
+          "type": "text",
+          "text": ""
+        }
+      ],
+      "type": "topic",
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "kind": "technologies",
+      "url": "https://developer.apple.com/documentation/technologies"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai": {
+      "title": "Apple Intelligence and Siri AI",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "text": "Integrate your app with Apple Intelligence and bring it to Siri AI.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai",
+      "url": "https://developer.apple.com/documentation/appintents/apple-intelligence-and-siri-ai",
+      "kind": "article",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains": {
+      "title": "App schema domains",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domains",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Declare support for well-known actions and content by applying system-defined schemas to"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "your app intents, app entities, and app enumerations.",
+          "type": "text"
+        }
+      ],
+      "kind": "article",
+      "role": "collectionGroup",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/replyMail": {
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/replyMail",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that opens an email composer to reply to an email."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/mailintent/replymail",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "replyMail"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "type": "topic",
+      "title": "replyMail",
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-system-and-in-app-search": {
+      "kind": "article",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your app’s actions available to Apple Intelligence and Siri by adopting schemas for in-app search and content access."
+        }
+      ],
+      "type": "topic",
+      "title": "System and in-app search",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-system-and-in-app-search",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-system-and-in-app-search"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/openMessage": {
+      "url": "https://developer.apple.com/documentation/appintents/appschema/mailintent/openmessage",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "openMessage",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AppSchemaIntent",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "title": "openMessage",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/openMessage",
+      "role": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that opens an email message."
+        }
+      ],
+      "kind": "symbol",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/updateMail": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/updateMail",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/mailintent/updatemail",
+      "type": "topic",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "text": "An intent schema that makes updates to one or more existing email messages by modifying the status, flags, and location.",
+          "type": "text"
+        }
+      ],
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "updateMail"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "AppSchemaIntent",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "title": "updateMail"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents": {
+      "type": "topic",
+      "kind": "symbol",
+      "role": "collection",
+      "url": "https://developer.apple.com/documentation/appintents",
+      "navigatorTitle": [
+        {
+          "kind": "text",
+          "text": "App Intents"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents",
+      "title": "App Intents",
+      "abstract": [
+        {
+          "text": "Make content and actions discoverable by Apple Intelligence and support system experiences like Siri, Spotlight, Shortcuts, and widgets.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailEntity": {
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "MailEntity"
+        }
+      ],
+      "kind": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Identifies entity schemas in the mail domain."
+        }
+      ],
+      "title": "AppSchema.MailEntity",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/mailentity",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailEntity",
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "MailEntity",
+          "kind": "identifier"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-maps": {
+      "role": "collectionGroup",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-maps",
+      "kind": "article",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-maps",
+      "title": "Maps",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "Make your navigation app’s actions available to Apple Intelligence and Siri by adopting schemas for common navigation actions.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-notes": {
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-notes",
+      "abstract": [
+        {
+          "text": "Make your note-taking app’s actions available to Apple Intelligence and Siri by adopting schemas for common note actions.",
+          "type": "text"
+        }
+      ],
+      "kind": "article",
+      "title": "Notes",
+      "role": "collectionGroup",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-notes",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-clock": {
+      "title": "Clock",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-clock",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your clock app’s actions available to Apple Intelligence and Siri by adopting schemas for common alarm and timer actions."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-clock",
+      "role": "collectionGroup",
+      "kind": "article"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent": {
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "MailIntent"
+        }
+      ],
+      "type": "topic",
+      "role": "symbol",
+      "navigatorTitle": [
+        {
+          "text": "MailIntent",
+          "kind": "identifier"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/mailintent",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent",
+      "kind": "symbol",
+      "title": "AppSchema.MailIntent",
+      "abstract": [
+        {
+          "text": "Identifies intent schemas in the mail domain.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailEntity/thread": {
+      "abstract": [
+        {
+          "text": "An entity schema for a thread.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "thread"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "text": "AppSchemaEntity",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailEntity/thread",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/mailentity/thread",
+      "title": "thread",
+      "role": "symbol",
+      "kind": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/createDraft": {
+      "title": "createDraft",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that opens an email composer to draft an email."
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/createDraft",
+      "role": "symbol",
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/mailintent/createdraft",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "createDraft"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/updateDraft": {
+      "title": "updateDraft",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/mailintent/updatedraft",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that makes updates to an email draft."
+        }
+      ],
+      "type": "topic",
+      "role": "symbol",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/MailIntent/updateDraft",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "updateDraft"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaIntent",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "kind": "typeIdentifier"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-camera": {
+      "kind": "article",
+      "abstract": [
+        {
+          "text": "Make your camera app’s actions available to Apple Intelligence and Siri by adopting schemas for common camera actions.",
+          "type": "text"
+        }
+      ],
+      "title": "Camera",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-camera",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-camera",
+      "role": "collectionGroup"
+    }
+  },
+  "legalNotices": {
+    "copyright": "Copyright &copy; 2026 Apple Inc. All rights reserved.",
+    "termsOfUse": "https://www.apple.com/legal/internet-services/terms/site.html",
+    "privacyPolicy": "https://www.apple.com/privacy/privacy-policy"
+  }
+}
