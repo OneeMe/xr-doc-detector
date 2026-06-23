@@ -1,4 +1,97 @@
 {
+  "topicSections": [
+    {
+      "anchor": "Core-Image-effects",
+      "title": "Core Image effects",
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/applying-core-image-filters-as-a-postprocess-effect"
+      ]
+    },
+    {
+      "anchor": "Metal-effects",
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/using-metal-performance-shaders-to-create-custom-postprocess-effects",
+        "doc://com.apple.RealityKit/documentation/RealityKit/implementing-special-rendering-effects-with-realitykit-postprocessing",
+        "doc://com.apple.RealityKit/documentation/RealityKit/checking-the-pixel-format-of-a-postprocess-effect-s-output-texture",
+        "doc://com.apple.RealityKit/documentation/RealityKit/passing-structured-data-to-a-metal-compute-function",
+        "doc://com.apple.RealityKit/documentation/RealityKit/implementing-postprocess-effects-using-metal-compute-functions"
+      ],
+      "title": "Metal effects"
+    },
+    {
+      "identifiers": [
+        "doc://com.apple.RealityKit/documentation/RealityKit/BloomComponent",
+        "doc://com.apple.RealityKit/documentation/RealityKit/BloomOptionsComponent",
+        "doc://com.apple.RealityKit/documentation/RealityKit/ToneMappingComponent"
+      ],
+      "anchor": "Bloom-and-tone-mapping",
+      "title": "Bloom and tone mapping"
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://com.apple.RealityKit/documentation/RealityKit/postprocessing-effects"
+  },
+  "primaryContentSections": [
+    {
+      "content": [
+        {
+          "text": "Overview",
+          "type": "heading",
+          "level": 2,
+          "anchor": "Overview"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "In iOS 15 and later, and macOS 12 and later, you can apply postprocess effects to a RealityKit scene after RealityKit renders it, but before RealityKit displays it. If you register a postprocess callback function, RealityKit passes that function the complete, rendered frame so you can modify it before the viewer sees it. You can use any image processing or drawing APIs on the rendered frame but, as a practical matter, only APIs that execute on the GPU are fast enough to use every frame and maintain a good framerate.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "paragraph",
+          "inlineContent": [
+            {
+              "identifier": "doc://com.apple.documentation/documentation/CoreImage",
+              "type": "reference",
+              "isActive": true
+            },
+            {
+              "type": "text",
+              "text": ", Metal kernal functions, "
+            },
+            {
+              "isActive": true,
+              "identifier": "doc://com.apple.documentation/documentation/MetalPerformanceShaders",
+              "type": "reference"
+            },
+            {
+              "type": "text",
+              "text": ", and "
+            },
+            {
+              "type": "reference",
+              "isActive": true,
+              "identifier": "doc://com.apple.documentation/documentation/SpriteKit"
+            },
+            {
+              "text": " all execute on the GPU and can be effectively used to implement postprocessing effects.",
+              "type": "text"
+            }
+          ]
+        }
+      ],
+      "kind": "content"
+    }
+  ],
   "hierarchy": {
     "paths": [
       [
@@ -12,76 +105,38 @@
       ]
     ]
   },
-  "primaryContentSections": [
-    {
-      "kind": "content",
-      "content": [
-        {
-          "text": "Overview",
-          "type": "heading",
-          "level": 2,
-          "anchor": "Overview"
-        },
-        {
-          "type": "paragraph",
-          "inlineContent": [
-            {
-              "type": "text",
-              "text": "In iOS 15 and later, and macOS 12 and later, you can apply postprocess effects to a RealityKit scene after RealityKit renders it, but before RealityKit displays it. If you register a postprocess callback function, RealityKit passes that function the complete, rendered frame so you can modify it before the viewer sees it. You can use any image processing or drawing APIs on the rendered frame but, as a practical matter, only APIs that execute on the GPU are fast enough to use every frame and maintain a good framerate."
-            }
-          ]
-        },
-        {
-          "inlineContent": [
-            {
-              "type": "reference",
-              "identifier": "doc://com.apple.documentation/documentation/CoreImage",
-              "isActive": true
-            },
-            {
-              "type": "text",
-              "text": ", Metal kernal functions, "
-            },
-            {
-              "type": "reference",
-              "identifier": "doc://com.apple.documentation/documentation/MetalPerformanceShaders",
-              "isActive": true
-            },
-            {
-              "type": "text",
-              "text": ", and "
-            },
-            {
-              "type": "reference",
-              "identifier": "doc://com.apple.documentation/documentation/SpriteKit",
-              "isActive": true
-            },
-            {
-              "text": " all execute on the GPU and can be effectively used to implement postprocessing effects.",
-              "type": "text"
-            }
-          ],
-          "type": "paragraph"
-        }
-      ]
-    }
-  ],
   "kind": "article",
   "metadata": {
     "roleHeading": "API Collection",
-    "title": "Postprocessing effects",
-    "role": "collectionGroup",
     "modules": [
       {
         "name": "RealityKit"
       }
-    ]
+    ],
+    "title": "Postprocessing effects",
+    "role": "collectionGroup"
   },
+  "abstract": [
+    {
+      "text": "Create special rendering effects for your RealityKit scenes.",
+      "type": "text"
+    }
+  ],
   "variants": [
     {
+      "paths": [
+        "/documentation/realitykit/postprocessing-effects"
+      ],
       "traits": [
         {
           "interfaceLanguage": "swift"
+        }
+      ]
+    },
+    {
+      "traits": [
+        {
+          "interfaceLanguage": "occ"
         }
       ],
       "paths": [
@@ -89,66 +144,67 @@
       ]
     }
   ],
-  "abstract": [
-    {
-      "type": "text",
-      "text": "Create special rendering effects for your RealityKit scenes."
-    }
-  ],
-  "topicSections": [
-    {
-      "title": "Core Image effects",
-      "anchor": "Core-Image-effects",
-      "identifiers": [
-        "doc://com.apple.RealityKit/documentation/RealityKit/applying-core-image-filters-as-a-postprocess-effect"
-      ]
-    },
-    {
-      "anchor": "Metal-effects",
-      "title": "Metal effects",
-      "identifiers": [
-        "doc://com.apple.RealityKit/documentation/RealityKit/using-metal-performance-shaders-to-create-custom-postprocess-effects",
-        "doc://com.apple.RealityKit/documentation/RealityKit/implementing-special-rendering-effects-with-realitykit-postprocessing",
-        "doc://com.apple.RealityKit/documentation/RealityKit/checking-the-pixel-format-of-a-postprocess-effect-s-output-texture",
-        "doc://com.apple.RealityKit/documentation/RealityKit/passing-structured-data-to-a-metal-compute-function",
-        "doc://com.apple.RealityKit/documentation/RealityKit/implementing-postprocess-effects-using-metal-compute-functions"
-      ]
-    },
-    {
-      "title": "Bloom and tone mapping",
-      "anchor": "Bloom-and-tone-mapping",
-      "identifiers": [
-        "doc://com.apple.RealityKit/documentation/RealityKit/BloomComponent",
-        "doc://com.apple.RealityKit/documentation/RealityKit/BloomOptionsComponent",
-        "doc://com.apple.RealityKit/documentation/RealityKit/BloomSettingsComponent",
-        "doc://com.apple.RealityKit/documentation/RealityKit/ToneMappingComponent"
-      ]
-    }
-  ],
-  "sections": [],
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://com.apple.RealityKit/documentation/RealityKit/postprocessing-effects"
-  },
   "seeAlsoSections": [
     {
       "identifiers": [
         "doc://com.apple.RealityKit/documentation/RealityKit/presentation-views-and-attachments",
         "doc://com.apple.RealityKit/documentation/RealityKit/presentation-user-interface"
       ],
+      "anchor": "Presentation",
       "title": "Presentation",
-      "generated": true,
-      "anchor": "Presentation"
+      "generated": true
     }
   ],
   "references": {
+    "doc://com.apple.RealityKit/documentation/RealityKit/applying-core-image-filters-as-a-postprocess-effect": {
+      "role": "article",
+      "url": "https://developer.apple.com/documentation/realitykit/applying-core-image-filters-as-a-postprocess-effect",
+      "title": "Applying core image filters as a postprocess effect",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "Create special rendering effects for your RealityKit scenes using Core Image.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/applying-core-image-filters-as-a-postprocess-effect",
+      "kind": "article"
+    },
+    "doc://com.apple.documentation/documentation/SpriteKit": {
+      "kind": "symbol",
+      "title": "SpriteKit",
+      "type": "topic",
+      "role": "collection",
+      "identifier": "doc://com.apple.documentation/documentation/SpriteKit",
+      "url": "https://developer.apple.com/documentation/SpriteKit",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Add high-performance 2D content with smooth animations to your app, or create a game with a high-level set of 2D game-based tools."
+        }
+      ]
+    },
     "doc://com.apple.RealityKit/documentation/RealityKit/BloomComponent": {
+      "title": "BloomComponent",
+      "beta": true,
+      "url": "https://developer.apple.com/documentation/realitykit/bloomcomponent",
       "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/BloomComponent",
+      "type": "topic",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "struct",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "BloomComponent"
+        }
+      ],
       "abstract": [
         {
           "text": "The ",
@@ -163,20 +219,20 @@
           "type": "text"
         },
         {
-          "text": " ",
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "by extracting and blurring the brightest parts of the image, then combining them",
           "type": "text"
         },
         {
           "type": "text",
-          "text": "by extracting and blurring the brightest parts of the image, then combining them"
+          "text": " "
         },
         {
-          "text": " ",
+          "text": "back with the original rendering. If scope is set to ",
           "type": "text"
-        },
-        {
-          "type": "text",
-          "text": "back with the original rendering. If scope is set to "
         },
         {
           "code": "unbounded",
@@ -199,91 +255,57 @@
           "code": "hierarchical"
         },
         {
-          "type": "text",
-          "text": " multiple Bloom Components can be"
+          "text": " multiple Bloom Components can be",
+          "type": "text"
         },
         {
-          "text": " ",
-          "type": "text"
+          "type": "text",
+          "text": " "
         },
         {
           "text": "used to opt in only the regions around certain objects for blooming.",
           "type": "text"
         }
       ],
-      "title": "BloomComponent",
       "kind": "symbol",
       "navigatorTitle": [
         {
           "text": "BloomComponent",
           "kind": "identifier"
         }
-      ],
-      "beta": true,
-      "role": "symbol",
-      "type": "topic",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "BloomComponent",
-          "kind": "identifier"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/realitykit/bloomcomponent"
+      ]
     },
-    "doc://com.apple.documentation/documentation/SpriteKit": {
-      "type": "topic",
-      "kind": "symbol",
-      "title": "SpriteKit",
-      "url": "https://developer.apple.com/documentation/SpriteKit",
+    "doc://com.apple.RealityKit/documentation/RealityKit/implementing-postprocess-effects-using-metal-compute-functions": {
       "abstract": [
         {
           "type": "text",
-          "text": "Add high-performance 2D content with smooth animations to your app, or create a game with a high-level set of 2D game-based tools."
-        }
-      ],
-      "identifier": "doc://com.apple.documentation/documentation/SpriteKit",
-      "role": "collection"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/presentation-views-and-attachments": {
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Bring RealityKit content into your app with views and renderers."
+          "text": "Create custom shaders to implement postprocess effects."
         }
       ],
       "kind": "article",
       "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/presentation-views-and-attachments",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/presentation-views-and-attachments",
-      "role": "collectionGroup",
-      "title": "Views and attachments"
+      "title": "Implementing postprocess effects using Metal compute functions",
+      "role": "article",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/implementing-postprocess-effects-using-metal-compute-functions",
+      "url": "https://developer.apple.com/documentation/realitykit/implementing-postprocess-effects-using-metal-compute-functions"
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit": {
-      "type": "topic",
-      "title": "RealityKit",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit",
-      "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/realitykit",
+    "doc://com.apple.documentation/documentation/technologies": {
+      "kind": "technologies",
+      "url": "https://developer.apple.com/documentation/technologies",
+      "title": "Technologies",
       "abstract": [
         {
-          "text": "Simulate and render 3D content for use in your augmented reality apps.",
-          "type": "text"
+          "type": "text",
+          "text": ""
         }
       ],
-      "role": "collection"
+      "role": "overview",
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "type": "topic"
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/passing-structured-data-to-a-metal-compute-function": {
-      "url": "https://developer.apple.com/documentation/realitykit/passing-structured-data-to-a-metal-compute-function",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/passing-structured-data-to-a-metal-compute-function",
       "kind": "article",
+      "url": "https://developer.apple.com/documentation/realitykit/passing-structured-data-to-a-metal-compute-function",
       "title": "Passing Structured Data to a Metal Compute Function",
       "abstract": [
         {
@@ -292,69 +314,45 @@
         }
       ],
       "role": "article",
-      "type": "topic"
+      "type": "topic",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/passing-structured-data-to-a-metal-compute-function"
     },
-    "doc://com.apple.documentation/documentation/MetalPerformanceShaders": {
-      "title": "Metal Performance Shaders",
+    "doc://com.apple.RealityKit/documentation/RealityKit/ToneMappingComponent": {
+      "url": "https://developer.apple.com/documentation/realitykit/tonemappingcomponent",
+      "type": "topic",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "ToneMappingComponent"
+        }
+      ],
+      "beta": true,
+      "navigatorTitle": [
+        {
+          "text": "ToneMappingComponent",
+          "kind": "identifier"
+        }
+      ],
+      "abstract": [],
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ToneMappingComponent",
+      "title": "ToneMappingComponent",
       "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/MetalPerformanceShaders",
-      "abstract": [
-        {
-          "text": "Optimize graphics and compute performance with kernels that are fine-tuned for the unique characteristics of each Metal GPU family.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://com.apple.documentation/documentation/MetalPerformanceShaders",
-      "type": "topic",
-      "role": "collection"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/implementing-postprocess-effects-using-metal-compute-functions": {
-      "type": "topic",
-      "role": "article",
-      "kind": "article",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/implementing-postprocess-effects-using-metal-compute-functions",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Create custom shaders to implement postprocess effects."
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/realitykit/implementing-postprocess-effects-using-metal-compute-functions",
-      "title": "Implementing postprocess effects using Metal compute functions"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/implementing-special-rendering-effects-with-realitykit-postprocessing": {
-      "title": "Implementing special rendering effects with RealityKit postprocessing",
-      "role": "sampleCode",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/implementing-special-rendering-effects-with-realitykit-postprocessing",
-      "url": "https://developer.apple.com/documentation/realitykit/implementing-special-rendering-effects-with-realitykit-postprocessing",
-      "kind": "article",
-      "type": "topic",
-      "abstract": [
-        {
-          "text": "Implement a variety of postprocessing techniques to alter RealityKit rendering.",
-          "type": "text"
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/presentation-user-interface": {
-      "role": "collectionGroup",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Control your app’s content and how people can interact with it."
-        }
-      ],
-      "title": "Presentation UI",
-      "url": "https://developer.apple.com/documentation/realitykit/presentation-user-interface",
-      "kind": "article",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/presentation-user-interface",
-      "type": "topic"
+      "role": "symbol"
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/using-metal-performance-shaders-to-create-custom-postprocess-effects": {
-      "type": "topic",
       "kind": "article",
-      "url": "https://developer.apple.com/documentation/realitykit/using-metal-performance-shaders-to-create-custom-postprocess-effects",
+      "title": "Using Metal performance shaders to create custom postprocess effects",
       "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/using-metal-performance-shaders-to-create-custom-postprocess-effects",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/realitykit/using-metal-performance-shaders-to-create-custom-postprocess-effects",
       "abstract": [
         {
           "type": "text",
@@ -369,8 +367,63 @@
           "text": "for your RealityKit scenes."
         }
       ],
+      "role": "article"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/implementing-special-rendering-effects-with-realitykit-postprocessing": {
+      "url": "https://developer.apple.com/documentation/realitykit/implementing-special-rendering-effects-with-realitykit-postprocessing",
+      "role": "sampleCode",
+      "kind": "article",
+      "title": "Implementing special rendering effects with RealityKit postprocessing",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/implementing-special-rendering-effects-with-realitykit-postprocessing",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "Implement a variety of postprocessing techniques to alter RealityKit rendering.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/presentation-user-interface": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/presentation-user-interface",
+      "title": "Presentation UI",
+      "url": "https://developer.apple.com/documentation/realitykit/presentation-user-interface",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Control your app’s content and how people can interact with it."
+        }
+      ],
+      "role": "collectionGroup",
+      "kind": "article"
+    },
+    "doc://com.apple.documentation/documentation/MetalPerformanceShaders": {
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Optimize graphics and compute performance with kernels that are fine-tuned for the unique characteristics of each Metal GPU family."
+        }
+      ],
+      "type": "topic",
+      "role": "collection",
+      "identifier": "doc://com.apple.documentation/documentation/MetalPerformanceShaders",
+      "title": "Metal Performance Shaders",
+      "url": "https://developer.apple.com/documentation/MetalPerformanceShaders",
+      "kind": "symbol"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit/checking-the-pixel-format-of-a-postprocess-effect-s-output-texture": {
+      "title": "Checking the pixel format of a postprocess effect’s output texture",
+      "url": "https://developer.apple.com/documentation/realitykit/checking-the-pixel-format-of-a-postprocess-effect-s-output-texture",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make sure your postprocess effect works on all devices."
+        }
+      ],
+      "type": "topic",
       "role": "article",
-      "title": "Using Metal performance shaders to create custom postprocess effects"
+      "kind": "article",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/checking-the-pixel-format-of-a-postprocess-effect-s-output-texture"
     },
     "doc://com.apple.RealityKit/documentation/RealityKit/BloomOptionsComponent": {
       "fragments": [
@@ -379,156 +432,131 @@
           "text": "struct"
         },
         {
-          "kind": "text",
-          "text": " "
+          "text": " ",
+          "kind": "text"
         },
         {
           "text": "BloomOptionsComponent",
           "kind": "identifier"
         }
       ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "BloomOptionsComponent"
-        }
-      ],
-      "beta": true,
-      "type": "topic",
+      "kind": "symbol",
       "url": "https://developer.apple.com/documentation/realitykit/bloomoptionscomponent",
-      "title": "BloomOptionsComponent",
-      "abstract": [
-        {
-          "text": "A component that sets the properties for the bloom post-processing effects.",
-          "type": "text"
-        }
-      ],
       "role": "symbol",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/BloomOptionsComponent",
-      "kind": "symbol"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/BloomSettingsComponent": {
       "abstract": [
         {
           "type": "text",
           "text": "A component that sets the properties for the bloom post-processing effects."
         }
       ],
-      "fragments": [
-        {
-          "text": "struct",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "BloomSettingsComponent"
-        }
-      ],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/BloomSettingsComponent",
-      "title": "BloomSettingsComponent",
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/bloomsettingscomponent",
+      "title": "BloomOptionsComponent",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/BloomOptionsComponent",
       "navigatorTitle": [
         {
-          "text": "BloomSettingsComponent",
+          "text": "BloomOptionsComponent",
           "kind": "identifier"
         }
       ],
-      "deprecated": true,
-      "role": "symbol",
-      "kind": "symbol"
+      "beta": true,
+      "type": "topic"
     },
-    "doc://com.apple.RealityKit/documentation/RealityKit/checking-the-pixel-format-of-a-postprocess-effect-s-output-texture": {
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/checking-the-pixel-format-of-a-postprocess-effect-s-output-texture",
+    "doc://com.apple.RealityKit/documentation/RealityKit/presentation-views-and-attachments": {
       "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/checking-the-pixel-format-of-a-postprocess-effect-s-output-texture",
-      "kind": "article",
+      "role": "collectionGroup",
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/presentation-views-and-attachments",
       "abstract": [
         {
           "type": "text",
-          "text": "Make sure your postprocess effect works on all devices."
+          "text": "Bring RealityKit content into your app with views and renderers."
         }
       ],
-      "title": "Checking the pixel format of a postprocess effect’s output texture",
-      "role": "article"
+      "url": "https://developer.apple.com/documentation/realitykit/presentation-views-and-attachments",
+      "title": "Views and attachments",
+      "kind": "article"
     },
     "doc://com.apple.documentation/documentation/CoreImage": {
-      "type": "topic",
-      "title": "Core Image",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.documentation/documentation/CoreImage",
+      "url": "https://developer.apple.com/documentation/CoreImage",
       "abstract": [
         {
           "text": "Use built-in or custom filters to process still and video images.",
           "type": "text"
         }
       ],
-      "identifier": "doc://com.apple.documentation/documentation/CoreImage",
       "role": "collection",
-      "url": "https://developer.apple.com/documentation/CoreImage",
+      "title": "Core Image",
+      "type": "topic"
+    },
+    "doc://com.apple.RealityKit/documentation/RealityKit": {
+      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit",
+      "url": "https://developer.apple.com/documentation/realitykit",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Simulate and render 3D content for use in your augmented reality apps."
+        }
+      ],
+      "title": "RealityKit",
+      "role": "collection",
       "kind": "symbol"
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/applying-core-image-filters-as-a-postprocess-effect": {
-      "type": "topic",
-      "title": "Applying core image filters as a postprocess effect",
-      "role": "article",
-      "url": "https://developer.apple.com/documentation/realitykit/applying-core-image-filters-as-a-postprocess-effect",
-      "kind": "article",
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/applying-core-image-filters-as-a-postprocess-effect",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Create special rendering effects for your RealityKit scenes using Core Image."
-        }
-      ]
-    },
-    "doc://com.apple.RealityKit/documentation/RealityKit/ToneMappingComponent": {
-      "navigatorTitle": [
-        {
-          "text": "ToneMappingComponent",
-          "kind": "identifier"
-        }
-      ],
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/realitykit/tonemappingcomponent",
-      "abstract": [],
-      "identifier": "doc://com.apple.RealityKit/documentation/RealityKit/ToneMappingComponent",
-      "fragments": [
-        {
-          "text": "struct",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "ToneMappingComponent",
-          "kind": "identifier"
-        }
-      ],
-      "title": "ToneMappingComponent",
-      "beta": true,
-      "kind": "symbol",
-      "role": "symbol"
-    },
-    "doc://com.apple.documentation/documentation/technologies": {
-      "url": "https://developer.apple.com/documentation/technologies",
-      "identifier": "doc://com.apple.documentation/documentation/technologies",
-      "abstract": [
-        {
-          "type": "text",
-          "text": ""
-        }
-      ],
-      "type": "topic",
-      "kind": "technologies",
-      "title": "Technologies",
-      "role": "overview"
     }
   },
+  "variantOverrides": [
+    {
+      "patch": [
+        {
+          "path": "/identifier/interfaceLanguage",
+          "value": "occ",
+          "op": "replace"
+        },
+        {
+          "value": [
+            {
+              "identifiers": [
+                "doc://com.apple.RealityKit/documentation/RealityKit/applying-core-image-filters-as-a-postprocess-effect"
+              ],
+              "anchor": "Core-Image-effects",
+              "title": "Core Image effects"
+            },
+            {
+              "identifiers": [
+                "doc://com.apple.RealityKit/documentation/RealityKit/using-metal-performance-shaders-to-create-custom-postprocess-effects",
+                "doc://com.apple.RealityKit/documentation/RealityKit/checking-the-pixel-format-of-a-postprocess-effect-s-output-texture",
+                "doc://com.apple.RealityKit/documentation/RealityKit/passing-structured-data-to-a-metal-compute-function",
+                "doc://com.apple.RealityKit/documentation/RealityKit/implementing-postprocess-effects-using-metal-compute-functions"
+              ],
+              "title": "Metal effects",
+              "anchor": "Metal-effects"
+            }
+          ],
+          "op": "replace",
+          "path": "/topicSections"
+        },
+        {
+          "op": "replace",
+          "path": "/seeAlsoSections",
+          "value": [
+            {
+              "generated": true,
+              "identifiers": [
+                "doc://com.apple.RealityKit/documentation/RealityKit/presentation-views-and-attachments",
+                "doc://com.apple.RealityKit/documentation/RealityKit/presentation-user-interface"
+              ],
+              "title": "Presentation",
+              "anchor": "Presentation"
+            }
+          ]
+        }
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "occ"
+        }
+      ]
+    }
+  ],
   "legalNotices": {
     "copyright": "Copyright &copy; 2026 Apple Inc. All rights reserved.",
     "termsOfUse": "https://www.apple.com/legal/internet-services/terms/site.html",
