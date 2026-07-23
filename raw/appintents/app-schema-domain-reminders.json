@@ -1,38 +1,68 @@
 {
-  "kind": "article",
+  "metadata": {
+    "roleHeading": "API Collection",
+    "title": "Reminders",
+    "role": "collectionGroup",
+    "modules": [
+      {
+        "name": "App Intents"
+      }
+    ]
+  },
+  "sections": [],
   "schemaVersion": {
     "major": 0,
     "minor": 3,
     "patch": 0
   },
-  "seeAlsoSections": [
+  "kind": "article",
+  "topicSections": [
     {
+      "title": "Actions",
       "identifiers": [
-        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-audio",
-        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-calendar",
-        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-camera",
-        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-clock",
-        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-files",
-        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-mail",
-        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-maps",
-        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-messages",
-        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-notes",
-        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-phone",
-        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-photos",
-        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-system-and-in-app-search"
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/createList",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/createReminder",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/createSection",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/deleteReminders",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/updateGroup",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/updateList",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/updateReminder",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/updateSection"
       ],
-      "generated": true,
-      "title": "Primary domains",
-      "anchor": "Primary-domains"
+      "anchor": "Actions"
+    },
+    {
+      "anchor": "Content-and-parameter-types",
+      "title": "Content and parameter types",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/group",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/list",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/locationTrigger",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/reminder",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/section",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity"
+      ]
+    },
+    {
+      "title": "Types for static parameters",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEnum/listType",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEnum/locationTriggerEvent",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEnum"
+      ],
+      "anchor": "Types-for-static-parameters"
     }
   ],
-  "sections": [],
   "abstract": [
     {
-      "text": "Make your reminder app’s actions available to Apple Intelligence and Siri by adopting schemas for common reminder actions.",
-      "type": "text"
+      "type": "text",
+      "text": "Make your reminder app’s actions available to Apple Intelligence and Siri by adopting schemas for common reminder actions."
     }
   ],
+  "identifier": {
+    "url": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-reminders",
+    "interfaceLanguage": "swift"
+  },
   "hierarchy": {
     "paths": [
       [
@@ -48,30 +78,54 @@
       ]
     ]
   },
-  "metadata": {
-    "roleHeading": "API Collection",
-    "modules": [
-      {
-        "name": "App Intents"
-      }
-    ],
-    "role": "collectionGroup",
-    "title": "Reminders"
-  },
+  "seeAlsoSections": [
+    {
+      "generated": true,
+      "anchor": "Primary-domains",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-audio",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-calendar",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-camera",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-clock",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-files",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-mail",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-maps",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-messages",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-notes",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-phone",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-photos",
+        "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-system-and-in-app-search"
+      ],
+      "title": "Primary domains"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/appintents/app-schema-domain-reminders"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ],
   "primaryContentSections": [
     {
+      "kind": "content",
       "content": [
         {
-          "type": "heading",
           "level": 2,
+          "type": "heading",
           "anchor": "overview",
           "text": "Overview"
         },
         {
           "inlineContent": [
             {
-              "type": "text",
-              "text": "The "
+              "text": "The ",
+              "type": "text"
             },
             {
               "type": "codeVoice",
@@ -90,12 +144,12 @@
               "text": "structured representation for common reminder actions and content."
             },
             {
-              "type": "text",
-              "text": " "
+              "text": " ",
+              "type": "text"
             },
             {
-              "text": "Apply schemas in the ",
-              "type": "text"
+              "type": "text",
+              "text": "Apply schemas in the "
             },
             {
               "type": "codeVoice",
@@ -106,28 +160,28 @@
               "text": " domain to make your app’s reminder functionality available to Apple Intelligence and Siri."
             },
             {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "Each schema defines the requirements for intents, parameters, and results so people get a consistent experience across reminder apps."
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "text": "For example, a person can create a reminder on different apps that support the",
+              "type": "text"
+            },
+            {
               "text": " ",
               "type": "text"
             },
             {
-              "text": "Each schema defines the requirements for intents, parameters, and results so people get a consistent experience across reminder apps.",
-              "type": "text"
-            },
-            {
-              "type": "text",
-              "text": " "
-            },
-            {
-              "type": "text",
-              "text": "For example, a person can create a reminder on different apps that support the"
-            },
-            {
-              "type": "text",
-              "text": " "
-            },
-            {
-              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/createReminder",
               "type": "reference",
+              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/createReminder",
               "isActive": true
             },
             {
@@ -147,16 +201,14 @@
           "type": "paragraph"
         },
         {
-          "header": "row",
-          "type": "table",
           "rows": [
             [
               [
                 {
                   "inlineContent": [
                     {
-                      "type": "text",
-                      "text": "Reminders intent schemas"
+                      "text": "Reminders intent schemas",
+                      "type": "text"
                     }
                   ],
                   "type": "paragraph"
@@ -167,8 +219,8 @@
                   "type": "paragraph",
                   "inlineContent": [
                     {
-                      "type": "text",
-                      "text": "Example phrases"
+                      "text": "Example phrases",
+                      "type": "text"
                     }
                   ]
                 }
@@ -177,14 +229,14 @@
             [
               [
                 {
+                  "type": "paragraph",
                   "inlineContent": [
                     {
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/createList",
                       "type": "reference",
-                      "isActive": true,
-                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/createList"
+                      "isActive": true
                     }
-                  ],
-                  "type": "paragraph"
+                  ]
                 }
               ],
               [
@@ -206,8 +258,8 @@
                   "inlineContent": [
                     {
                       "type": "reference",
-                      "isActive": true,
-                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/createReminder"
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/createReminder",
+                      "isActive": true
                     }
                   ]
                 }
@@ -227,11 +279,36 @@
             [
               [
                 {
+                  "inlineContent": [
+                    {
+                      "type": "reference",
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/createSection",
+                      "isActive": true
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              [
+                {
                   "type": "paragraph",
                   "inlineContent": [
                     {
-                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/createSection",
+                      "text": "“Create a section called vegetables.”",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "paragraph",
+                  "inlineContent": [
+                    {
                       "isActive": true,
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/deleteReminders",
                       "type": "reference"
                     }
                   ]
@@ -241,8 +318,8 @@
                 {
                   "inlineContent": [
                     {
-                      "type": "text",
-                      "text": "“Create a section called vegetables.”"
+                      "text": "“Delete this reminder.”",
+                      "type": "text"
                     }
                   ],
                   "type": "paragraph"
@@ -252,39 +329,14 @@
             [
               [
                 {
-                  "type": "paragraph",
                   "inlineContent": [
                     {
-                      "type": "reference",
-                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/deleteReminders",
-                      "isActive": true
-                    }
-                  ]
-                }
-              ],
-              [
-                {
-                  "type": "paragraph",
-                  "inlineContent": [
-                    {
-                      "type": "text",
-                      "text": "“Delete this reminder.”"
-                    }
-                  ]
-                }
-              ]
-            ],
-            [
-              [
-                {
-                  "type": "paragraph",
-                  "inlineContent": [
-                    {
-                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/updateReminder",
                       "isActive": true,
+                      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/updateReminder",
                       "type": "reference"
                     }
-                  ]
+                  ],
+                  "type": "paragraph"
                 }
               ],
               [
@@ -292,16 +344,20 @@
                   "type": "paragraph",
                   "inlineContent": [
                     {
-                      "type": "text",
-                      "text": "“Mark this reminder as completed.” or “Set the due date for this reminder to tomorrow.”"
+                      "text": "“Mark this reminder as completed.” or “Set the due date for this reminder to tomorrow.”",
+                      "type": "text"
                     }
                   ]
                 }
               ]
             ]
-          ]
+          ],
+          "type": "table",
+          "header": "row"
         },
         {
+          "type": "aside",
+          "style": "tip",
           "name": "Tip",
           "content": [
             {
@@ -311,177 +367,272 @@
                   "type": "text"
                 },
                 {
-                  "type": "codeVoice",
-                  "code": "reminders_"
+                  "code": "reminders_",
+                  "type": "codeVoice"
                 },
                 {
-                  "text": " and select a schema from the suggestions list.",
-                  "type": "text"
+                  "type": "text",
+                  "text": " and select a schema from the suggestions list."
                 }
               ],
               "type": "paragraph"
             }
-          ],
-          "type": "aside",
-          "style": "tip"
+          ]
         },
         {
           "inlineContent": [
             {
-              "type": "text",
-              "text": "For more information about making your app’s actions available to Apple Intelligence and Siri, see "
-            },
-            {
-              "isActive": true,
-              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai",
-              "type": "reference"
-            },
-            {
-              "text": ".",
+              "text": "For more information about making your app’s actions available to Apple Intelligence and Siri, see ",
               "type": "text"
+            },
+            {
+              "type": "reference",
+              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai",
+              "isActive": true
+            },
+            {
+              "type": "text",
+              "text": "."
             }
           ],
           "type": "paragraph"
-        }
-      ],
-      "kind": "content"
-    }
-  ],
-  "topicSections": [
-    {
-      "title": "Actions",
-      "identifiers": [
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/createList",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/createReminder",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/createSection",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/deleteReminders",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/updateGroup",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/updateList",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/updateReminder",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/updateSection"
-      ],
-      "anchor": "Actions"
-    },
-    {
-      "identifiers": [
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/group",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/list",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/locationTrigger",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/reminder",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/section",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity"
-      ],
-      "title": "Content and parameter types",
-      "anchor": "Content-and-parameter-types"
-    },
-    {
-      "title": "Types for static parameters",
-      "anchor": "Types-for-static-parameters",
-      "identifiers": [
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEnum/listType",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEnum/locationTriggerEvent",
-        "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEnum"
-      ]
-    }
-  ],
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-reminders"
-  },
-  "variants": [
-    {
-      "paths": [
-        "/documentation/appintents/app-schema-domain-reminders"
-      ],
-      "traits": [
-        {
-          "interfaceLanguage": "swift"
         }
       ]
     }
   ],
   "references": {
-    "doc://com.apple.documentation/documentation/technologies": {
+    "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai": {
+      "role": "collectionGroup",
+      "kind": "article",
+      "type": "topic",
+      "title": "Apple Intelligence and Siri AI",
+      "url": "https://developer.apple.com/documentation/appintents/apple-intelligence-and-siri-ai",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai",
       "abstract": [
         {
-          "text": "",
+          "type": "text",
+          "text": "Integrate your app with Apple Intelligence and bring it to Siri AI."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/group": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/group",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for a group."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersentity/group",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "group",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "text": "AppSchemaEntity"
+        }
+      ],
+      "title": "group",
+      "kind": "symbol",
+      "type": "topic",
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEnum": {
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "RemindersEnum"
+        }
+      ],
+      "type": "topic",
+      "title": "AppSchema.RemindersEnum",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersenum",
+      "abstract": [
+        {
+          "text": "Identifies enum schemas in the reminders domain.",
           "type": "text"
         }
       ],
-      "type": "topic",
-      "title": "Technologies",
-      "url": "https://developer.apple.com/documentation/technologies",
-      "identifier": "doc://com.apple.documentation/documentation/technologies",
-      "role": "overview",
-      "kind": "technologies"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-clock": {
-      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-clock",
-      "kind": "article",
-      "abstract": [
+      "role": "symbol",
+      "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEnum",
+      "navigatorTitle": [
         {
-          "type": "text",
-          "text": "Make your clock app’s actions available to Apple Intelligence and Siri by adopting schemas for common alarm and timer actions."
+          "kind": "identifier",
+          "text": "RemindersEnum"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents",
+      "navigatorTitle": [
+        {
+          "text": "App Intents",
+          "kind": "text"
         }
       ],
-      "role": "collectionGroup",
+      "url": "https://developer.apple.com/documentation/appintents",
       "type": "topic",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-clock",
-      "title": "Clock"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-phone": {
-      "type": "topic",
-      "title": "Phone",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-phone",
-      "kind": "article",
+      "role": "collection",
+      "title": "App Intents",
+      "kind": "symbol",
       "abstract": [
         {
-          "type": "text",
-          "text": "Make your phone app’s actions available to Apple Intelligence and Siri by adopting schemas for calling actions."
+          "text": "Make content and actions discoverable by Apple Intelligence and support system experiences like Siri, Spotlight, Shortcuts, and widgets.",
+          "type": "text"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/updateGroup": {
+      "role": "symbol",
+      "kind": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "updateGroup",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier"
         }
       ],
-      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-phone",
-      "role": "collectionGroup"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-camera": {
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-camera",
-      "title": "Camera",
-      "role": "collectionGroup",
+      "title": "updateGroup",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersintent/updategroup",
       "abstract": [
         {
-          "type": "text",
-          "text": "Make your camera app’s actions available to Apple Intelligence and Siri by adopting schemas for common camera actions."
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-camera",
-      "kind": "article"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-maps": {
-      "type": "topic",
-      "abstract": [
-        {
-          "text": "Make your navigation app’s actions available to Apple Intelligence and Siri by adopting schemas for common navigation actions.",
+          "text": "An intent schema that updates a reminder list group.",
           "type": "text"
         }
       ],
-      "title": "Maps",
-      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-maps",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-maps",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/updateGroup",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/createReminder": {
+      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersintent/createreminder",
+      "type": "topic",
+      "kind": "symbol",
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/createReminder",
+      "title": "createReminder",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that creates a new reminder."
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "createReminder"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "kind": "typeIdentifier",
+          "text": "AppSchemaIntent"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-calendar": {
       "kind": "article",
-      "role": "collectionGroup"
+      "title": "Calendar",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-calendar",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-calendar",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your calendar app’s actions available to Apple Intelligence and Siri by adopting schemas for common calendar actions."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-files": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-files",
+      "title": "Files",
+      "kind": "article",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your file-management app’s actions available to Apple Intelligence and Siri by adopting schemas for common file actions."
+        }
+      ],
+      "type": "topic",
+      "role": "collectionGroup",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-files"
     },
     "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/createSection": {
-      "title": "createSection",
-      "abstract": [
-        {
-          "text": "An intent schema that creates a new reminder list section.",
-          "type": "text"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersintent/createsection",
-      "role": "symbol",
-      "type": "topic",
       "fragments": [
         {
           "text": "var",
@@ -492,8 +643,8 @@
           "text": " "
         },
         {
-          "text": "createSection",
-          "kind": "identifier"
+          "kind": "identifier",
+          "text": "createSection"
         },
         {
           "text": ": ",
@@ -513,24 +664,50 @@
           "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
         }
       ],
+      "type": "topic",
+      "kind": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersintent/createsection",
       "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/createSection",
-      "kind": "symbol"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/updateGroup": {
+      "title": "createSection",
+      "role": "symbol",
       "abstract": [
         {
           "type": "text",
-          "text": "An intent schema that updates a reminder list group."
+          "text": "An intent schema that creates a new reminder list section."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/updateSection": {
+      "kind": "symbol",
+      "type": "topic",
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersintent/updatesection",
+      "abstract": [
+        {
+          "text": "An intent schema that updates a reminder list section.",
+          "type": "text"
         }
       ],
-      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersintent/updategroup",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/updateGroup",
-      "kind": "symbol",
-      "title": "updateGroup",
-      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/updateSection",
       "fragments": [
         {
           "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "updateSection"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
           "kind": "keyword"
         },
         {
@@ -538,12 +715,55 @@
           "text": " "
         },
         {
-          "kind": "identifier",
-          "text": "updateGroup"
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "title": "updateSection"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-phone": {
+      "kind": "article",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your phone app’s actions available to Apple Intelligence and Siri by adopting schemas for calling actions."
+        }
+      ],
+      "title": "Phone",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-phone",
+      "role": "collectionGroup",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-phone",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/createList": {
+      "title": "createList",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/createList",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "text": "An intent schema that creates a new reminder list.",
+          "type": "text"
+        }
+      ],
+      "role": "symbol",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersintent/createlist",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
         },
         {
-          "kind": "text",
-          "text": ": "
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "createList",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
         },
         {
           "kind": "keyword",
@@ -555,29 +775,524 @@
         },
         {
           "kind": "typeIdentifier",
-          "text": "AppSchemaIntent",
-          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "text": "AppSchemaIntent"
         }
       ],
-      "role": "symbol"
+      "type": "topic"
     },
-    "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai": {
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-messages": {
+      "title": "Messages",
       "kind": "article",
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/appintents/apple-intelligence-and-siri-ai",
-      "role": "collectionGroup",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-messages",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-messages",
       "abstract": [
         {
           "type": "text",
-          "text": "Integrate your app with Apple Intelligence and bring it to Siri AI."
+          "text": "Make your messaging app’s actions available to Apple Intelligence and Siri by adopting schemas for common messaging actions."
         }
       ],
-      "title": "Apple Intelligence and Siri AI"
+      "role": "collectionGroup",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-clock": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-clock",
+      "title": "Clock",
+      "kind": "article",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your clock app’s actions available to Apple Intelligence and Siri by adopting schemas for common alarm and timer actions."
+        }
+      ],
+      "type": "topic",
+      "role": "collectionGroup",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-clock"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/updateList": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/updateList",
+      "kind": "symbol",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersintent/updatelist",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that updates a reminder list."
+        }
+      ],
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "updateList"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier"
+        }
+      ],
+      "role": "symbol",
+      "title": "updateList"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/locationTrigger": {
+      "kind": "symbol",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersentity/locationtrigger",
+      "abstract": [
+        {
+          "text": "An entity schema for a location trigger.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/locationTrigger",
+      "title": "locationTrigger",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "locationTrigger"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "text": "AppSchemaEntity"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/deleteReminders": {
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "deleteReminders",
+          "kind": "identifier"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaIntent",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
+        }
+      ],
+      "kind": "symbol",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An intent schema that deletes reminders."
+        }
+      ],
+      "type": "topic",
+      "title": "deleteReminders",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/deleteReminders",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersintent/deletereminders",
+      "role": "symbol"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEnum/locationTriggerEvent": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEnum/locationTriggerEvent",
+      "abstract": [
+        {
+          "text": "An enum schema for a location trigger event parameter.",
+          "type": "text"
+        }
+      ],
+      "kind": "symbol",
+      "title": "locationTriggerEvent",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "locationTriggerEvent"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP",
+          "text": "AppSchemaEnum"
+        }
+      ],
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersenum/locationtriggerevent"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEnum/listType": {
+      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersenum/listtype",
+      "kind": "symbol",
+      "title": "listType",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "An enum schema for a list type parameter.",
+          "type": "text"
+        }
+      ],
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEnum/listType",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "listType",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "AppSchemaEnum",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP"
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-notes": {
+      "abstract": [
+        {
+          "text": "Make your note-taking app’s actions available to Apple Intelligence and Siri by adopting schemas for common note actions.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-notes",
+      "title": "Notes",
+      "kind": "article",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-notes",
+      "role": "collectionGroup",
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains": {
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domains",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains",
+      "role": "collectionGroup",
+      "kind": "article",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Declare support for well-known actions and content by applying system-defined schemas to"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "your app intents, app entities, and app enumerations.",
+          "type": "text"
+        }
+      ],
+      "title": "App schema domains"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-camera": {
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-camera",
+      "type": "topic",
+      "abstract": [
+        {
+          "text": "Make your camera app’s actions available to Apple Intelligence and Siri by adopting schemas for common camera actions.",
+          "type": "text"
+        }
+      ],
+      "title": "Camera",
+      "role": "collectionGroup",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-camera",
+      "kind": "article"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-system-and-in-app-search": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-system-and-in-app-search",
+      "abstract": [
+        {
+          "text": "Make your app’s actions available to Apple Intelligence and Siri by adopting schemas for in-app search and content access.",
+          "type": "text"
+        }
+      ],
+      "type": "topic",
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-system-and-in-app-search",
+      "title": "System and in-app search",
+      "role": "collectionGroup"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-audio": {
+      "kind": "article",
+      "type": "topic",
+      "title": "Audio",
+      "role": "collectionGroup",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-audio",
+      "abstract": [
+        {
+          "text": "Make your audio app’s actions available to Apple Intelligence and Siri by adopting schemas for common audio playback actions.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-audio"
+    },
+    "doc://com.apple.documentation/documentation/technologies": {
+      "url": "https://developer.apple.com/documentation/technologies",
+      "title": "Technologies",
+      "abstract": [
+        {
+          "type": "text",
+          "text": ""
+        }
+      ],
+      "kind": "technologies",
+      "type": "topic",
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "role": "overview"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-maps": {
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-maps",
+      "title": "Maps",
+      "type": "topic",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-maps",
+      "kind": "article",
+      "role": "collectionGroup",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your navigation app’s actions available to Apple Intelligence and Siri by adopting schemas for common navigation actions."
+        }
+      ]
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/section": {
+      "title": "section",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/section",
+      "kind": "symbol",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "var",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "kind": "identifier",
+          "text": "section"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaEntity",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersentity/section",
+      "abstract": [
+        {
+          "text": "An entity schema for a section.",
+          "type": "text"
+        }
+      ],
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-photos": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-photos",
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "Make your photo and video app’s actions available to Apple Intelligence and Siri by adopting schemas for common photo and video actions."
+        }
+      ],
+      "title": "Photos",
+      "kind": "article",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-photos",
+      "role": "collectionGroup"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/list": {
+      "title": "list",
+      "kind": "symbol",
+      "abstract": [
+        {
+          "text": "An entity schema for a list.",
+          "type": "text"
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersentity/list",
+      "role": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/list",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "list",
+          "kind": "identifier"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "text": "AppSchemaEntity",
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP"
+        }
+      ],
+      "type": "topic"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/reminder": {
+      "type": "topic",
+      "abstract": [
+        {
+          "type": "text",
+          "text": "An entity schema for a reminder."
+        }
+      ],
+      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersentity/reminder",
+      "role": "symbol",
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "reminder"
+        },
+        {
+          "text": ": ",
+          "kind": "text"
+        },
+        {
+          "text": "some",
+          "kind": "keyword"
+        },
+        {
+          "text": " ",
+          "kind": "text"
+        },
+        {
+          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
+          "kind": "typeIdentifier",
+          "text": "AppSchemaEntity"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/reminder",
+      "title": "reminder",
+      "kind": "symbol"
     },
     "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/updateReminder": {
       "title": "updateReminder",
-      "kind": "symbol",
+      "type": "topic",
+      "role": "symbol",
       "url": "https://developer.apple.com/documentation/appintents/appschema/remindersintent/updatereminder",
       "abstract": [
         {
@@ -585,13 +1300,11 @@
           "type": "text"
         }
       ],
-      "role": "symbol",
-      "type": "topic",
       "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/updateReminder",
       "fragments": [
         {
-          "kind": "keyword",
-          "text": "var"
+          "text": "var",
+          "kind": "keyword"
         },
         {
           "kind": "text",
@@ -614,773 +1327,60 @@
           "text": " "
         },
         {
-          "text": "AppSchemaIntent",
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/reminder": {
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersentity/reminder",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/reminder",
-      "kind": "symbol",
-      "fragments": [
-        {
-          "text": "var",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "reminder"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "keyword",
-          "text": "some"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
-          "text": "AppSchemaEntity",
-          "kind": "typeIdentifier"
-        }
-      ],
-      "title": "reminder",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An entity schema for a reminder."
-        }
-      ],
-      "role": "symbol"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-photos": {
-      "title": "Photos",
-      "abstract": [
-        {
-          "text": "Make your photo and video app’s actions available to Apple Intelligence and Siri by adopting schemas for common photo and video actions.",
-          "type": "text"
-        }
-      ],
-      "type": "topic",
-      "kind": "article",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-photos",
-      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-photos",
-      "role": "collectionGroup"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/createList": {
-      "role": "symbol",
-      "kind": "symbol",
-      "type": "topic",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An intent schema that creates a new reminder list."
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "var"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "createList",
-          "kind": "identifier"
-        },
-        {
-          "text": ": ",
-          "kind": "text"
-        },
-        {
-          "text": "some",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
           "kind": "typeIdentifier",
           "text": "AppSchemaIntent",
           "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
         }
       ],
-      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersintent/createlist",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/createList",
-      "title": "createList"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains": {
-      "type": "topic",
-      "kind": "article",
-      "role": "collectionGroup",
-      "url": "https://developer.apple.com/documentation/appintents/app-schema-domains",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Declare support for well-known actions and content by applying system-defined schemas to"
-        },
-        {
-          "type": "text",
-          "text": " "
-        },
-        {
-          "text": "your app intents, app entities, and app enumerations.",
-          "type": "text"
-        }
-      ],
-      "title": "App schema domains",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domains"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-files": {
-      "abstract": [
-        {
-          "text": "Make your file-management app’s actions available to Apple Intelligence and Siri by adopting schemas for common file actions.",
-          "type": "text"
-        }
-      ],
-      "type": "topic",
-      "role": "collectionGroup",
-      "title": "Files",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-files",
-      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-files",
-      "kind": "article"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-messages": {
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-messages",
-      "kind": "article",
-      "title": "Messages",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-messages",
-      "role": "collectionGroup",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "Make your messaging app’s actions available to Apple Intelligence and Siri by adopting schemas for common messaging actions."
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEnum/listType": {
-      "kind": "symbol",
-      "title": "listType",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEnum/listType",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "var"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "listType"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "keyword",
-          "text": "some"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "AppSchemaEnum",
-          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP",
-          "kind": "typeIdentifier"
-        }
-      ],
-      "role": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersenum/listtype",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An enum schema for a list type parameter."
-        }
-      ],
-      "type": "topic"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEnum": {
-      "type": "topic",
-      "kind": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEnum",
-      "role": "symbol",
-      "abstract": [
-        {
-          "text": "Identifies enum schemas in the reminders domain.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "text": "protocol",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "RemindersEnum"
-        }
-      ],
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "RemindersEnum"
-        }
-      ],
-      "title": "AppSchema.RemindersEnum",
-      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersenum"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/deleteReminders": {
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An intent schema that deletes reminders."
-        }
-      ],
-      "role": "symbol",
-      "kind": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/deleteReminders",
-      "title": "deleteReminders",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "var"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "deleteReminders"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "keyword",
-          "text": "some"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "AppSchemaIntent",
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
-        }
-      ],
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersintent/deletereminders"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/updateSection": {
-      "kind": "symbol",
-      "fragments": [
-        {
-          "text": "var",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "updateSection",
-          "kind": "identifier"
-        },
-        {
-          "text": ": ",
-          "kind": "text"
-        },
-        {
-          "kind": "keyword",
-          "text": "some"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "AppSchemaIntent",
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
-        }
-      ],
-      "abstract": [
-        {
-          "text": "An intent schema that updates a reminder list section.",
-          "type": "text"
-        }
-      ],
-      "role": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/updateSection",
-      "title": "updateSection",
-      "type": "topic",
-      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersintent/updatesection"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/section": {
-      "abstract": [
-        {
-          "text": "An entity schema for a section.",
-          "type": "text"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersentity/section",
-      "role": "symbol",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "var"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "section"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "text": "some",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "AppSchemaEntity",
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP"
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/section",
-      "type": "topic",
-      "title": "section",
       "kind": "symbol"
     },
-    "doc://com.apple.AppIntents/documentation/AppIntents": {
-      "url": "https://developer.apple.com/documentation/appintents",
-      "kind": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents",
-      "title": "App Intents",
-      "navigatorTitle": [
-        {
-          "kind": "text",
-          "text": "App Intents"
-        }
-      ],
-      "abstract": [
-        {
-          "text": "Make content and actions discoverable by Apple Intelligence and support system experiences like Siri, Spotlight, Shortcuts, and widgets.",
-          "type": "text"
-        }
-      ],
-      "type": "topic",
-      "role": "collection"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-system-and-in-app-search": {
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-system-and-in-app-search",
-      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-system-and-in-app-search",
-      "type": "topic",
-      "role": "collectionGroup",
-      "kind": "article",
-      "abstract": [
-        {
-          "text": "Make your app’s actions available to Apple Intelligence and Siri by adopting schemas for in-app search and content access.",
-          "type": "text"
-        }
-      ],
-      "title": "System and in-app search"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-mail": {
-      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-mail",
-      "role": "collectionGroup",
-      "abstract": [
-        {
-          "text": "Make your email app’s actions available to Apple Intelligence and Siri by adopting schemas for common email actions.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-mail",
-      "title": "Mail",
-      "type": "topic",
-      "kind": "article"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-audio": {
-      "role": "collectionGroup",
-      "abstract": [
-        {
-          "text": "Make your audio app’s actions available to Apple Intelligence and Siri by adopting schemas for common audio playback actions.",
-          "type": "text"
-        }
-      ],
-      "title": "Audio",
-      "type": "topic",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-audio",
-      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-audio",
-      "kind": "article"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-calendar": {
-      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-calendar",
-      "type": "topic",
-      "title": "Calendar",
-      "kind": "article",
-      "role": "collectionGroup",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-calendar",
-      "abstract": [
-        {
-          "text": "Make your calendar app’s actions available to Apple Intelligence and Siri by adopting schemas for common calendar actions.",
-          "type": "text"
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEnum/locationTriggerEvent": {
-      "fragments": [
-        {
-          "text": "var",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "text": "locationTriggerEvent",
-          "kind": "identifier"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "text": "some",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "preciseIdentifier": "s:10AppIntents0A10SchemaEnumP",
-          "text": "AppSchemaEnum",
-          "kind": "typeIdentifier"
-        }
-      ],
-      "title": "locationTriggerEvent",
-      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersenum/locationtriggerevent",
-      "role": "symbol",
-      "kind": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEnum/locationTriggerEvent",
-      "type": "topic",
-      "abstract": [
-        {
-          "text": "An enum schema for a location trigger event parameter.",
-          "type": "text"
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/createReminder": {
-      "type": "topic",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An intent schema that creates a new reminder."
-        }
-      ],
-      "role": "symbol",
-      "title": "createReminder",
-      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersintent/createreminder",
-      "kind": "symbol",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/createReminder",
-      "fragments": [
-        {
-          "text": "var",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "createReminder",
-          "kind": "identifier"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "text": "some",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "text": "AppSchemaIntent",
-          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP",
-          "kind": "typeIdentifier"
-        }
-      ]
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/locationTrigger": {
-      "kind": "symbol",
-      "role": "symbol",
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "var"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "locationTrigger"
-        },
-        {
-          "text": ": ",
-          "kind": "text"
-        },
-        {
-          "text": "some",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
-          "text": "AppSchemaEntity"
-        }
-      ],
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An entity schema for a location trigger."
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersentity/locationtrigger",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/locationTrigger",
-      "type": "topic",
-      "title": "locationTrigger"
-    },
     "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity": {
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity",
       "url": "https://developer.apple.com/documentation/appintents/appschema/remindersentity",
       "title": "AppSchema.RemindersEntity",
-      "role": "symbol",
-      "fragments": [
-        {
-          "text": "protocol",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "RemindersEntity"
-        }
-      ],
       "navigatorTitle": [
         {
           "text": "RemindersEntity",
           "kind": "identifier"
         }
       ],
-      "type": "topic",
       "kind": "symbol",
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity",
+      "role": "symbol",
+      "fragments": [
+        {
+          "text": "protocol",
+          "kind": "keyword"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "text": "RemindersEntity",
+          "kind": "identifier"
+        }
+      ],
       "abstract": [
         {
           "type": "text",
           "text": "Identifies entity schemas in the reminders domain."
         }
-      ]
+      ],
+      "type": "topic"
     },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/list": {
-      "title": "list",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/list",
-      "type": "topic",
+    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-mail": {
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-mail",
+      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-mail",
       "abstract": [
         {
-          "text": "An entity schema for a list.",
+          "text": "Make your email app’s actions available to Apple Intelligence and Siri by adopting schemas for common email actions.",
           "type": "text"
         }
       ],
-      "kind": "symbol",
-      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersentity/list",
-      "fragments": [
-        {
-          "text": "var",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "list"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "keyword",
-          "text": "some"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
-          "text": "AppSchemaEntity"
-        }
-      ],
-      "role": "symbol"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/group": {
-      "role": "symbol",
-      "title": "group",
-      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersentity/group",
-      "fragments": [
-        {
-          "text": "var",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "group"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "text": "some",
-          "kind": "keyword"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "preciseIdentifier": "s:10AppIntents0A12SchemaEntityP",
-          "text": "AppSchemaEntity",
-          "kind": "typeIdentifier"
-        }
-      ],
-      "type": "topic",
-      "kind": "symbol",
-      "abstract": [
-        {
-          "text": "An entity schema for a group.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersEntity/group"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/updateList": {
-      "fragments": [
-        {
-          "text": "var",
-          "kind": "keyword"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "identifier",
-          "text": "updateList"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "keyword",
-          "text": "some"
-        },
-        {
-          "text": " ",
-          "kind": "text"
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "AppSchemaIntent",
-          "preciseIdentifier": "s:10AppIntents0A12SchemaIntentP"
-        }
-      ],
-      "url": "https://developer.apple.com/documentation/appintents/appschema/remindersintent/updatelist",
-      "type": "topic",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppSchema/RemindersIntent/updateList",
-      "kind": "symbol",
-      "title": "updateList",
-      "abstract": [
-        {
-          "type": "text",
-          "text": "An intent schema that updates a reminder list."
-        }
-      ],
-      "role": "symbol"
-    },
-    "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-notes": {
+      "kind": "article",
       "role": "collectionGroup",
-      "title": "Notes",
-      "abstract": [
-        {
-          "text": "Make your note-taking app’s actions available to Apple Intelligence and Siri by adopting schemas for common note actions.",
-          "type": "text"
-        }
-      ],
       "type": "topic",
-      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/app-schema-domain-notes",
-      "url": "https://developer.apple.com/documentation/appintents/app-schema-domain-notes",
-      "kind": "article"
+      "title": "Mail"
     }
   },
   "legalNotices": {
