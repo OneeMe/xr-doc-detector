@@ -1,0 +1,1531 @@
+{
+  "abstract": [
+    {
+      "text": "Bring custom actions and content to Siri AI.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.AppIntents/documentation/AppIntents"
+      ],
+      [
+        "doc://com.apple.documentation/documentation/technologies",
+        "doc://com.apple.AppIntents/documentation/AppIntents",
+        "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://com.apple.AppIntents/documentation/AppIntents/siri-ai-developer-preview"
+  },
+  "kind": "article",
+  "legalNotices": {
+    "copyright": "Copyright &copy; 2026 Apple Inc. All rights reserved.",
+    "privacyPolicy": "https://www.apple.com/privacy/privacy-policy",
+    "termsOfUse": "https://www.apple.com/legal/internet-services/terms/site.html"
+  },
+  "metadata": {
+    "availableLanguages": [
+      "de-DE",
+      "en-US",
+      "es-419",
+      "fr-FR",
+      "it-IT",
+      "ja-JP",
+      "ko-KR",
+      "pt-BR",
+      "zh-CN"
+    ],
+    "modules": [
+      {
+        "name": "App Intents"
+      }
+    ],
+    "role": "collectionGroup",
+    "roleHeading": "API Collection",
+    "title": "Siri AI Developer Preview"
+  },
+  "primaryContentSections": [
+    {
+      "content": [
+        {
+          "anchor": "Overview",
+          "level": 2,
+          "text": "Overview",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "With the Siri AI Developer Preview, Siri can understand context, find content, and perform actions not only for functionality and data that fits system-defined app schema domains, but also for custom actions and information.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "content": [
+            {
+              "inlineContent": [
+                {
+                  "text": "Siri can only find custom content and perform custom actions an app makes explicitly available using App Intents.",
+                  "type": "text"
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "name": "Note",
+          "style": "note",
+          "type": "aside"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "With the Siri AI Developer Preview:",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            {
+              "content": [
+                {
+                  "inlineContent": [
+                    {
+                      "text": "Siri can find your custom content and perform your app’s custom actions. People don’t have to mention your app in their request while your app is in the foreground, while a Live Activity is active, or when a person continues a conversation in the Siri app that includes a mention of your app. For example, a person might request a ride with a ride share app, follow updates to the app’s Live Activity while they wait for their ride to arrive, then request to move the pickup location to a different address by saying “Hey Siri, change my ride pickup to ",
+                      "type": "text"
+                    },
+                    {
+                      "inlineContent": [
+                        {
+                          "text": "a new address",
+                          "type": "text"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "text": ".”",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            },
+            {
+              "content": [
+                {
+                  "inlineContent": [
+                    {
+                      "text": "Siri can find custom content and perform actions when your app is in the background if someone mentions your app in their request. For example, a person might say “Hey Siri, are the sneakers I liked in ",
+                      "type": "text"
+                    },
+                    {
+                      "inlineContent": [
+                        {
+                          "text": "app name",
+                          "type": "text"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "text": " on sale?” Siri understands that the person liked a pair of sneakers in the mentioned app and provides the information.",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            },
+            {
+              "content": [
+                {
+                  "inlineContent": [
+                    {
+                      "text": "Siri can find custom content from one app, transfer it to a specified app, and perform an action. For example, somebody might request “Hey Siri, send my favorite sneakers to my partner in ",
+                      "type": "text"
+                    },
+                    {
+                      "inlineContent": [
+                        {
+                          "text": "name of a messaging app",
+                          "type": "text"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "text": ".” Siri finds sneakers that the person added to their favorites, understands who the partner is, finds them in Contacts, then sends the sneaker information to them using the messaging app.",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            },
+            {
+              "content": [
+                {
+                  "inlineContent": [
+                    {
+                      "text": "Siri displays custom content a person requests in card snippets that you provide. The card snippets include the requested information and use your custom views to show your app’s branding and personality.",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            }
+          ],
+          "type": "unorderedList"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "To make your custom app intents and entities available to the Siri AI Developer Preview, update your existing App Intents code as described in ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/bringing-custom-actions-and-content-to-siri",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": ". You don’t need to add a new entitlement or join a separate developer program.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "To perform complex custom actions and handle unique content that people include in ambiguous requests, Siri might need additional guidance to understand your app’s unique domain. For example, to perform the same action with Siri, someone might use either of the following to form their request:",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            {
+              "content": [
+                {
+                  "inlineContent": [
+                    {
+                      "text": "“Siri, compare shoes on sale that match my style.”",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            },
+            {
+              "content": [
+                {
+                  "inlineContent": [
+                    {
+                      "text": "“Hey Siri, are prices for sneakers I like lower than usual?”",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            }
+          ],
+          "type": "unorderedList"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "To provide additional guidance to Siri for complex tasks, create app skills as described in ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/orchestrating-complex-actions-with-app-skills",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": ".",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "The Siri AI Developer Preview includes features to help you improve how your app intents work with Siri:",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            {
+              "content": [
+                {
+                  "inlineContent": [
+                    {
+                      "text": "The Siri Integration Advisor in Xcode provides feedback and suggestions that help you improve your App Intents implementation to enable Siri to perform your app’s custom actions and handle its custom data.",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            },
+            {
+              "content": [
+                {
+                  "inlineContent": [
+                    {
+                      "text": "The ",
+                      "type": "text"
+                    },
+                    {
+                      "identifier": "doc://com.apple.documentation/documentation/SiriEvaluations",
+                      "isActive": true,
+                      "type": "reference"
+                    },
+                    {
+                      "text": " framework lets you script requests to Siri, measure how Siri handles them, and catch changes in how Siri responds as you update your intents and entities.",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            }
+          ],
+          "type": "unorderedList"
+        },
+        {
+          "content": [
+            {
+              "inlineContent": [
+                {
+                  "text": "The Siri AI Developer Preview is available in iOS, iPadOS, macOS, and visionOS on devices that support Apple Intelligence. During the preview, App Intents API and Siri functionality may change.",
+                  "type": "text"
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "name": "Important",
+          "style": "important",
+          "type": "aside"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "During the Siri AI Developer Preview, test your integration with the new Siri AI capabilities using the following methods:",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            {
+              "content": [
+                {
+                  "inlineContent": [
+                    {
+                      "text": "Build your app with Xcode, sign it with a development profile, and run it on a device that supports the Siri AI Developer Preview.",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            },
+            {
+              "content": [
+                {
+                  "inlineContent": [
+                    {
+                      "text": "Make versions of your app available to internal testers in TestFlight.",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ]
+            }
+          ],
+          "type": "unorderedList"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "The Siri AI Developer Preview isn’t available to external testers in TestFlight or to versions of your app that you publish on the App Store. If your app uses App Intents API to integrate custom actions and content with the preview, the functionality that the Siri AI Developer Preview provides isn’t available to external testers or people who get your app from the App Store. For more information about distributing apps to internal testers, see ",
+              "type": "text"
+            },
+            {
+              "identifier": "https://developer.apple.com/help/app-store-connect/test-a-beta-version/add-internal-testers",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": ".",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Getting-started",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/bringing-custom-actions-and-content-to-siri",
+        "doc://com.apple.AppIntents/documentation/AppIntents/orchestrating-complex-actions-with-app-skills"
+      ],
+      "title": "Getting started"
+    },
+    {
+      "anchor": "Tool-support",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent(_:)",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent(_:schema:)",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppIntentTraits",
+        "doc://com.apple.AppIntents/documentation/AppIntents/IntentVisibility",
+        "doc://com.apple.AppIntents/documentation/AppIntents/ToolIntent"
+      ],
+      "title": "Tool support"
+    },
+    {
+      "anchor": "Entity-support",
+      "identifiers": [
+        "doc://com.apple.AppIntents/documentation/AppIntents/GenerableEntity",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppEntity(_:)",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppEntity(_:schema:)",
+        "doc://com.apple.AppIntents/documentation/AppIntents/ComputedProperty(title:description:authenticationPolicy:visibility:)",
+        "doc://com.apple.AppIntents/documentation/AppIntents/ComputedProperty(title:description:authenticationPolicy:visibility:customIndexingKey:)",
+        "doc://com.apple.AppIntents/documentation/AppIntents/ComputedProperty(title:description:authenticationPolicy:visibility:indexingKey:)",
+        "doc://com.apple.AppIntents/documentation/AppIntents/DeferredProperty(title:description:authenticationPolicy:visibility:)",
+        "doc://com.apple.AppIntents/documentation/AppIntents/DeferredProperty(title:description:authenticationPolicy:visibility:indexingKey:)",
+        "doc://com.apple.AppIntents/documentation/AppIntents/AppEntityTraits"
+      ],
+      "title": "Entity support"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/appintents/siri-ai-developer-preview"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ],
+  "references": {
+    "doc://com.apple.AppIntents/documentation/AppIntents": {
+      "abstract": [
+        {
+          "text": "Make content and actions discoverable by Apple Intelligence and support system experiences like Siri, Spotlight, Shortcuts, and widgets.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "text",
+          "text": "App Intents"
+        }
+      ],
+      "role": "collection",
+      "title": "App Intents",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppEntity(_:)": {
+      "abstract": [
+        {
+          "text": "Marks a transient entity whose values the model can generate on its own.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "macro"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "AppEntity"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12EntityTraitsV",
+          "text": "AppEntityTraits"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppEntity(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "AppEntity(_:)",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appentity(_:)"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppEntity(_:schema:)": {
+      "abstract": [
+        {
+          "text": "Marks a transient entity that conforms to a schema as one whose values the",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "model can generate on its own.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "macro"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "AppEntity"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "T"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12EntityTraitsV",
+          "text": "AppEntityTraits"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "schema"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "T"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppEntity(_:schema:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "AppEntity(_:schema:)",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appentity(_:schema:)"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppEntityTraits": {
+      "abstract": [
+        {
+          "text": "The roles an app entity takes on, passed to ",
+          "type": "text"
+        },
+        {
+          "code": "@AppEntity",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "AppEntityTraits"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppEntityTraits",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "AppEntityTraits"
+        }
+      ],
+      "role": "symbol",
+      "title": "AppEntityTraits",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appentitytraits"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent(_:)": {
+      "abstract": [
+        {
+          "text": "Makes an existing app intent available to Siri as a tool.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "macro"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "AppIntent"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12IntentTraitsV",
+          "text": "AppIntentTraits"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "AppIntent(_:)",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appintent(_:)"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent(_:schema:)": {
+      "abstract": [
+        {
+          "text": "Makes an app intent that conforms to a schema available to Siri as a tool.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "macro"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "AppIntent"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "T"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents0A12IntentTraitsV",
+          "text": "AppIntentTraits"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "schema"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "T"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppIntent(_:schema:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "AppIntent(_:schema:)",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appintent(_:schema:)"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/AppIntentTraits": {
+      "abstract": [
+        {
+          "text": "The roles an app intent takes on, passed to ",
+          "type": "text"
+        },
+        {
+          "code": "@AppIntent",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "AppIntentTraits"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/AppIntentTraits",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "AppIntentTraits"
+        }
+      ],
+      "role": "symbol",
+      "title": "AppIntentTraits",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/appintenttraits"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/ComputedProperty(title:description:authenticationPolicy:visibility:)": {
+      "abstract": [
+        {
+          "text": "A macro that adds a computed app entity property with a get accessor and an optional set accessor.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "macro"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ComputedProperty"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "title"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation23LocalizedStringResourceV",
+          "text": "LocalizedStringResource"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "description"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation23LocalizedStringResourceV",
+          "text": "LocalizedStringResource"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "authenticationPolicy"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents26IntentAuthenticationPolicyO",
+          "text": "IntentAuthenticationPolicy"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "visibility"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents16IntentVisibilityV",
+          "text": "IntentVisibility"
+        },
+        {
+          "kind": "text",
+          "text": "?)"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ComputedProperty(title:description:authenticationPolicy:visibility:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "ComputedProperty(title:description:authenticationPolicy:visibility:)",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/computedproperty(title:description:authenticationpolicy:visibility:)"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/ComputedProperty(title:description:authenticationPolicy:visibility:customIndexingKey:)": {
+      "abstract": [
+        {
+          "text": "A macro that adds a computed app entity property with a get accessor and an optional set accessor.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "macro"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ComputedProperty"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "title"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation23LocalizedStringResourceV",
+          "text": "LocalizedStringResource"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "description"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation23LocalizedStringResourceV",
+          "text": "LocalizedStringResource"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "authenticationPolicy"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents26IntentAuthenticationPolicyO",
+          "text": "IntentAuthenticationPolicy"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "visibility"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents16IntentVisibilityV",
+          "text": "IntentVisibility"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "customIndexingKey"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:objc(cs)CSCustomAttributeKey",
+          "text": "CSCustomAttributeKey"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ComputedProperty(title:description:authenticationPolicy:visibility:customIndexingKey:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "ComputedProperty(title:description:authenticationPolicy:visibility:customIndexingKey:)",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/computedproperty(title:description:authenticationpolicy:visibility:customindexingkey:)"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/ComputedProperty(title:description:authenticationPolicy:visibility:indexingKey:)": {
+      "abstract": [
+        {
+          "text": "A macro that adds a computed app entity property with a get accessor and an optional set accessor.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "macro"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ComputedProperty"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "title"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation23LocalizedStringResourceV",
+          "text": "LocalizedStringResource"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "description"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation23LocalizedStringResourceV",
+          "text": "LocalizedStringResource"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "authenticationPolicy"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents26IntentAuthenticationPolicyO",
+          "text": "IntentAuthenticationPolicy"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "visibility"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents16IntentVisibilityV",
+          "text": "IntentVisibility"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "indexingKey"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s14PartialKeyPathC",
+          "text": "PartialKeyPath"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:objc(cs)CSSearchableItemAttributeSet",
+          "text": "CSSearchableItemAttributeSet"
+        },
+        {
+          "kind": "text",
+          "text": ">)"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ComputedProperty(title:description:authenticationPolicy:visibility:indexingKey:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "ComputedProperty(title:description:authenticationPolicy:visibility:indexingKey:)",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/computedproperty(title:description:authenticationpolicy:visibility:indexingkey:)"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/DeferredProperty(title:description:authenticationPolicy:visibility:)": {
+      "abstract": [
+        {
+          "text": "A macro that adds an asynchronous app entity property with an asynchronous get accessor.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "macro"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "DeferredProperty"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "title"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation23LocalizedStringResourceV",
+          "text": "LocalizedStringResource"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "description"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation23LocalizedStringResourceV",
+          "text": "LocalizedStringResource"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "authenticationPolicy"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents26IntentAuthenticationPolicyO",
+          "text": "IntentAuthenticationPolicy"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "visibility"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents16IntentVisibilityV",
+          "text": "IntentVisibility"
+        },
+        {
+          "kind": "text",
+          "text": "?)"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/DeferredProperty(title:description:authenticationPolicy:visibility:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "DeferredProperty(title:description:authenticationPolicy:visibility:)",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/deferredproperty(title:description:authenticationpolicy:visibility:)"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/DeferredProperty(title:description:authenticationPolicy:visibility:indexingKey:)": {
+      "abstract": [
+        {
+          "text": "A macro that adds an asynchronous app entity property with an asynchronous get accessor.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "macro"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "DeferredProperty"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "title"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation23LocalizedStringResourceV",
+          "text": "LocalizedStringResource"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "description"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation23LocalizedStringResourceV",
+          "text": "LocalizedStringResource"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "authenticationPolicy"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents26IntentAuthenticationPolicyO",
+          "text": "IntentAuthenticationPolicy"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "visibility"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10AppIntents16IntentVisibilityV",
+          "text": "IntentVisibility"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "indexingKey"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s14PartialKeyPathC",
+          "text": "PartialKeyPath"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:objc(cs)CSSearchableItemAttributeSet",
+          "text": "CSSearchableItemAttributeSet"
+        },
+        {
+          "kind": "text",
+          "text": ">)"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/DeferredProperty(title:description:authenticationPolicy:visibility:indexingKey:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "DeferredProperty(title:description:authenticationPolicy:visibility:indexingKey:)",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/deferredproperty(title:description:authenticationpolicy:visibility:indexingkey:)"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/GenerableEntity": {
+      "abstract": [
+        {
+          "text": "An interface that tells a model it can create an entity and fill in its properties directly.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "GenerableEntity"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/GenerableEntity",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "GenerableEntity"
+        }
+      ],
+      "role": "symbol",
+      "title": "GenerableEntity",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/generableentity"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/IntentVisibility": {
+      "abstract": [
+        {
+          "text": "A value that configures how a property is available to system features, such as Siri and Shortcuts, if at all.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "IntentVisibility"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/IntentVisibility",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "IntentVisibility"
+        }
+      ],
+      "role": "symbol",
+      "title": "IntentVisibility",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/intentvisibility"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/ToolIntent": {
+      "abstract": [
+        {
+          "text": "A protocol that identifies an app intent that Siri can call while handling a person’s request.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ToolIntent"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/ToolIntent",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ToolIntent"
+        }
+      ],
+      "role": "symbol",
+      "title": "ToolIntent",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/toolintent"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai": {
+      "abstract": [
+        {
+          "text": "Integrate your app with Apple Intelligence and bring it to Siri AI.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/apple-intelligence-and-siri-ai",
+      "kind": "article",
+      "role": "collectionGroup",
+      "title": "Apple Intelligence and Siri AI",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/apple-intelligence-and-siri-ai"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/bringing-custom-actions-and-content-to-siri": {
+      "abstract": [
+        {
+          "text": "Support the Siri AI Developer Preview by turning custom app intents into tools Siri can call, and by helping Siri understand your app entities.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/bringing-custom-actions-and-content-to-siri",
+      "kind": "article",
+      "role": "article",
+      "title": "Bringing custom actions and content to Siri",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/bringing-custom-actions-and-content-to-siri"
+    },
+    "doc://com.apple.AppIntents/documentation/AppIntents/orchestrating-complex-actions-with-app-skills": {
+      "abstract": [
+        {
+          "text": "Guide Siri AI through a complex task that involves several tool intents by providing an app skill.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://com.apple.AppIntents/documentation/AppIntents/orchestrating-complex-actions-with-app-skills",
+      "kind": "article",
+      "role": "article",
+      "title": "Orchestrating complex actions with app skills",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/appintents/orchestrating-complex-actions-with-app-skills"
+    },
+    "doc://com.apple.documentation/documentation/SiriEvaluations": {
+      "abstract": [
+        {
+          "text": "Evaluate how well Siri engages your app’s intents and entities by running",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "scripted conversations and checking what Siri does.",
+          "type": "text"
+        }
+      ],
+      "beta": true,
+      "identifier": "doc://com.apple.documentation/documentation/SiriEvaluations",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "Siri Evaluations",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/sirievaluations"
+    },
+    "doc://com.apple.documentation/documentation/technologies": {
+      "abstract": [],
+      "identifier": "doc://com.apple.documentation/documentation/technologies",
+      "kind": "technologies",
+      "role": "overview",
+      "title": "Technologies",
+      "type": "topic",
+      "url": "https://developer.apple.com/documentation/technologies"
+    },
+    "https://developer.apple.com/help/app-store-connect/test-a-beta-version/add-internal-testers": {
+      "identifier": "https://developer.apple.com/help/app-store-connect/test-a-beta-version/add-internal-testers",
+      "title": "App Store Connect Help",
+      "titleInlineContent": [
+        {
+          "text": "App Store Connect Help",
+          "type": "text"
+        }
+      ],
+      "type": "link",
+      "url": "https://developer.apple.com/help/app-store-connect/test-a-beta-version/add-internal-testers"
+    }
+  }
+}
